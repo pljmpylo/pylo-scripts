@@ -87,14 +87,17 @@
   .nav-settings {
     position: absolute;
     right: 16px;
-    width: 44px;
     height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: none;
     border: none;
-    font-size: 18px;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--muted);
     cursor: pointer;
     transition: color 0.15s;
@@ -276,6 +279,22 @@
     font-weight: 300;
     color: var(--muted);
   }
+  .btn-undo-session {
+    background: none;
+    border: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 4px 0;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.15s;
+  }
+  .btn-undo-session:hover { color: var(--black); }
   .done-options {
     display: flex;
     gap: 8px;
@@ -906,8 +925,12 @@
     margin-bottom: 4px;
   }
   .streak-icon {
-    font-size: 22px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     line-height: 1;
+    color: var(--blue);
+    font-family: 'Jost', sans-serif;
   }
   .streak-count {
     font-size: 22px;
@@ -934,7 +957,14 @@
     text-align: center;
   }
   .milestone-banner.show { display: block; }
-  .milestone-emoji { font-size: 24px; margin-bottom: 4px; }
+  .milestone-emoji {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+    color: var(--blue);
+    font-family: 'Jost', sans-serif;
+  }
   .milestone-text {
     font-size: 11px;
     font-weight: 500;
@@ -977,7 +1007,14 @@
     color: var(--blue);
     background: rgba(34,85,211,0.04);
   }
-  .badge-icon { font-size: 14px; }
+  .badge-icon {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    min-width: 18px;
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+  }
   /* ── WARM-UP TIMER ── */
   .warmup-card {
     background: var(--white);
@@ -1179,8 +1216,9 @@
   <div class="nav-links">
     <a href="#today" data-app="today" class="active">Today</a>
     <a href="#programme" data-app="programme">Programme</a>
+    <a href="#paces" data-app="paces">Paces</a>
   </div>
-  <button class="nav-settings" id="settingsBtn" onclick="showApp('settings')" title="Settings">&#9881;</button>
+  <button class="nav-settings" id="settingsBtn" onclick="showApp('settings')" title="Settings">Settings</button>
 </nav>
 
 <div class="container">
@@ -1267,7 +1305,7 @@
       <hr class="section-divider" style="margin:24px 0;">
       <button class="btn-outline" onclick="skipCalendarOnboarding()">Skip &mdash; I'll do this later</button>
       <p style="font-size:11px;font-weight:300;color:var(--muted);margin-top:10px;text-align:center;letter-spacing:0.03em;">
-        You can always export your calendar or reset your profile from <strong style="font-weight:500;">Settings</strong> &#9881;
+        You can always export your calendar or reset your profile from <strong style="font-weight:500;">Settings</strong> Settings
       </p>
     </div>
   </div>
@@ -1288,7 +1326,7 @@
   <!-- Streak & Milestones -->
   <div id="streakBar" class="streak-bar hidden">
     <div class="streak-stat">
-      <div class="streak-icon" id="streakIcon">&#9889;</div>
+      <div class="streak-icon" id="streakIcon">I</div>
     </div>
     <div class="streak-stat">
       <div class="streak-count" id="streakCount">0</div>
@@ -1390,10 +1428,9 @@
   <!-- Week-end bridge: shows remaining sessions + checkin CTA if mid-week -->
   <div id="weekBridge" class="hidden">
     <div class="today-checkin-prompt" style="background:rgba(34,85,211,0.06);border:1px solid rgba(34,85,211,0.15);padding:20px;text-align:center;">
-      <div style="font-size:22px;margin-bottom:8px;">📋</div>
       <p id="bridgeText" style="font-weight:400;font-size:13px;line-height:1.5;margin-bottom:12px;">End of the week? Time for your check-in.</p>
       <button class="btn-primary" onclick="scrollToCheckin()" style="width:100%;padding:14px 0;font-size:13px;">Do My Check-in &rarr;</button>
-      <p style="font-size:10px;color:var(--muted);margin-top:8px;">5 quick questions · Unlock next week</p>
+      <p style="font-size:10px;color:var(--muted);margin-top:8px;">3 quick questions &middot; Unlock next week</p>
     </div>
   </div>
 </div>
@@ -1496,10 +1533,15 @@
     </div>
     <div id="historyList"></div>
   </div>
-  <!-- Pace Calculator Tool (all users) -->
-  <div class="section-header" style="margin-top:28px;">
-    <span class="section-title">Pace Calculator</span>
-    <span class="section-sub">Any distance &rarr; all your paces</span>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<!-- PACES (own tab)                     -->
+<!-- ═══════════════════════════════════ -->
+<div id="paces" class="hidden">
+  <div class="header-bar">
+    <div class="header-greeting" style="font-size:14px;letter-spacing:0.06em;">Pace Calculator</div>
+    <div class="header-context">Any distance &rarr; all your paces</div>
   </div>
   <div class="pace-tool">
     <p style="font-size:12px;font-weight:300;color:var(--muted);line-height:1.6;margin-bottom:16px;">
@@ -1942,7 +1984,7 @@ var currentApp = 'today';
 // ═══════════════════════════════════════
 function showApp(appId) {
   currentApp = appId;
-  ['today','programme','settings','onboarding'].forEach(function(id){
+  ['today','programme','paces','settings','onboarding'].forEach(function(id){
     var el = document.getElementById(id);
     if(el) el.classList.add('hidden');
   });
@@ -1991,11 +2033,15 @@ function initApp() {
   }
   setDefaultStartDate();
 }
-function setDefaultStartDate(){
+function getNextMonday(){
   var d=new Date();
-  var dayOfWeek=d.getDay();
-  var daysToMon=dayOfWeek===0?1:(8-dayOfWeek)%7||7;
+  var dayOfWeek=d.getDay(); // 0=Sun,1=Mon,...6=Sat
+  var daysToMon=dayOfWeek===0?1:dayOfWeek===1?7:(8-dayOfWeek);
   d.setDate(d.getDate()+daysToMon);
+  return d;
+}
+function setDefaultStartDate(){
+  var d=getNextMonday();
   var y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),dd=String(d.getDate()).padStart(2,'0');
   document.getElementById('startDate').value=y+'-'+m+'-'+dd;
 }
@@ -2078,16 +2124,17 @@ function renderToday() {
     var sessionDone = getSessionDoneToday();
     var doneHtml = '<div class="today-done-row">';
     if(sessionDone) {
-      var statusLbl = sessionDone.status === 'partial' ? '½ Partial' : sessionDone.status === 'skipped' ? '✗ Skipped' : '✓ Done';
+      var statusLbl = sessionDone.status === 'partial' ? 'Partial' : sessionDone.status === 'skipped' ? 'Skipped' : 'Done';
       var statusCls = sessionDone.status || 'done';
-      var statusMsg = sessionDone.status === 'partial' ? 'Partial session logged' : sessionDone.status === 'skipped' ? 'Session skipped — that\'s okay' : 'Nice work — session logged!';
+      var statusMsg = sessionDone.status === 'partial' ? 'Partial session logged' : sessionDone.status === 'skipped' ? 'Session skipped — that\'s okay' : 'Nice work — session logged';
       doneHtml += '<button class="btn-session-done ' + statusCls + '">' + statusLbl + '</button>'
-        + '<span class="today-done-label">' + statusMsg + '</span>';
+        + '<span class="today-done-label">' + statusMsg + '</span>'
+        + '<button class="btn-undo-session" onclick="undoSessionDone()">Change</button>';
     } else {
       doneHtml += '<div class="done-options">'
-        + '<button class="btn-session-done" onclick="markSessionDone(\'done\')">&#10003; Done</button>'
-        + '<button class="btn-session-done" onclick="markSessionDone(\'partial\')" style="border-color:var(--orange);color:var(--orange);">½ Partial</button>'
-        + '<button class="btn-session-done" onclick="markSessionDone(\'skipped\')" style="border-color:var(--muted);color:var(--muted);">✗ Skip</button>'
+        + '<button class="btn-session-done" onclick="markSessionDone(\'done\')">Done</button>'
+        + '<button class="btn-session-done" onclick="markSessionDone(\'partial\')" style="border-color:var(--orange);color:var(--orange);">Partial</button>'
+        + '<button class="btn-session-done" onclick="markSessionDone(\'skipped\')" style="border-color:var(--muted);color:var(--muted);">Skip</button>'
         + '</div>';
     }
     doneHtml += '</div>';
@@ -2127,13 +2174,19 @@ function renderToday() {
       }
       if(lastCheckin) {
         weekBridge.classList.remove('hidden');
-        var nextWeek = Math.min(profile.semaine + 1, 10);
-        var nextPhase = weeks[nextWeek - 1].phase;
-        var nextSession = weeks[nextWeek - 1].days[0]; // Monday
-        document.getElementById('bridgeText').innerHTML =
-          '&#10003; Check-in done for Week ' + profile.semaine + '. '
-          + 'Next up: <strong>Week ' + nextWeek + ' · ' + nextPhase + '</strong> — '
-          + nextSession.label + ' (' + nextSession.dur + ')';
+        if(profile.semaine >= 10) {
+          document.getElementById('bridgeText').innerHTML =
+            '&#10003; Check-in done for Week ' + profile.semaine + '. '
+            + '<strong>Programme complete.</strong> Congratulations — you did it.';
+        } else {
+          var nextWeek = profile.semaine + 1;
+          var nextPhase = weeks[nextWeek - 1].phase;
+          var nextSession = weeks[nextWeek - 1].days[0]; // Monday
+          document.getElementById('bridgeText').innerHTML =
+            '&#10003; Check-in done for Week ' + profile.semaine + '. '
+            + 'Next up: <strong>Week ' + nextWeek + ' · ' + nextPhase + '</strong> — '
+            + nextSession.label + ' (' + nextSession.dur + ')';
+        }
       }
     }
   } else if(!checkedIn && planDay >= 2) {
@@ -2174,6 +2227,7 @@ function scrollToCheckin() {
   countPlannedSessions(profile.semaine);
   buildSessionCounter('runCounter', plannedRun, 'runDone');
   buildSessionCounter('pilatesCounter', plannedPilates, 'pilatesDone');
+  autoFillSessionCounters();
   document.getElementById('checkinForm').classList.remove('hidden');
   document.getElementById('checkinVerdict').classList.add('hidden');
   section.scrollIntoView({behavior:'smooth'});
@@ -2328,7 +2382,7 @@ function renderWeek(){
     document.getElementById('volumeBar').closest('.volume-wrap').after(ctxEl);
   }
   if(viewWeek === profile.semaine) {
-    ctxEl.innerHTML = '<span style="color:var(--blue);">📍 You are here</span>';
+    ctxEl.innerHTML = '<span style="color:var(--blue);">&mdash; You are here</span>';
   } else if(viewWeek < profile.semaine) {
     var history = JSON.parse(localStorage.getItem('pr_checkins')||'[]');
     var ci = null;
@@ -2378,11 +2432,7 @@ function saveProfile(){
   document.getElementById('profileForm').classList.add('hidden');
   document.getElementById('onboardingStep2').classList.remove('hidden');
   // Set default start date to next Monday
-  var now = new Date();
-  var dayOfWeek = now.getDay(); // 0=Sun,1=Mon,...
-  var daysUntilMon = dayOfWeek === 0 ? 1 : dayOfWeek === 1 ? 0 : (8 - dayOfWeek);
-  var nextMon = new Date(now);
-  nextMon.setDate(now.getDate() + daysUntilMon);
+  var nextMon = getNextMonday();
   document.getElementById('onboardStartDate').value = nextMon.toISOString().split('T')[0];
 }
 function editProfile(){
@@ -2430,6 +2480,7 @@ function resetProfile(){
   checkinAnswers = {};
   plannedRun = 0;
   plannedPilates = 0;
+  isSubmittingCheckin = false;
   // Reset form
   document.getElementById('prenom').value = '';
   document.getElementById('programmeSelect').value = '';
@@ -2515,7 +2566,7 @@ function submitCheckin(){
   if(isSubmittingCheckin) return;
   if(checkinAnswers.runDone === undefined || checkinAnswers.pilatesDone === undefined){alert('Please select how many sessions you completed (questions 1 & 2).');return;}
   var qs = ['pain','fatigue','motivation'];
-  if(qs.filter(function(q){return !checkinAnswers[q]}).length > 0){alert('Please answer all 5 questions.');return;}
+  if(qs.filter(function(q){return !checkinAnswers[q]}).length > 0){alert('Please answer all 3 questions.');return;}
   var reds = 0, oranges = 0;
   qs.forEach(function(q){ if(checkinAnswers[q]==='red') reds++; if(checkinAnswers[q]==='orange') oranges++; });
   var totalPlanned = plannedRun + plannedPilates;
@@ -2549,7 +2600,7 @@ function submitCheckin(){
     + '• Fatigue that doesn\'t improve with rest'
     + '</div>';
   var proAdviceRepeat = '<div style="margin-top:12px;padding:10px;background:rgba(244,67,54,0.06);font-size:11px;line-height:1.6;color:var(--black);">'
-    + '<strong style="font-weight:500;">⚠ Consult a professional if:</strong><br>'
+    + '<strong style="font-weight:500;">Consult a professional if:</strong><br>'
     + '• You have persistent pain (>48h) or it worsens<br>'
     + '• You feel unusually exhausted despite rest<br>'
     + '• You notice swelling, clicking, or instability in a joint<br>'
@@ -2597,6 +2648,10 @@ function submitCheckin(){
 function resetCheckin(){
   isSubmittingCheckin = false;
   checkinAnswers = {};
+  // Remove previous check-in for this week to avoid duplicates
+  var history = JSON.parse(localStorage.getItem('pr_checkins')||'[]');
+  history = history.filter(function(h){ return h.semaine !== profile.semaine; });
+  localStorage.setItem('pr_checkins', JSON.stringify(history));
   document.querySelectorAll('.tl-btn').forEach(function(b){b.classList.remove('selected')});
   document.querySelectorAll('.sc-btn').forEach(function(b){b.classList.remove('selected')});
   document.getElementById('checkinForm').classList.remove('hidden');
@@ -2604,6 +2659,7 @@ function resetCheckin(){
   countPlannedSessions(profile.semaine);
   buildSessionCounter('runCounter', plannedRun, 'runDone');
   buildSessionCounter('pilatesCounter', plannedPilates, 'pilatesDone');
+  autoFillSessionCounters();
 }
 function loadCheckinHistory(){
   var history = JSON.parse(localStorage.getItem('pr_checkins')||'[]');
@@ -2613,7 +2669,7 @@ function loadCheckinHistory(){
   container.classList.remove('hidden');
   list.innerHTML = '';
   history.slice(-8).reverse().forEach(function(h){
-    var subjKeys = ['pain','fatigue','motivation','sleep','progress'];
+    var subjKeys = ['pain','fatigue','motivation'];
     var dots = subjKeys.map(function(k){
       var c = h.answers[k];
       return c ? '<div class="dot dot-'+c+'"></div>' : '';
@@ -2864,21 +2920,21 @@ function downloadICSFromOnboarding(){
 // ═══════════════════════════════════════
 var PHASE_BADGES = {
   baby: [
-    {phase:'First Steps', icon:'&#128095;', label:'First Steps'},
-    {phase:'Endurance', icon:'&#128170;', label:'Endurance'},
-    {phase:'Transition', icon:'&#9889;', label:'Transition'},
-    {phase:'Continuous Running', icon:'&#127939;', label:'Runner'},
-    {phase:'Build-Up', icon:'&#128293;', label:'Build-Up'},
-    {phase:'Goal: 10K', icon:'&#127942;', label:'10K Finisher'}
+    {phase:'First Steps', icon:'01', label:'First Steps'},
+    {phase:'Endurance', icon:'02', label:'Endurance'},
+    {phase:'Transition', icon:'03', label:'Transition'},
+    {phase:'Continuous Running', icon:'04', label:'Runner'},
+    {phase:'Build-Up', icon:'05', label:'Build-Up'},
+    {phase:'Goal: 10K', icon:'10K', label:'10K Finisher'}
   ],
   approved: [
-    {phase:'Foundations', icon:'&#128095;', label:'Foundations'},
-    {phase:'Transition', icon:'&#9889;', label:'Transition'},
-    {phase:'Build', icon:'&#128170;', label:'Builder'},
-    {phase:'Recovery Week', icon:'&#128154;', label:'Recovery'},
-    {phase:'Peak', icon:'&#128293;', label:'Peak'},
-    {phase:'Taper', icon:'&#127919;', label:'Taper'},
-    {phase:'Race Day', icon:'&#127942;', label:'Half Finisher'}
+    {phase:'Foundations', icon:'01', label:'Foundations'},
+    {phase:'Transition', icon:'02', label:'Transition'},
+    {phase:'Build', icon:'03', label:'Builder'},
+    {phase:'Recovery Week', icon:'04', label:'Recovery'},
+    {phase:'Peak', icon:'05', label:'Peak'},
+    {phase:'Taper', icon:'06', label:'Taper'},
+    {phase:'Race Day', icon:'21K', label:'Half Finisher'}
   ]
 };
 function getStreakData() {
@@ -2931,8 +2987,8 @@ function renderStreak() {
   document.getElementById('bestStreak').textContent = data.best;
   document.getElementById('totalCheckins').textContent = data.total;
   // Streak icon changes with level
-  var icon = data.current >= 8 ? '&#128293;' : data.current >= 5 ? '&#11088;' : data.current >= 3 ? '&#9889;' : '&#128170;';
-  document.getElementById('streakIcon').innerHTML = icon;
+  var icon = data.current >= 8 ? 'IV' : data.current >= 5 ? 'III' : data.current >= 3 ? 'II' : 'I';
+  document.getElementById('streakIcon').textContent = icon;
   // Badges
   var badgesRow = document.getElementById('badgesRow');
   var badges = PHASE_BADGES[profile.programme] || [];
@@ -2951,10 +3007,10 @@ function checkMilestone() {
   var data = getStreakData();
   var banner = document.getElementById('milestoneBanner');
   var milestones = [
-    {streak:3, emoji:'&#128170;', text:'3-Week Streak!', sub:'Consistency is building — keep going.'},
-    {streak:5, emoji:'&#11088;', text:'5-Week Streak!', sub:'Halfway through — you\'re unstoppable.'},
-    {streak:8, emoji:'&#128293;', text:'8-Week Streak!', sub:'Nearly there — the finish line is in sight.'},
-    {streak:10, emoji:'&#127942;', text:'Perfect 10!', sub:'Every single week. Legendary commitment.'}
+    {streak:3, emoji:'III', text:'3-Week Streak', sub:'Consistency is building — keep going.'},
+    {streak:5, emoji:'V', text:'5-Week Streak', sub:'Halfway through — you are unstoppable.'},
+    {streak:8, emoji:'VIII', text:'8-Week Streak', sub:'Nearly there — the finish line is in sight.'},
+    {streak:10, emoji:'X', text:'Perfect 10', sub:'Every single week. Legendary commitment.'}
   ];
   // Show milestone for the highest matching streak
   var milestone = null;
@@ -3215,9 +3271,6 @@ function getTodayKey() {
   var d = new Date();
   return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
 }
-function isSessionDoneToday() {
-  return !!getSessionsDone()[getTodayKey()];
-}
 function getSessionDoneToday() {
   return getSessionsDone()[getTodayKey()] || null;
 }
@@ -3232,6 +3285,12 @@ function markSessionDone(status) {
   localStorage.setItem('pr_sessions_done', JSON.stringify(done));
   renderToday();
 }
+function undoSessionDone() {
+  var done = getSessionsDone();
+  delete done[getTodayKey()];
+  localStorage.setItem('pr_sessions_done', JSON.stringify(done));
+  renderToday();
+}
 function getWeekSessionsDone() {
   var done = getSessionsDone();
   var runDone = 0, pilatesDone = 0;
@@ -3239,6 +3298,7 @@ function getWeekSessionsDone() {
   for(var i = 0; i < keys.length; i++) {
     var entry = done[keys[i]];
     if(entry.semaine !== profile.semaine) continue;
+    if(entry.status === 'skipped') continue;
     var t = entry.type;
     if(t === 'run' || t === 'long' || t === 'interval' || t === 'race') runDone++;
     if(t === 'pilates') pilatesDone++;
