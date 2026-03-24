@@ -1015,6 +1015,30 @@
     text-align: center;
     font-family: 'Jost', sans-serif;
   }
+  /* ── GUIDE ── */
+  .guide-section { padding: 4px 0; }
+  .guide-step-num {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--blue);
+    margin-bottom: 4px;
+    font-family: 'Jost', sans-serif;
+  }
+  .guide-step-title {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+  .guide-step-body {
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
   /* ── WARM-UP TIMER ── */
   .warmup-card {
     background: var(--white);
@@ -1217,6 +1241,7 @@
     <a href="#today" data-app="today" class="active">Today</a>
     <a href="#programme" data-app="programme">Programme</a>
     <a href="#paces" data-app="paces">Paces</a>
+    <a href="#guide" data-app="guide">Guide</a>
   </div>
   <button class="nav-settings" id="settingsBtn" onclick="showApp('settings')" title="Settings">Settings</button>
 </nav>
@@ -1620,6 +1645,93 @@
 </div>
 
 <!-- ═══════════════════════════════════ -->
+<!-- GUIDE                                 -->
+<!-- ═══════════════════════════════════ -->
+<div id="guide" class="hidden">
+  <div class="header-bar">
+    <div class="header-greeting" style="font-size:14px;letter-spacing:0.06em;">How to Use</div>
+    <div class="header-context">Everything you need in 2 minutes</div>
+  </div>
+
+  <div class="card-padded" style="padding:24px 20px;">
+    <div class="guide-section">
+      <div class="guide-step-num">01</div>
+      <div class="guide-step-title">Choose your programme</div>
+      <div class="guide-step-body">
+        0 to 10K or 10K to Half Marathon. Pick your level, set your start date, and you are ready.
+      </div>
+    </div>
+
+    <hr class="section-divider" style="margin:16px 0;">
+
+    <div class="guide-section">
+      <div class="guide-step-num">02</div>
+      <div class="guide-step-title">Follow Today</div>
+      <div class="guide-step-body">
+        Open the app each day. Your session is right there &mdash; Pilates, running, or rest. Tap Done, Partial, or Skip when finished. Changed your mind? Tap Change to undo.
+      </div>
+    </div>
+
+    <hr class="section-divider" style="margin:16px 0;">
+
+    <div class="guide-section">
+      <div class="guide-step-num">03</div>
+      <div class="guide-step-title">Weekly check-in</div>
+      <div class="guide-step-body">
+        At the end of each week, answer 3 quick questions on pain, fatigue, and motivation. The app adapts your next week if needed.
+      </div>
+    </div>
+
+    <hr class="section-divider" style="margin:16px 0;">
+
+    <div class="guide-section">
+      <div class="guide-step-num">04</div>
+      <div class="guide-step-title">Programme view</div>
+      <div class="guide-step-body">
+        See your full 10-week plan week by week. Navigate with the arrows to preview what is coming.
+      </div>
+    </div>
+
+    <hr class="section-divider" style="margin:16px 0;">
+
+    <div class="guide-section">
+      <div class="guide-step-num">05</div>
+      <div class="guide-step-title">Pace calculator</div>
+      <div class="guide-step-body">
+        Enter any recent race time and distance. The app calculates your semi-marathon pace, easy pace, and interval pace instantly.
+      </div>
+    </div>
+
+    <hr class="section-divider" style="margin:16px 0;">
+
+    <div class="guide-section">
+      <div class="guide-step-num">06</div>
+      <div class="guide-step-title">Calendar export</div>
+      <div class="guide-step-body">
+        In Settings, export your full programme to Apple Calendar, Google Calendar, or Outlook as a .ics file.
+      </div>
+    </div>
+
+    <hr class="section-divider" style="margin:16px 0;">
+
+    <div class="guide-section">
+      <div class="guide-step-num">07</div>
+      <div class="guide-step-title">Streaks and badges</div>
+      <div class="guide-step-body">
+        Complete your weekly check-in to build your streak. Badges unlock as you progress through each phase.
+      </div>
+    </div>
+  </div>
+
+  <div class="card-padded" style="padding:20px;text-align:center;">
+    <p style="font-size:10px;font-weight:400;letter-spacing:0.04em;color:var(--muted);line-height:1.7;margin:0;">
+      Built by Alice Pilate<br>
+      Pilates &times; Running &mdash; 10 weeks to your goal
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
 <!-- SETTINGS                             -->
 <!-- ═══════════════════════════════════ -->
 <div id="settings" class="hidden">
@@ -1984,7 +2096,7 @@ var currentApp = 'today';
 // ═══════════════════════════════════════
 function showApp(appId) {
   currentApp = appId;
-  ['today','programme','paces','settings','onboarding'].forEach(function(id){
+  ['today','programme','paces','guide','settings','onboarding'].forEach(function(id){
     var el = document.getElementById(id);
     if(el) el.classList.add('hidden');
   });
