@@ -30,7 +30,6 @@
     --red-bg: #FDECEC;
     --red-border: #E08080;
   }
-
   * {
     box-sizing: border-box;
     margin: 0;
@@ -38,7 +37,6 @@
     font-family: 'Jost', sans-serif !important;
     border-radius: 0 !important;
   }
-
   body {
     background: var(--off-white);
     color: var(--black);
@@ -47,13 +45,11 @@
     line-height: 1.2;
     padding: 0 0 40px;
   }
-
   .container {
     max-width: 780px;
     margin: 0 auto;
     padding: 0 24px;
   }
-
   /* ── NAV ── */
   .nav {
     position: sticky;
@@ -82,7 +78,6 @@
     color: var(--blue);
     border-bottom-color: var(--blue);
   }
-
   /* ── INTRO / HERO ── */
   .intro {
     text-align: center;
@@ -114,7 +109,6 @@
     background: rgba(34,85,211,0.08);
     color: var(--blue);
   }
-
   /* ── SECTION HEADERS ── */
   .section-header {
     display: flex;
@@ -136,7 +130,6 @@
     text-transform: uppercase;
     color: var(--muted);
   }
-
   /* ── CARDS ── */
   .card {
     background: var(--white);
@@ -146,7 +139,6 @@
   .card-padded {
     padding: 28px 24px;
   }
-
   /* ── FORMS ── */
   label {
     display: block;
@@ -195,7 +187,6 @@
     width: 100%;
     margin-bottom: 0;
   }
-
   .btn-primary {
     background: var(--blue);
     color: white;
@@ -214,7 +205,6 @@
   }
   .btn-primary:hover { background: var(--blue-dark); }
   .btn-primary:active { background: #133390; }
-
   .btn-outline {
     background: transparent;
     color: var(--muted);
@@ -232,14 +222,12 @@
     text-align: center;
   }
   .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
-
   /* ── DIVIDER ── */
   .section-divider {
     border: none;
     border-top: 1px solid var(--border);
     margin: 40px 0;
   }
-
   /* ── PROFILE SUMMARY ── */
   .profile-summary {
     display: flex;
@@ -274,7 +262,6 @@
     letter-spacing: 0.03em;
     margin-top: 2px;
   }
-
   /* ── PACE GRID ── */
   .pace-grid {
     display: grid;
@@ -305,7 +292,6 @@
     color: var(--blue);
     letter-spacing: 0.02em;
   }
-
   /* ── WEEK SELECTOR ── */
   .week-selector {
     display: flex;
@@ -337,7 +323,6 @@
     min-width: 110px;
     text-align: center;
   }
-
   /* ── PHASE TAG ── */
   .phase-tag {
     display: inline-block;
@@ -350,7 +335,6 @@
     color: var(--blue);
     margin-bottom: 12px;
   }
-
   /* ── SESSION ROWS ── */
   .session-row {
     display: grid;
@@ -404,7 +388,6 @@
     white-space: nowrap;
     padding-top: 3px;
   }
-
   /* ── VOLUME BAR ── */
   .volume-wrap {
     padding: 12px 16px;
@@ -432,13 +415,15 @@
     background: var(--blue);
     transition: width 0.4s ease;
   }
-
   /* ── CALENDAR CTA ── */
   .cta-section {
     text-align: center;
     background: white;
     border: 1px solid var(--border);
     padding: 44px 40px 40px;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .cta-title {
     font-size: 18px;
@@ -461,13 +446,18 @@
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 620px;
   }
   .picker-group {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    width: 180px;
+    flex: 1 1 170px;
+    max-width: 200px;
+    min-width: 150px;
   }
   .picker-group label {
     margin-bottom: 6px;
@@ -514,7 +504,6 @@
     width: auto;
     display: inline-block;
   }
-
   /* ── LEGEND ── */
   .legend {
     display: flex;
@@ -535,7 +524,6 @@
     color: var(--muted);
   }
   .legend-dot { width: 7px; height: 7px; flex-shrink: 0; }
-
   /* ── CHECK-IN ── */
   .checkin-question {
     margin-bottom: 24px;
@@ -584,7 +572,6 @@
     color: var(--red);
     font-weight: 600;
   }
-
   /* ── SESSION COUNTER ── */
   .session-counter {
     display: flex;
@@ -645,7 +632,6 @@
     text-transform: uppercase;
     white-space: nowrap;
   }
-
   /* ── VERDICT ── */
   .verdict {
     padding: 20px 24px;
@@ -679,7 +665,6 @@
     border: 1px solid var(--red-border);
     color: var(--red);
   }
-
   /* ── HISTORY ── */
   .history-row {
     display: flex;
@@ -718,7 +703,6 @@
     min-width: 64px;
     text-align: right;
   }
-
   /* ── EMPTY STATE ── */
   .empty-state {
     text-align: center;
@@ -735,9 +719,7 @@
     width: auto;
     display: inline-block;
   }
-
   .hidden { display: none; }
-
   .hint {
     font-size: 11px;
     font-weight: 300;
@@ -746,7 +728,6 @@
     margin-top: -14px;
     margin-bottom: 20px;
   }
-
   /* ── FOOTER ── */
   footer {
     text-align: center;
@@ -775,7 +756,6 @@
     transition: opacity 0.15s;
   }
   .cta-community:hover { opacity: 0.85; }
-
   @media (max-width: 600px) {
     .nav a { padding: 12px 12px; font-size: 9px; letter-spacing: 0.1em; }
     .session-row { grid-template-columns: 44px 70px 1fr auto; gap: 8px; padding: 10px 12px; }
@@ -783,12 +763,11 @@
     .pace-grid { grid-template-columns: 1fr 1fr; }
     .cta-section { padding: 28px 18px 28px; }
     .pickers-grid { flex-direction: column; align-items: stretch; }
-    .picker-group { width: 100%; }
+    .picker-group { width: 100%; max-width: 100%; }
   }
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav class="nav" id="mainNav">
   <a href="#profile" data-app="profile" class="active">Profile</a>
@@ -796,7 +775,6 @@
   <a href="#calendar" data-app="calendar">Calendar</a>
   <a href="#checkin" data-app="checkin">Check-in</a>
 </nav>
-
 <!-- INTRO -->
 <div class="container">
 <div class="intro">
@@ -804,7 +782,6 @@
   <h1>Your Interactive Tools</h1>
   <div id="heroBadge"></div>
 </div>
-
 <!-- ═══════════════════════════════════ -->
 <!-- APP 1 : MY PROFILE                  -->
 <!-- ═══════════════════════════════════ -->
@@ -813,12 +790,10 @@
     <span class="section-title">My Profile</span>
     <span class="section-sub">Setup</span>
   </div>
-
   <!-- FORM -->
   <div id="profileForm" class="card card-padded">
     <label for="prenom">First Name</label>
     <input type="text" id="prenom" placeholder="E.g. Alice">
-
     <label for="programme">My Programme</label>
     <div class="select-wrap">
       <select id="programme">
@@ -827,20 +802,16 @@
         <option value="approved">Runners Approved &mdash; 10K to Half Marathon</option>
       </select>
     </div>
-
     <label for="semaineActuelle">Current Week</label>
     <input type="number" id="semaineActuelle" min="1" max="10" placeholder="1 to 10">
-
     <div id="tempsField" class="hidden">
       <label for="temps10k">10K Time (minutes)</label>
       <input type="number" id="temps10k" min="30" max="90" placeholder="E.g. 55">
       <p class="hint">Used to calculate your half-marathon paces.</p>
     </div>
-
     <button class="btn-primary" onclick="saveProfile()">Save &rarr;</button>
     <button id="resetBtnForm" onclick="resetProfile()" style="display:none;margin-top:10px;background:none;border:none;font-family:'Jost',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;padding:0;">Reset Profile</button>
   </div>
-
   <!-- PROFILE CARD -->
   <div id="profileCard" class="hidden">
     <div class="profile-summary">
@@ -850,7 +821,6 @@
         <div class="profile-info-detail" id="profileDetail">&mdash;</div>
       </div>
     </div>
-
     <div id="paceSection" class="hidden">
       <div class="section-header" style="margin-top:20px;">
         <span class="section-title">My Paces</span>
@@ -874,15 +844,18 @@
           <div class="pace-value" id="tempsSemi">&mdash;</div>
         </div>
       </div>
+      <div style="padding:12px 16px;background:var(--off-white);border:1px solid var(--border);margin-bottom:4px;">
+        <p style="font-size:11px;font-weight:300;color:var(--muted);letter-spacing:0.03em;line-height:1.6;">
+          <strong style="font-weight:500;color:var(--black);">Target paces</strong> based on your current 10K fitness, calculated using the <strong style="font-weight:500;">Daniels VDOT</strong> method &amp; <strong style="font-weight:500;">Riegel formula</strong>.<br>
+          Easy runs should feel conversational. If you can't talk, slow down &mdash; these paces are guides, not strict targets. Your paces will naturally improve as you progress through the programme.
+        </p>
+      </div>
     </div>
-
     <button class="btn-outline" onclick="editProfile()" style="margin-top:12px;">Edit My Profile</button>
     <button onclick="resetProfile()" style="margin-top:10px;background:none;border:none;font-family:'Jost',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;padding:0;">Reset Profile</button>
   </div>
 </div>
-
 <hr class="section-divider">
-
 <!-- ═══════════════════════════════════ -->
 <!-- APP 2 : MY WEEK                     -->
 <!-- ═══════════════════════════════════ -->
@@ -891,25 +864,20 @@
     <span class="section-title">My Week</span>
     <span class="section-sub">Personalised Schedule</span>
   </div>
-
   <div id="weekEmpty" class="empty-state">
     <p>Set up your profile to unlock your schedule</p>
     <a href="#profile" class="btn-primary">Create My Profile &rarr;</a>
   </div>
-
   <div id="weekView" class="hidden">
     <div class="week-selector">
       <button onclick="changeWeek(-1)">&#8249;</button>
       <span class="week-label" id="weekLabel">Week 1</span>
       <button onclick="changeWeek(1)">&#8250;</button>
     </div>
-
     <div id="phaseTag" class="phase-tag">Phase 1</div>
-
     <div class="card">
       <div id="weekGrid"></div>
     </div>
-
     <div class="volume-wrap">
       <div class="volume-top">
         <span>Total Volume</span>
@@ -921,9 +889,7 @@
     </div>
   </div>
 </div>
-
 <hr class="section-divider">
-
 <!-- ═══════════════════════════════════ -->
 <!-- APP 3 : MY CALENDAR                 -->
 <!-- ═══════════════════════════════════ -->
@@ -932,12 +898,10 @@
     <span class="section-title">My Calendar</span>
     <span class="section-sub">.ics Export</span>
   </div>
-
   <div id="calEmpty" class="empty-state">
     <p>Set up your profile to unlock the calendar export</p>
     <a href="#profile" class="btn-primary">Create My Profile &rarr;</a>
   </div>
-
   <div id="calView" class="hidden">
     <!-- Legend -->
     <div class="legend">
@@ -946,11 +910,9 @@
       <div class="legend-item"><div class="legend-dot" style="background:#9BA8A3"></div>Rest</div>
       <div class="legend-item"><div class="legend-dot" style="background:#C07A2E"></div>Race Day</div>
     </div>
-
     <div class="cta-section">
       <div class="cta-title" id="ctaTitle">Add your 70 sessions to calendar</div>
       <div class="cta-sub" id="ctaSub">Pick your weeks, start date and time &mdash; everything syncs in one click.</div>
-
       <div class="pickers-grid">
         <div class="picker-group">
           <label>Weeks to Export</label>
@@ -1013,18 +975,14 @@
           </div>
         </div>
       </div>
-
       <p class="reminder-note">All sessions appear at your chosen time &mdash; with a <span>30-min reminder</span> before each one.</p>
-
       <button class="btn-primary" id="icsBtn" onclick="downloadICS()">Add all 70 sessions &rarr;</button>
       <p class="ics-note">Downloads a .ics file &middot; Compatible with Apple Calendar, Google Calendar, Outlook</p>
       <div class="success-banner" id="successBanner"></div>
     </div>
   </div>
 </div>
-
 <hr class="section-divider">
-
 <!-- ═══════════════════════════════════ -->
 <!-- APP 4 : WEEKLY CHECK-IN             -->
 <!-- ═══════════════════════════════════ -->
@@ -1033,12 +991,10 @@
     <span class="section-title">Weekly Check-in</span>
     <span class="section-sub">7 Questions &middot; 2-Red Rule</span>
   </div>
-
   <div id="checkinEmpty" class="empty-state">
     <p>Set up your profile to unlock the check-in</p>
     <a href="#profile" class="btn-primary">Create My Profile &rarr;</a>
   </div>
-
   <div id="checkinView" class="hidden">
     <div id="checkinForm" class="card card-padded">
       <!-- Quantitative: sessions completed -->
@@ -1095,12 +1051,9 @@
           <button class="tl-btn red" onclick="selectTL(this,'progress','red')">Not at All</button>
         </div>
       </div>
-
       <button class="btn-primary" onclick="submitCheckin()" style="margin-top:16px;">Submit Check-in &rarr;</button>
     </div>
-
     <div id="checkinVerdict" class="hidden"></div>
-
     <div id="checkinHistory" class="card card-padded hidden" style="margin-top:4px;">
       <div class="section-header" style="margin:0 0 12px;">
         <span class="section-title">History</span>
@@ -1109,14 +1062,11 @@
     </div>
   </div>
 </div>
-
 <footer>
   <a href="https://app.lestudiobyalice.com/" target="_blank" class="cta-community">Get Support From Our Community &rarr;</a>
   <p style="margin-top:16px;">Le Studio by <a href="#">Alice Pilate</a></p>
 </footer>
-
 </div><!-- container -->
-
 <script>
 // ═══════════════════════════════════════
 // DATA: Baby Runners (0 → 10K)
@@ -1213,7 +1163,6 @@ var babyWeeks = [
     {day:"Sun",type:"race",label:"Race Day — 10K",detail:"This is your day — 60 to 70 min depending on pace",dur:"60–70 min",duration:65}
   ]}
 ];
-
 // ═══════════════════════════════════════
 // DATA: Runners Approved (10K → Half)
 // ═══════════════════════════════════════
@@ -1309,30 +1258,31 @@ var approvedWeeks = [
     {day:"Sun",type:"race",label:"Race Day — Half Marathon",detail:"21.1 km — You are ready",dur:"Half",duration:180}
   ]}
 ];
-
 // ═══════════════════════════════════════
 // TYPE MAPPING
 // ═══════════════════════════════════════
 var TYPE_COLOR = {run:"#2255D3",pilates:"#8B5E6A",rest:"#9BA8A3",long:"#C07A2E",interval:"#B71C1C",race:"#C07A2E"};
 var TYPE_LABEL = {run:"Running",pilates:"Pilates",rest:"Rest",long:"Long Run",interval:"Interval",race:"Race Day"};
 var DAY_INDEX  = {Mon:0,Tue:1,Wed:2,Thu:3,Fri:4,Sat:5,Sun:6};
-
 // ═══════════════════════════════════════
 // PACE CALCULATOR
 // ═══════════════════════════════════════
 function calcPaces(t) {
-  var p = t/10, semi=p+0.5, ef=p+1.0, intv=p-0.25, est=Math.round(semi*21.1);
+  // Daniels VDOT method + Riegel formula
+  var p = t/10;                  // 10K pace in min/km
+  var semi = p * 1.13;           // half-marathon pace ≈ +13% (Riegel)
+  var ef = p * 1.30;             // easy pace ≈ +30% (Daniels zone E)
+  var intv = p * 0.97;           // interval pace ≈ -3% (Daniels zone I)
+  var est = Math.round(semi * 21.1);  // estimated half time
   return {semi:fmtP(semi),ef:fmtP(ef),intervals:fmtP(intv),tempsSemi:fmtT(est)};
 }
 function fmtP(m){var mn=Math.floor(m),s=Math.round((m-mn)*60);return mn+"'"+String(s).padStart(2,'0')+'"';}
 function fmtT(t){var h=Math.floor(t/60),m=t%60;return h+"h"+String(m).padStart(2,'0');}
-
 // ═══════════════════════════════════════
 // PROFILE
 // ═══════════════════════════════════════
 var profile = JSON.parse(localStorage.getItem('pr_profile')||'null');
 var currentWeek = 1;
-
 function initApp() {
   document.getElementById('programme').addEventListener('change',function(){
     document.getElementById('tempsField').classList.toggle('hidden',this.value!=='approved');
@@ -1359,7 +1309,6 @@ function initApp() {
   // Default start date: next Monday
   setDefaultStartDate();
 }
-
 function setDefaultStartDate(){
   var d=new Date();
   var dayOfWeek=d.getDay();
@@ -1368,7 +1317,6 @@ function setDefaultStartDate(){
   var y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),dd=String(d.getDate()).padStart(2,'0');
   document.getElementById('startDate').value=y+'-'+m+'-'+dd;
 }
-
 function saveProfile(){
   var prenom=document.getElementById('prenom').value.trim();
   var programme=document.getElementById('programme').value;
@@ -1382,7 +1330,6 @@ function saveProfile(){
   showProfileCard();showWeekView();showCalView();showCheckinView();
   document.getElementById('myweek').scrollIntoView({behavior:'smooth'});
 }
-
 function showProfileCard(){
   document.getElementById('profileForm').classList.add('hidden');
   document.getElementById('profileCard').classList.remove('hidden');
@@ -1405,7 +1352,6 @@ function showProfileCard(){
     document.getElementById('paceSection').classList.add('hidden');
   }
 }
-
 function resetProfile(){
   if(!confirm('This will permanently delete your profile, pace data and all check-in history.\n\nAre you sure?')) return;
   localStorage.removeItem('pr_profile');
@@ -1415,8 +1361,8 @@ function resetProfile(){
   document.getElementById('profileCard').classList.add('hidden');
   document.getElementById('profileForm').classList.remove('hidden');
   document.getElementById('prenom').value='';
-  document.getElementById('programme').value='baby';
-  document.getElementById('semaineActuelle').value='1';
+  document.getElementById('programme').value='';
+  document.getElementById('semaineActuelle').value='';
   document.getElementById('temps10k').value='';
   document.getElementById('tempsField').classList.add('hidden');
   document.getElementById('resetBtnForm').style.display='none';
@@ -1436,12 +1382,11 @@ function resetProfile(){
   // Reset all views to empty states
   document.getElementById('weekEmpty').classList.remove('hidden');
   document.getElementById('weekView').classList.add('hidden');
-  document.getElementById('calendarEmpty').classList.remove('hidden');
-  document.getElementById('calendarView').classList.add('hidden');
+  document.getElementById('calEmpty').classList.remove('hidden');
+  document.getElementById('calView').classList.add('hidden');
   document.getElementById('checkinEmpty').classList.remove('hidden');
   document.getElementById('checkinView').classList.add('hidden');
 }
-
 function editProfile(){
   document.getElementById('profileCard').classList.add('hidden');
   document.getElementById('profileForm').classList.remove('hidden');
@@ -1451,11 +1396,12 @@ function editProfile(){
   if(profile.programme==='approved'){
     document.getElementById('tempsField').classList.remove('hidden');
     document.getElementById('temps10k').value=profile.temps10k||'';
+  } else {
+    document.getElementById('tempsField').classList.add('hidden');
   }
   // Show reset button in form when editing existing profile
   document.getElementById('resetBtnForm').style.display='block';
 }
-
 // ═══════════════════════════════════════
 // WEEK PLANNER
 // ═══════════════════════════════════════
@@ -1464,12 +1410,10 @@ function showWeekView(){
   document.getElementById('weekView').classList.remove('hidden');
   renderWeek();
 }
-
 function changeWeek(d){
   currentWeek=Math.max(1,Math.min(10,currentWeek+d));
   renderWeek();
 }
-
 function renderWeek(){
   var weeks=profile.programme==='baby'?babyWeeks:approvedWeeks;
   var w=weeks[currentWeek-1];
@@ -1479,7 +1423,6 @@ function renderWeek(){
   if(w.phase==='Recovery Week'){tag.style.background='rgba(192,122,46,0.1)';tag.style.color='var(--race-color)';}
   else if(w.phase==='Race Day'||w.phase==='Goal: 10K'){tag.style.background='var(--green-bg)';tag.style.color='var(--green)';}
   else{tag.style.background='rgba(34,85,211,0.08)';tag.style.color='var(--blue)';}
-
   var grid=document.getElementById('weekGrid');
   grid.innerHTML='';
   w.days.forEach(function(d){
@@ -1494,14 +1437,12 @@ function renderWeek(){
       +'<div class="session-duration">'+d.dur+'</div>'
       +'</div>';
   });
-
   var maxVol=profile.programme==='baby'?110:180;
   var pct=Math.round((w.volume/maxVol)*100);
   document.getElementById('volumeBar').style.width=pct+'%';
   document.getElementById('volumeBar').style.background=w.volume>maxVol*0.85?'var(--red)':'var(--blue)';
   document.getElementById('volumeLabel').textContent=w.volume+' min';
 }
-
 // ═══════════════════════════════════════
 // CALENDAR / ICS EXPORT
 // ═══════════════════════════════════════
@@ -1510,13 +1451,11 @@ function showCalView(){
   document.getElementById('calView').classList.remove('hidden');
   updateCalCTA();
 }
-
 function countSessions(weeks){
   var n=0;
   weeks.forEach(function(w){w.days.forEach(function(s){if(!(s.type==='rest'&&s.duration===0))n++})});
   return n;
 }
-
 function updateCalCTA(){
   var sel=document.getElementById('weekRange').value;
   var weeks=profile?(profile.programme==='baby'?babyWeeks:approvedWeeks):babyWeeks;
@@ -1537,26 +1476,21 @@ function updateCalCTA(){
   }
   document.getElementById('icsBtn').textContent='Add '+label+' →';
 }
-
 function pad(n) { return String(n).padStart(2,"0"); }
-
 function toICSDateTime(date, timeStr) {
   var parts = timeStr.split(":");
   return date.getFullYear() + pad(date.getMonth()+1) + pad(date.getDate())
        + "T" + parts[0] + parts[1] + "00";
 }
-
 function esc(s) {
   return s.replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");
 }
-
 function downloadICS() {
   if(!profile){alert("Set up your profile first.");return;}
   var dateVal = document.getElementById("startDate").value;
   var timeVal = document.getElementById("sessionTime").value;
   var rangeVal = document.getElementById("weekRange").value;
   if (!dateVal) { alert("Please select a start date."); return; }
-
   var allWeeks = profile.programme==='baby' ? babyWeeks : approvedWeeks;
   var startDate = new Date(dateVal + "T00:00:00");
   var timeParts = timeVal.split(":");
@@ -1564,7 +1498,6 @@ function downloadICS() {
   var startMin  = parseInt(timeParts[1]);
   var programLabel = profile.programme==='baby' ? 'Baby Runners 0→10K' : 'Runners Approved 10K→Half';
   var isSingle = rangeVal !== 'all';
-
   // Filter weeks based on selection
   var weekStart, weekEnd;
   if (!isSingle) {
@@ -1572,11 +1505,9 @@ function downloadICS() {
   } else {
     weekStart = parseInt(rangeVal) - 1; weekEnd = weekStart + 1;
   }
-
   var calName = !isSingle
     ? 'Running x Pilates - ' + programLabel
     : 'Running x Pilates - ' + programLabel + ' W' + rangeVal;
-
   var now = Date.now();
   var lines = [
     "BEGIN:VCALENDAR","VERSION:2.0",
@@ -1585,7 +1516,6 @@ function downloadICS() {
     "X-WR-CALNAME:" + calName,
     "X-APPLE-CALENDAR-COLOR:#2255D3"
   ];
-
   var uid = 1;
   var totalSessions = 0;
   for (var wi = weekStart; wi < weekEnd; wi++) {
@@ -1596,29 +1526,23 @@ function downloadICS() {
       totalSessions++;
       var dayIdx = DAY_INDEX[s.day];
       var evDate = new Date(startDate);
-
       // FIX: Single-week export — selected Monday IS that week's Monday
       if (isSingle) {
         evDate.setDate(startDate.getDate() + dayIdx);
       } else {
         evDate.setDate(startDate.getDate() + (weekNum - 1) * 7 + dayIdx);
       }
-
       var dtStart = new Date(evDate);
       dtStart.setHours(startHour, startMin, 0, 0);
       var dur = s.duration || 60;
       var dtEnd = new Date(dtStart);
       dtEnd.setMinutes(dtEnd.getMinutes() + dur);
-
       var dtStartStr = toICSDateTime(dtStart, timeVal);
       var dtEndStr = dtEnd.getFullYear() + pad(dtEnd.getMonth()+1) + pad(dtEnd.getDate())
                    + "T" + pad(dtEnd.getHours()) + pad(dtEnd.getMinutes()) + "00";
-
       var summary = s.label + " — W" + weekNum + " · " + week.phase;
       var desc = s.detail + "\\nPhase: " + week.phase + " · Week " + weekNum + " of 10\\n" + programLabel + " by Alice Pilate";
-
       var typeLabel = TYPE_LABEL[s.type] || s.type;
-
       lines.push("BEGIN:VEVENT");
       lines.push("UID:alicepilate-rxp-" + profile.programme + "-w" + weekNum + "-d" + dayIdx + "-" + now + "-" + uid + "@alicepilate.com");
       lines.push("DTSTART:" + dtStartStr);
@@ -1637,9 +1561,7 @@ function downloadICS() {
       uid++;
     });
   }
-
   lines.push("END:VCALENDAR");
-
   var blob = new Blob([lines.join("\r\n")], { type:"text/calendar;charset=utf-8" });
   var url = URL.createObjectURL(blob);
   var a = document.createElement("a");
@@ -1652,7 +1574,6 @@ function downloadICS() {
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
-
   var bannerText = !isSingle
     ? "&#10003; Your calendar file is downloading — open it to import your " + totalSessions + " sessions."
     : "&#10003; Week " + rangeVal + " exported — " + totalSessions + " sessions in your .ics file.";
@@ -1661,13 +1582,11 @@ function downloadICS() {
   banner.classList.add("show");
   setTimeout(function(){ banner.classList.remove("show"); }, 6000);
 }
-
 // ═══════════════════════════════════════
 // CHECK-IN
 // ═══════════════════════════════════════
 var checkinAnswers={};
 var plannedRun=0, plannedPilates=0;
-
 function countPlannedSessions(weekIndex) {
   if (!profile) return;
   var allWeeks = profile.programme === 'baby' ? babyWeeks : approvedWeeks;
@@ -1680,7 +1599,6 @@ function countPlannedSessions(weekIndex) {
     if (d.type === 'pilates') plannedPilates++;
   });
 }
-
 function buildSessionCounter(containerId, max, key) {
   var el = document.getElementById(containerId);
   el.innerHTML = '';
@@ -1688,7 +1606,6 @@ function buildSessionCounter(containerId, max, key) {
   var parent = el.parentElement;
   var oldLabel = parent.querySelector('.sc-label');
   if (oldLabel) parent.removeChild(oldLabel);
-
   for (var i = 0; i <= max; i++) {
     var btn = document.createElement('button');
     btn.className = 'sc-btn';
@@ -1709,7 +1626,6 @@ function buildSessionCounter(containerId, max, key) {
   label.textContent = max + ' planned this week';
   parent.appendChild(label);
 }
-
 function updateAdherenceBar() {
   var bar = document.getElementById('adherenceBar');
   if (!bar) return;
@@ -1725,7 +1641,6 @@ function updateAdherenceBar() {
   label.textContent = done + '/' + total + ' sessions — ' + pct + '%';
   label.style.color = pct >= 75 ? 'var(--green)' : pct >= 50 ? 'var(--orange)' : 'var(--red)';
 }
-
 function showCheckinView(){
   document.getElementById('checkinEmpty').classList.add('hidden');
   document.getElementById('checkinView').classList.remove('hidden');
@@ -1733,29 +1648,24 @@ function showCheckinView(){
   buildSessionCounter('runCounter', plannedRun, 'runDone');
   buildSessionCounter('pilatesCounter', plannedPilates, 'pilatesDone');
 }
-
 function selectTL(btn,question,color){
   btn.parentElement.querySelectorAll('.tl-btn').forEach(function(b){b.classList.remove('selected')});
   btn.classList.add('selected');
   checkinAnswers[question]=color;
 }
-
 function submitCheckin(){
   // Validate quantitative
   if(checkinAnswers.runDone===undefined||checkinAnswers.pilatesDone===undefined){alert('Please select how many sessions you completed (questions 1 & 2).');return;}
   // Validate subjective
   var qs=['pain','fatigue','motivation','sleep','progress'];
   if(qs.filter(function(q){return !checkinAnswers[q]}).length>0){alert('Please answer all 7 questions.');return;}
-
   // Compute subjective signals
   var reds=0, oranges=0;
   qs.forEach(function(q){ if(checkinAnswers[q]==='red') reds++; if(checkinAnswers[q]==='orange') oranges++; });
-
   // Compute adherence from programme data
   var totalPlanned = plannedRun + plannedPilates;
   var totalDone = checkinAnswers.runDone + checkinAnswers.pilatesDone;
   var adherence = totalPlanned > 0 ? Math.round((totalDone / totalPlanned) * 100) : 0;
-
   // Save to history
   var history=JSON.parse(localStorage.getItem('pr_checkins')||'[]');
   history.push({
@@ -1771,12 +1681,10 @@ function submitCheckin(){
     adherence: adherence
   });
   localStorage.setItem('pr_checkins', JSON.stringify(history));
-
   // Cross-referenced verdict
   var v=document.getElementById('checkinVerdict');
   v.classList.remove('hidden');
   var title, msg, cls;
-
   if(reds>=2 && adherence<50){
     cls='verdict-repeat';
     title='Repeat This Week';
@@ -1802,18 +1710,15 @@ function submitCheckin(){
     title='Good to Go';
     msg='All green with '+adherence+'% adherence. Move on to week '+Math.min(currentWeek+1,10)+' with confidence.';
   }
-
   v.className='verdict '+cls;
   v.innerHTML='<h3>'+title+'</h3><p>'+msg+'</p>'
     +'<p style="margin-top:8px;font-size:11px;color:var(--muted);">Running: '+checkinAnswers.runDone+'/'+plannedRun+' · Pilates: '+checkinAnswers.pilatesDone+'/'+plannedPilates+'</p>';
-
   document.getElementById('checkinForm').classList.add('hidden');
   loadCheckinHistory();
   setTimeout(function(){
     v.innerHTML+='<button class="btn-outline" onclick="resetCheckin()" style="margin-top:16px;width:auto;display:inline-block;">New Check-in</button>';
   },100);
 }
-
 function resetCheckin(){
   checkinAnswers={};
   document.querySelectorAll('.tl-btn').forEach(function(b){b.classList.remove('selected')});
@@ -1825,7 +1730,6 @@ function resetCheckin(){
   buildSessionCounter('runCounter', plannedRun, 'runDone');
   buildSessionCounter('pilatesCounter', plannedPilates, 'pilatesDone');
 }
-
 function loadCheckinHistory(){
   var history=JSON.parse(localStorage.getItem('pr_checkins')||'[]');
   var container=document.getElementById('checkinHistory');
@@ -1840,8 +1744,14 @@ function loadCheckinHistory(){
       var c=h.answers[k];
       return c?'<div class="dot dot-'+c+'"></div>':'';
     }).join('');
-    var vLabel=h.reds>=2?'Repeat':h.reds>=1?'Caution':'OK';
-    var vColor=h.reds>=2?'var(--red)':h.reds>=1?'var(--orange)':'var(--green)';
+    var hOranges=h.oranges||0;
+    var hAdh=h.adherence!==undefined?h.adherence:100;
+    var vLabel,vColor;
+    if(h.reds>=2){vLabel='Repeat';vColor='var(--red)';}
+    else if((h.reds===1||hOranges>=3)&&hAdh<50){vLabel='Caution';vColor='var(--orange)';}
+    else if(h.reds===1||hOranges>=3){vLabel='Caution';vColor='var(--orange)';}
+    else if(hAdh<50){vLabel='Low Adherence';vColor='var(--orange)';}
+    else{vLabel='OK';vColor='var(--green)';}
     var adherenceStr=h.adherence!==undefined?' · '+h.adherence+'%':'';
     list.innerHTML+=
       '<div class="history-row">'
@@ -1852,7 +1762,6 @@ function loadCheckinHistory(){
       +'</div>';
   });
 }
-
 document.addEventListener('DOMContentLoaded',initApp);
 </script>
 </body>
