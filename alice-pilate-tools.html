@@ -805,6 +805,16 @@ input::placeholder{color:var(--muted)}
       </div>
       <button class="btn-sm" onclick="closeSFB()">✕</button>
     </div>
+
+    <!-- Session detail -->
+    <div id="sfb-session-detail" style="margin-top:12px;padding:14px 16px;background:var(--card-alt);display:none">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <div id="sfb-detail-pill" style="font-size:9.5px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase"></div>
+        <div id="sfb-detail-dur" style="font-size:11px;color:var(--muted)"></div>
+      </div>
+      <div id="sfb-detail-desc" style="font-size:12.5px;color:var(--sub);line-height:1.65"></div>
+    </div>
+
     <div style="height:1px;background:var(--border);margin:16px 0"></div>
 
     <!-- Existing feedback view -->
@@ -1642,244 +1652,191 @@ const PROTOCOL = [
 /* ═══════════ BABY RUNNERS — 10 WEEKS ═══════════ */
 const PROG_BABY = [
   {w:1,phase:"FIRST STEPS",theme:"Discover the walk/run rhythm",sess:[
-    {d:"Mon",t:"r",title:"Walk/Run #1",dur:"32 min",desc:"8× (2 min running / 1 min walking). Very slow pace. Conversational only."},
-    {d:"Tue",t:"p",title:"Pilates Core",dur:"20 min",desc:"Diaphragmatic breathing, pelvic floor activation, dead bug, bridge, cat-cow."},
+    {d:"Mon",t:"r",title:"Walk/Run #1",dur:"32 min",desc:"Warm-up routine (8 min) + 8× (2 min running / 1 min walking). Very slow conversational pace — you should be able to speak in full sentences. If you can only say isolated words, walk."},
+    {d:"Tue",t:"p",title:"Pilates Core",dur:"20 min",desc:"[Core] Diaphragmatic breathing, pelvic floor activation, basic dead bug, bridge, cat-cow. Focus: core-breath connection."},
     {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Complete rest or gentle 15-20 min walk."},
-    {d:"Thu",t:"r",title:"Walk/Run #2",dur:"32 min",desc:"Same format: 8× (2 min running / 1 min walking). Fresh legs."},
-    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"Hip, ankle, spine mobility. Cat-cow, hip circles, ankle mobility. Light."},
-    {d:"Sat",t:"x",title:"Recovery Stretch",dur:"15 min",desc:"Gentle stretching: hamstrings, calves, quads, hip flexors."},
+    {d:"Thu",t:"r",title:"Walk/Run #2",dur:"32 min",desc:"Same as Monday: 8× (2 min running / 1 min walking). Fresh legs after rest. Focus on keeping the same easy pace throughout."},
+    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"[Full Body] Hip, ankle, spine mobility. Cat-cow, hip circles, ankle mobility, lateral flexion. Light — no strengthening."},
+    {d:"Sat",t:"x",title:"Recovery Stretch",dur:"15 min",desc:"[Stretch] Gentle stretching: hamstrings, calves, quads, hip flexors. Long breathing."},
     {d:"Sun",t:"x",title:"Rest",dur:"—",desc:"Complete rest."},
   ]},
   {w:2,phase:"FIRST STEPS",theme:"Extend to 3-minute blocks",sess:[
-    {d:"Mon",t:"r",title:"Walk/Run #1",dur:"36 min",desc:"7× (3 min running / 1 min walking). Slow pace, conversational."},
-    {d:"Tue",t:"p",title:"Pilates Core+",dur:"20 min",desc:"Progression from W1: knee plank, bird dog, toe taps, articulated bridge."},
+    {d:"Mon",t:"r",title:"Walk/Run #1",dur:"36 min",desc:"Warm-up routine (8 min) + 7× (3 min running / 1 min walking). Slow conversational pace."},
+    {d:"Tue",t:"p",title:"Pilates Core+",dur:"20 min",desc:"[Abs + Core] Progression from W1: knee plank (10 sec hold), bird dog, toe taps, articulated shoulder bridge."},
     {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Rest or 15-20 min walk."},
-    {d:"Thu",t:"r",title:"Walk/Run #2",dur:"36 min",desc:"Same format: 7× (3 min running / 1 min walking). Focus on steady pace."},
-    {d:"Fri",t:"p",title:"Pilates Mobility+",dur:"20 min",desc:"Mobility + intro stability: single leg bridge, clam, thoracic rotation."},
-    {d:"Sat",t:"x",title:"Recovery",dur:"15 min",desc:"Gentle stretching + breathing. Calves, quads, hips."},
+    {d:"Thu",t:"r",title:"Walk/Run #2",dur:"36 min",desc:"7× (3 min running / 1 min walking). Focus on keeping a steady pace throughout all blocks."},
+    {d:"Fri",t:"p",title:"Pilates Mobility+",dur:"20 min",desc:"[Lower Body] Mobility + intro stability: single leg bridge (basic), clamshell, thoracic rotation."},
+    {d:"Sat",t:"x",title:"Recovery",dur:"15 min",desc:"[Stretch] Gentle stretching + breathing. Calves, quads, hips."},
     {d:"Sun",t:"x",title:"Rest",dur:"—",desc:"Complete rest."},
   ]},
   {w:3,phase:"ENDURANCE",theme:"5-minute running blocks",sess:[
-    {d:"Mon",t:"r",title:"Walk/Run #1",dur:"38 min",desc:"5× (5 min running / 1 min walking). Strict conversational pace."},
-    {d:"Tue",t:"p",title:"Runner Pilates",dur:"25 min",desc:"Core anti-rotation, clamshell, dynamic plank, controlled lunges."},
+    {d:"Mon",t:"r",title:"Walk/Run #1",dur:"38 min",desc:"Warm-up routine (8 min) + 5× (5 min running / 1 min walking). Strict conversational pace — if W2 was tough, repeat W2 before moving on."},
+    {d:"Tue",t:"p",title:"Runner Pilates",dur:"25 min",desc:"[Full Body] Core anti-rotation, clamshell (with resistance band if available), dynamic plank, controlled lunges."},
     {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Complete rest or 20 min walk."},
-    {d:"Thu",t:"r",title:"Walk/Run #2",dur:"38 min",desc:"Same format: 5× (5 min running / 1 min walking). Focus on breathing."},
-    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"Dynamic mobility: leg swings, hip openers, thoracic rotation. No strength."},
-    {d:"Sat",t:"x",title:"Active Recovery",dur:"20 min",desc:"Targeted stretching: calves, hamstrings, hip flexors."},
+    {d:"Thu",t:"r",title:"Walk/Run #2",dur:"38 min",desc:"5× (5 min running / 1 min walking). Focus on steady breathing throughout."},
+    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"[Full Body] Dynamic mobility: leg swings, hip openers, thoracic rotation. No strengthening."},
+    {d:"Sat",t:"x",title:"Active Recovery",dur:"20 min",desc:"[Stretch · Lower Body] Targeted stretching: calves, hamstrings, hip flexors."},
     {d:"Sun",t:"x",title:"Rest",dur:"—",desc:"Complete rest."},
   ]},
-  {w:4,phase:"ENDURANCE",theme:"8-minute blocks — approaching continuous",sess:[
-    {d:"Mon",t:"r",title:"Walk/Run #1",dur:"44 min",desc:"4× (8 min running / 1 min walking). Conversational pace."},
-    {d:"Tue",t:"p",title:"Runner Pilates+",dur:"25 min",desc:"Monster walks, lateral lunges, assisted single leg squat, advanced dead bug."},
+  {w:4,phase:"ENDURANCE",theme:"8-minute blocks — last week with walk breaks",sess:[
+    {d:"Mon",t:"r",title:"Walk/Run #1",dur:"44 min",desc:"Warm-up routine (8 min) + 4× (8 min running / 1 min walking). Conversational pace. Goal: feel like walking is almost optional."},
+    {d:"Tue",t:"p",title:"Runner Pilates+",dur:"25 min",desc:"[Lower Body + Core] Monster walks (with band if available), lateral lunges, assisted single leg squat, advanced dead bug."},
     {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Complete rest."},
-    {d:"Thu",t:"r",title:"Walk/Run #2",dur:"44 min",desc:"4× (8 min running / 1 min walking). Goal: feel like walking is almost optional."},
-    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"Mobility + gentle glute activation. No heavy strength."},
-    {d:"Sat",t:"x",title:"Recovery",dur:"20 min",desc:"Gentle yoga flow / restorative Pilates. Hips and spinal decompression."},
+    {d:"Thu",t:"r",title:"Walk/Run #2",dur:"44 min",desc:"4× (8 min running / 1 min walking). Same pace as Monday — feel the consistency building."},
+    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"[Full Body] Mobility + gentle glute activation. No heavy strengthening."},
+    {d:"Sat",t:"x",title:"Recovery",dur:"20 min",desc:"[Stretch · Lower Body] Gentle yoga flow / restorative Pilates. Hips and spinal decompression."},
     {d:"Sun",t:"x",title:"Rest",dur:"—",desc:"Complete rest."},
   ]},
   {w:5,phase:"TRANSITION",theme:"12-minute blocks — bridge to continuous",sess:[
-    {d:"Mon",t:"r",title:"Walk/Run #1",dur:"47 min",desc:"3× (12 min running / 1 min walking). Conversational pace. On the last block, try continuing without walking."},
-    {d:"Tue",t:"p",title:"Runner Pilates",dur:"25 min",desc:"Core anti-rotation, single leg deadlift, clamshell, dynamic plank."},
+    {d:"Mon",t:"r",title:"Walk/Run #1",dur:"47 min",desc:"Warm-up routine (8 min) + 3× (12 min running / 1 min walking). Conversational pace. On the last block, try continuing without the walking break."},
+    {d:"Tue",t:"p",title:"Runner Pilates",dur:"25 min",desc:"[Full Body + Core] Core anti-rotation, assisted single leg deadlift, clamshell, dynamic plank."},
     {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Complete rest or 20 min walk."},
-    {d:"Thu",t:"r",title:"Walk/Run #2",dur:"47 min",desc:"3× (12 min running / 1 min walking). Focus on consistency and breathing."},
-    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"Dynamic mobility, gentle glute activation. No strength."},
-    {d:"Sat",t:"x",title:"Recovery",dur:"20 min",desc:"Targeted stretching: calves, hamstrings, hip flexors."},
+    {d:"Thu",t:"r",title:"Walk/Run #2",dur:"47 min",desc:"3× (12 min running / 1 min walking). Focus on consistency and breathing. Last walk/run week."},
+    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"[Full Body] Dynamic mobility, gentle glute activation. No strengthening."},
+    {d:"Sat",t:"x",title:"Recovery",dur:"20 min",desc:"[Stretch · Lower Body] Targeted stretching: calves, hamstrings, hip flexors. Foam roller if available."},
     {d:"Sun",t:"x",title:"Rest",dur:"—",desc:"Complete rest."},
   ]},
-  {w:6,phase:"CONTINUOUS RUNNING",theme:"First continuous run — no walking",sess:[
-    {d:"Mon",t:"r",title:"Continuous Run",dur:"20 min",desc:"First run without walking — very slow pace. Slow down if needed, but don't stop."},
-    {d:"Tue",t:"p",title:"Pilates Endurance",dur:"25 min",desc:"Pilates circuit: back-to-back exercises. Core + legs + stability."},
+  {w:6,phase:"CONTINUOUS RUNNING",theme:"First run without walking",sess:[
+    {d:"Mon",t:"r",title:"Continuous Run",dur:"20 min",desc:"First run without walking — very slow pace. Slow down if needed, but don't stop. Warm-up drills before heading out."},
+    {d:"Tue",t:"p",title:"Pilates Endurance",dur:"25 min",desc:"[Full Body] Pilates circuit: back-to-back exercises with no long breaks. Core + legs + stability."},
     {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Complete rest."},
-    {d:"Thu",t:"r",title:"Continuous Run #2",dur:"22 min",desc:"+2 min vs Monday. Continuous running at conversational pace."},
-    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"Dynamic mobility, no strength. Preparing for the weekend."},
-    {d:"Sat",t:"lr",title:"Long Run",dur:"25 min",desc:"Continuous running at conversational pace. Walk if needed — no guilt."},
-    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"20 min",desc:"Restorative: child's pose, pigeon, twists, long breathing."},
+    {d:"Thu",t:"r",title:"Continuous Run #2",dur:"22 min",desc:"+2 min vs Monday. Continuous running at conversational pace. The goal is not to stop."},
+    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"[Full Body] Dynamic mobility, no strengthening. Preparing for the weekend long run."},
+    {d:"Sat",t:"lr",title:"Long Run",dur:"25 min",desc:"Continuous running at conversational pace. If Mon/Thu runs were tough, do walk/run (10 min run / 1 min walk). Bring water."},
+    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"20 min",desc:"[Stretch · Full Body] Restorative: child's pose, pigeon, gentle twists, long breathing."},
   ]},
   {w:7,phase:"CONTINUOUS RUNNING",theme:"First 30-minute long run",sess:[
-    {d:"Mon",t:"r",title:"Easy Run",dur:"25 min",desc:"Continuous running. After the run: 6 progressive strides over 100m."},
-    {d:"Tue",t:"p",title:"Runner Pilates",dur:"25 min",desc:"Core anti-rotation, clamshell, dynamic plank, controlled lunges."},
+    {d:"Mon",t:"r",title:"Easy Run",dur:"25 min",desc:"Continuous running at conversational pace. Running drills before heading out. After the run: 6 progressive strides over 100m (walk recovery between each)."},
+    {d:"Tue",t:"p",title:"Runner Pilates",dur:"25 min",desc:"[Full Body] Core anti-rotation, clamshell, dynamic plank, controlled lunges."},
     {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Complete rest."},
     {d:"Thu",t:"r",title:"Easy Run #2",dur:"25 min",desc:"Continuous running. Focus on steady pace."},
-    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"Dynamic mobility, no strength. Preparing for the long run."},
-    {d:"Sat",t:"lr",title:"Long Run",dur:"30 min",desc:"Continuous running at strict conversational pace. Bring water. Walk if needed."},
-    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"20 min",desc:"Restorative: child's pose, pigeon, twists, long breathing."},
+    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"[Full Body] Dynamic mobility, no strengthening. Preparing for the long run."},
+    {d:"Sat",t:"lr",title:"Long Run",dur:"30 min",desc:"Continuous running at strict conversational pace. Bring water. Walk if needed — no guilt. The pace must be EVEN slower than your weekday runs."},
+    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"20 min",desc:"[Stretch · Full Body] Restorative: child's pose, pigeon, gentle twists, long breathing."},
   ]},
   {w:8,phase:"BUILD-UP",theme:"30-min runs + 40-min long run",sess:[
-    {d:"Mon",t:"r",title:"Easy Run",dur:"30 min",desc:"Continuous running. After the run: 7 progressive strides over 100m."},
-    {d:"Tue",t:"p",title:"Runner Pilates",dur:"25 min",desc:"Core anti-rotation, single leg deadlift, clamshell, dynamic plank."},
+    {d:"Mon",t:"r",title:"Easy Run",dur:"30 min",desc:"Continuous running at conversational pace. Running drills. After the run: 7 progressive strides over 100m."},
+    {d:"Tue",t:"p",title:"Runner Pilates",dur:"25 min",desc:"[Full Body] Core anti-rotation, assisted single leg deadlift, clamshell, dynamic plank."},
     {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Complete rest."},
-    {d:"Thu",t:"r",title:"Easy Run #2",dur:"30 min",desc:"Continuous running. Same format as Monday. Steady pace."},
-    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"Dynamic mobility, gentle glute activation. No strength before long run."},
-    {d:"Sat",t:"lr",title:"Long Run",dur:"40 min",desc:"Continuous running at strict conversational pace. Bring water. Walk if needed — no guilt."},
-    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"20 min",desc:"Restorative: child's pose, pigeon, twists, long breathing."},
+    {d:"Thu",t:"r",title:"Easy Run #2",dur:"30 min",desc:"Continuous running. Same format as Monday. Focus on steady pace and breathing."},
+    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"[Full Body] Dynamic mobility, gentle glute activation. No strengthening before long run."},
+    {d:"Sat",t:"lr",title:"Long Run",dur:"40 min",desc:"Continuous running at strict conversational pace. Bring water. Walk if needed — no guilt. If W7 long run was tough, repeat W7 first."},
+    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"20 min",desc:"[Stretch · Full Body] Restorative: child's pose, pigeon, gentle twists, long breathing."},
   ]},
   {w:9,phase:"BUILD-UP",theme:"50-minute long run — approaching 10K",sess:[
-    {d:"Mon",t:"r",title:"Easy Run",dur:"30 min",desc:"Slow jog at conversational pace. After the run: 8 strides over 100m."},
-    {d:"Tue",t:"p",title:"Runner Pilates",dur:"25 min",desc:"Circuit: core, glutes, single-leg stability. Controlled tempo."},
+    {d:"Mon",t:"r",title:"Easy Run",dur:"30 min",desc:"Slow jog at conversational pace. Running drills. After the run: 8 progressive strides over 100m."},
+    {d:"Tue",t:"p",title:"Runner Pilates",dur:"25 min",desc:"[Full Body] Circuit: core, glutes, single-leg stability. Controlled tempo."},
     {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Complete rest."},
     {d:"Thu",t:"r",title:"Easy Run #2",dur:"30 min",desc:"Continuous running. Steady pace."},
-    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"Pre-long run mobility. No strength."},
-    {d:"Sat",t:"lr",title:"Long Run",dur:"50 min",desc:"Continuous running at conversational pace. Bring water. Walk if needed."},
-    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"20 min",desc:"Restorative, leg-focused. Long breathing."},
+    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"[Full Body] Pre-long run mobility. No strengthening."},
+    {d:"Sat",t:"lr",title:"Long Run",dur:"50 min",desc:"Continuous running at conversational pace. Bring water. Walk if needed. You already ran 47 min in W5 — you know you can do this."},
+    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"20 min",desc:"[Stretch · Lower Body] Restorative, leg-focused. Long breathing."},
   ]},
   {w:10,phase:"10K GOAL",theme:"Race week — your first 10K",sess:[
-    {d:"Mon",t:"r",title:"Light Run",dur:"20 min",desc:"Very easy jog. Running drills. 4 strides over 100m. Just keeping the feel."},
-    {d:"Tue",t:"p",title:"Pilates Activation",dur:"20 min",desc:"Light activation: familiar exercises, mobility, breathing. Nothing new."},
+    {d:"Mon",t:"r",title:"Light Run",dur:"20 min",desc:"Very easy jog. Running drills. After: 4 progressive strides over 100m. Just keeping the feel — no effort."},
+    {d:"Tue",t:"p",title:"Pilates Activation",dur:"20 min",desc:"[Core] Light activation: familiar exercises only, mobility, breathing. Nothing new this week."},
     {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Complete rest."},
-    {d:"Thu",t:"p",title:"Pilates Mobility",dur:"15 min",desc:"Gentle mobility, light core activation, breathing. Minimal."},
-    {d:"Fri",t:"x",title:"Rest",dur:"—",desc:"Complete rest. Prepare race logistics if needed."},
-    {d:"Sat",t:"x",title:"Rest or Activation",dur:"Optional",desc:"Optional: 15 min walk + 3× gentle 15-sec accelerations. Otherwise rest."},
-    {d:"Sun",t:"r",title:"YOUR FIRST 10K",dur:"~60-70 min",desc:"Race Day. Warm-up: running drills (8 min) + brisk walk. Start SLOWLY. Conversational pace from start to finish."},
+    {d:"Thu",t:"p",title:"Pilates Mobility",dur:"15 min",desc:"[Full Body] Gentle mobility, light core activation, breathing. Minimal — preserve energy for race day."},
+    {d:"Fri",t:"x",title:"Rest",dur:"—",desc:"Complete rest. Prepare race logistics if you're doing an organised race. Scout your route."},
+    {d:"Sat",t:"x",title:"Rest or Activation",dur:"Optional",desc:"Optional: 15 min walk + 3× gentle 15-sec accelerations. Otherwise rest. Pack your race bag tonight."},
+    {d:"Sun",t:"r",title:"YOUR FIRST 10K",dur:"~60-70 min",desc:"Race Day. Warm-up: running drills (8 min) + brisk walk (5 min). Start SLOWLY — adrenaline will push you too fast. Conversational pace from start to finish. Km 7-9: courage zone. You ran 50 min in W9 — you're ready."},
   ]},
 ];
 
 /* ═══════════ RUNNERS APPROVED — 10 WEEKS ═══════════ */
 const PROG_APPROVED = [
   {w:1,phase:"FOUNDATIONS",theme:"Set the foundations, calibrate paces",sess:[
-    {d:"Mon",t:"r",title:"Easy Run",dur:"35 min",paceType:"ef",desc:"Slow jog at easy pace. Warm-up drills. Goal: install the rhythm."},
-    {d:"Tue",t:"p",title:"Pilates Core",dur:"25 min",desc:"Pelvic floor, diaphragmatic breathing, dead bug, bird dog, bridge."},
+    {d:"Mon",t:"r",title:"Easy Run",dur:"35 min",paceType:"ef",desc:"Slow jog at easy pace. Warm-up drills before heading out. Goal: install the weekly rhythm. If no recent 10K time, run one this week to calibrate your paces for the whole programme."},
+    {d:"Tue",t:"p",title:"Pilates Core",dur:"25 min",desc:"[Core] Pelvic floor activation, diaphragmatic breathing, dead bug, bird dog, bridge. Focus: core-breath connection. Variation: bridge with feet on ball for core instability."},
     {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Full rest or gentle 20 min walk."},
-    {d:"Thu",t:"r",title:"Easy Run #2",dur:"35 min",paceType:"ef",desc:"Slow jog at easy pace. Same format as Monday. Fresh legs."},
-    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"25 min",desc:"Hip, ankle, spine mobility. Cat-cow, hip circles. Light, no strength."},
-    {d:"Sat",t:"x",title:"Active Recovery",dur:"20 min",desc:"Gentle stretching + breathing. Hamstrings, quads, calves, hip flexors."},
+    {d:"Thu",t:"r",title:"Easy Run #2",dur:"35 min",paceType:"ef",desc:"Slow jog at easy pace. Same format as Monday. Fresh legs after Wednesday rest."},
+    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"25 min",desc:"[Full Body] Hip, ankle, and spine mobility: cat-cow, hip circles, ankle mobility, lateral flexion. Light — no strength work."},
+    {d:"Sat",t:"x",title:"Active Recovery",dur:"20 min",desc:"[Stretch · Lower Body] Gentle stretching + breathing. Hamstrings, quads, calves, hip flexors."},
     {d:"Sun",t:"x",title:"Rest",dur:"—",desc:"Full rest."},
   ]},
-  {w:2,phase:"FOUNDATIONS",theme:"Confirm W1 foundations, deeper Pilates",sess:[
-    {d:"Mon",t:"r",title:"Easy Run",dur:"40 min",paceType:"ef",desc:"Slow jog at easy pace. Warm-up drills. Slight volume increase vs W1."},
-    {d:"Tue",t:"p",title:"Pilates Core+",dur:"25 min",desc:"W1 progression: plank on knees, side-lying hip abduction, toe taps, shoulder bridge."},
+  {w:2,phase:"FOUNDATIONS",theme:"Confirm foundations, deepen Pilates",sess:[
+    {d:"Mon",t:"r",title:"Easy Run",dur:"40 min",paceType:"ef",desc:"Slow jog at easy pace. Warm-up drills. Slight volume increase vs W1 — same conversational effort."},
+    {d:"Tue",t:"p",title:"Pilates Core+",dur:"25 min",desc:"[Abs + Core] W1 progression: plank on knees, side-lying hip abduction, toe taps, shoulder bridge with articulation."},
     {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Rest or 20 min walk."},
-    {d:"Thu",t:"r",title:"Easy Run #2",dur:"40 min",paceType:"ef",desc:"Slow jog at easy pace. Continuous. Focus on steady pace and breathing."},
-    {d:"Fri",t:"p",title:"Pilates Mobility+",dur:"25 min",desc:"Mobility + intro single-leg stability: single leg bridge, clam, thoracic rotation."},
-    {d:"Sat",t:"x",title:"Active Recovery",dur:"20 min",desc:"Stretching + foam rolling if available. Focus calves, IT band, quads."},
+    {d:"Thu",t:"r",title:"Easy Run #2",dur:"40 min",paceType:"ef",desc:"Slow jog at easy pace. Continuous run. Focus on steady pace and breathing."},
+    {d:"Fri",t:"p",title:"Pilates Mobility+",dur:"25 min",desc:"[Lower Body + Core] Mobility + intro single-leg stability: single leg bridge, clamshell, thoracic rotation."},
+    {d:"Sat",t:"x",title:"Active Recovery",dur:"20 min",desc:"[Stretch · Lower Body] Stretching + foam rolling if available. Focus on calves, IT band, quads."},
     {d:"Sun",t:"x",title:"Rest",dur:"—",desc:"Full rest. End-of-phase self-assessment."},
   ]},
-  {w:3,phase:"TRANSITION",theme:"3 runs/week — first intervals + long run",sess:[
-    {d:"Mon",t:"r",title:"Easy Run + Strides",dur:"30 min + 6×100m",paceType:"ef",desc:"Slow jog at easy pace. After: 6 progressive accelerations over 100m (walk recovery = 10× effort time)."},
-    {d:"Tue",t:"p",title:"Pilates Runner",dur:"30 min",desc:"Core anti-rotation, single leg deadlift, clamshell, dynamic plank."},
-    {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Full rest or 20-30 min walk."},
-    {d:"Thu",t:"r",title:"Intro Intervals",dur:"30 min",paceType:"intv",desc:"Warm-up drills + 5× (2 min moderate effort / 1 min brisk walk) + cool-down. Goal: learning to modulate effort."},
-    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"25 min",desc:"Dynamic mobility: leg swings, hip openers, world's greatest stretch. No strength."},
-    {d:"Sat",t:"lr",title:"Intro Long Run",dur:"40 min",paceType:"ef",desc:"Continuous run at easy pace. Warm-up drills. Bring water if hot."},
-    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"20 min",desc:"Restorative: child's pose, pigeon, gentle twists, 4-7-8 breathing."},
+  {w:3,phase:"TRANSITION",theme:"Moving to 3 runs — first intervals + long run",sess:[
+    {d:"Mon",t:"r",title:"Easy Run + Strides",dur:"30 min + strides",paceType:"ef",desc:"Slow jog at easy pace. Warm-up drills. After the jog: 6 progressive strides over 100m (walk recovery = 10× the effort time). If 100m takes 20 sec → 3 min 20 recovery. These strides teach your body to run fast without load."},
+    {d:"Tue",t:"p",title:"Pilates Runner",dur:"30 min",desc:"[Full Body] Core anti-rotation, assisted single leg deadlift, clamshell (with band if available, otherwise bodyweight), dynamic plank."},
+    {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Full rest or 20-30 min walk. Volume jumps +25% this week — rest is key."},
+    {d:"Thu",t:"r",title:"Intro Intervals",dur:"30 min",paceType:"intv",desc:"Warm-up drills + 5× (2 min moderate effort / 1 min brisk walk) + cool-down. Effort = 5-6/10 — very progressive. Goal: learn to modulate effort, not go fast."},
+    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"25 min",desc:"[Full Body] Dynamic mobility: leg swings, hip openers, world's greatest stretch, standing thoracic rotation. No strengthening — long run tomorrow."},
+    {d:"Sat",t:"lr",title:"Intro Long Run",dur:"40 min",paceType:"ef",desc:"Continuous run at easy pace. Warm-up drills. Comfortable, steady. Bring water if it's warm."},
+    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"20 min",desc:"[Stretch · Full Body] Restorative: child's pose, pigeon, gentle twists, 4-7-8 breathing."},
   ]},
   {w:4,phase:"BUILD",theme:"Longer intervals + 45-min long run",sess:[
-    {d:"Mon",t:"r",title:"Easy Run + Strides",dur:"40 min + 7×100m",paceType:"ef",desc:"Slow jog at easy pace. After: 7 progressive strides over 100m."},
-    {d:"Tue",t:"p",title:"Pilates Runner",dur:"30 min",desc:"Core anti-rotation, single leg deadlift, clamshell, dynamic plank, controlled lunges."},
+    {d:"Mon",t:"r",title:"Easy Run + Strides",dur:"40 min + strides",paceType:"ef",desc:"Slow jog at easy pace. Warm-up drills. After the jog: 7 progressive strides over 100m (walk recovery = 10× effort time). If W3 was tough, repeat W3 before moving on."},
+    {d:"Tue",t:"p",title:"Pilates Runner",dur:"30 min",desc:"[Full Body] Core anti-rotation, assisted single leg deadlift, clamshell (with band if available), dynamic plank, controlled lunges."},
     {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Full rest or 20-30 min walk."},
-    {d:"Thu",t:"r",title:"Easy Intervals",dur:"40 min",paceType:"intv",desc:"Warm-up drills + 6× (3 min moderate effort / 1 min brisk walk) + cool-down. Effort = 6/10."},
-    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"25 min",desc:"Dynamic mobility. No strength (long run tomorrow)."},
-    {d:"Sat",t:"lr",title:"Long Run",dur:"45 min",paceType:"ef",desc:"Continuous run at easy pace. Walk if needed, no guilt. Bring water."},
-    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"20 min",desc:"Restorative: child's pose, pigeon, gentle twists, 4-7-8 breathing."},
+    {d:"Thu",t:"r",title:"Easy Intervals",dur:"40 min",paceType:"intv",desc:"Warm-up drills + 6× (3 min moderate effort / 1 min brisk walk) + 5 min cool-down. Effort = 6/10 — not fast."},
+    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"25 min",desc:"[Full Body] Dynamic mobility: leg swings, hip openers, world's greatest stretch, thoracic rotation. No strengthening — long run tomorrow."},
+    {d:"Sat",t:"lr",title:"Long Run",dur:"45 min",paceType:"ef",desc:"Continuous run at easy pace. Warm-up drills. Walk if needed — no guilt. Bring water."},
+    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"20 min",desc:"[Stretch · Full Body] Restorative: child's pose, pigeon, gentle twists, 4-7-8 breathing."},
   ]},
-  {w:5,phase:"BUILD",theme:"Consolidate — 55-min long run",sess:[
-    {d:"Mon",t:"r",title:"Easy Run + Strides",dur:"40 min + 8×100m",paceType:"ef",desc:"Slow jog at easy pace. After: 8 progressive strides over 100m."},
-    {d:"Tue",t:"p",title:"Pilates Runner+",dur:"30 min",desc:"Monster walks, lateral lunges, assisted single leg squat, advanced dead bug, hip hinge."},
+  {w:5,phase:"BUILD",theme:"Deeper intervals + 55-min long run",sess:[
+    {d:"Mon",t:"r",title:"Easy Run + Strides",dur:"40 min + strides",paceType:"ef",desc:"Slow jog at easy pace. Warm-up drills. After: 8 progressive strides over 100m (walk recovery = 10× effort time)."},
+    {d:"Tue",t:"p",title:"Pilates Runner+",dur:"30 min",desc:"[Lower Body + Core] Monster walks (with band if available, otherwise bodyweight lateral activation), lateral lunges, assisted single leg squat, advanced dead bug, hip hinge."},
     {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Full rest or 30 min walk."},
-    {d:"Thu",t:"r",title:"Intervals",dur:"45 min",paceType:"intv",desc:"Warm-up drills + 5× (4 min moderate effort / 2 min recovery jog) + cool-down. Effort = 6-7/10."},
-    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"25 min",desc:"Dynamic mobility + gentle glute activation. No heavy strength."},
-    {d:"Sat",t:"lr",title:"Long Run",dur:"55 min",paceType:"ef",desc:"Continuous run at easy pace. Bring water. Test your fuelling if possible."},
-    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"20 min",desc:"Gentle yoga flow / restorative Pilates. Hip opening and spinal decompression."},
+    {d:"Thu",t:"r",title:"Intervals",dur:"45 min",paceType:"intv",desc:"Warm-up drills + 5× (4 min moderate effort / 2 min recovery jog) + 5 min cool-down. Effort = 6-7/10."},
+    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"25 min",desc:"[Full Body] Dynamic mobility + gentle glute activation. No heavy strengthening — long run tomorrow."},
+    {d:"Sat",t:"lr",title:"Long Run",dur:"55 min",paceType:"ef",desc:"Continuous run at easy pace. Bring water. Test your fuelling strategy if possible (gel, bar)."},
+    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"20 min",desc:"[Stretch · Lower Body] Gentle yoga flow / restorative Pilates. Hip opening and spinal decompression."},
   ]},
-  {w:6,phase:"DELOAD",theme:"Deload — volume drops, body absorbs",sess:[
-    {d:"Mon",t:"r",title:"Easy Run",dur:"30 min",paceType:"ef",desc:"Very slow jog at easy pace. Reduced volume. Warm-up drills."},
-    {d:"Tue",t:"p",title:"Pilates Mobility+",dur:"30 min",desc:"Deep mobility: hips, ankles, spine. Self-massage: IT band, calves, hip flexors. Foam rolling if available."},
-    {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Full rest. Hydration, sleep."},
-    {d:"Thu",t:"r",title:"Light Easy Run",dur:"35 min",paceType:"ef",desc:"Slow jog at easy pace. No intervals this week. Steady, comfortable."},
-    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"25 min",desc:"Gentle dynamic mobility + light glute activation. No strength."},
-    {d:"Sat",t:"lr",title:"Reduced Long Run",dur:"45 min",paceType:"ef",desc:"Continuous run at easy pace. Volume intentionally reduced vs W5."},
-    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"25 min",desc:"Deep restorative: legs up the wall, twists, assisted stretches, long breathing."},
+  {w:6,phase:"DELOAD",theme:"Deload — let the work absorb",sess:[
+    {d:"Mon",t:"r",title:"Easy Run",dur:"30 min",paceType:"ef",desc:"Very slow jog at easy pace. Warm-up drills. Reduced volume — this is intentional. Your body is absorbing W1-W5."},
+    {d:"Tue",t:"p",title:"Pilates Mobility",dur:"30 min",desc:"[Full Body · Self-Massage] Deep mobility: hips, ankles, spine. Guided self-massage: IT band, calves, hip flexors. Foam rolling if available."},
+    {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Full rest. Extra hydration and sleep — the secret of deload week."},
+    {d:"Thu",t:"r",title:"Light Easy Run",dur:"35 min",paceType:"ef",desc:"Slow jog at easy pace. No intervals this week. Continuous, steady, comfortable."},
+    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"25 min",desc:"[Full Body] Gentle dynamic mobility + light glute activation. No strengthening — long run tomorrow."},
+    {d:"Sat",t:"lr",title:"Reduced Long Run",dur:"45 min",paceType:"ef",desc:"Continuous run at easy pace. Volume intentionally reduced vs W5 (45 min vs 55 min). Your legs should feel fresh."},
+    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"25 min",desc:"[Stretch · Full Body] Deep restorative: legs up the wall, twists, assisted stretches, long breathing. Ball is ideal here."},
   ]},
-  {w:7,phase:"DEVELOPMENT",theme:"Peak load begins — 1h10 long run",sess:[
-    {d:"Mon",t:"r",title:"Easy Run + Strides",dur:"40 min + 9×100m",paceType:"ef",desc:"Slow jog at easy pace. After: 9 progressive strides over 100m."},
-    {d:"Tue",t:"p",title:"Pilates Endurance",dur:"30 min",desc:"Pilates circuit: continuous sequences. Core + legs + stability. Simulates long run fatigue."},
-    {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Full rest. Extra hydration."},
-    {d:"Thu",t:"r",title:"Half-Pace Intervals",dur:"50 min",paceType:"semi",desc:"Warm-up drills + 3× 8 min at half-marathon pace / 3 min recovery jog + cool-down."},
-    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"25 min",desc:"Pre-long run mobility: hips, ankles, gentle glute activation. No strength."},
-    {d:"Sat",t:"lr",title:"Long Run",dur:"1h10",paceType:"ef",desc:"Continuous run at strict easy pace. Bring your own flask. Test your fuelling (gel or bar)."},
-    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"25 min",desc:"Targeted restorative: hip release, posterior chain stretching, long breathing."},
+  {w:7,phase:"DEVELOPMENT",theme:"First peak — 1h10 long run + half-pace intervals",sess:[
+    {d:"Mon",t:"r",title:"Easy Run + Strides",dur:"40 min + strides",paceType:"ef",desc:"Slow jog at easy pace. Warm-up drills. After: 9 progressive strides over 100m (walk recovery = 10× effort time). Demanding week — start easy."},
+    {d:"Tue",t:"p",title:"Pilates Endurance",dur:"30 min",desc:"[Full Body] Pilates circuit: continuous sequences with no long breaks. Core + legs + stability. Simulates long run fatigue — your body will recognise it on Saturday."},
+    {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Full rest. Extra hydration — most demanding week so far."},
+    {d:"Thu",t:"r",title:"Half-Pace Intervals",dur:"50 min",paceType:"intv",desc:"Warm-up drills + 3× 8 min at half-marathon pace / 3 min recovery jog between each block + cool-down. See your pace table for target pace."},
+    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"25 min",desc:"[Glutes + Lower Body] Pre-long run mobility: hips, ankles, gentle glute activation. No strengthening — long run tomorrow."},
+    {d:"Sat",t:"lr",title:"Long Run",dur:"1h10",paceType:"ef",desc:"Continuous run at strict easy pace. Personal flask mandatory. Test your fuelling (gel, bar). The pace must be slower than your weekday runs. If W5 long run was tough, repeat W5 before this week."},
+    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"25 min",desc:"[Stretch · Lower Body] Targeted restorative: hip release, posterior chain stretching, long breathing. Ball is ideal here."},
   ]},
-  {w:8,phase:"DEVELOPMENT",theme:"Peak — 1h25 long run + tempo",sess:[
-    {d:"Mon",t:"r",title:"Easy Run + Strides",dur:"40 min + 10×100m",paceType:"ef",desc:"Slow jog at easy pace. After: 10 progressive strides over 100m."},
-    {d:"Tue",t:"p",title:"Pilates Runner",dur:"30 min",desc:"Core anti-rotation + single-leg stability + posterior chain. Controlled tempo."},
-    {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Full rest. Hydration, sleep."},
-    {d:"Thu",t:"r",title:"Half-Pace Tempo",dur:"55 min",paceType:"semi",desc:"Warm-up drills + 3× 10 min at half-marathon pace / 5 min recovery jog + cool-down."},
-    {d:"Fri",t:"p",title:"Pilates Mobility+",dur:"25 min",desc:"Self-massage on accumulated tension: IT band, hip flexors, calves. No strength."},
-    {d:"Sat",t:"lr",title:"Long Run",dur:"1h25",paceType:"ef",desc:"Continuous run at strict easy pace. Personal flask mandatory. Test race-day fuelling: gel after 50-60 min."},
-    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"25 min",desc:"Deep restorative. Legs up the wall, twists, long breathing."},
+  {w:8,phase:"DEVELOPMENT",theme:"Peak load — 1h25 long run + tempo",sess:[
+    {d:"Mon",t:"r",title:"Easy Run + Strides",dur:"40 min + strides",paceType:"ef",desc:"Slow jog at easy pace. Warm-up drills. After: 10 progressive strides over 100m. Peak week — most demanding of the whole programme. Listen to your body."},
+    {d:"Tue",t:"p",title:"Pilates Runner",dur:"30 min",desc:"[Full Body] Core anti-rotation + single-leg stability + posterior chain. Controlled tempo."},
+    {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Full rest. Hydration, sleep. If you had 2+ red flags in W7 check-in, repeat W7 instead."},
+    {d:"Thu",t:"r",title:"Half-Pace Tempo",dur:"55 min",paceType:"semi",desc:"Warm-up drills + 3× 10 min at half-marathon pace / 5 min recovery jog between each block + cool-down. The hardest running session of the programme."},
+    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"25 min",desc:"[Full Body · Self-Massage] Focus on accumulated tension: IT band, hip flexors, calves, shoulders. Guided self-massage. No strengthening — long run tomorrow."},
+    {d:"Sat",t:"lr",title:"Long Run",dur:"1h25",paceType:"ef",desc:"Continuous run at strict easy pace. Personal flask mandatory. Test race-day fuelling (gel after 50-60 min). Practise drinking while running. This is the biggest session of the programme."},
+    {d:"Sun",t:"p",title:"Recovery Pilates",dur:"25 min",desc:"[Stretch · Full Body] Deep restorative: legs up the wall, twists, long breathing. Ball is ideal here."},
   ]},
-  {w:9,phase:"TAPER",theme:"Taper — volume drops, sharpen",sess:[
-    {d:"Mon",t:"r",title:"Easy Run + Strides",dur:"40 min + 4×100m",paceType:"ef",desc:"Slow jog at easy pace. After: 4 progressive strides over 100m."},
-    {d:"Tue",t:"p",title:"Pilates Activation",dur:"20 min",desc:"Light activation: core, mobility, favourite exercises. Nothing new."},
+  {w:9,phase:"TAPER",theme:"Volume down, intensity maintained",sess:[
+    {d:"Mon",t:"r",title:"Easy Run + Strides",dur:"40 min + strides",paceType:"ef",desc:"Slow jog at easy pace. Warm-up drills. After: 4 progressive strides over 100m. The hardest part is done — now we sharpen."},
+    {d:"Tue",t:"p",title:"Pilates Activation",dur:"20 min",desc:"[Core] Light activation: core, mobility, your favourite exercises. Nothing new — only familiar moves."},
+    {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Full rest. Your body is recovering from W8 — protect it."},
+    {d:"Thu",t:"r",title:"Short Intervals",dur:"35 min",paceType:"intv",desc:"Warm-up drills + 5× (2 min at half pace / 1 min recovery jog) + cool-down. Keep the rhythm — this is a reminder, not a session."},
+    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"[Full Body] Gentle mobility + light glute activation. No strengthening — long run tomorrow."},
+    {d:"Sat",t:"lr",title:"Reduced Long Run",dur:"50-55 min",paceType:"ef",desc:"Last long run before the race. Test your race outfit and fuelling one final time. Easy pace throughout."},
+    {d:"Sun",t:"p",title:"Full Recovery",dur:"20 min",desc:"[Stretch] Restorative Pilates + rest. The week after W8, your body needs this."},
+  ]},
+  {w:10,phase:"RACE WEEK",theme:"Race week — your half-marathon",sess:[
+    {d:"Mon",t:"r",title:"Activation Run",dur:"25 min",paceType:"ef",desc:"Very light jog at easy pace + 3× 30 sec at half pace + 5 min walk. Warm-up drills. Light touch — preserve energy."},
+    {d:"Tue",t:"p",title:"Light Pilates",dur:"20 min",desc:"[Core] Gentle mobility, light core activation, breathing. Nothing tiring — only what you know."},
     {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Full rest."},
-    {d:"Thu",t:"r",title:"Short Intervals",dur:"35 min",paceType:"semi",desc:"Warm-up drills + 5× (2 min at half pace / 1 min recovery jog) + cool-down."},
-    {d:"Fri",t:"p",title:"Pilates Mobility",dur:"20 min",desc:"Gentle mobility + light glute activation. No strength."},
-    {d:"Sat",t:"lr",title:"Reduced Long Run",dur:"50-55 min",paceType:"ef",desc:"Last long run before the race. Test your outfit and fuelling one final time."},
-    {d:"Sun",t:"p",title:"Full Recovery",dur:"20 min",desc:"Restorative Pilates + rest."},
-  ]},
-  {w:10,phase:"RACE WEEK",theme:"Arrive fresh and confident",sess:[
-    {d:"Mon",t:"r",title:"Activation Run",dur:"25 min",paceType:"ef",desc:"Very light jog + 3× 30 sec at half pace + 5 min walk. Warm-up drills."},
-    {d:"Tue",t:"p",title:"Light Pilates",dur:"20 min",desc:"Gentle mobility, light core activation, breathing. Nothing tiring."},
-    {d:"Wed",t:"x",title:"Rest",dur:"—",desc:"Full rest."},
-    {d:"Thu",t:"p",title:"Pre-Race Routine",dur:"15 min",desc:"Activation routine: dynamic warm-up, glute activation, core, mobility."},
-    {d:"Fri",t:"x",title:"Rest",dur:"—",desc:"Full rest. Race logistics prep. Nothing new, nothing tiring."},
-    {d:"Sat",t:"x",title:"Race Eve",dur:"Optional",desc:"Optional: 20 min easy run + 4-6× 15 sec at half pace. Or rest + 15 min Pilates to decompress."},
-    {d:"Sun",t:"r",title:"HALF-MARATHON",dur:"Race Day",desc:"Warm-up: running drills (10 min) + Pilates activation (5 min). Start slowly. Hold steady. Enjoy every kilometre."},
+    {d:"Thu",t:"p",title:"Pre-Race Routine",dur:"15 min",desc:"[Full Body] Activation routine: dynamic warm-up, glute activation, core, mobility. The one you've practised since W7 — nothing new."},
+    {d:"Fri",t:"x",title:"Rest",dur:"—",desc:"Full rest. Race logistics prep: check your outfit, charge your watch, prepare race bag tonight."},
+    {d:"Sat",t:"r",title:"Race Eve",dur:"Optional",paceType:"ef",desc:"Optional: 20 min easy run + 4-6× 15 sec at half pace (walk recovery between each). Otherwise rest or 15 min walk. 15 min Pilates to decompress if needed."},
+    {d:"Sun",t:"lr",title:"HALF-MARATHON",dur:"~1h45-2h30",paceType:"semi",desc:"Race Day. Warm-up: running drills (10 min) + Pilates activation (5 min). Start slowly — hold back at km 0-5. Settle into half pace at km 5-10. Courage zone at km 15-18. Don't speed up before km 18. Enjoy."},
   ]},
 ];
 
-const T_INFO = {
-  r:{color:"var(--run)",bg:"var(--run-bg)",border:"var(--run-border)",label:"Run"},
-  lr:{color:"var(--gold)",bg:"var(--gold-bg)",border:"var(--gold-border)",label:"Long Run"},
-  p:{color:"var(--pil)",bg:"var(--pil-bg)",border:"var(--pil-border)",label:"Pilates"},
-  x:{color:"var(--rest)",bg:"var(--rest-bg)",border:"var(--rest-border)",label:"Rest"},
-};
-const tInfo = t => T_INFO[t]||T_INFO.x;
-
-const vC = {g:"var(--pil)",o:"var(--gold)",b:"var(--danger)"};
-const vBg = {g:"var(--pil-bg)",o:"var(--gold-bg)",b:"var(--danger-bg)"};
-const vBorder = {g:"var(--pil-border)",o:"var(--gold-border)",b:"rgba(192,80,80,0.3)"};
-
-/* ═══════════ STATE ═══════════ */
-let state = {
-  track: 'baby',
-  userName: '',
-  raceDate: null,
-  startWeek: 1,
-  startDate: new Date().toISOString().split('T')[0],
-  completed: {},
-  paces: null,
-  runFlow: null,
-  ciStep: 0,
-  ciAnswers: {},
-  wuStep: 0,
-  coAnswers: {feeling:null, pain:null, energy:null},
-  viewWeek: 1,
-  weeklyCheckins: {},     // { 'w1': {pain,fatigue,...}, 'w2': ... }
-  sessionFeedbacks: {},   // { 'w1d2': {feeling,pain,energy}, ... }
-};
-
-/* ═══════════ STATE PERSISTENCE (localStorage) ═══════════ */
-const STATE_KEY = 'rp_state_v1';
-const PERSIST_KEYS = ['track','userName','raceDate','startWeek','startDate','completed','paces','viewWeek','weeklyCheckins','sessionFeedbacks'];
-
-function saveState() {
-  try {
-    const toSave = {};
-    PERSIST_KEYS.forEach(k => { toSave[k] = state[k]; });
-    localStorage.setItem(STATE_KEY, JSON.stringify(toSave));
-  } catch(e) {}
-}
-
-function loadState() {
-  try {
-    const raw = localStorage.getItem(STATE_KEY);
-    if (!raw) return;
-    const saved = JSON.parse(raw);
-    PERSIST_KEYS.forEach(k => { if (saved[k] !== undefined) state[k] = saved[k]; });
-  } catch(e) {}
-}
-
-/* ═══════════ COMPUTED ═══════════ */
 function getProg() { return state.track==='approved' ? PROG_APPROVED : PROG_BABY; }
 // getCurrentWeek is defined below with dev-mode mock date support
 function getCurrentWeek() {
@@ -3029,6 +2986,18 @@ function openSFB(weekNum, dayIdx, sess) {
   document.getElementById('sfb-label').textContent = 'Week ' + weekNum + ' · ' + sessIdxToDay(dayIdx);
   document.getElementById('sfb-label').style.color = ti.color;
   document.getElementById('sfb-title').textContent = sess.title;
+
+  // Session detail block
+  const detailEl = document.getElementById('sfb-session-detail');
+  if (sess.desc && sess.desc !== '—') {
+    detailEl.style.display = 'block';
+    document.getElementById('sfb-detail-pill').textContent = ti.label;
+    document.getElementById('sfb-detail-pill').style.color = ti.color;
+    document.getElementById('sfb-detail-dur').textContent = sess.dur !== '—' ? sess.dur : '';
+    document.getElementById('sfb-detail-desc').textContent = sess.desc;
+  } else {
+    detailEl.style.display = 'none';
+  }
 
   // ── Editable window: today or yesterday only ──
   const now = state._mockDate ? new Date(state._mockDate + 'T00:00:00') : new Date();
