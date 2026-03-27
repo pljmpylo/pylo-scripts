@@ -990,20 +990,6 @@ input::placeholder{color:var(--muted)}
       <button class="btn-primary" onclick="saveSettings()">Save changes</button>
     </div>
 
-    <!-- Reset -->
-    <div class="label" style="margin-bottom:12px">Data</div>
-    <div class="cardp" style="margin-bottom:20px">
-      <div style="font-size:13px;color:var(--sub);line-height:1.6;margin-bottom:16px">This will erase everything — your profile, sessions, feedback, check-ins and all saved data. You will be taken back to the start.</div>
-      <button onclick="confirmReset()" style="width:100%;background:transparent;border:1.5px solid rgba(192,80,80,0.3);color:var(--danger);border-radius:0;padding:13px 20px;font-size:13px;font-family:var(--sans);cursor:pointer;transition:all 0.15s" onmouseover="this.style.background='var(--danger-bg)'" onmouseout="this.style.background='transparent'">Reset all</button>
-      <div id="reset-confirm" style="display:none;margin-top:12px;padding:12px 14px;background:var(--danger-bg);border:1px solid rgba(192,80,80,0.2);border-radius:0">
-        <div style="font-size:12.5px;color:var(--danger);margin-bottom:10px;font-weight:500">Are you sure? This cannot be undone.</div>
-        <div style="display:flex;gap:8px">
-          <button onclick="doReset()" style="flex:1;background:var(--danger);color:white;border:none;border-radius:0;padding:10px;font-size:13px;font-family:var(--sans);cursor:pointer">Yes, reset</button>
-          <button onclick="document.getElementById('reset-confirm').style.display='none'" style="flex:1;background:transparent;color:var(--muted);border-radius:0;padding:10px;font-size:13px;font-family:var(--sans);cursor:pointer">Cancel</button>
-        </div>
-      </div>
-    </div>
-
     <!-- Guide -->
     <div class="label" style="margin-bottom:12px">Guide</div>
     <div class="cardp" style="margin-bottom:20px">
@@ -1019,6 +1005,20 @@ input::placeholder{color:var(--muted)}
       <button onclick="openGuide()" style="width:100%;background:var(--text);color:var(--bg);border:none;border-radius:0;padding:13px 20px;font-size:13px;font-family:var(--sans);cursor:pointer;font-weight:500;transition:opacity 0.15s;margin-bottom:8px" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Open guide →</button>
       <button onclick="openInstallGuide()" style="width:100%;background:transparent;border:1.5px solid var(--gold-border);color:var(--gold);border-radius:0;padding:13px 20px;font-size:13px;font-family:var(--sans);cursor:pointer;font-weight:500;transition:all 0.15s;margin-bottom:8px" onmouseover="this.style.background='var(--gold-bg)'" onmouseout="this.style.background='transparent'">📲 Install as app on your phone →</button>
       <button onclick="openCalendarGuide()" style="width:100%;background:transparent;border:1.5px solid var(--pil-border);color:var(--pil);border-radius:0;padding:13px 20px;font-size:13px;font-family:var(--sans);cursor:pointer;font-weight:500;transition:all 0.15s" onmouseover="this.style.background='var(--pil-bg)'" onmouseout="this.style.background='transparent'">📅 Add your programme to your calendar →</button>
+    </div>
+
+    <!-- Reset -->
+    <div class="label" style="margin-bottom:12px">Data</div>
+    <div class="cardp" style="margin-bottom:20px">
+      <div style="font-size:13px;color:var(--sub);line-height:1.6;margin-bottom:16px">This will erase everything — your profile, sessions, feedback, check-ins and all saved data. You will be taken back to the start.</div>
+      <button onclick="confirmReset()" style="width:100%;background:transparent;border:1.5px solid rgba(192,80,80,0.3);color:var(--danger);border-radius:0;padding:13px 20px;font-size:13px;font-family:var(--sans);cursor:pointer;transition:all 0.15s" onmouseover="this.style.background='var(--danger-bg)'" onmouseout="this.style.background='transparent'">Reset all</button>
+      <div id="reset-confirm" style="display:none;margin-top:12px;padding:12px 14px;background:var(--danger-bg);border:1px solid rgba(192,80,80,0.2);border-radius:0">
+        <div style="font-size:12.5px;color:var(--danger);margin-bottom:10px;font-weight:500">Are you sure? This cannot be undone.</div>
+        <div style="display:flex;gap:8px">
+          <button onclick="doReset()" style="flex:1;background:var(--danger);color:white;border:none;border-radius:0;padding:10px;font-size:13px;font-family:var(--sans);cursor:pointer">Yes, reset</button>
+          <button onclick="document.getElementById('reset-confirm').style.display='none'" style="flex:1;background:transparent;color:var(--muted);border-radius:0;padding:10px;font-size:13px;font-family:var(--sans);cursor:pointer">Cancel</button>
+        </div>
+      </div>
     </div>
 
     <!-- DEV MODE — password protected -->
@@ -3871,29 +3871,44 @@ function doReset() {
   try { localStorage.removeItem(STATE_KEY); } catch(e) {}
   try { localStorage.removeItem('rp_onboarded'); } catch(e) {}
 
-  // Close settings panel and overlay immediately on reset
-  document.getElementById('view-settings').style.transform = 'translateX(100%)';
-  document.getElementById('view-settings').style.visibility = 'hidden';
-  document.getElementById('view-settings').style.pointerEvents = 'none';
-  document.getElementById('settings-overlay').style.opacity = '0';
-  document.getElementById('settings-overlay').style.display = 'none';
+  // Close settings panel first, then show onboarding after animation completes
+  const panel   = document.getElementById('view-settings');
+  const overlay = document.getElementById('settings-overlay');
+  panel.style.transform   = 'translateX(100%)';
+  overlay.style.opacity   = '0';
+  overlay.style.pointerEvents = 'none';
   document.getElementById('reset-confirm').style.display = 'none';
 
-  // Switch to home and re-render
-  switchTab('home');
-  renderHome();
+  setTimeout(() => {
+    panel.style.visibility   = 'hidden';
+    panel.style.pointerEvents = 'none';
+    overlay.style.display    = 'none';
 
-  // Reset onboarding to step 0 and show it
-  obCurrentStep = 0;
-  document.querySelectorAll('.ob-step').forEach((s, i) => s.classList.toggle('active', i === 0));
-  obUpdateDots(0, 4);
+    switchTab('home');
+    renderHome();
+    window.scrollTo(0, 0);
 
-  const ov = document.getElementById('onboarding-overlay');
-  ov.classList.remove('visible');
-  ov.style.display = 'flex';
-  ov.style.pointerEvents = 'auto';
-  ov.style.opacity = '0';
-  requestAnimationFrame(() => requestAnimationFrame(() => ov.classList.add('visible')));
+    // Reset onboarding to step 0
+    obCurrentStep = 0;
+    document.querySelectorAll('.ob-step').forEach((s, i) => s.classList.toggle('active', i === 0));
+    obUpdateDots(0, 4);
+
+    // Reset track selection state
+    document.getElementById('track-baby').classList.remove('selected');
+    document.getElementById('track-approved').classList.remove('selected');
+    const s1btn = document.getElementById('ob-s1-btn');
+    if (s1btn) s1btn.disabled = true;
+    const nameInput = document.getElementById('ob-name-input');
+    if (nameInput) nameInput.value = '';
+
+    // Show onboarding overlay
+    const ov = document.getElementById('onboarding-overlay');
+    ov.classList.remove('visible');
+    ov.style.display       = 'flex';
+    ov.style.pointerEvents = 'auto';
+    ov.style.opacity       = '0';
+    requestAnimationFrame(() => requestAnimationFrame(() => ov.classList.add('visible')));
+  }, 380);
 }
 
 /* DEV MODE */
@@ -4239,28 +4254,42 @@ function init() {
 /* ═══════════ SWIPE NAVIGATION ═══════════ */
 (function() {
   const TABS = ['home', 'sortie', 'programme', 'progres'];
-  let touchStartX = 0;
-  let touchStartY = 0;
-  const THRESHOLD = 60; // min px horizontal swipe
-  const RATIO = 1.5;    // must be more horizontal than vertical
+  const MIN_DIST = 70;
+  const MAX_VERT = 40; // max vertical movement allowed
+  let startX = 0, startY = 0;
+  let isSwiping = false;
 
   document.addEventListener('touchstart', e => {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    isSwiping = false;
+  }, {passive: true});
+
+  document.addEventListener('touchmove', e => {
+    const dx = Math.abs(e.touches[0].clientX - startX);
+    const dy = Math.abs(e.touches[0].clientY - startY);
+    // Mark as horizontal swipe early if clearly horizontal
+    if (dx > 15 && dx > dy * 2) isSwiping = true;
+    // Cancel if vertical
+    if (dy > MAX_VERT && dy > dx) isSwiping = false;
   }, {passive: true});
 
   document.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    const dy = e.changedTouches[0].clientY - touchStartY;
-    if (Math.abs(dx) < THRESHOLD) return;
-    if (Math.abs(dx) < Math.abs(dy) * RATIO) return;
-    // Don't swipe if a panel is open
+    if (!isSwiping) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) < MIN_DIST) return;
+    // Don't swipe if a panel or modal is open
     if (document.getElementById('view-settings').style.visibility === 'visible') return;
     if (document.getElementById('view-guide').style.visibility === 'visible') return;
+    if (document.getElementById('view-install').style.visibility === 'visible') return;
+    if (document.getElementById('view-calendar-guide').style.visibility === 'visible') return;
+    if (document.getElementById('sfb-modal').classList.contains('open')) return;
+    if (document.getElementById('wci-modal').classList.contains('open')) return;
     const idx = TABS.indexOf(currentTab);
     if (idx === -1) return;
-    if (dx < 0 && idx < TABS.length - 1) switchTab(TABS[idx + 1]); // swipe left → next
-    if (dx > 0 && idx > 0) switchTab(TABS[idx - 1]);                // swipe right → prev
+    if (dx < 0 && idx < TABS.length - 1) switchTab(TABS[idx + 1]);
+    if (dx > 0 && idx > 0) switchTab(TABS[idx - 1]);
+    isSwiping = false;
   }, {passive: true});
 })();
 
