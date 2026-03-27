@@ -3274,7 +3274,6 @@ function openWCI(weekNum) {
   wciAnswers = {};
   const prog = getProg();
   const w = prog[weekNum-1];
-  const cw = getCurrentWeek();
   // Populate header
   document.getElementById('wci-week-label').textContent = `Week ${weekNum} of 10`;
   document.getElementById('wci-week-theme').textContent = w.theme;
