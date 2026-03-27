@@ -4222,10 +4222,14 @@ function init() {
   state.viewWeek = getCurrentWeek();
   renderHome();
   obUpdateDots(0,4);
-  if(!state.userName) {
-    const ov=document.getElementById('onboarding-overlay');
-    ov.style.display='flex';
-    requestAnimationFrame(()=>requestAnimationFrame(()=>ov.classList.add('visible')));
+  const ov = document.getElementById('onboarding-overlay');
+  if (!state.userName) {
+    ov.style.display = 'flex';
+    requestAnimationFrame(() => requestAnimationFrame(() => ov.classList.add('visible')));
+  } else {
+    // Explicitly hide the overlay so it never intercepts clicks
+    ov.style.display = 'none';
+    ov.style.pointerEvents = 'none';
   }
 }
 init();
