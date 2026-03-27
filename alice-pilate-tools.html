@@ -5,81 +5,87 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Running × Pilates — Le Studio by Alice</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+button{border:none;}
+input,select,textarea{border:none;outline:none;}
+
 :root{
-  --bg:#FAF8F4;--surface:#FFFFFF;--card:#FFFFFF;--card-alt:#F5F2EC;
-  --border:rgba(28,20,10,0.08);--border-h:rgba(28,20,10,0.16);
-  --text:#1C1814;--muted:rgba(28,24,20,0.42);--sub:rgba(28,24,20,0.62);
-  --gold:#B8914A;--gold-bg:rgba(184,145,74,0.09);--gold-border:rgba(184,145,74,0.3);
-  --run:#C47A55;--run-bg:rgba(196,122,85,0.09);--run-border:rgba(196,122,85,0.3);
-  --pil:#5D8A7A;--pil-bg:rgba(93,138,122,0.09);--pil-border:rgba(93,138,122,0.3);
-  --danger:#C05050;--danger-bg:rgba(192,80,80,0.08);
-  --ok-bg:rgba(93,138,122,0.08);--warn-bg:rgba(184,145,74,0.08);
-  --serif:'Cormorant Garamond',Georgia,serif;
-  --sans:'DM Sans',system-ui,sans-serif;
+  --bg:#FFFFFF;--surface:#F8F3ED;--card:#F8F3ED;--card-alt:#EDE8DF;
+  --border:rgba(28,18,8,0.09);--border-h:rgba(28,18,8,0.2);
+  --text:#1A1410;--muted:rgba(26,20,16,0.4);--sub:rgba(26,20,16,0.6);
+  --gold:#194BBE;--gold-bg:rgba(25,75,190,0.07);--gold-border:rgba(25,75,190,0.22);
+  --gold-mid:#3D6DD4;--gold-pale:#D8E2F8;
+  --run:#B86B44;--run-bg:rgba(184,107,68,0.08);--run-border:rgba(184,107,68,0.25);
+  --pil:#4E7A6B;--pil-bg:rgba(78,122,107,0.08);--pil-border:rgba(78,122,107,0.25);
+  --rest:#A0856B;--rest-bg:rgba(160,133,107,0.08);--rest-border:rgba(160,133,107,0.25);
+  --done:#8C9E8A;--done-bg:rgba(140,158,138,0.08);--done-border:rgba(140,158,138,0.25);
+  --danger:#B84444;--danger-bg:rgba(184,68,68,0.07);
+  --ok-bg:rgba(78,122,107,0.07);--warn-bg:rgba(25,75,190,0.06);
+  --serif:'Poppins',system-ui,sans-serif;
+  --sans:'Poppins',system-ui,sans-serif;
 }
-html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.5}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.55}
 body{display:flex;flex-direction:column;align-items:center}
 #app{width:100%;max-width:480px;min-height:100vh;position:relative;background:var(--bg)}
 ::-webkit-scrollbar{display:none}
 
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px}
-.cardp{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 22px}
-.card-alt{background:var(--card-alt);border:1px solid var(--border);border-radius:16px}
+.card{background:var(--card);border-radius:0}
+.cardp{background:var(--card);border-radius:0;padding:20px 22px}
+.card-alt{background:var(--card-alt);border-radius:0}
 
-.label{font-size:10.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);font-weight:500}
-.serif-xl{font-family:var(--serif);font-size:40px;font-weight:300;color:var(--text);line-height:1.0}
-.serif-lg{font-family:var(--serif);font-size:30px;font-weight:400;color:var(--text);line-height:1.1}
-.serif-md{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--text);line-height:1.2}
+.label{font-size:10px;letter-spacing:0.17em;text-transform:uppercase;color:var(--muted);font-weight:500;font-family:var(--sans)}
+.serif-xl{font-family:var(--serif);font-size:38px;font-weight:300;color:var(--text);line-height:0.95;font-feature-settings:"liga" 1,"kern" 1}
+.serif-lg{font-family:var(--serif);font-size:28px;font-weight:300;color:var(--text);line-height:1.05;font-feature-settings:"liga" 1}
+.serif-md{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--text);line-height:1.15;font-feature-settings:"liga" 1}
 .serif-sm{font-family:var(--serif);font-size:18px;font-weight:400;color:var(--text);line-height:1.3}
 
-.btn-primary{background:var(--text);color:var(--bg);border:none;border-radius:12px;padding:15px 28px;font-size:13.5px;font-weight:500;cursor:pointer;width:100%;font-family:var(--sans);letter-spacing:0.03em;transition:opacity 0.15s}
-.btn-primary:disabled{opacity:0.3;cursor:default}
-.btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border-h);border-radius:12px;padding:14px 20px;font-size:13px;cursor:pointer;font-family:var(--sans);width:100%;transition:background 0.15s}
+.btn-primary{background:var(--text);color:var(--bg);border:none;border-radius:0;padding:15px 28px;font-size:12.5px;font-weight:500;cursor:pointer;width:100%;font-family:var(--sans);letter-spacing:0.06em;text-transform:uppercase;transition:opacity 0.2s}
+.btn-primary:disabled{opacity:0.25;cursor:default}
+.btn-outline{background:transparent;color:var(--text);border-radius:0;padding:14px 20px;font-size:12px;letter-spacing:0.04em;cursor:pointer;font-family:var(--sans);width:100%;transition:background 0.15s}
 .btn-outline:hover{background:var(--card-alt)}
-.btn-sm{background:transparent;color:var(--muted);border:1px solid var(--border);border-radius:8px;padding:7px 13px;font-size:12px;cursor:pointer;font-family:var(--sans);transition:all 0.15s}
+.btn-sm{background:transparent;color:var(--muted);border-radius:0;padding:6px 12px;font-size:11.5px;letter-spacing:0.04em;cursor:pointer;font-family:var(--sans);transition:all 0.15s}
 .btn-sm:hover{border-color:var(--border-h);color:var(--sub)}
-.btn-gold{background:var(--gold);color:#FFFFFF;border:none;border-radius:12px;padding:15px 28px;font-size:13.5px;font-weight:500;cursor:pointer;width:100%;font-family:var(--sans);letter-spacing:0.03em}
+.btn-gold{background:var(--gold);color:#FFFFFF;border:none;border-radius:0;padding:15px 28px;font-size:12.5px;font-weight:500;cursor:pointer;width:100%;font-family:var(--sans);letter-spacing:0.06em;text-transform:uppercase}
 
-.pbar-track{height:2px;background:rgba(28,20,10,0.08);border-radius:2px;overflow:hidden}
-.pbar-fill{height:100%;border-radius:2px;transition:width 0.5s ease}
+.pbar-track{height:1.5px;background:rgba(28,18,8,0.08);border-radius:0;overflow:hidden}
+.pbar-fill{height:100%;border-radius:0;transition:width 0.5s ease}
 
-.view{display:none;padding:72px 18px 40px}
+.view{display:none;padding:72px 20px 44px}
 .view.active{display:block}
 
-#nav{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;z-index:20;padding:0 6px;height:52px}
+#nav{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:rgba(255,255,255,0.95);border-bottom:1px solid var(--border);display:flex;align-items:center;z-index:20;padding:0 6px;height:52px;backdrop-filter:blur(12px)}
 .nav-btn{flex:1;background:none;border:none;cursor:pointer;padding:0 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-family:var(--sans);height:52px;position:relative}
 .nav-dot{display:none}
-.nav-label{font-size:11.5px;color:var(--muted);letter-spacing:0.03em;transition:color 0.2s;font-weight:400}
+.nav-label{font-size:10.5px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;font-weight:400}
 .nav-btn.active .nav-label{color:var(--text);font-weight:500}
-.nav-btn.active::after{content:'';position:absolute;bottom:0;left:20%;right:20%;height:2px;background:var(--gold);border-radius:2px 2px 0 0}
+.nav-btn.active::after{content:'';position:absolute;bottom:0;left:25%;right:25%;height:1.5px;background:var(--gold);border-radius:0}
 .nav-settings{background:none;border:none;cursor:pointer;padding:0 10px;display:flex;align-items:center;justify-content:center;height:52px;flex-shrink:0;color:var(--muted);transition:color 0.15s}
 .nav-settings:hover{color:var(--text)}
 
-.modal-overlay{position:fixed;inset:0;background:rgba(28,20,10,0.5);display:none;align-items:flex-end;z-index:40;backdrop-filter:blur(4px)}
+.modal-overlay{position:fixed;inset:0;background:rgba(20,14,8,0.55);display:none;align-items:flex-end;z-index:40;backdrop-filter:blur(6px)}
 .modal-overlay.open{display:flex}
-.modal-box{width:100%;max-width:480px;margin:0 auto;background:var(--surface);border-radius:24px 24px 0 0;padding:28px 22px 48px;border-top:1px solid var(--border);max-height:90vh;overflow-y:auto}
+.modal-box{width:100%;max-width:480px;margin:0 auto;background:var(--surface);border-radius:0 18px 0 0;padding:28px 22px 48px;border-top:1px solid var(--border);max-height:90vh;overflow-y:auto}
 .modal-full{position:fixed;inset:0;background:var(--bg);z-index:40;overflow-y:auto;display:none}
 .modal-full.open{display:block}
 
 .week-pills{display:flex;gap:4px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.week-pill{flex-shrink:0;padding:5px 10px;border-radius:16px;font-size:11px;font-weight:500;font-family:var(--sans);cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--muted);transition:all 0.15s;white-space:nowrap}
-.week-pill.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+.week-pill{flex-shrink:0;padding:5px 10px;border-radius:0;font-size:10.5px;font-weight:500;letter-spacing:0.06em;font-family:var(--sans);cursor:pointer;background:transparent;color:var(--muted);transition:all 0.15s;white-space:nowrap}
+.week-pill.active{background:var(--gold);color:#FFFFFF;border-color:var(--gold)}
 
-.session-row{display:flex;align-items:center;gap:14px;padding:16px 18px;cursor:pointer;transition:opacity 0.2s}
-.session-row.done-rest{opacity:0.4}
-.check-circle{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(28,20,10,0.18);background:transparent;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.session-row{display:flex;align-items:center;gap:14px;padding:15px 18px;cursor:pointer;transition:opacity 0.2s}
+.session-row.done-rest{opacity:0.38}
+.check-circle{width:20px;height:20px;border-radius:50%;border:1px solid rgba(28,18,8,0.2);background:transparent;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
 .check-circle svg{display:none}
 .check-circle.checked svg{display:block}
-.type-pill{font-size:10px;padding:2px 8px;border-radius:6px;flex-shrink:0;letter-spacing:0.04em;font-weight:500}
+.type-pill{font-size:9.5px;padding:2px 8px;border-radius:0;flex-shrink:0;letter-spacing:0.07em;font-weight:600;text-transform:uppercase}
 
 .stat-pill{text-align:center;padding:16px 10px}
 .stat-val{font-family:var(--serif);font-size:28px;font-weight:300;line-height:1}
-.stat-sub{font-size:10.5px;color:var(--muted);margin-top:5px;letter-spacing:0.06em}
+.stat-sub{font-size:10px;color:var(--muted);margin-top:5px;letter-spacing:0.1em;text-transform:uppercase}
 
-.ci-opt{padding:18px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);border-radius:14px;background:var(--card);font-family:var(--sans);font-size:15px;color:var(--text);transition:all 0.15s;width:100%}
+.ci-opt{padding:18px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;border-radius:0;background:var(--card);font-family:var(--sans);font-size:15px;color:var(--text);transition:all 0.15s;width:100%}
 .ci-opt.sel-g{border-color:var(--pil-border);background:var(--pil-bg);color:var(--pil)}
 .ci-opt.sel-o{border-color:var(--gold-border);background:var(--gold-bg);color:var(--gold)}
 .ci-opt.sel-b{border-color:rgba(192,80,80,0.3);background:var(--danger-bg);color:var(--danger)}
@@ -88,13 +94,13 @@ body{display:flex;flex-direction:column;align-items:center}
 .ci-opt.sel-o .ci-dot{display:block;background:var(--gold)}
 .ci-opt.sel-b .ci-dot{display:block;background:var(--danger)}
 
-.feel-btn{flex:1;padding:12px 4px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:11px;cursor:pointer;font-family:var(--sans);text-align:center;transition:all 0.15s}
-.feel-btn.selected{border-color:var(--gold-border);background:var(--gold-bg);color:var(--gold)}
+.feel-btn{flex:1;padding:12px 4px;border-radius:0;background:var(--card-alt);color:var(--muted);font-size:11px;cursor:pointer;font-family:var(--sans);text-align:center;border:none;transition:all 0.15s}
+.feel-btn.selected{background:var(--gold);color:#fff}
 
-.tri-btn{flex:1;padding:13px 8px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:13px;cursor:pointer;font-family:var(--sans);transition:all 0.15s}
-.tri-btn.sel-g{border-color:var(--pil-border);background:var(--pil-bg);color:var(--pil)}
-.tri-btn.sel-o{border-color:var(--gold-border);background:var(--gold-bg);color:var(--gold)}
-.tri-btn.sel-b{border-color:rgba(192,80,80,0.3);background:var(--danger-bg);color:var(--danger)}
+.tri-btn{flex:1;padding:13px 8px;border-radius:0;background:var(--card-alt);color:var(--muted);font-size:12px;font-weight:500;letter-spacing:0.03em;cursor:pointer;font-family:var(--sans);border:none;transition:all 0.15s}
+.tri-btn.sel-g{background:var(--pil);color:#fff}
+.tri-btn.sel-o{background:var(--gold);color:#fff}
+.tri-btn.sel-b{background:var(--danger);color:#fff}
 
 .wu-card{padding:32px 24px;text-align:center}
 .wu-name{font-family:var(--serif);font-size:30px;font-weight:400;color:var(--text);margin-bottom:8px}
@@ -115,9 +121,9 @@ body{display:flex;flex-direction:column;align-items:center}
 .prog-week{padding:14px 18px;transition:opacity 0.2s}
 .prog-week.future{opacity:0.35}
 
-.pace-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:8px;font-size:12px;font-weight:500}
+.pace-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:0;font-size:12px;font-weight:500}
 
-input[type=date],input[type=text],input[type=number]{width:100%;background:var(--card-alt);border:1px solid var(--border);border-radius:12px;padding:14px 16px;color:var(--text);font-size:15px;font-family:var(--sans);outline:none;transition:border-color 0.2s;appearance:none}
+input[type=date],input[type=text],input[type=number],input[type=password]{width:100%;background:var(--card-alt);border:none;border-radius:0;padding:14px 16px;color:var(--text);font-size:15px;font-family:var(--sans);outline:none;appearance:none}
 input:focus{border-color:var(--border-h)}
 input[type=date]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:0.4}
 input::placeholder{color:var(--muted)}
@@ -125,29 +131,29 @@ input::placeholder{color:var(--muted)}
 /* ONBOARDING */
 #onboarding-overlay{position:fixed;inset:0;background:rgba(28,20,10,0.6);display:flex;align-items:flex-end;justify-content:center;z-index:100;opacity:0;pointer-events:none;transition:opacity 0.35s ease;backdrop-filter:blur(6px)}
 #onboarding-overlay.visible{opacity:1;pointer-events:all}
-#onboarding-box{width:100%;max-width:480px;background:var(--surface);border-radius:28px 28px 0 0;padding:36px 24px 52px;transform:translateY(40px);transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);max-height:92vh;overflow-y:auto}
+#onboarding-box{width:100%;max-width:480px;background:var(--surface);border-radius:0;padding:36px 24px 52px;transform:translateY(40px);transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);max-height:92vh;overflow-y:auto}
 #onboarding-overlay.visible #onboarding-box{transform:translateY(0)}
 .ob-step{display:none}
 .ob-step.active{display:block;animation:fadeIn 0.25s ease}
 .ob-dots{display:flex;gap:7px;justify-content:center;margin-bottom:30px}
 .ob-dot{width:6px;height:6px;border-radius:50%;background:rgba(28,20,10,0.1);transition:all 0.3s}
 .ob-dot.on{background:var(--gold);width:16px;border-radius:3px}
-
-.track-btn{width:100%;padding:18px 20px;border-radius:14px;border:1.5px solid var(--border);background:var(--card);cursor:pointer;text-align:left;font-family:var(--sans);transition:all 0.15s;display:block;margin-bottom:10px}
-.track-btn:hover{border-color:var(--border-h)}
-.track-btn.selected{border-color:var(--gold);background:var(--gold-bg)}
+.track-btn{padding:18px 20px;border:none;border-radius:0;background:var(--card-alt);cursor:pointer;text-align:left;font-family:var(--sans);transition:all 0.15s;display:block;margin-bottom:10px;width:100%}
+.track-btn:hover{background:#EDE8DF}
+.track-btn.selected{background:var(--gold)}
 .track-title{font-size:15px;color:var(--text);font-weight:500;margin-bottom:3px}
 .track-sub{font-size:12px;color:var(--muted);line-height:1.5}
-.track-btn.selected .track-title{color:var(--gold)}
+.track-btn.selected .track-title{color:#fff}
+.track-btn.selected .track-sub{color:rgba(255,255,255,0.75)}
 
-.race-feedback{border-radius:12px;padding:16px 18px;margin-top:16px;display:none}
+.race-feedback{border-radius:0;padding:16px 18px;margin-top:16px;display:none}
 .race-feedback.visible{display:block}
 .race-feedback.warn{background:var(--warn-bg);border:1px solid var(--gold-border)}
 .race-feedback.info{background:var(--pil-bg);border:1px solid var(--pil-border)}
 .race-feedback.ok{background:var(--ok-bg);border:1px solid var(--pil-border)}
 
 .pace-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
-.pace-card{background:var(--card-alt);border:1px solid var(--border);border-radius:12px;padding:12px 14px;text-align:center}
+.pace-card{background:var(--card-alt);border-radius:0;padding:12px 14px;text-align:center}
 .pace-val{font-family:var(--serif);font-size:20px;font-weight:300;color:var(--text)}
 .pace-lbl{font-size:10px;color:var(--muted);margin-top:3px;letter-spacing:0.07em;text-transform:uppercase}
 
@@ -156,8 +162,6 @@ input::placeholder{color:var(--muted)}
 
 .divider{height:1px;background:var(--border);margin:20px 0}
 
-/* Alice quote */
-.alice-quote{font-family:var(--serif);font-size:19px;font-weight:400;color:var(--text);line-height:1.65;margin-bottom:14px;font-style:italic}
 </style>
 </head>
 <body>
@@ -199,29 +203,60 @@ input::placeholder{color:var(--muted)}
   <div style="margin-bottom:16px">
     <div class="label" style="margin-bottom:10px">Today</div>
     <div class="cardp" id="h-today-card">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start">
-        <div>
-          <div class="serif-md" id="h-today-title">Rest day</div>
-          <div style="font-size:13px;color:var(--muted);margin-top:4px" id="h-today-desc">Take it easy today.</div>
+      <!-- Normal state -->
+      <div id="h-today-normal">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div>
+            <div class="serif-md" id="h-today-title">Rest day</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:4px" id="h-today-desc">Take it easy today.</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0;margin-left:12px">
+            <div class="type-pill" id="h-today-pill"></div>
+            <div style="font-size:11px;color:var(--muted);margin-top:6px" id="h-today-dur"></div>
+          </div>
         </div>
-        <div style="text-align:right;flex-shrink:0;margin-left:12px">
-          <div class="type-pill" id="h-today-pill"></div>
-          <div style="font-size:11px;color:var(--muted);margin-top:6px" id="h-today-dur"></div>
+        <button class="btn-gold" id="h-start-btn" style="margin-top:16px;display:none" onclick="startRun()">Start session →</button>
+      </div>
+      <!-- Done — no feedback -->
+      <div id="h-today-done-nofb" style="display:none">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+          <div style="width:28px;height:28px;border-radius:50%;background:var(--pil);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="13" height="10" viewBox="0 0 13 10" fill="none"><path d="M1 5l4 4 7-8" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div style="font-size:14px;font-weight:500;color:var(--text)" id="h-done-title">Session completed</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:1px">How did it go?</div>
+          </div>
+        </div>
+        <button class="btn-primary" onclick="switchTab('sortie');renderSortie();" style="font-size:12px;letter-spacing:0.06em">Leave your feedback →</button>
+      </div>
+      <!-- Done — feedback left, show tomorrow -->
+      <div id="h-today-done-fb" style="display:none">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+          <div style="width:28px;height:28px;border-radius:50%;background:var(--pil);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="13" height="10" viewBox="0 0 13 10" fill="none"><path d="M1 5l4 4 7-8" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-size:14px;font-weight:500;color:var(--text)" id="h-done-fb-title">Session done ✓</div>
+        </div>
+        <div style="background:var(--card-alt);padding:14px 16px">
+          <div class="label" style="margin-bottom:6px;color:var(--muted)">Tomorrow</div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div>
+              <div style="font-size:14px;font-weight:500;color:var(--text)" id="h-tmrw-title">—</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px" id="h-tmrw-desc"></div>
+            </div>
+            <div id="h-tmrw-pill" style="flex-shrink:0;margin-left:10px"></div>
+          </div>
         </div>
       </div>
-      <button class="btn-gold" id="h-start-btn" style="margin-top:16px;display:none" onclick="startRun()">Start session →</button>
     </div>
   </div>
 
-  <!-- Race countdown -->
-  <div style="margin-bottom:16px">
+  <!-- Race countdown — only shown when race date is set -->
+  <div id="h-race-section" style="margin-bottom:16px;display:none">
     <div class="label" style="margin-bottom:10px">Race day</div>
     <div class="cardp">
-      <div id="h-race-set" style="display:flex;justify-content:space-between;align-items:center">
-        <span style="font-size:13px;color:var(--muted)">No race date set</span>
-        <button class="btn-sm" onclick="openSetup()">Set date →</button>
-      </div>
-      <div id="h-race-countdown" style="display:none">
+      <div id="h-race-countdown">
         <div style="display:flex;align-items:baseline;gap:12px;justify-content:space-between">
           <div>
             <span style="font-family:var(--serif);font-size:48px;font-weight:300;color:var(--gold);line-height:1" id="h-jx">J–0</span>
@@ -236,16 +271,6 @@ input::placeholder{color:var(--muted)}
       </div>
     </div>
   </div>
-
-  <!-- Alice message -->
-  <div class="label" style="margin-bottom:10px">Alice — Week <span id="h-alice-week">1</span></div>
-  <div class="cardp border-pil">
-    <p class="alice-quote" id="h-alice-msg"></p>
-    <div style="display:flex;gap:8px;align-items:flex-start">
-      <span style="color:var(--gold);font-size:13px;flex-shrink:0;margin-top:1px">→</span>
-      <span style="font-size:13px;color:var(--sub);line-height:1.55" id="h-alice-tip"></span>
-    </div>
-  </div>
 </div>
 
 <!-- ═══════════ PROGRAMME ═══════════ -->
@@ -256,14 +281,14 @@ input::placeholder{color:var(--muted)}
 
   <div class="week-pills" id="week-pills" style="margin-bottom:20px"></div>
 
-  <div class="cardp" style="margin-bottom:16px">
+  <div style="background:#EDE8DF;padding:20px 22px;margin-bottom:16px">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">
       <div>
         <div style="font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px" id="pw-phase"></div>
         <div class="serif-md" id="pw-theme"></div>
         <div style="font-size:12px;color:var(--muted);margin-top:4px" id="pw-sub"></div>
       </div>
-      <span id="pw-badge" style="display:none;font-size:10.5px;padding:4px 10px;border-radius:6px;background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border);flex-shrink:0">current</span>
+      <span id="pw-badge" style="display:none;font-size:10.5px;padding:4px 10px;border-radius:0;background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border);flex-shrink:0">current</span>
     </div>
     <div class="pbar-track"><div class="pbar-fill" id="pw-bar" style="background:var(--pil);width:0%"></div></div>
   </div>
@@ -272,8 +297,8 @@ input::placeholder{color:var(--muted)}
 
   <!-- Download CTA -->
   <div style="margin-top:24px">
-    <button onclick="openDownload()" style="width:100%;background:var(--text);border:none;border-radius:16px;padding:20px 22px;cursor:pointer;text-align:left;font-family:var(--sans);display:flex;align-items:center;gap:16px;transition:opacity 0.15s" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
-      <div style="width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,0.1);flex-shrink:0;display:flex;align-items:center;justify-content:center">
+    <button onclick="openDownload()" style="width:100%;background:var(--text);border:none;border-radius:0;padding:20px 22px;cursor:pointer;text-align:left;font-family:var(--sans);display:flex;align-items:center;gap:16px;transition:opacity 0.15s" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+      <div style="width:40px;height:40px;border-radius:0;background:rgba(255,255,255,0.1);flex-shrink:0;display:flex;align-items:center;justify-content:center">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1v10M5 7l4 4 4-4M2 14h14" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       <div style="flex:1">
@@ -289,7 +314,7 @@ input::placeholder{color:var(--muted)}
 <div id="view-download" style="display:none;padding:72px 18px 40px">
   <button class="btn-sm" onclick="closeDownload()" style="margin-bottom:24px">← Programme</button>
   <div class="label" style="margin-bottom:8px;color:var(--gold)">Export</div>
-  <div class="serif-lg" style="margin-bottom:8px;line-height:1.1">Download your<br>programme</div>
+  <div class="serif-lg" style="margin-bottom:8px;line-height:1.1">Download your programme</div>
   <div style="font-size:13px;color:var(--muted);margin-bottom:28px" id="dl-subtitle"></div>
 
   <!-- Calendar export -->
@@ -297,7 +322,7 @@ input::placeholder{color:var(--muted)}
     <div class="label" style="margin-bottom:12px">Add to calendar</div>
     <div class="cardp" style="margin-bottom:10px">
       <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:18px">
-        <div style="width:36px;height:36px;border-radius:9px;background:var(--pil-bg);border:1px solid var(--pil-border);flex-shrink:0;display:flex;align-items:center;justify-content:center">
+        <div style="width:36px;height:36px;border-radius:0;background:var(--pil-bg);border:1px solid var(--pil-border);flex-shrink:0;display:flex;align-items:center;justify-content:center">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="13" rx="2" stroke="var(--pil)" stroke-width="1.4"/><path d="M1 6h14M5 1v2M11 1v2" stroke="var(--pil)" stroke-width="1.4" stroke-linecap="round"/></svg>
         </div>
         <div>
@@ -313,38 +338,39 @@ input::placeholder{color:var(--muted)}
         </div>
         <div>
           <div style="font-size:12px;color:var(--sub);margin-bottom:6px">Default session time</div>
-          <input type="time" id="dl-session-time" value="07:00" onchange="previewCalendar()" style="font-size:13px;padding:12px 14px;width:100%;background:var(--card-alt);border:1px solid var(--border);border-radius:12px;color:var(--text);font-family:var(--sans);outline:none">
+          <input type="time" id="dl-session-time" value="07:00" onchange="previewCalendar()" style="font-size:13px;padding:12px 14px;width:100%;background:var(--card-alt);border-radius:0;color:var(--text);font-family:var(--sans);outline:none">
         </div>
       </div>
       <!-- Preview -->
-      <div id="dl-calendar-preview" style="display:none;background:var(--card-alt);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:14px">
+      <div id="dl-calendar-preview" style="display:none;background:var(--card-alt);border-radius:0;padding:12px 14px;margin-bottom:14px">
         <div style="font-size:11px;color:var(--muted);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:8px">Preview — first 3 events</div>
         <div id="dl-preview-list" style="font-size:12px;color:var(--sub);line-height:1.9"></div>
       </div>
       <button class="btn-primary" id="dl-ics-btn" onclick="downloadICS()" disabled>Export .ics file</button>
       <div id="dl-ics-success" style="display:none;margin-top:10px;font-size:12.5px;color:var(--pil);text-align:center">✓ Calendar downloaded — check your Downloads folder</div>
+      <button onclick="openCalendarGuide()" style="width:100%;background:transparent;border:none;color:var(--muted);font-size:12px;font-family:var(--sans);cursor:pointer;padding:10px 0;text-decoration:underline;text-underline-offset:2px;margin-top:4px">How to import into my calendar →</button>
     </div>
   </div>
 
   <!-- Full schedule HTML -->
   <div style="margin-bottom:16px">
-    <div class="label" style="margin-bottom:12px">Full schedule</div>
+    <div class="label" style="margin-bottom:12px">Download to PDF</div>
     <div class="cardp" style="margin-bottom:10px">
       <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:16px">
-        <div style="width:36px;height:36px;border-radius:9px;background:var(--run-bg);border:1px solid var(--run-border);flex-shrink:0;display:flex;align-items:center;justify-content:center">
+        <div style="width:36px;height:36px;border-radius:0;background:var(--run-bg);border:1px solid var(--run-border);flex-shrink:0;display:flex;align-items:center;justify-content:center">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="1" width="12" height="14" rx="2" stroke="var(--run)" stroke-width="1.4"/><path d="M5 5h6M5 8h6M5 11h4" stroke="var(--run)" stroke-width="1.4" stroke-linecap="round"/></svg>
         </div>
         <div>
-          <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px">10-Week Schedule (HTML)</div>
-          <p style="font-size:12.5px;color:var(--muted);line-height:1.55;margin:0">All weeks, sessions, phases and descriptions in a printable HTML file. Open in your browser → Print → Save as PDF.</p>
+          <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px">Download to PDF</div>
+          <p style="font-size:12.5px;color:var(--muted);line-height:1.55;margin:0">Opens your 10-week schedule in a new tab and triggers the print dialog. Select <strong style="color:var(--sub)">Save as PDF</strong> as the destination to download it.</p>
         </div>
       </div>
-      <button class="btn-primary" onclick="downloadSchedule()">Download schedule (.html)</button>
+      <button class="btn-primary" onclick="downloadSchedule()">Open & save as PDF →</button>
     </div>
   </div>
 
   <!-- Tips -->
-  <div style="padding:16px 18px;background:var(--card-alt);border-radius:12px;margin-top:8px">
+  <div style="padding:16px 18px;background:var(--card-alt);border-radius:0;margin-top:8px">
     <div class="label" style="margin-bottom:8px">How to import the .ics file</div>
     <div style="display:flex;flex-direction:column;gap:8px">
       <div style="display:flex;gap:10px;align-items:flex-start"><div style="width:4px;height:4px;border-radius:50%;background:var(--gold);margin-top:7px;flex-shrink:0"></div><span style="font-size:12px;color:var(--muted);line-height:1.5"><strong style="color:var(--sub)">Apple Calendar:</strong> Double-click the file — it imports automatically.</span></div>
@@ -380,30 +406,30 @@ input::placeholder{color:var(--muted)}
 
     <!-- ── RUN MODE ── -->
     <div id="sl-mode-run" style="display:none;flex-direction:column;gap:10px;margin-bottom:24px">
-      <button onclick="startFlow('checkin')" style="background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:18px 20px;cursor:pointer;text-align:left;font-family:var(--sans);transition:border-color 0.15s;width:100%"
-        onmouseover="this.style.borderColor='var(--border-h)'" onmouseout="this.style.borderColor='var(--border)'">
+      <button onclick="startFlow('checkin')" style="background:var(--gold);border:none;border-radius:0;padding:18px 20px;cursor:pointer;text-align:left;font-family:var(--sans);transition:opacity 0.15s;width:100%"
+        onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
         <div style="display:flex;justify-content:space-between;align-items:center">
           <div>
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-              <div style="width:7px;height:7px;border-radius:50%;background:var(--pil)"></div>
-              <span style="font-size:14px;font-weight:500;color:var(--text)">Body Check &amp; Warm Up</span>
+              <div style="width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.6)"></div>
+              <span style="font-size:14px;font-weight:500;color:#fff">Body Check &amp; Warm Up</span>
             </div>
-            <div style="font-size:12px;color:var(--muted);line-height:1.45;padding-left:15px">Body check-in · 6 warm-up exercises · then run</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.7);line-height:1.45;padding-left:15px">Body check-in · 6 warm-up exercises · then run</div>
           </div>
-          <span style="color:var(--muted);font-size:16px;flex-shrink:0;margin-left:12px">→</span>
+          <span style="color:rgba(255,255,255,0.7);font-size:16px;flex-shrink:0;margin-left:12px">→</span>
         </div>
       </button>
-      <button onclick="openQuickStart()" style="background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:18px 20px;cursor:pointer;text-align:left;font-family:var(--sans);transition:all 0.15s;width:100%"
-        onmouseover="this.style.borderColor='var(--border-h)'" onmouseout="this.style.borderColor='var(--border)'">
+      <button onclick="openQuickStart()" style="background:var(--gold-mid);border:none;border-radius:0;padding:18px 20px;cursor:pointer;text-align:left;font-family:var(--sans);transition:opacity 0.15s;width:100%"
+        onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
         <div style="display:flex;justify-content:space-between;align-items:center">
           <div>
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-              <div style="width:7px;height:7px;border-radius:50%;background:var(--run)"></div>
-              <span style="font-size:14px;font-weight:500;color:var(--text)">Quick Start</span>
+              <div style="width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.6)"></div>
+              <span style="font-size:14px;font-weight:500;color:#fff">Quick Start</span>
             </div>
-            <div style="font-size:12px;color:var(--muted);line-height:1.45;padding-left:15px">Session objective + guided timer</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.7);line-height:1.45;padding-left:15px">Session objective + guided timer</div>
           </div>
-          <span style="color:var(--muted);font-size:16px;flex-shrink:0;margin-left:12px">→</span>
+          <span style="color:rgba(255,255,255,0.7);font-size:16px;flex-shrink:0;margin-left:12px">→</span>
         </div>
       </button>
       <button class="btn-outline" id="sl-just-warmup-btn" onclick="startFlow('warmup')" style="font-size:12.5px;padding:12px 16px;color:var(--muted);display:none">Just the warm-up</button>
@@ -411,13 +437,13 @@ input::placeholder{color:var(--muted)}
 
     <!-- ── REST / STRETCH MODE ── -->
     <div id="sl-mode-rest" style="display:none;flex-direction:column;gap:10px;margin-bottom:24px">
-      <button onclick="startFlow('checkin-rest')" style="background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:18px 20px;cursor:pointer;text-align:left;font-family:var(--sans);transition:border-color 0.15s;width:100%"
-        onmouseover="this.style.borderColor='var(--border-h)'" onmouseout="this.style.borderColor='var(--border)'">
+      <button onclick="startFlow('checkin-rest')" style="background:var(--card-alt);border:none;border-radius:0;padding:18px 20px;cursor:pointer;text-align:left;font-family:var(--sans);transition:background 0.15s;width:100%"
+        onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
         <div style="display:flex;justify-content:space-between;align-items:center">
           <div>
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-              <div style="width:7px;height:7px;border-radius:50%;background:var(--pil)"></div>
-              <span style="font-size:14px;font-weight:500;color:var(--text)">Body Check &amp; Warm Up</span>
+              <div style="width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.6)"></div>
+              <span style="font-size:14px;font-weight:500;color:#fff">Body Check &amp; Warm Up</span>
             </div>
             <div style="font-size:12px;color:var(--muted);line-height:1.45;padding-left:15px">Quick check-in · gentle movement · light stretch</div>
           </div>
@@ -428,8 +454,8 @@ input::placeholder{color:var(--muted)}
 
     <!-- ── PILATES MODE ── -->
     <div id="sl-mode-pilates" style="display:none;flex-direction:column;gap:10px;margin-bottom:24px">
-      <button onclick="startFlow('checkin-only')" style="background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:18px 20px;cursor:pointer;text-align:left;font-family:var(--sans);transition:border-color 0.15s;width:100%"
-        onmouseover="this.style.borderColor='var(--border-h)'" onmouseout="this.style.borderColor='var(--border)'">
+      <button onclick="startFlow('checkin-only')" style="background:var(--card-alt);border:none;border-radius:0;padding:18px 20px;cursor:pointer;text-align:left;font-family:var(--sans);transition:background 0.15s;width:100%"
+        onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
         <div style="display:flex;justify-content:space-between;align-items:center">
           <div>
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
@@ -442,13 +468,13 @@ input::placeholder{color:var(--muted)}
         </div>
       </button>
       <!-- Pilates video placeholder -->
-      <div style="background:var(--card);border:1.5px solid var(--pil-border);border-radius:16px;padding:18px 20px">
+      <div style="background:var(--card);border:1.5px solid var(--pil-border);border-radius:0;padding:18px 20px">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
           <div style="width:7px;height:7px;border-radius:50%;background:var(--pil)"></div>
           <span style="font-size:14px;font-weight:500;color:var(--text)">Go directly to class</span>
         </div>
         <div id="sl-video-link-area">
-          <div style="background:var(--pil-bg);border:1px dashed var(--pil-border);border-radius:10px;padding:16px;text-align:center">
+          <div style="background:var(--pil-bg);border:1px dashed var(--pil-border);border-radius:0;padding:16px;text-align:center">
             <div style="font-size:13px;color:var(--pil);font-weight:500;margin-bottom:4px">Class video</div>
             <div style="font-size:12px;color:var(--muted);line-height:1.5">Link to Le Studio class will appear here once the weekly session is assigned.</div>
           </div>
@@ -584,8 +610,9 @@ input::placeholder{color:var(--muted)}
     <!-- Controls -->
     <div style="display:flex;gap:10px">
       <button id="wu-main-btn" onclick="wuMain()" class="btn-primary" style="flex:1"></button>
-      <button onclick="wuSkip()" style="flex:0 0 auto;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:12px;padding:15px 18px;font-size:12px;cursor:pointer;font-family:var(--sans)" onmouseover="this.style.borderColor='var(--border-h)'" onmouseout="this.style.borderColor='var(--border)'">Skip →</button>
+      <button onclick="wuSkip()" style="flex:0 0 auto;background:transparent;color:var(--muted);border-radius:0;padding:15px 18px;font-size:12px;cursor:pointer;font-family:var(--sans)" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">Skip →</button>
     </div>
+    <button onclick="stopWarmupTimer();showRunning()" style="width:100%;margin-top:10px;background:transparent;border:1px solid rgba(28,20,10,0.1);color:var(--muted);border-radius:0;padding:12px;font-size:12px;font-family:var(--sans);cursor:pointer" onmouseover="this.style.borderColor='var(--border-h)'" onmouseout="this.style.borderColor='rgba(28,20,10,0.1)'">Start the run →</button>
   </div>
 
   <!-- RUNNING -->
@@ -595,7 +622,7 @@ input::placeholder{color:var(--muted)}
     <div class="card" style="padding:28px 24px;margin-bottom:20px;text-align:center">
       <div style="font-family:var(--serif);font-size:17px;color:var(--sub);margin-bottom:20px;font-style:italic">Good session ahead.</div>
       <div style="font-size:14px;color:var(--muted)" id="run-dur"></div>
-      <div style="margin-top:20px;padding:16px;background:var(--card-alt);border-radius:12px">
+      <div style="margin-top:20px;padding:16px;background:var(--card-alt);border-radius:0">
         <p style="font-size:13px;color:var(--sub);line-height:1.65;margin:0;font-style:italic" id="run-desc"></p>
       </div>
     </div>
@@ -612,7 +639,40 @@ input::placeholder{color:var(--muted)}
         <div style="display:flex;gap:10px;align-items:flex-start"><div style="width:4px;height:4px;border-radius:50%;background:var(--run);margin-top:7px;flex-shrink:0"></div><span style="font-size:12px;color:var(--sub);line-height:1.55">Midfoot strike, landing under your centre of gravity</span></div>
       </div>
     </div>
-    <button class="btn-primary" onclick="goCheckout()">End session →</button>
+    <button class="btn-primary" onclick="goCooldown()">End session →</button>
+    <button onclick="goCheckout()" style="width:100%;background:transparent;border:none;color:var(--muted);font-size:12px;font-family:var(--sans);cursor:pointer;padding:10px 0;text-decoration:underline;text-underline-offset:2px;margin-top:4px">Skip stretching</button>
+  </div>
+
+  <!-- COOLDOWN / STRETCHING -->
+  <div id="s-cooldown" style="display:none">
+    <button class="btn-sm" onclick="showRunning()" style="margin-bottom:24px">← Back to session</button>
+    <div class="label" style="margin-bottom:4px;color:var(--pil)">Cool-down</div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:24px" id="cd-routine-label"></div>
+
+    <!-- Step dots -->
+    <div style="display:flex;gap:4px;justify-content:center;margin-bottom:20px" id="cd-step-dots"></div>
+
+    <!-- Exercise card -->
+    <div class="card" style="padding:28px 22px;margin-bottom:20px;text-align:center">
+      <div style="font-size:13px;font-weight:500;color:var(--muted);margin-bottom:8px" id="cd-ex-counter"></div>
+      <div style="font-family:var(--serif);font-size:26px;font-weight:400;color:var(--text);margin-bottom:8px" id="cd-ex-name"></div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:24px" id="cd-ex-cue"></div>
+      <div style="font-family:var(--serif);font-size:64px;font-weight:300;color:var(--pil);line-height:1;letter-spacing:0.02em;font-variant-numeric:tabular-nums" id="cd-timer-display">—</div>
+    </div>
+
+    <!-- Progress bar -->
+    <div style="margin-bottom:20px">
+      <div class="pbar-track" style="height:3px">
+        <div class="pbar-fill" id="cd-progress-fill" style="background:var(--pil);width:0%;transition:width 0.3s linear"></div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div style="display:flex;gap:10px">
+      <button id="cd-main-btn" onclick="cdMain()" class="btn-primary" style="flex:1"></button>
+      <button onclick="cdSkip()" style="flex:0 0 auto;background:transparent;color:var(--muted);border-radius:0;padding:15px 18px;font-size:12px;cursor:pointer;font-family:var(--sans)" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">Skip →</button>
+    </div>
+    <button onclick="clearInterval(cdlState.timer);goCheckout()" style="width:100%;background:transparent;border:none;color:var(--muted);font-size:12px;font-family:var(--sans);cursor:pointer;padding:10px 0;text-decoration:underline;text-underline-offset:2px;margin-top:4px">Skip stretching</button>
   </div>
 
   <!-- CHECKOUT -->
@@ -694,7 +754,7 @@ input::placeholder{color:var(--muted)}
   <div class="label" style="margin-bottom:12px">How you've been feeling</div>
   <div id="pg-feedback-section">
     <!-- Filled by renderProgres -->
-    <div id="pg-feedback-empty" style="background:var(--card-alt);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;margin-bottom:16px">
+    <div id="pg-feedback-empty" style="background:var(--card-alt);border-radius:0;padding:20px;text-align:center;margin-bottom:16px">
       <div style="font-size:13px;color:var(--muted);line-height:1.6">Your session feedback will appear here after your first run check-out.</div>
     </div>
     <div id="pg-feedback-chart" style="display:none;margin-bottom:20px">
@@ -743,8 +803,8 @@ input::placeholder{color:var(--muted)}
     <!-- Existing feedback view -->
     <div id="sfb-existing" style="display:none">
       <div class="label" style="margin-bottom:10px">Session feedback</div>
-      <div id="sfb-feedback-rows" style="background:var(--card-alt);border:1px solid var(--border);border-radius:12px;padding:4px 16px;margin-bottom:16px"></div>
-      <button onclick="sfbStartEdit()" style="width:100%;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:10px;padding:11px;font-size:12.5px;font-family:var(--sans);cursor:pointer;transition:all 0.15s" onmouseover="this.style.borderColor='var(--border-h)'" onmouseout="this.style.borderColor='var(--border)'">Edit feedback</button>
+      <div id="sfb-feedback-rows" style="background:var(--card-alt);border-radius:0;padding:4px 16px;margin-bottom:16px"></div>
+      <button onclick="sfbStartEdit()" style="width:100%;background:transparent;color:var(--muted);border-radius:0;padding:11px;font-size:12.5px;font-family:var(--sans);cursor:pointer;transition:all 0.15s" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">Edit feedback</button>
     </div>
 
     <!-- No feedback yet -->
@@ -756,23 +816,31 @@ input::placeholder{color:var(--muted)}
     <!-- Inline feedback form -->
     <div id="sfb-form" style="display:none">
       <div style="margin-bottom:18px">
-        <div style="font-size:13px;color:var(--sub);margin-bottom:10px">How did this session feel?</div>
+        <div style="font-size:13px;color:var(--sub);margin-bottom:10px" id="sfb-q-feel">How did this session feel?</div>
         <div style="display:flex;gap:5px" id="sfb-feel-row"></div>
       </div>
       <div style="margin-bottom:18px">
-        <div style="font-size:13px;color:var(--sub);margin-bottom:10px">Any pain?</div>
+        <div style="font-size:13px;color:var(--sub);margin-bottom:10px" id="sfb-q-pain">Any pain?</div>
         <div style="display:flex;gap:8px">
           <button class="tri-btn" id="sfb-pain-none"  onclick="sfbSetPain('none','g')">None</button>
           <button class="tri-btn" id="sfb-pain-light" onclick="sfbSetPain('light','o')">Mild</button>
           <button class="tri-btn" id="sfb-pain-yes"   onclick="sfbSetPain('yes','b')">Yes</button>
         </div>
       </div>
-      <div style="margin-bottom:20px">
-        <div style="font-size:13px;color:var(--sub);margin-bottom:10px">Energy at the end?</div>
+      <div style="margin-bottom:18px">
+        <div style="font-size:13px;color:var(--sub);margin-bottom:10px" id="sfb-q-nrg">How's your energy?</div>
         <div style="display:flex;gap:8px">
           <button class="tri-btn" id="sfb-nrg-low"  onclick="sfbSetNrg('low','b')">Drained</button>
           <button class="tri-btn" id="sfb-nrg-mid"  onclick="sfbSetNrg('mid','o')">Good</button>
           <button class="tri-btn" id="sfb-nrg-high" onclick="sfbSetNrg('high','g')">Light</button>
+        </div>
+      </div>
+      <div style="margin-bottom:20px">
+        <div style="font-size:13px;color:var(--sub);margin-bottom:10px" id="sfb-q-motiv" style="display:none">How's your motivation?</div>
+        <div style="display:flex;gap:8px" id="sfb-motiv-row" style="display:none">
+          <button class="tri-btn" id="sfb-motiv-low"  onclick="sfbSetMotiv('low','b')">Low</button>
+          <button class="tri-btn" id="sfb-motiv-mid"  onclick="sfbSetMotiv('mid','o')">OK</button>
+          <button class="tri-btn" id="sfb-motiv-high" onclick="sfbSetMotiv('high','g')">Motivated</button>
         </div>
       </div>
       <button class="btn-primary" id="sfb-save-btn" onclick="sfbSave()" disabled>Save feedback</button>
@@ -808,7 +876,7 @@ input::placeholder{color:var(--muted)}
 
       <!-- Already checked this week -->
       <div id="wci-already-done" style="display:none;margin-bottom:16px">
-        <div style="padding:14px 18px;background:var(--ok-bg);border:1px solid var(--pil-border);border-radius:12px">
+        <div style="padding:14px 18px;background:var(--ok-bg);border:1px solid var(--pil-border);border-radius:0">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
             <span style="font-size:13px;font-weight:500;color:var(--pil)">Weekly check-in done</span>
             <svg width="14" height="11" viewBox="0 0 14 11"><path d="M1 5l5 5 7-9" stroke="var(--pil)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -848,11 +916,11 @@ input::placeholder{color:var(--muted)}
   <button class="nav-btn active" data-tab="home" onclick="switchTab('home')">
     <span class="nav-label">Home</span>
   </button>
+  <button class="nav-btn" data-tab="sortie" onclick="switchTab('sortie')">
+    <span class="nav-label">Today</span>
+  </button>
   <button class="nav-btn" data-tab="programme" onclick="switchTab('programme')">
     <span class="nav-label">Programme</span>
-  </button>
-  <button class="nav-btn" data-tab="sortie" onclick="switchTab('sortie')">
-    <span class="nav-label">Start</span>
   </button>
   <button class="nav-btn" data-tab="progres" onclick="switchTab('progres')">
     <span class="nav-label">Progress</span>
@@ -868,13 +936,16 @@ input::placeholder{color:var(--muted)}
 </div>
 
 <!-- ═══════════ SETTINGS VIEW ═══════════ -->
-<div id="view-settings" style="display:none;position:fixed;inset:0;background:rgba(28,20,10,0.35);z-index:30;overflow-y:auto;max-width:480px;left:50%;transform:translateX(-50%);backdrop-filter:blur(2px)">
-  <div style="padding:52px 18px 60px;background:var(--surface);min-height:calc(100vh - 52px);border-left:1px solid var(--border-h);border-right:1px solid var(--border-h);box-shadow:0 0 40px rgba(28,20,10,0.15)">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;padding-top:20px">
-      <button onclick="closeSettings()" style="background:none;border:none;cursor:pointer;color:var(--muted);padding:4px;display:flex;align-items:center">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 15L7 10l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
+<!-- Dimming overlay for settings -->
+<div id="settings-overlay" style="display:none;position:fixed;inset:0;background:rgba(28,20,10,0.45);z-index:29;max-width:480px;left:50%;transform:translateX(-50%);transition:opacity 0.3s;opacity:0" onclick="closeSettings()"></div>
+
+<div id="view-settings" style="position:fixed;top:0;right:calc(max(0px,(100vw - 480px)/2));width:min(100%,480px);height:100%;background:var(--surface);z-index:30;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.22,1,0.36,1);border-left:1px solid var(--border-h);box-shadow:-8px 0 32px rgba(28,20,10,0.12);visibility:hidden">
+  <div style="padding:52px 18px 60px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;padding-top:20px">
       <div class="serif-md">Settings</div>
+      <button onclick="closeSettings()" style="background:none;border:none;cursor:pointer;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:background 0.15s" onmouseover="this.style.background='rgba(28,20,10,0.07)'" onmouseout="this.style.background='none'">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
     </div>
 
     <!-- Profile -->
@@ -887,8 +958,8 @@ input::placeholder{color:var(--muted)}
       <div style="margin-bottom:16px">
         <div style="font-size:12px;color:var(--muted);margin-bottom:6px">Programme</div>
         <div style="display:flex;gap:8px">
-          <button id="st-track-baby" onclick="stSelectTrack('baby')" style="flex:1;padding:10px;border-radius:10px;border:1.5px solid var(--border);background:var(--card);font-size:13px;font-family:var(--sans);cursor:pointer;transition:all 0.15s">Baby Runners</button>
-          <button id="st-track-approved" onclick="stSelectTrack('approved')" style="flex:1;padding:10px;border-radius:10px;border:1.5px solid var(--border);background:var(--card);font-size:13px;font-family:var(--sans);cursor:pointer;transition:all 0.15s">Runners Approved</button>
+          <button id="st-track-baby" onclick="stSelectTrack('baby')" style="flex:1;padding:10px;border-radius:0;background:var(--card);font-size:13px;font-family:var(--sans);cursor:pointer;transition:all 0.15s">Road to 10K</button>
+          <button id="st-track-approved" onclick="stSelectTrack('approved')" style="flex:1;padding:10px;border-radius:0;background:var(--card);font-size:13px;font-family:var(--sans);cursor:pointer;transition:all 0.15s">Road to 21K</button>
         </div>
       </div>
       <div id="st-paces-block" style="display:none;margin-bottom:16px">
@@ -908,8 +979,13 @@ input::placeholder{color:var(--muted)}
         </div>
       </div>
       <div style="margin-bottom:16px">
-        <div style="font-size:12px;color:var(--muted);margin-bottom:6px">Race date</div>
-        <input type="date" id="st-race-date" style="font-size:14px;padding:12px 14px">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:6px">Race date <span style="color:rgba(28,20,10,0.3);font-size:11px">(optional)</span></div>
+        <input type="date" id="st-race-date" oninput="stToggleStartDate()" style="font-size:14px;padding:12px 14px">
+      </div>
+      <div id="st-start-date-block" style="display:none;margin-bottom:16px">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:6px">Programme start date <span style="font-size:11px;color:rgba(28,20,10,0.3)">(no race selected)</span></div>
+        <input type="date" id="st-start-date" style="font-size:14px;padding:12px 14px">
+        <div style="font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.5">The programme begins from Week 1 on this date. Set a race date above to align automatically.</div>
       </div>
       <button class="btn-primary" onclick="saveSettings()">Save changes</button>
     </div>
@@ -917,31 +993,76 @@ input::placeholder{color:var(--muted)}
     <!-- Reset -->
     <div class="label" style="margin-bottom:12px">Data</div>
     <div class="cardp" style="margin-bottom:20px">
-      <div style="font-size:13px;color:var(--sub);line-height:1.6;margin-bottom:16px">Reset clears all your session completions, check-ins, weekly reviews and feedback. Your profile settings are kept.</div>
-      <button onclick="confirmReset()" style="width:100%;background:transparent;border:1.5px solid rgba(192,80,80,0.3);color:var(--danger);border-radius:12px;padding:13px 20px;font-size:13px;font-family:var(--sans);cursor:pointer;transition:all 0.15s" onmouseover="this.style.background='var(--danger-bg)'" onmouseout="this.style.background='transparent'">Reset all progress</button>
-      <div id="reset-confirm" style="display:none;margin-top:12px;padding:12px 14px;background:var(--danger-bg);border:1px solid rgba(192,80,80,0.2);border-radius:10px">
+      <div style="font-size:13px;color:var(--sub);line-height:1.6;margin-bottom:16px">This will erase everything — your profile, sessions, feedback, check-ins and all saved data. You will be taken back to the start.</div>
+      <button onclick="confirmReset()" style="width:100%;background:transparent;border:1.5px solid rgba(192,80,80,0.3);color:var(--danger);border-radius:0;padding:13px 20px;font-size:13px;font-family:var(--sans);cursor:pointer;transition:all 0.15s" onmouseover="this.style.background='var(--danger-bg)'" onmouseout="this.style.background='transparent'">Reset all</button>
+      <div id="reset-confirm" style="display:none;margin-top:12px;padding:12px 14px;background:var(--danger-bg);border:1px solid rgba(192,80,80,0.2);border-radius:0">
         <div style="font-size:12.5px;color:var(--danger);margin-bottom:10px;font-weight:500">Are you sure? This cannot be undone.</div>
         <div style="display:flex;gap:8px">
-          <button onclick="doReset()" style="flex:1;background:var(--danger);color:white;border:none;border-radius:8px;padding:10px;font-size:13px;font-family:var(--sans);cursor:pointer">Yes, reset</button>
-          <button onclick="document.getElementById('reset-confirm').style.display='none'" style="flex:1;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:8px;padding:10px;font-size:13px;font-family:var(--sans);cursor:pointer">Cancel</button>
+          <button onclick="doReset()" style="flex:1;background:var(--danger);color:white;border:none;border-radius:0;padding:10px;font-size:13px;font-family:var(--sans);cursor:pointer">Yes, reset</button>
+          <button onclick="document.getElementById('reset-confirm').style.display='none'" style="flex:1;background:transparent;color:var(--muted);border-radius:0;padding:10px;font-size:13px;font-family:var(--sans);cursor:pointer">Cancel</button>
         </div>
       </div>
     </div>
 
-    <!-- DEV MODE — remove before production -->
-    <div class="label" style="margin-bottom:12px;color:var(--danger)">⚙ Dev mode <span style="font-size:10px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">(remove before launch)</span></div>
-    <div style="background:var(--danger-bg);border:1.5px solid rgba(192,80,80,0.2);border-radius:16px;padding:18px 20px;margin-bottom:20px">
+    <!-- Guide -->
+    <div class="label" style="margin-bottom:12px">Guide</div>
+    <div class="cardp" style="margin-bottom:20px">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px">
+        <div style="width:36px;height:36px;border-radius:0;background:var(--gold-bg);border:1px solid var(--gold-border);flex-shrink:0;display:flex;align-items:center;justify-content:center">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2C4.69 2 2 4.69 2 8s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 9a.75.75 0 110-1.5A.75.75 0 018 11zm.75-3.5V11h-1.5V7.5h1.5zM8 6a1 1 0 100-2 1 1 0 000 2z" fill="var(--gold)"/></svg>
+        </div>
+        <div>
+          <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:3px">How the app works</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.45">All tabs, features and tips explained</div>
+        </div>
+      </div>
+      <button onclick="openGuide()" style="width:100%;background:var(--text);color:var(--bg);border:none;border-radius:0;padding:13px 20px;font-size:13px;font-family:var(--sans);cursor:pointer;font-weight:500;transition:opacity 0.15s;margin-bottom:8px" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Open guide →</button>
+      <button onclick="openInstallGuide()" style="width:100%;background:transparent;border:1.5px solid var(--gold-border);color:var(--gold);border-radius:0;padding:13px 20px;font-size:13px;font-family:var(--sans);cursor:pointer;font-weight:500;transition:all 0.15s;margin-bottom:8px" onmouseover="this.style.background='var(--gold-bg)'" onmouseout="this.style.background='transparent'">📲 Install as app on your phone →</button>
+      <button onclick="openCalendarGuide()" style="width:100%;background:transparent;border:1.5px solid var(--pil-border);color:var(--pil);border-radius:0;padding:13px 20px;font-size:13px;font-family:var(--sans);cursor:pointer;font-weight:500;transition:all 0.15s" onmouseover="this.style.background='var(--pil-bg)'" onmouseout="this.style.background='transparent'">📅 Add your programme to your calendar →</button>
+    </div>
+
+    <!-- DEV MODE — password protected -->
+    <div style="display:none"><div class="label" style="margin-bottom:12px;color:var(--danger)">⚙ Dev mode <span style="font-size:10px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">(remove before launch)</span></div>
+    <div style="background:var(--danger-bg);border:1.5px solid rgba(192,80,80,0.2);border-radius:0;padding:18px 20px;margin-bottom:20px">
       <div style="font-size:12.5px;color:var(--sub);line-height:1.55;margin-bottom:14px">Override today's date to simulate being at any point in the programme. Useful for testing week-by-week behaviour.</div>
       <div style="margin-bottom:12px">
         <div style="font-size:12px;color:var(--muted);margin-bottom:6px">Simulated date</div>
         <input type="date" id="dev-mock-date" style="font-size:14px;padding:12px 14px">
       </div>
-      <div id="dev-active-banner" style="display:none;margin-bottom:12px;padding:8px 12px;background:rgba(192,80,80,0.1);border-radius:8px;font-size:12px;color:var(--danger)">
+      <div id="dev-active-banner" style="display:none;margin-bottom:12px;padding:8px 12px;background:rgba(192,80,80,0.1);border-radius:0;font-size:12px;color:var(--danger)">
         🔴 Dev mode active — simulating: <strong id="dev-active-label"></strong>
       </div>
       <div style="display:flex;gap:8px">
-        <button onclick="applyMockDate()" style="flex:1;background:var(--text);color:var(--bg);border:none;border-radius:8px;padding:11px;font-size:13px;font-family:var(--sans);cursor:pointer">Apply date</button>
-        <button onclick="clearMockDate()" style="flex:1;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:8px;padding:11px;font-size:13px;font-family:var(--sans);cursor:pointer">Clear (use today)</button>
+        <button onclick="applyMockDate()" style="flex:1;background:var(--text);color:var(--bg);border:none;border-radius:0;padding:11px;font-size:13px;font-family:var(--sans);cursor:pointer">Apply date</button>
+        <button onclick="clearMockDate()" style="flex:1;background:transparent;color:var(--muted);border-radius:0;padding:11px;font-size:13px;font-family:var(--sans);cursor:pointer">Clear (use today)</button>
+      </div>
+    </div></div>
+
+    <!-- Dev mode access -->
+    <div class="label" style="margin-bottom:12px;color:var(--muted)">Developer</div>
+    <div class="cardp" style="margin-bottom:20px">
+      <div id="dev-locked">
+        <div style="font-size:12.5px;color:var(--muted);margin-bottom:12px;line-height:1.55">Enter the access code to unlock developer tools.</div>
+        <div style="display:flex;gap:8px">
+          <input type="password" id="dev-code-input" placeholder="Access code…" style="flex:1;font-size:14px;padding:11px 14px;letter-spacing:0.1em;outline:none;border-radius:0;background:var(--card-alt);font-family:var(--sans);color:var(--text)" onkeydown="if(event.key==='Enter')devUnlock()">
+          <button onclick="devUnlock()" style="background:var(--text);color:var(--bg);border:none;border-radius:0;padding:11px 16px;font-size:13px;font-family:var(--sans);cursor:pointer">Unlock</button>
+        </div>
+        <div id="dev-code-error" style="display:none;font-size:12px;color:var(--danger);margin-top:8px">Incorrect code.</div>
+      </div>
+      <div id="dev-unlocked" style="display:none">
+        <div style="font-size:12.5px;color:var(--sub);line-height:1.55;margin-bottom:14px">Override today's date to simulate being at any point in the programme.</div>
+        <div style="margin-bottom:12px">
+          <div style="font-size:12px;color:var(--muted);margin-bottom:6px">Simulated date</div>
+          <input type="date" id="dev-mock-date-2" style="font-size:14px;padding:12px 14px">
+        </div>
+        <div id="dev-active-banner-2" style="display:none;margin-bottom:12px;padding:8px 12px;background:rgba(192,80,80,0.1);border-radius:0;font-size:12px;color:var(--danger)">
+          🔴 Active — simulating: <strong id="dev-active-label-2"></strong>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button onclick="applyMockDate2()" style="flex:1;background:var(--text);color:var(--bg);border:none;border-radius:0;padding:11px;font-size:13px;font-family:var(--sans);cursor:pointer">Apply date</button>
+          <button onclick="clearMockDate2()" style="flex:1;background:transparent;color:var(--muted);border-radius:0;padding:11px;font-size:13px;font-family:var(--sans);cursor:pointer">Clear</button>
+        </div>
+        <button onclick="devLock()" style="width:100%;margin-top:10px;background:transparent;border:none;color:var(--muted);font-size:11.5px;font-family:var(--sans);cursor:pointer;padding:6px;text-decoration:underline;text-underline-offset:2px">Lock dev mode</button>
       </div>
     </div>
 
@@ -985,20 +1106,20 @@ input::placeholder{color:var(--muted)}
       </div>
       <div class="label" style="margin-bottom:12px">Choose your programme</div>
       <button class="track-btn" id="track-baby" onclick="obSelectTrack('baby')">
-        <div class="track-title">Baby Runners — 0 to 10K</div>
+        <div class="track-title">Road to 10K</div>
         <div class="track-sub">You're new to running or want solid foundations. Goal: complete your first 10K.</div>
       </button>
       <button class="track-btn" id="track-approved" onclick="obSelectTrack('approved')">
-        <div class="track-title">Runners Approved — 10K to Half-Marathon</div>
+        <div class="track-title">Road to 21K</div>
         <div class="track-sub">You already run regularly and have completed a 10K. Goal: your first half-marathon.</div>
       </button>
       <button class="btn-primary" id="ob-s1-btn" onclick="obNext()" disabled style="margin-top:20px">Continue →</button>
     </div>
 
-    <!-- Step 2: 10K Time (Runners Approved only) -->
+    <!-- Step 2: 10K Time (Road to 21K only) -->
     <div class="ob-step" id="ob-step-2">
       <button class="btn-sm" onclick="obShowStep(1)" style="margin-bottom:20px">← Back</button>
-      <div class="label" style="margin-bottom:10px;color:var(--gold)">Runners Approved</div>
+      <div class="label" style="margin-bottom:10px;color:var(--gold)">Road to 21K</div>
       <div class="serif-lg" style="margin-bottom:10px;line-height:1.1">Your 10K time</div>
       <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:24px">This lets us calculate your personalised training paces for the entire programme — no lab test needed.</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px">
@@ -1025,22 +1146,414 @@ input::placeholder{color:var(--muted)}
       <button class="btn-sm" id="ob-s3-back" onclick="obBack3()" style="margin-bottom:20px">← Back</button>
       <div class="label" style="margin-bottom:10px">Almost there</div>
       <div class="serif-lg" style="margin-bottom:10px;line-height:1.1">Your race date</div>
-      <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:22px">This becomes your countdown. You can skip and set it later from the home screen.</p>
-      <div style="margin-bottom:8px">
-        <div style="font-size:13px;color:var(--sub);margin-bottom:8px">Race day <span style="color:var(--muted)">(optional)</span></div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:22px">This becomes your countdown. If you don't have a race planned, you can simply start the programme today.</p>
+
+      <!-- With race -->
+      <div id="ob-with-race" style="margin-bottom:16px">
+        <div style="font-size:13px;color:var(--sub);margin-bottom:8px">I have a race planned</div>
         <input type="date" id="ob-race-input" oninput="obCheckRaceDate()">
+        <!-- Smart feedback -->
+        <div class="race-feedback" id="race-feedback-box">
+          <div style="font-size:12.5px;line-height:1.65" id="race-feedback-text"></div>
+        </div>
+        <button class="btn-primary" onclick="obShowStep(4)" style="margin-top:16px;width:100%">Continue →</button>
       </div>
-      <!-- Smart feedback -->
-      <div class="race-feedback" id="race-feedback-box">
-        <div style="font-size:12.5px;line-height:1.65" id="race-feedback-text"></div>
+
+      <!-- Divider -->
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <div style="flex:1;height:1px;background:var(--border)"></div>
+        <span style="font-size:11px;color:var(--muted);letter-spacing:0.06em">OR</span>
+        <div style="flex:1;height:1px;background:var(--border)"></div>
       </div>
-      <!-- Alice quote -->
-      <div class="cardp border-pil" style="margin:20px 0 24px;padding:16px 20px">
-        <p style="font-family:var(--serif);font-size:17px;font-weight:300;color:var(--text);line-height:1.65;margin-bottom:8px;font-style:italic">"Setting a date turns a wish into a commitment."</p>
-        <span style="font-size:11.5px;color:var(--muted)">— Alice Pilate</span>
+
+      <!-- No race -->
+      <button onclick="obStartToday()" style="display:block;width:100%;background:var(--text);border:none;border-radius:0;padding:16px 18px;cursor:pointer;text-align:center;font-family:var(--sans);transition:opacity 0.15s" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+        <div style="font-size:13.5px;font-weight:500;color:#fff">I don't have a race — start today</div>
+      </button>
+      <div style="font-size:12px;color:var(--muted);line-height:1.55;margin-top:10px;padding:0 2px">The programme begins from Week 1 today. You can add a race date at any time from <strong style="color:var(--sub)">Settings → Profile</strong>.</div>
+    </div>
+
+    <!-- Step 4: App overview & install -->
+    <div class="ob-step" id="ob-step-4">
+      <div class="label" style="margin-bottom:6px;color:var(--gold)">You're all set</div>
+      <div class="serif-lg" style="margin-bottom:4px;line-height:1.05">Before you start</div>
+      <p style="font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:14px">A quick overview of the 4 tabs of your running app.</p>
+
+      <!-- What the app does — compact 2-column grid -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px">
+        <div style="display:flex;gap:8px;align-items:flex-start;padding:10px 11px;background:var(--card-alt);border-radius:0">
+          <div style="font-size:15px;flex-shrink:0;line-height:1"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9.5V15.5a.5.5 0 00.5.5h4V12h3v4h4a.5.5 0 00.5-.5V9.5" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.5 10.5L9 3l7.5 7.5" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><div style="font-size:12px;font-weight:500;color:var(--text);margin-bottom:1px">Home</div><div style="font-size:11px;color:var(--muted);line-height:1.4">Today's session & countdown.</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:flex-start;padding:10px 11px;background:var(--card-alt);border-radius:0">
+          <div style="font-size:15px;flex-shrink:0;line-height:1"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="13" rx="2" stroke="var(--pil)" stroke-width="1.4"/><path d="M2 7h14M6 2v2M12 2v2" stroke="var(--pil)" stroke-width="1.4" stroke-linecap="round"/><path d="M5.5 10.5h2M9 10.5h3.5M5.5 13h2" stroke="var(--pil)" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+          <div><div style="font-size:12px;font-weight:500;color:var(--text);margin-bottom:1px">Programme</div><div style="font-size:11px;color:var(--muted);line-height:1.4">10 weeks, sessions & export.</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:flex-start;padding:10px 11px;background:var(--card-alt);border-radius:0">
+          <div style="font-size:15px;flex-shrink:0;line-height:1"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="var(--run)" stroke-width="1.4"/><path d="M7.5 6.5l5 2.5-5 2.5V6.5z" fill="var(--run)" opacity="0.8"/></svg></div>
+          <div><div style="font-size:12px;font-weight:500;color:var(--text);margin-bottom:1px">Today</div><div style="font-size:11px;color:var(--muted);line-height:1.4">Launch session & warm-up.</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:flex-start;padding:10px 11px;background:var(--card-alt);border-radius:0">
+          <div style="font-size:15px;flex-shrink:0;line-height:1"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><polyline points="2,14 6,9 10,11 15,5" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="6" cy="9" r="1.5" fill="var(--gold)"/><circle cx="10" cy="11" r="1.5" fill="var(--gold)"/><circle cx="15" cy="5" r="1.5" fill="var(--gold)"/></svg></div>
+          <div><div style="font-size:12px;font-weight:500;color:var(--text);margin-bottom:1px">Progress</div><div style="font-size:11px;color:var(--muted);line-height:1.4">Feeling & weekly check-ins.</div></div>
+        </div>
       </div>
+
+      <!-- Install CTA — compact -->
+      <div style="padding:11px 14px;background:var(--gold-bg);border:1px solid var(--gold-border);border-radius:0;margin-bottom:12px;display:flex;align-items:center;gap:12px">
+        <div style="flex:1">
+          <div style="font-size:12px;font-weight:500;color:var(--gold);margin-bottom:2px">📲 Install as an app</div>
+          <div style="font-size:11px;color:var(--muted);line-height:1.4">Add to home screen — no App Store.</div>
+        </div>
+        <button onclick="obFinishAndInstall()" style="flex-shrink:0;background:transparent;border:1px solid var(--gold-border);color:var(--gold);border-radius:0;padding:7px 12px;font-size:11.5px;font-family:var(--sans);cursor:pointer;font-weight:500;white-space:nowrap">How →</button>
+      </div>
+
+      <!-- Guide link -->
+      <div style="text-align:center;margin-bottom:16px">
+        <button onclick="obFinishAndGuide()" style="background:none;border:none;cursor:pointer;font-size:12px;color:var(--muted);font-family:var(--sans);text-decoration:underline;text-underline-offset:2px">Read the full guide</button>
+      </div>
+
       <button class="btn-primary" onclick="obFinish()">Start the programme →</button>
-      <button class="btn-outline" onclick="obFinish()" style="margin-top:10px">Skip for now</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Shared dimming overlay for guide / install -->
+<div id="guide-overlay" style="display:none;position:fixed;inset:0;background:rgba(28,20,10,0.45);z-index:48;max-width:480px;left:50%;transform:translateX(-50%);transition:opacity 0.3s;opacity:0"></div>
+
+<!-- ═══════════ INSTALL GUIDE VIEW ═══════════ -->
+<div id="view-install" style="position:fixed;top:0;right:calc(max(0px,(100vw - 480px)/2));width:min(100%,480px);height:100%;background:var(--bg);z-index:50;overflow-y:auto;transform:translateX(100%);border-left:1px solid var(--border-h);box-shadow:-8px 0 32px rgba(28,20,10,0.12);visibility:hidden">
+  <div style="padding:0 18px 60px">
+    <!-- Sticky top bar -->
+    <div style="position:sticky;top:0;background:transparent;display:flex;align-items:center;justify-content:space-between;padding:14px 0;margin-bottom:28px;z-index:10">
+      <div style="font-size:13px;font-weight:500;color:var(--text)">Install the app</div>
+      <button onclick="closeInstallGuide()" style="background:none;border:none;cursor:pointer;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:background 0.15s" onmouseover="this.style.background='rgba(28,20,10,0.07)'" onmouseout="this.style.background='none'">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <div class="serif-lg" style="margin-bottom:6px;line-height:1.1">Add to your home screen</div>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.6">This app runs entirely in your browser — no App Store needed. Follow these steps to install it on your phone like a real app, with its own icon on your home screen.</div>
+
+    <!-- iPhone / Safari -->
+    <div style="margin-bottom:24px">
+      <div class="label" style="margin-bottom:14px;color:var(--gold)">📱 iPhone — Safari</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--card);border-radius:0">
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--gold-bg);border:1px solid var(--gold-border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--gold)">1</div>
+          <div>
+            <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px">Open the link in Safari</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.55">Make sure you're using <strong style="color:var(--sub)">Safari</strong> — not Chrome, Firefox or another browser. The install feature only works in Safari on iPhone.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--card);border-radius:0">
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--gold-bg);border:1px solid var(--gold-border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--gold)">2</div>
+          <div>
+            <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px">Tap the Share button</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.55">At the bottom of Safari, tap the <strong style="color:var(--sub)">Share icon</strong> — the square with an arrow pointing up. If the bottom bar is hidden, scroll up slightly.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--card);border-radius:0">
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--gold-bg);border:1px solid var(--gold-border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--gold)">3</div>
+          <div>
+            <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px">Tap "Add to Home Screen"</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.55">Scroll down in the share sheet and tap <strong style="color:var(--sub)">"Add to Home Screen"</strong>. You can rename the app or leave it as "Running × Pilates".</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--card);border-radius:0">
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--gold-bg);border:1px solid var(--gold-border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--gold)">4</div>
+          <div>
+            <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px">Tap "Add" — done ✓</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.55">The app icon appears on your home screen. Open it — it launches in full screen, without the Safari address bar, exactly like a native app.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Android / Chrome -->
+    <div style="margin-bottom:24px">
+      <div class="label" style="margin-bottom:14px;color:var(--pil)">🤖 Android — Chrome</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--card);border-radius:0">
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--pil-bg);border:1px solid var(--pil-border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--pil)">1</div>
+          <div>
+            <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px">Open the link in Chrome</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.55">Use <strong style="color:var(--sub)">Google Chrome</strong> on your Android phone.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--card);border-radius:0">
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--pil-bg);border:1px solid var(--pil-border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--pil)">2</div>
+          <div>
+            <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px">Tap the menu (⋮)</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.55">Tap the <strong style="color:var(--sub)">three dots</strong> in the top-right corner of Chrome to open the menu.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--card);border-radius:0">
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--pil-bg);border:1px solid var(--pil-border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--pil)">3</div>
+          <div>
+            <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px">Tap "Add to Home screen"</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.55">Select <strong style="color:var(--sub)">"Add to Home screen"</strong> or <strong style="color:var(--sub)">"Install app"</strong> depending on your version of Chrome. Confirm and the icon will appear.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Note -->
+    <div style="padding:16px 18px;background:var(--ok-bg);border-radius:0;margin-bottom:16px;border:1px solid var(--pil-border)">
+      <div style="font-size:12.5px;font-weight:500;color:var(--pil);margin-bottom:6px">✓ Your progress is saved automatically</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.6">The app saves your profile, session completions, feedbacks and weekly check-ins to your phone's local storage. Your data will be there the next time you open the app — even after closing it completely.</div>
+    </div>
+
+    <div style="padding:16px 18px;background:var(--card-alt);border-radius:0">
+      <div style="font-size:12px;color:var(--muted);line-height:1.6;text-align:center">Running × Pilates · Le Studio by Alice<br>Built with Pylo</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════ CALENDAR GUIDE VIEW ═══════════ -->
+<div id="view-calendar-guide" style="position:fixed;top:0;right:calc(max(0px,(100vw - 480px)/2));width:min(100%,480px);height:100%;background:var(--surface);z-index:49;overflow-y:auto;transform:translateX(100%);border-left:1px solid var(--border-h);box-shadow:-8px 0 32px rgba(28,20,10,0.12);visibility:hidden">
+  <div style="padding:0 18px 60px">
+    <div style="position:sticky;top:0;background:transparent;display:flex;align-items:center;justify-content:space-between;padding:14px 0;margin-bottom:28px;z-index:10">
+      <div style="font-size:13px;font-weight:500;color:var(--text)">Calendar export</div>
+      <button onclick="closeCalendarGuide()" style="background:none;border:none;cursor:pointer;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:background 0.15s" onmouseover="this.style.background='rgba(28,20,10,0.07)'" onmouseout="this.style.background='none'">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <div class="serif-lg" style="margin-bottom:6px;line-height:1.1">Add your programme to your calendar</div>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.6">Export all 10 weeks of sessions directly to your calendar — so your runs, Pilates and rest days appear automatically alongside the rest of your life.</div>
+
+    <!-- Step 1: Open download -->
+    <div class="label" style="margin-bottom:14px">Step 1 — Export the .ics file</div>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
+      <div style="display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--card);border-radius:0">
+        <div style="width:26px;height:26px;border-radius:50%;background:var(--pil-bg);border:1px solid var(--pil-border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--pil)">1</div>
+        <div>
+          <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px">Go to Programme → Download</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55">Tap the <strong style="color:var(--sub)">"Download your programme"</strong> banner at the bottom of the Programme tab.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--card);border-radius:0">
+        <div style="width:26px;height:26px;border-radius:50%;background:var(--pil-bg);border:1px solid var(--pil-border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--pil)">2</div>
+        <div>
+          <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px">Set your start date and session time</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55">Choose the date your programme begins and what time your sessions are scheduled by default (e.g. 07:00). A preview of the first 3 events will appear.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--card);border-radius:0">
+        <div style="width:26px;height:26px;border-radius:50%;background:var(--pil-bg);border:1px solid var(--pil-border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--pil)">3</div>
+        <div>
+          <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px">Tap "Export .ics file"</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55">A file named <code style="font-size:11px;background:var(--card-alt);padding:1px 5px;border-radius:0">alice-pilate-*.ics</code> will download to your device. Each event includes the session title, description, duration, and a 30-minute reminder.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Import by app -->
+    <div class="label" style="margin-bottom:14px">Step 2 — Import into your calendar</div>
+
+    <!-- iPhone -->
+    <div style="margin-bottom:16px">
+      <div style="font-size:12px;font-weight:500;color:var(--gold);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px">📱 Apple Calendar (iPhone / Mac)</div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="padding:12px 14px;background:var(--card-alt);border-radius:0;font-size:12px;color:var(--muted);line-height:1.55"><strong style="color:var(--sub)">iPhone:</strong> Open the Files app → find the .ics file → tap it → tap <strong style="color:var(--sub)">"Add All"</strong>. All 10 weeks import in one go.</div>
+        <div style="padding:12px 14px;background:var(--card-alt);border-radius:0;font-size:12px;color:var(--muted);line-height:1.55"><strong style="color:var(--sub)">Mac:</strong> Double-click the .ics file — Calendar opens and asks which calendar to add events to. Select your calendar and click <strong style="color:var(--sub)">"OK"</strong>.</div>
+      </div>
+    </div>
+
+    <!-- Google Calendar -->
+    <div style="margin-bottom:16px">
+      <div style="font-size:12px;font-weight:500;color:var(--pil);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px">🗓 Google Calendar</div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="padding:12px 14px;background:var(--card-alt);border-radius:0;font-size:12px;color:var(--muted);line-height:1.55">On desktop, go to <strong style="color:var(--sub)">calendar.google.com</strong> → click the ⚙ gear → <strong style="color:var(--sub)">Settings</strong> → <strong style="color:var(--sub)">Import & export</strong> → <strong style="color:var(--sub)">Import</strong> → select the .ics file → choose which calendar → <strong style="color:var(--sub)">Import</strong>.</div>
+        <div style="padding:12px 14px;background:var(--card-alt);border-radius:0;font-size:12px;color:var(--muted);line-height:1.55"><strong style="color:var(--sub)">Mobile:</strong> Google Calendar on iPhone/Android doesn't support direct .ics import. Use the desktop method above — events will sync automatically to your phone.</div>
+      </div>
+    </div>
+
+    <!-- Outlook -->
+    <div style="margin-bottom:24px">
+      <div style="font-size:12px;font-weight:500;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px">📧 Outlook</div>
+      <div style="padding:12px 14px;background:var(--card-alt);border-radius:0;font-size:12px;color:var(--muted);line-height:1.55">Open Outlook → <strong style="color:var(--sub)">File</strong> → <strong style="color:var(--sub)">Open & Export</strong> → <strong style="color:var(--sub)">Import/Export</strong> → <strong style="color:var(--sub)">Import an iCalendar (.ics) file</strong> → select the file → <strong style="color:var(--sub)">Import</strong>.</div>
+    </div>
+
+    <!-- Note -->
+    <div style="padding:14px 16px;background:var(--pil-bg);border:1px solid var(--pil-border);border-radius:0;margin-bottom:16px">
+      <div style="font-size:12.5px;font-weight:500;color:var(--pil);margin-bottom:5px">✓ What's included in each event</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.6">Session title and type · Phase of the programme · Full description · Session duration · A 30-minute reminder before each session.</div>
+    </div>
+
+    <div style="padding:14px 16px;background:var(--card-alt);border-radius:0">
+      <div style="font-size:12px;color:var(--muted);line-height:1.6">💡 <strong style="color:var(--sub)">Tip:</strong> If you change your start date or race date later, re-export the .ics and re-import it. Delete the old events first to avoid duplicates.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ GUIDE VIEW ═══════════ -->
+<div id="view-guide" style="position:fixed;top:0;right:calc(max(0px,(100vw - 480px)/2));width:min(100%,480px);height:100%;background:var(--bg);z-index:49;overflow-y:auto;transform:translateX(100%);border-left:1px solid var(--border-h);box-shadow:-8px 0 32px rgba(28,20,10,0.12);visibility:hidden">
+  <div style="padding:0 18px 60px">
+    <!-- Fixed top bar with X -->
+    <div style="position:sticky;top:0;background:transparent;display:flex;align-items:center;justify-content:space-between;padding:14px 0;margin-bottom:28px;z-index:10">
+      <div style="font-size:13px;font-weight:500;color:var(--text)">Guide</div>
+      <button onclick="closeGuide()" style="background:none;border:none;cursor:pointer;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:background 0.15s" onmouseover="this.style.background='rgba(28,20,10,0.07)'" onmouseout="this.style.background='none'">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <div class="serif-lg" style="margin-bottom:6px;line-height:1.1">How the app works</div>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:32px">Everything you need to get the most out of your Running × Pilates programme.</div>
+    <div style="margin-bottom:28px">
+      <div class="label" style="margin-bottom:14px">The 4 tabs</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+
+        <div class="cardp" style="padding:16px 18px">
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <div style="width:32px;height:32px;border-radius:0;background:var(--gold-bg);border:1px solid var(--gold-border);flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9.5V15.5a.5.5 0 00.5.5h4V12h3v4h4a.5.5 0 00.5-.5V9.5" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.5 10.5L9 3l7.5 7.5" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div>
+              <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px">Home</div>
+              <div style="font-size:12.5px;color:var(--muted);line-height:1.6">Your daily dashboard. Shows the current week, today's session, your race countdown, and quick stats. Set your race date here to align the programme to your goal.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cardp" style="padding:16px 18px">
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <div style="width:32px;height:32px;border-radius:0;background:var(--pil-bg);border:1px solid var(--pil-border);flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="13" rx="2" stroke="var(--pil)" stroke-width="1.4"/><path d="M2 7h14M6 2v2M12 2v2" stroke="var(--pil)" stroke-width="1.4" stroke-linecap="round"/><path d="M5.5 10.5h2M9 10.5h3.5M5.5 13h2" stroke="var(--pil)" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+            <div>
+              <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px">Programme</div>
+              <div style="font-size:12.5px;color:var(--muted);line-height:1.6">Browse all 10 weeks. Check sessions off as done, leave feedback on each one, and export the full schedule to your calendar or as a PDF. Past days are automatically greyed out.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cardp" style="padding:16px 18px">
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <div style="width:32px;height:32px;border-radius:0;background:var(--run-bg);border:1px solid var(--run-border);flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="var(--run)" stroke-width="1.4"/><path d="M7.5 6.5l5 2.5-5 2.5V6.5z" fill="var(--run)" opacity="0.8"/></svg></div>
+            <div>
+              <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px">Today</div>
+              <div style="font-size:12.5px;color:var(--muted);line-height:1.6">Launch today's session. On a run day, choose between a full flow (body check-in + timed warm-up + run) or Quick Start (straight to the run). On rest or Pilates days, the options adapt accordingly.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cardp" style="padding:16px 18px">
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <div style="width:32px;height:32px;border-radius:0;background:rgba(184,145,74,0.08);border:1px solid rgba(184,145,74,0.2);flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><polyline points="2,14 6,9 10,11 15,5" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="6" cy="9" r="1.5" fill="var(--gold)"/><circle cx="10" cy="11" r="1.5" fill="var(--gold)"/><circle cx="15" cy="5" r="1.5" fill="var(--gold)"/></svg></div>
+            <div>
+              <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px">Progress</div>
+              <div style="font-size:12.5px;color:var(--muted);line-height:1.6">Track how you've been feeling week by week. Session feedbacks are aggregated here — feeling levels, pain signals, averages. Complete weekly check-ins to log your overall condition.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Section: Sessions -->
+    <div style="margin-bottom:28px">
+      <div class="label" style="margin-bottom:14px">Session types</div>
+      <div class="cardp" style="padding:16px 18px">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:10px;align-items:flex-start">
+            <span style="font-size:10px;padding:2px 8px;border-radius:0;background:var(--run-bg);color:var(--run);font-weight:500;flex-shrink:0;margin-top:1px">Run</span>
+            <span style="font-size:12.5px;color:var(--muted);line-height:1.55">Standard running session. Pace and duration increase gradually over the 10 weeks.</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start">
+            <span style="font-size:10px;padding:2px 8px;border-radius:0;background:var(--gold-bg);color:var(--gold);font-weight:500;flex-shrink:0;margin-top:1px">Long Run</span>
+            <span style="font-size:12.5px;color:var(--muted);line-height:1.55">The weekly long effort, always at easy conversational pace. The cornerstone of endurance building.</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start">
+            <span style="font-size:10px;padding:2px 8px;border-radius:0;background:var(--pil-bg);color:var(--pil);font-weight:500;flex-shrink:0;margin-top:1px">Pilates</span>
+            <span style="font-size:12.5px;color:var(--muted);line-height:1.55">Mobility and strength work. Complements running by targeting the stabilisers running wears down.</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start">
+            <span style="font-size:10px;padding:2px 8px;border-radius:0;background:var(--rest-bg);color:var(--rest);font-weight:500;flex-shrink:0;margin-top:1px">Rest</span>
+            <span style="font-size:12.5px;color:var(--muted);line-height:1.55">Mandatory recovery. This is when your body adapts. Gentle stretching or a walk is fine.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Start flow -->
+    <div style="margin-bottom:28px">
+      <div class="label" style="margin-bottom:14px">Running flow</div>
+      <div class="cardp" style="padding:16px 18px">
+        <div style="font-size:12.5px;color:var(--muted);line-height:1.7;margin-bottom:14px">On a run day, you have two paths:</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="background:var(--card-alt);border-radius:0;padding:12px 14px">
+            <div style="font-size:12.5px;font-weight:500;color:var(--text);margin-bottom:4px">Body Check & Warm Up</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.55">3 quick check-in questions → 8 timed warm-up exercises (5 min) → run screen → post-run checkout (feeling, pain, energy). The checkout automatically marks the session as done and saves your feedback.</div>
+          </div>
+          <div style="background:var(--card-alt);border-radius:0;padding:12px 14px">
+            <div style="font-size:12.5px;font-weight:500;color:var(--text);margin-bottom:4px">Quick Start</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.55">Shows the session objective and your paces, then takes you straight to the run screen — no check-in, no warm-up.</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--muted);margin-top:14px;padding-top:12px;border-top:1px solid var(--border)">During the warm-up, "Next →" skips to the next exercise manually. "Start the run →" skips the rest of the warm-up entirely.</div>
+      </div>
+    </div>
+
+    <!-- Section: Feedback -->
+    <div style="margin-bottom:28px">
+      <div class="label" style="margin-bottom:14px">Feedback & tracking</div>
+      <div class="cardp" style="padding:16px 18px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div>
+            <div style="font-size:12.5px;font-weight:500;color:var(--text);margin-bottom:3px">Session feedback</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.55">After each session, log how it felt (feeling, pain, energy). Tap any session row in Programme to add or edit feedback. A coloured badge appears once feedback is saved.</div>
+          </div>
+          <div style="height:1px;background:var(--border)"></div>
+          <div>
+            <div style="font-size:12.5px;font-weight:500;color:var(--text);margin-bottom:3px">Weekly check-in</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.55">Tap any week row in Progress to open the weekly check-in — 5 questions on pain, fatigue, motivation, sleep, and perceived progress. A verdict and personalised advice are generated based on your answers.</div>
+          </div>
+          <div style="height:1px;background:var(--border)"></div>
+          <div>
+            <div style="font-size:12.5px;font-weight:500;color:var(--text);margin-bottom:3px">Progress dashboard</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.55">The "How you've been feeling" section in Progress aggregates all session feedbacks — good session count, pain signals, and average feeling per week.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Race date -->
+    <div style="margin-bottom:28px">
+      <div class="label" style="margin-bottom:14px">Race date & programme alignment</div>
+      <div class="cardp" style="padding:16px 18px">
+        <div style="font-size:12.5px;color:var(--muted);line-height:1.7">
+          Set your race date in Home or Settings. The app automatically aligns the programme:<br><br>
+          <strong style="color:var(--text)">More than 10 weeks away</strong> — the programme start date is calculated so you peak on race day.<br><br>
+          <strong style="color:var(--danger)">Less than 10 weeks away</strong> — the programme starts at a later week to fit your timeline. This is ambitious; injury risk is higher with a compressed build.
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Settings -->
+    <div style="margin-bottom:20px">
+      <div class="label" style="margin-bottom:14px">Settings</div>
+      <div class="cardp" style="padding:16px 18px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div><span style="font-size:12.5px;font-weight:500;color:var(--text)">Profile</span><span style="font-size:12px;color:var(--muted)"> — change your name, switch programme (Road to 10K / Road to 21K), and update your 10K time or race date at any time.</span></div>
+          <div style="height:1px;background:var(--border)"></div>
+          <div><span style="font-size:12.5px;font-weight:500;color:var(--text)">Reset</span><span style="font-size:12px;color:var(--muted)"> — erases all data — profile, sessions, feedbacks, check-ins and saved progress. The app restarts from the beginning.</span></div>
+          <div style="height:1px;background:var(--border)"></div>
+          <div><span style="font-size:12.5px;font-weight:500;color:var(--text)">Export</span><span style="font-size:12px;color:var(--muted)"> — accessible from Programme → Download. Export all 10 weeks to your calendar (.ics) or as a printable HTML/PDF schedule.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:16px 18px;background:var(--card-alt);border-radius:0;text-align:center">
+      <div style="font-size:12px;color:var(--muted);line-height:1.6">Running × Pilates · Le Studio by Alice<br>Built with Pylo</div>
     </div>
 
   </div>
@@ -1057,7 +1570,7 @@ input::placeholder{color:var(--muted)}
       <button onclick="closeRaceDateAlert()" style="background:none;border:none;cursor:pointer;color:var(--muted);font-size:18px;padding:2px 6px;line-height:1">✕</button>
     </div>
     <div id="race-alert-body" style="font-size:13.5px;color:var(--sub);line-height:1.7;margin-bottom:20px"></div>
-    <div id="race-alert-detail" style="padding:14px 16px;border-radius:12px;margin-bottom:24px;font-size:13px;line-height:1.65"></div>
+    <div id="race-alert-detail" style="padding:14px 16px;border-radius:0;margin-bottom:24px;font-size:13px;line-height:1.65"></div>
     <button class="btn-primary" onclick="closeRaceDateAlert()">Got it</button>
   </div>
 </div>
@@ -1095,18 +1608,6 @@ input::placeholder{color:var(--muted)}
 
 <script>
 /* ═══════════ DATA ═══════════ */
-const ALICE = [
-  {text:"The first week is always the most precious. You have nothing to prove — just show up.",tip:"Start slower than you think necessary."},
-  {text:"Now that the first step is done, we build. Rhythm comes from repetition, not perfection.",tip:"If you're hesitating to go out: you'll always be more glad you did."},
-  {text:"You're already further than 90% of people who say they'll start soon.",tip:"Notice your legs after each session. That's where Pilates makes the difference."},
-  {text:"This week you have your first real long run. Break the distance into 10-minute blocks in your mind.",tip:"Hydrate the evening before — not just the morning."},
-  {text:"We're entering the heart of the programme. Your body has adapted — now we ask a little more.",tip:"When your head says stop, ask yourself: is it your body or just discomfort?"},
-  {text:"The effort of this week will define your race. Not race day.",tip:"Trust your sensations more than your stopwatch."},
-  {text:"Recovery week — it's in the plan, it's mandatory. Resist the urge to do more.",tip:"Rest is not weakness. This is where your body actually progresses."},
-  {text:"The week before the race. Everything is in place. Trust the work you've done.",tip:"Follow Aurélie's Race Day Protocol to the letter."},
-  {text:"You've come so far. Your body knows this distance now — it's been here before.",tip:"Last long session done. Let your legs rest and arrive fresh."},
-  {text:"Race week. You're ready. All the work is already done — you can only preserve it now.",tip:"Start slower than feels right. The adrenaline will push you too fast."},
-];
 
 const CHECKIN_Q = [
   {id:"legs",q:"How are your legs this morning?",opts:[{v:"g",l:"Light"},{v:"o",l:"Normal"},{v:"b",l:"Heavy"}]},
@@ -1323,7 +1824,7 @@ const T_INFO = {
   r:{color:"var(--run)",bg:"var(--run-bg)",border:"var(--run-border)",label:"Run"},
   lr:{color:"var(--gold)",bg:"var(--gold-bg)",border:"var(--gold-border)",label:"Long Run"},
   p:{color:"var(--pil)",bg:"var(--pil-bg)",border:"var(--pil-border)",label:"Pilates"},
-  x:{color:"var(--muted)",bg:"rgba(28,20,10,0.04)",border:"var(--border)",label:"Rest"},
+  x:{color:"var(--rest)",bg:"var(--rest-bg)",border:"var(--rest-border)",label:"Rest"},
 };
 const tInfo = t => T_INFO[t]||T_INFO.x;
 
@@ -1349,6 +1850,27 @@ let state = {
   weeklyCheckins: {},     // { 'w1': {pain,fatigue,...}, 'w2': ... }
   sessionFeedbacks: {},   // { 'w1d2': {feeling,pain,energy}, ... }
 };
+
+/* ═══════════ STATE PERSISTENCE (localStorage) ═══════════ */
+const STATE_KEY = 'rp_state_v1';
+const PERSIST_KEYS = ['track','userName','raceDate','startWeek','startDate','completed','paces','viewWeek','weeklyCheckins','sessionFeedbacks'];
+
+function saveState() {
+  try {
+    const toSave = {};
+    PERSIST_KEYS.forEach(k => { toSave[k] = state[k]; });
+    localStorage.setItem(STATE_KEY, JSON.stringify(toSave));
+  } catch(e) {}
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STATE_KEY);
+    if (!raw) return;
+    const saved = JSON.parse(raw);
+    PERSIST_KEYS.forEach(k => { if (saved[k] !== undefined) state[k] = saved[k]; });
+  } catch(e) {}
+}
 
 /* ═══════════ COMPUTED ═══════════ */
 function getProg() { return state.track==='approved' ? PROG_APPROVED : PROG_BABY; }
@@ -1381,13 +1903,27 @@ function getDaysToRace() {
   if(!state.raceDate) return null;
   return Math.max(0, Math.ceil((new Date(state.raceDate)-new Date())/86400000));
 }
+// Returns the programme's start day as a JS day-of-week (0=Sun…6=Sat)
+function getStartDayJS() {
+  const d = new Date((state.startDate || new Date().toISOString().split('T')[0]) + 'T00:00:00');
+  return d.getDay();
+}
+
+// Converts a session index (0–6) to a display day name, relative to the programme start day
+const DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const DAY_NAMES_FULL = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+function sessIdxToDay(i) {
+  return DAY_NAMES[(getStartDayJS() + i) % 7];
+}
+
 function getTodaySession() {
   const prog = getProg();
   const cw = getCurrentWeek();
-  // Use mock date if set, otherwise real today
   const now = state._mockDate ? new Date(state._mockDate + 'T00:00:00') : new Date();
-  const dayMap=[6,0,1,2,3,4,5]; // JS Sun=0 → our Mon=0
-  const idx=dayMap[now.getDay()];
+  // Compute index relative to programme start day
+  const startDay = getStartDayJS();
+  const todayDay = now.getDay();
+  const idx = (todayDay - startDay + 7) % 7;
   return {sess: prog[cw-1]?.sess[idx]||null, weekIdx:cw-1, dayIdx:idx};
 }
 
@@ -1432,6 +1968,7 @@ function switchTab(tab) {
   document.getElementById('view-'+tab).classList.add('active');
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
   currentTab=tab;
+  saveState();
   if(tab==='home') renderHome();
   if(tab==='programme') { state.viewWeek = getCurrentWeek(); renderProgramme(); }
   if(tab==='progres') renderProgres();
@@ -1449,7 +1986,7 @@ function renderHome() {
 
   // Track badge
   const tBadge=document.getElementById('h-track-badge');
-  if(state.userName) tBadge.textContent=state.userName+' · '+(state.track==='approved'?'Runners Approved':'Baby Runners');
+  if(state.userName) tBadge.textContent=state.userName+' · '+(state.track==='approved'?'Road to 21K':'Road to 10K');
 
   // Paces
   const pb=document.getElementById('h-paces-block');
@@ -1459,37 +1996,73 @@ function renderHome() {
   } else { pb.style.display='none'; }
 
   // Alice
-  const alice=ALICE[Math.min(cw,10)-1];
-  document.getElementById('h-alice-week').textContent=cw;
-  document.getElementById('h-alice-msg').textContent='"'+alice.text+'"';
-  document.getElementById('h-alice-tip').textContent=alice.tip;
 
-  // Today
-  const {sess:ts}=getTodaySession();
-  if(ts) {
-    const ti=tInfo(ts.t);
-    document.getElementById('h-today-title').textContent=ts.title;
-    document.getElementById('h-today-desc').textContent=ts.desc;
-    const pill=document.getElementById('h-today-pill');
-    pill.textContent=ti.label;
-    pill.style.cssText=`font-size:10px;padding:3px 9px;border-radius:6px;background:${ti.bg};color:${ti.color};font-weight:500;letter-spacing:0.04em`;
-    document.getElementById('h-today-dur').textContent=ts.dur!=='—'?ts.dur:'';
-    document.getElementById('h-start-btn').style.display=(ts.t==='r'||ts.t==='lr')?'block':'none';
+  // Today card — 3 states: normal / done+no feedback / done+feedback
+  const {sess:ts, weekIdx, dayIdx} = getTodaySession();
+  const todayKey = 'w' + (weekIdx+1) + 'd' + dayIdx;
+  const isDone = state.completed && state.completed[todayKey];
+  const hasFb  = state.sessionFeedbacks && state.sessionFeedbacks[todayKey];
+
+  const normalEl  = document.getElementById('h-today-normal');
+  const nofbEl    = document.getElementById('h-today-done-nofb');
+  const fbEl      = document.getElementById('h-today-done-fb');
+
+  if (isDone && !hasFb && ts && ts.t !== 'x') {
+    // Done but no feedback yet
+    normalEl.style.display = 'none';
+    nofbEl.style.display   = 'block';
+    fbEl.style.display     = 'none';
+    document.getElementById('h-done-title').textContent = ts.title + ' — done ✓';
+  } else if (isDone && hasFb) {
+    // Done + feedback — show tomorrow
+    normalEl.style.display = 'none';
+    nofbEl.style.display   = 'none';
+    fbEl.style.display     = 'block';
+    document.getElementById('h-done-fb-title').textContent = (ts ? ts.title : 'Session') + ' — done ✓';
+    // Get tomorrow's session
+    const prog = getProg();
+    const tmrwDayIdx = (dayIdx + 1) % 7;
+    const tmrwWeekIdx = dayIdx === 6 ? weekIdx + 1 : weekIdx;
+    const tmrwSess = prog[tmrwWeekIdx]?.sess[tmrwDayIdx] || null;
+    if (tmrwSess) {
+      const tti = tInfo(tmrwSess.t);
+      document.getElementById('h-tmrw-title').textContent = tmrwSess.title;
+      document.getElementById('h-tmrw-desc').textContent  = tmrwSess.desc;
+      document.getElementById('h-tmrw-pill').innerHTML = `<span style="font-size:9.5px;padding:2px 8px;border-radius:0;background:${tti.bg};color:${tti.color};font-weight:600;letter-spacing:0.07em;text-transform:uppercase">${tti.label}</span>`;
+    } else {
+      document.getElementById('h-tmrw-title').textContent = 'Programme complete';
+      document.getElementById('h-tmrw-desc').textContent  = '';
+      document.getElementById('h-tmrw-pill').innerHTML = '';
+    }
+  } else {
+    // Normal state
+    normalEl.style.display = 'block';
+    nofbEl.style.display   = 'none';
+    fbEl.style.display     = 'none';
+    if (ts) {
+      const ti = tInfo(ts.t);
+      document.getElementById('h-today-title').textContent = ts.title;
+      document.getElementById('h-today-desc').textContent  = ts.desc;
+      const pill = document.getElementById('h-today-pill');
+      pill.textContent  = ti.label;
+      pill.style.cssText = `font-size:10px;padding:3px 9px;border-radius:0;background:${ti.bg};color:${ti.color};font-weight:500;letter-spacing:0.04em`;
+      document.getElementById('h-today-dur').textContent = ts.dur !== '—' ? ts.dur : '';
+      document.getElementById('h-start-btn').style.display = (ts.t === 'r' || ts.t === 'lr') ? 'block' : 'none';
+    }
   }
 
-  // Race
-  const d=getDaysToRace();
-  const setEl=document.getElementById('h-race-set');
-  const cdEl=document.getElementById('h-race-countdown');
-  if(d!==null) {
-    setEl.style.display='none'; cdEl.style.display='block';
-    document.getElementById('h-jx').textContent='D–'+d;
-    document.getElementById('h-race-label').textContent=new Date(state.raceDate).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-    document.getElementById('h-proto-btn').style.display=d<=7?'inline-block':'none';
-    const pct2=Math.max(0,Math.min(100,((70-d)/70)*100));
-    document.getElementById('h-race-bar').style.width=pct2+'%';
+  // Race — show block only if race date is set
+  const d = getDaysToRace();
+  const raceSection = document.getElementById('h-race-section');
+  if (d !== null && state.raceDate) {
+    raceSection.style.display = 'block';
+    document.getElementById('h-jx').textContent = 'D–' + d;
+    document.getElementById('h-race-label').textContent = new Date(state.raceDate).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+    document.getElementById('h-proto-btn').style.display = d <= 7 ? 'inline-block' : 'none';
+    const pct2 = Math.max(0, Math.min(100, ((70 - d) / 70) * 100));
+    document.getElementById('h-race-bar').style.width = pct2 + '%';
   } else {
-    setEl.style.display='flex'; cdEl.style.display='none';
+    raceSection.style.display = 'none';
   }
 }
 
@@ -1502,8 +2075,8 @@ function renderProgramme() {
   state.viewWeek = state.viewWeek || cw;
   const vw = state.viewWeek;
   const isApproved=state.track==='approved';
-  document.getElementById('pw-track-title').textContent=isApproved?'Runners Approved':'Baby Runners';
-  document.getElementById('pw-track-sub').textContent=isApproved?'10K → Half-Marathon · 10 weeks':'0 → 10K · 10 weeks';
+  document.getElementById('pw-track-title').textContent=isApproved?'Road to 21K':'Road to 10K';
+  document.getElementById('pw-track-sub').textContent=isApproved?'10 weeks':'10 weeks';
 
   // Pill selector
   const pills=document.getElementById('week-pills');
@@ -1517,7 +2090,7 @@ function renderProgramme() {
     let bg='transparent', color='var(--muted)', border='1px solid var(--border)';
     if (isActive) { bg='var(--text)'; color='var(--bg)'; border='none'; }
     else if (isPast) { bg='rgba(28,20,10,0.05)'; color='rgba(28,20,10,0.3)'; border='1px solid rgba(28,20,10,0.08)'; }
-    btn.style.cssText=`flex-shrink:0;padding:5px 10px;border-radius:16px;font-size:11px;font-weight:500;font-family:var(--sans);cursor:pointer;background:${bg};color:${color};border:${border};transition:all 0.15s;white-space:nowrap`;
+    btn.style.cssText=`flex-shrink:0;padding:5px 10px;border-radius:0;font-size:11px;font-weight:500;font-family:var(--sans);cursor:pointer;background:${bg};color:${color};border:${border};transition:all 0.15s;white-space:nowrap`;
     if (p.w===vw && !isActive) { btn.style.outline='2px solid var(--gold)'; btn.style.outlineOffset='1px'; }
     btn.textContent='W'+p.w;
     btn.onclick=()=>{state.viewWeek=p.w;renderProgramme()};
@@ -1539,27 +2112,27 @@ function renderProgramme() {
   if (vw===cw) {
     badge.style.display='inline-flex';
     badge.textContent='current';
-    badge.style.cssText='display:inline-flex;font-size:10.5px;padding:4px 10px;border-radius:6px;background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border);flex-shrink:0';
+    badge.style.cssText='display:inline-flex;font-size:10.5px;padding:4px 10px;border-radius:0;background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border);flex-shrink:0';
   } else if (isPastWeek) {
     badge.style.display='inline-flex';
     badge.textContent='done';
-    badge.style.cssText='display:inline-flex;font-size:10.5px;padding:4px 10px;border-radius:6px;background:var(--pil-bg);color:var(--pil);border:1px solid var(--pil-border);flex-shrink:0';
+    badge.style.cssText='display:inline-flex;font-size:10.5px;padding:4px 10px;border-radius:0;background:var(--pil-bg);color:var(--pil);border:1px solid var(--pil-border);flex-shrink:0';
   } else {
     badge.style.display='inline-flex';
     badge.textContent='coming';
-    badge.style.cssText='display:inline-flex;font-size:10.5px;padding:4px 10px;border-radius:6px;background:rgba(28,20,10,0.04);color:var(--muted);border:1px solid var(--border);flex-shrink:0';
+    badge.style.cssText='display:inline-flex;font-size:10.5px;padding:4px 10px;border-radius:0;background:rgba(28,20,10,0.04);color:var(--muted);flex-shrink:0';
   }
 
   document.getElementById('pw-bar').style.width=(done/week.sess.length*100)+'%';
-  document.getElementById('pw-bar').style.background=vw===cw?'var(--gold)':isPastWeek?'var(--pil)':'rgba(28,20,10,0.1)';
+  document.getElementById('pw-bar').style.background=vw===cw?'var(--gold)':isPastWeek?'var(--done)':'rgba(28,20,10,0.08)';
 
   const list=document.getElementById('sessions-list');
   list.innerHTML='';
 
-  // Compute today's day index (0=Mon … 6=Sun) using mock date if set
+  // Compute today's session index relative to programme start day (mock-date aware)
   const todayDate = state._mockDate ? new Date(state._mockDate + 'T00:00:00') : new Date();
-  const dayMap = [6,0,1,2,3,4,5]; // JS Sun=0 → our Mon=0
-  const todayDayIdx = dayMap[todayDate.getDay()];
+  const startDay = getStartDayJS();
+  const todayDayIdx = (todayDate.getDay() - startDay + 7) % 7;
 
   week.sess.forEach((sess,i)=>{
     const key=`w${week.w}d${i}`;
@@ -1588,9 +2161,9 @@ function renderProgramme() {
       const feel=fb.feeling??-1;
       const fc=feel>=2?'var(--pil)':feel===1?'var(--gold)':'var(--danger)';
       const fbg=feel>=2?'var(--pil-bg)':feel===1?'var(--gold-bg)':'var(--danger-bg)';
-      fbBadge=`<span style="font-size:10px;padding:2px 8px;border-radius:6px;background:${fbg};color:${fc};font-weight:500;flex-shrink:0">${feel>=0?feelings[feel]:'—'}${fb.pain==='yes'?' ⚠':''}</span>`;
-    } else if(isDone && (sess.t==='r'||sess.t==='lr')) {
-      fbBadge=`<span style="font-size:10px;padding:2px 8px;border-radius:6px;background:rgba(28,20,10,0.05);color:var(--muted);border:1px dashed rgba(28,20,10,0.15);flex-shrink:0">+ feedback</span>`;
+      fbBadge=`<span style="font-size:10px;padding:2px 8px;border-radius:0;background:${fbg};color:${fc};font-weight:500;flex-shrink:0">${feel>=0?feelings[feel]:'—'}${fb.pain==='yes'?' ⚠':''}</span>`;
+    } else if(isDone) {
+      fbBadge=`<span style="font-size:10px;padding:2px 8px;border-radius:0;background:rgba(28,20,10,0.05);color:var(--muted);border:1px dashed rgba(28,20,10,0.15);flex-shrink:0">+ feedback</span>`;
     }
 
     div.innerHTML=`
@@ -1607,7 +2180,7 @@ function renderProgramme() {
         ${fbBadge?`<div style="margin-top:6px">${fbBadge}</div>`:''}
       </div>
       <div style="text-align:right;flex-shrink:0;margin-left:8px">
-        <div style="font-size:11px;color:var(--muted);font-weight:500">${sess.d}</div>
+        <div style="font-size:11px;color:var(--muted);font-weight:500">${sessIdxToDay(i)}</div>
         ${sess.dur!=='—'?`<div style="font-size:10.5px;color:var(--muted);margin-top:2px">${sess.dur}</div>`:''}
       </div>`;
 
@@ -1615,10 +2188,8 @@ function renderProgramme() {
       const circle=div.querySelector('.check-circle');
       if(circle && circle.contains(e.target)) {
         toggleSession(week.w,i);
-      } else if(sess.t==='r'||sess.t==='lr') {
-        openSFB(week.w, i, sess);
       } else {
-        toggleSession(week.w,i);
+        openSFB(week.w, i, sess);
       }
     };
     list.appendChild(div);
@@ -1628,16 +2199,17 @@ function renderProgramme() {
 function toggleSession(week,dayIdx) {
   const key=`w${week}d${dayIdx}`;
   state.completed[key]=!state.completed[key];
+  saveState();
   renderProgramme();
   if(currentTab==='home') renderHome();
 }
 
 /* ═══════════ SORTIE ═══════════ */
-const SORTIE_PANELS=['s-landing','s-quickstart','s-countdown','s-cd-done','s-checkin','s-ci-result','s-warmup','s-running','s-checkout','s-co-done'];
+const SORTIE_PANELS=['s-landing','s-quickstart','s-countdown','s-cd-done','s-checkin','s-ci-result','s-warmup','s-running','s-cooldown','s-checkout','s-co-done'];
 function showPanel(id){SORTIE_PANELS.forEach(p=>{const el=document.getElementById(p);if(el) el.style.display=p===id?'block':'none'})}
 
 function renderSortie() {
-  const {sess:ts} = getTodaySession();
+  const {sess:ts, dayIdx} = getTodaySession();
   const prog = getProg();
   const cw = getCurrentWeek();
   const restEl = document.getElementById('sl-rest-state');
@@ -1659,18 +2231,18 @@ function renderSortie() {
     runEl.style.display  = 'block';
     const ti    = tInfo(ts.t);
     const phase = prog[cw-1]?.phase || '';
-    document.getElementById('sl-week-label').textContent = `Week ${cw} · ${ts.d}`;
+    document.getElementById('sl-week-label').textContent = `Week ${cw} · ${sessIdxToDay(dayIdx)}`;
     document.getElementById('sl-week-label').style.color = ti.color;
     document.getElementById('sl-run-title').textContent  = ts.title;
     document.getElementById('sl-run-desc').textContent   = ts.desc;
     const pill = document.getElementById('sl-type-pill');
     pill.textContent = ti.label;
-    pill.style.cssText = `font-size:10px;padding:3px 10px;border-radius:6px;background:${ti.bg};color:${ti.color};font-weight:500;letter-spacing:0.04em`;
+    pill.style.cssText = `font-size:10px;padding:3px 10px;border-radius:0;background:${ti.bg};color:${ti.color};font-weight:500;letter-spacing:0.04em`;
     const chips = document.getElementById('sl-run-chips');
     chips.innerHTML = '';
     const addChip = (text, color) => {
       const c = document.createElement('span');
-      c.style.cssText = `font-size:11.5px;padding:3px 10px;border-radius:6px;background:rgba(28,20,10,0.05);color:${color||'var(--muted)'};border:1px solid var(--border)`;
+      c.style.cssText = `font-size:11.5px;padding:3px 10px;border-radius:0;background:rgba(28,20,10,0.05);color:${color||'var(--muted)'}`;
       c.textContent = text;
       chips.appendChild(c);
     };
@@ -1783,12 +2355,12 @@ function openQuickStart() {
   const prog = getProg();
   const phase = prog[cw-1]?.phase || '';
   document.getElementById('qs-meta').innerHTML=`
-    <span style="font-size:11px;padding:3px 10px;border-radius:6px;background:${ti.bg};color:${ti.color};font-weight:500">${ti.label}</span>
+    <span style="font-size:11px;padding:3px 10px;border-radius:0;background:${ti.bg};color:${ti.color};font-weight:500">${ti.label}</span>
     <span style="font-size:12px;color:var(--muted)">${ts.dur!=='—'?ts.dur:''}</span>
     ${phase?`<span style="font-size:11px;color:var(--muted)">· ${phase}</span>`:''}`;
   document.getElementById('qs-desc').textContent = ts.desc;
 
-  // Paces (Runners Approved only)
+  // Paces (Road to 21K only)
   const qp = document.getElementById('qs-paces');
   const qpc = document.getElementById('qs-paces-content');
   if (state.paces && ts.paceType) {
@@ -1825,7 +2397,7 @@ function renderCdBlocks() {
     const div=document.createElement('div');
     const isCurrent=i===cdState.blockIdx;
     const isDone=i<cdState.blockIdx;
-    div.style.cssText=`display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:10px;transition:all 0.3s;background:${isCurrent?'var(--card-alt)':'transparent'};border:1px solid ${isCurrent?'var(--border-h)':'transparent'}`;
+    div.style.cssText=`display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:0;transition:all 0.3s;background:${isCurrent?'var(--card-alt)':'transparent'};border:1px solid ${isCurrent?'var(--border-h)':'transparent'}`;
     const mins=Math.floor(b.duration/60);
     const secs=b.duration%60;
     const timeStr=mins>0?(secs>0?`${mins}m ${secs}s`:`${mins}m`):`${secs}s`;
@@ -2048,7 +2620,10 @@ function showWarmup() {
   wuRenderExercise();
   wuUpdateProgress();
   document.getElementById('wu-timer-display').textContent = wuFmt(wuState.timeLeft);
-  document.getElementById('wu-main-btn').textContent = 'Start warm-up';
+  // Reset main button to Start (wuFinish may have overridden onclick to showRunning)
+  const mainBtn = document.getElementById('wu-main-btn');
+  mainBtn.textContent = 'Start warm-up';
+  mainBtn.onclick = wuMain;
 }
 
 function wuFmt(sec) {
@@ -2062,7 +2637,7 @@ function wuRenderDots() {
     const d = document.createElement('div');
     const isDone = i < wuState.idx;
     const isActive = i === wuState.idx;
-    d.style.cssText = `width:${isActive?12:7}px;height:7px;border-radius:4px;background:${isDone?'var(--pil)':isActive?'var(--pil)':'rgba(28,20,10,0.1)'};transition:all 0.25s`;
+    d.style.cssText = `width:${isActive?12:7}px;height:7px;border-radius:0;background:${isDone?'var(--pil)':isActive?'var(--pil)':'rgba(28,20,10,0.1)'};transition:all 0.25s`;
     dots.appendChild(d);
   });
 }
@@ -2136,6 +2711,130 @@ function stopWarmupTimer() {
   clearInterval(wuState.timer);
 }
 
+/* ═══════════ COOLDOWN / STRETCHING ═══════════ */
+const COOLDOWN_ROUTINES = {
+  run: {label:'Post-Run Stretch · 6 min', exercises:[
+    {name:'Standing Quad Stretch',  cue:'Hold each leg 30 sec. Hand on wall if needed.',             dur:60},
+    {name:'Standing Hamstring Stretch', cue:'Hinge forward, soft knees — hold 30 sec each side.',   dur:60},
+    {name:'Calf Stretch',           cue:'Step back, heel flat on ground — 30 sec each leg.',         dur:60},
+    {name:'Hip Flexor Lunge',       cue:'Low lunge, back knee down — hold 30 sec each side.',        dur:60},
+    {name:'Glute & Piriformis',     cue:'Figure-4 on back or standing — 30 sec each side.',          dur:60},
+    {name:'Seated Spine Twist',     cue:'Seated twist each direction — breathe into the stretch.',   dur:60},
+  ]},
+  long: {label:'Post-Long Run Stretch · 8 min', exercises:[
+    {name:'Walking Cool-Down',      cue:'2 min easy walk to bring heart rate down.',                 dur:120},
+    {name:'Standing Quad Stretch',  cue:'Hold each leg 40 sec. Breathe slowly.',                     dur:80},
+    {name:'Hamstring Stretch',      cue:'Forward fold, soft knees — hold 40 sec each side.',         dur:80},
+    {name:'Calf & Achilles',        cue:'Heel flat, then bent knee version — 30 sec each leg.',      dur:60},
+    {name:'Hip Flexor Lunge',       cue:'Low lunge with reach — hold 40 sec each side.',             dur:80},
+    {name:'IT Band Stretch',        cue:'Cross legs, lean to side — 30 sec each.',                   dur:60},
+    {name:'Glute Stretch',          cue:'Figure-4 lying down — 40 sec each side.',                   dur:80},
+    {name:'Spine Rotation',         cue:'Knees to chest, drop side to side — 10 slow reps.',         dur:60},
+  ]},
+};
+
+function getCooldownRoutine(sessType) {
+  if (sessType === 'lr') return COOLDOWN_ROUTINES.long;
+  return COOLDOWN_ROUTINES.run;
+}
+
+let cdlState = {routine:null, idx:0, timeLeft:0, timer:null, started:false};
+
+function goCooldown() {
+  const {sess:ts} = getTodaySession();
+  const routine = getCooldownRoutine(ts?.t || 'r');
+  cdlState = {routine, idx:0, timeLeft:routine.exercises[0].dur, timer:null, started:false};
+  showPanel('s-cooldown');
+  const totalSec = routine.exercises.reduce((s,e)=>s+e.dur,0);
+  document.getElementById('cd-routine-label').textContent = routine.label;
+  cdlRenderDots();
+  cdlRenderExercise();
+  cdlUpdateProgress();
+  document.getElementById('cd-timer-display').textContent = cdlFmt(cdlState.timeLeft);
+  const mainBtn = document.getElementById('cd-main-btn');
+  mainBtn.textContent = 'Start stretching';
+  mainBtn.onclick = cdMain;
+}
+
+function cdlFmt(sec) {
+  return Math.floor(sec/60)+':'+String(sec%60).padStart(2,'0');
+}
+
+function cdlRenderDots() {
+  const dots = document.getElementById('cd-step-dots');
+  dots.innerHTML = '';
+  cdlState.routine.exercises.forEach((_,i) => {
+    const d = document.createElement('div');
+    const isDone = i < cdlState.idx;
+    const isActive = i === cdlState.idx;
+    d.style.cssText = `width:${isActive?12:7}px;height:7px;border-radius:0;background:${isDone?'var(--pil)':isActive?'var(--pil)':'rgba(28,20,10,0.1)'};transition:all 0.25s`;
+    dots.appendChild(d);
+  });
+}
+
+function cdlRenderExercise() {
+  const ex = cdlState.routine.exercises[cdlState.idx];
+  document.getElementById('cd-ex-counter').textContent = (cdlState.idx+1) + ' of ' + cdlState.routine.exercises.length;
+  document.getElementById('cd-ex-name').textContent = ex.name;
+  document.getElementById('cd-ex-cue').textContent = ex.cue;
+}
+
+function cdlUpdateProgress() {
+  const r = cdlState.routine;
+  const totalSec = r.exercises.reduce((s,e)=>s+e.dur,0);
+  let doneSec = r.exercises.slice(0,cdlState.idx).reduce((s,e)=>s+e.dur,0);
+  if (cdlState.started) doneSec += (r.exercises[cdlState.idx].dur - cdlState.timeLeft);
+  document.getElementById('cd-progress-fill').style.width = (totalSec > 0 ? (doneSec/totalSec)*100 : 0) + '%';
+}
+
+function cdMain() {
+  if (!cdlState.started) {
+    cdlState.started = true;
+    document.getElementById('cd-main-btn').textContent = 'Next stretch →';
+    cdlState.timer = setInterval(cdlTick, 1000);
+  } else {
+    cdlAdvance();
+  }
+}
+
+function cdlTick() {
+  cdlState.timeLeft--;
+  document.getElementById('cd-timer-display').textContent = cdlFmt(cdlState.timeLeft);
+  cdlUpdateProgress();
+  if (cdlState.timeLeft <= 0) cdlAdvance();
+}
+
+function cdlAdvance() {
+  clearInterval(cdlState.timer);
+  cdlState.idx++;
+  if (cdlState.idx >= cdlState.routine.exercises.length) {
+    cdlFinish();
+    return;
+  }
+  cdlState.timeLeft = cdlState.routine.exercises[cdlState.idx].dur;
+  cdlRenderDots();
+  cdlRenderExercise();
+  document.getElementById('cd-timer-display').textContent = cdlFmt(cdlState.timeLeft);
+  cdlUpdateProgress();
+  cdlState.timer = setInterval(cdlTick, 1000);
+}
+
+function cdSkip() {
+  clearInterval(cdlState.timer);
+  cdlAdvance();
+}
+
+function cdlFinish() {
+  cdlState.started = false;
+  document.getElementById('cd-ex-counter').textContent = '✓ Complete';
+  document.getElementById('cd-ex-name').textContent = 'Stretching done';
+  document.getElementById('cd-ex-cue').textContent = 'Great work. You\'ve earned this recovery.';
+  document.getElementById('cd-timer-display').textContent = '';
+  document.getElementById('cd-progress-fill').style.width = '100%';
+  document.getElementById('cd-main-btn').textContent = 'Leave your feedback →';
+  document.getElementById('cd-main-btn').onclick = goCheckout;
+}
+
 /* RUNNING */
 function showRunning() {
   showPanel('s-running');
@@ -2199,6 +2898,7 @@ function submitCheckout(){
 
   // ── Auto-check the session in Programme ──
   state.completed[key] = true;
+  saveState();
 
   showPanel('s-co-done');
   const {feeling,pain,energy}=state.coAnswers;
@@ -2252,7 +2952,7 @@ function renderProgres() {
       const weekEntries = entries.filter(([k]) => k.startsWith('w' + w.w + 'd'));
       if (weekEntries.length === 0) return;
       const row = document.createElement('div');
-      row.style.cssText = 'background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:0';
+      row.style.cssText = 'background:var(--card);border-radius:0;padding:12px 14px;margin-bottom:0';
       const header = document.createElement('div');
       header.style.cssText = 'display:flex;align-items:center;gap:10px;margin-bottom:8px';
       header.innerHTML = '<span style="font-size:11px;font-weight:500;color:' + (w.w===cw?'var(--gold)':'var(--sub)') + ';min-width:22px">W' + w.w + '</span><span style="font-size:11px;color:var(--muted);flex:1">' + w.theme + '</span>';
@@ -2269,8 +2969,8 @@ function renderProgres() {
         const bdr   = feel >= 2 ? 'var(--pil-border)' : feel === 1 ? 'var(--gold-border)' : 'rgba(192,80,80,0.25)';
         const feelLabel = feel >= 0 ? feelings[feel] : '—';
         const dot = document.createElement('div');
-        dot.style.cssText = 'display:flex;align-items:center;gap:5px;padding:5px 10px;border-radius:8px;background:' + bg + ';border:1px solid ' + bdr;
-        dot.title = (sess ? sess.d + ' · ' + sess.title : '') + ' · ' + feelLabel + (hasPain ? ' · ⚠ pain' : '');
+        dot.style.cssText = 'display:flex;align-items:center;gap:5px;padding:5px 10px;border-radius:0;background:' + bg + ';border:1px solid ' + bdr;
+        const _di = parseInt(key.split('d')[1]); dot.title = (sess ? sessIdxToDay(_di) + ' · ' + sess.title : '') + ' · ' + feelLabel + (hasPain ? ' · ⚠ pain' : '');
         dot.innerHTML = '<div style="width:6px;height:6px;border-radius:50%;background:' + color + ';flex-shrink:0"></div><span style="font-size:11px;color:' + color + ';font-weight:500">' + (sess ? sess.d : '?') + '</span><span style="font-size:11px;color:' + color + ';opacity:0.8"> ' + feelLabel + '</span>' + (hasPain ? '<span style="font-size:10px;color:var(--danger);margin-left:2px">⚠</span>' : '');
         dots.appendChild(dot);
       });
@@ -2295,14 +2995,16 @@ function renderProgres() {
     const hasCheckin = !!(state.weeklyCheckins && state.weeklyCheckins['w' + w.w]);
     const div = document.createElement('div');
     div.className = 'card prog-week' + ((!isActive && !isPast && done === 0) ? ' future' : '');
-    div.style.cursor = 'pointer';
+    const isCheckinLocked = w.w > cw || w.w < cw - 1;
+    div.style.cursor = isCheckinLocked ? 'default' : 'pointer';
+    div.style.opacity = w.w > cw + 0 ? '1' : '1'; // keep full opacity, lock handled in openWCI
     if (isPast) div.style.background = 'rgba(28,20,10,0.025)';
     const barC = isActive ? 'var(--gold)' : done === w.sess.length ? 'var(--pil)' : 'rgba(28,20,10,0.12)';
     const weekBadge = isActive
-      ? '<span style="font-size:10px;padding:2px 8px;border-radius:5px;background:var(--gold-bg);color:var(--gold);font-weight:500;border:1px solid var(--gold-border)">now</span>'
+      ? '<span style="font-size:10px;padding:2px 8px;border-radius:0;background:var(--gold-bg);color:var(--gold);font-weight:500;border:1px solid var(--gold-border)">now</span>'
       : isPast
-        ? '<span style="font-size:10px;padding:2px 8px;border-radius:5px;background:var(--pil-bg);color:var(--pil);font-weight:500;border:1px solid var(--pil-border)">done</span>'
-        : '<span style="font-size:10px;padding:2px 8px;border-radius:5px;background:rgba(28,20,10,0.04);color:var(--muted);font-weight:500;border:1px solid var(--border)">coming</span>';
+        ? '<span style="font-size:10px;padding:2px 8px;border-radius:0;background:var(--pil-bg);color:var(--pil);font-weight:500;border:1px solid var(--pil-border)">done</span>'
+        : '<span style="font-size:10px;padding:2px 8px;border-radius:0;background:var(--rest-bg);color:var(--rest);font-weight:500">coming</span>';
     div.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="display:flex;gap:8px;align-items:baseline"><span style="font-size:12px;font-weight:500;color:' + (isActive?'var(--gold)':isPast?'var(--sub)':'var(--muted)') + ';font-family:var(--sans)">W' + w.w + '</span><span style="font-size:11.5px;color:var(--muted)">' + w.phase + '</span></div><div style="display:flex;gap:8px;align-items:center"><span style="font-size:11px;color:var(--muted)">' + done + '/' + w.sess.length + '</span>' + (hasCheckin ? '<span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--pil-bg);border:1px solid var(--pil-border)"><svg width="9" height="7" viewBox="0 0 9 7"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="var(--pil)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>' : '') + weekBadge + '<span style="font-size:14px;color:var(--muted);opacity:0.4">›</span></div></div><div class="pbar-track"><div class="pbar-fill" style="background:' + barC + ';width:' + (done/w.sess.length*100) + '%"></div></div><div style="font-size:11px;color:var(--muted);margin-top:6px">' + w.theme + '</div>';
     div.onclick = () => openWCI(w.w);
     container.appendChild(div);
@@ -2313,14 +3015,28 @@ function renderProgres() {
 let sfbState = { weekNum:1, dayIdx:0, answers:{feeling:null,pain:null,energy:null} };
 
 function openSFB(weekNum, dayIdx, sess) {
-  sfbState = { weekNum, dayIdx, answers:{feeling:null,pain:null,energy:null} };
+  sfbState = { weekNum, dayIdx, sessType: sess.t, answers:{feeling:null,pain:null,energy:null} };
   const key = 'w' + weekNum + 'd' + dayIdx;
-  const prog = getProg();
-  const week = prog[weekNum-1];
   const ti = tInfo(sess.t);
-  document.getElementById('sfb-label').textContent = 'Week ' + weekNum + ' · ' + sess.d;
+  const isRest = sess.t === 'x';
+  document.getElementById('sfb-label').textContent = 'Week ' + weekNum + ' · ' + sessIdxToDay(dayIdx);
   document.getElementById('sfb-label').style.color = ti.color;
   document.getElementById('sfb-title').textContent = sess.title;
+
+  // ── Editable window: today or yesterday only ──
+  const now = state._mockDate ? new Date(state._mockDate + 'T00:00:00') : new Date();
+  now.setHours(0,0,0,0);
+  // Compute the actual calendar date of this session
+  const startDate = new Date((state.startDate || now.toISOString().split('T')[0]) + 'T00:00:00');
+  const startDay = getStartDayJS();
+  // weekIdx is 0-based from startDate
+  const weekIdx = weekNum - 1;
+  const sessDate = new Date(startDate);
+  sessDate.setDate(sessDate.getDate() + weekIdx * 7 + dayIdx);
+  const diffDays = Math.round((now - sessDate) / 86400000);
+  // Editable: today, yesterday, OR future session in the same current week
+  const isSameWeek = weekNum === getCurrentWeek();
+  const isEditable = (diffDays >= 0 && diffDays <= 1) || (diffDays < 0 && isSameWeek);
 
   const existing = state.sessionFeedbacks && state.sessionFeedbacks[key];
   const existEl = document.getElementById('sfb-existing');
@@ -2336,18 +3052,43 @@ function openSFB(weekNum, dayIdx, sess) {
     const nl = {low:'Drained', mid:'Good', high:'Light'};
     const fb = existing;
     const rows = document.getElementById('sfb-feedback-rows');
-    rows.innerHTML = [
-      {l:'Feeling', v: feelings[fb.feeling??0]||'—', c: (fb.feeling??0)>=2?'var(--pil)':(fb.feeling??0)===1?'var(--gold)':'var(--danger)'},
-      {l:'Pain',    v: pl[fb.pain]||'—',              c: fb.pain==='yes'?'var(--danger)':fb.pain==='light'?'var(--gold)':'var(--pil)'},
-      {l:'Energy',  v: nl[fb.energy]||'—',            c: fb.energy==='high'?'var(--pil)':fb.energy==='mid'?'var(--gold)':'var(--danger)'},
-    ].map(r => `<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)">
+    const rowsData = [];
+    if (!isRest && fb.feeling !== null && fb.feeling !== undefined) {
+      rowsData.push({l:'Feeling', v: feelings[fb.feeling]||'—', c: (fb.feeling)>=2?'var(--pil)':(fb.feeling)===1?'var(--gold)':'var(--danger)'});
+    }
+    rowsData.push({l:'Pain', v: pl[fb.pain]||'—', c: fb.pain==='yes'?'var(--danger)':fb.pain==='light'?'var(--gold)':'var(--pil)'});
+    rowsData.push({l:'Energy', v: nl[fb.energy]||'—', c: fb.energy==='high'?'var(--pil)':fb.energy==='mid'?'var(--gold)':'var(--danger)'});
+    rows.innerHTML = rowsData.map(r => `<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)">
       <span style="font-size:13px;color:var(--muted)">${r.l}</span>
       <span style="font-size:13px;font-weight:500;color:${r.c}">${r.v}</span>
     </div>`).join('');
+    // Show/hide edit button based on editable window
+    const editBtn = existEl.querySelector('button');
+    if (editBtn) {
+      if (isEditable) {
+        editBtn.style.display = 'block';
+        editBtn.removeAttribute('disabled');
+      } else {
+        editBtn.style.display = 'none';
+      }
+    }
   } else {
     existEl.style.display = 'none';
-    emptyEl.style.display = 'block';
     formEl.style.display  = 'none';
+    if (isEditable) {
+      emptyEl.style.display = 'block';
+    } else {
+      // Past session — show locked state
+      emptyEl.style.display = 'none';
+      existEl.style.display = 'block';
+      document.getElementById('sfb-feedback-rows').innerHTML =
+        `<div style="padding:14px 0;font-size:12.5px;color:var(--muted);line-height:1.6;text-align:center">
+          No feedback recorded for this session.<br>
+          <span style="font-size:11.5px;color:rgba(28,20,10,0.3)">${diffDays < 0 ? 'This session hasn\'t happened yet.' : 'Feedback can only be added on the day of the session or the following day.'}</span>
+        </div>`;
+      const editBtn = existEl.querySelector('button');
+      if (editBtn) editBtn.style.display = 'none';
+    }
   }
   document.getElementById('sfb-modal').classList.add('open');
 }
@@ -2364,7 +3105,43 @@ function sfbStartEdit() {
   document.getElementById('sfb-empty').style.display    = 'none';
   document.getElementById('sfb-form').style.display     = 'block';
 
-  // Build feeling row
+  const isRest = sfbState.sessType === 'x';
+
+  // Check if pain was signalled in previous sessions this week or last week
+  let hadRecentPain = false;
+  if (state.sessionFeedbacks) {
+    const cw = sfbState.weekNum;
+    for (let w = Math.max(1, cw-1); w <= cw; w++) {
+      for (let d = 0; d < 7; d++) {
+        const k = 'w' + w + 'd' + d;
+        if (k !== key && state.sessionFeedbacks[k]?.pain === 'yes') { hadRecentPain = true; break; }
+      }
+      if (hadRecentPain) break;
+    }
+  }
+
+  // ── Adapt question labels ──
+  if (isRest) {
+    // Pain question: adapt if recent pain was signalled
+    document.getElementById('sfb-q-pain').textContent = hadRecentPain
+      ? 'Despite the rest, do you still feel any pain?'
+      : 'Any pain or discomfort today?';
+    document.getElementById('sfb-q-nrg').textContent = 'How\'s your energy today?';
+    // Show motivation question for rest days
+    document.getElementById('sfb-q-motiv').style.display = 'block';
+    document.getElementById('sfb-motiv-row').style.display = 'flex';
+    document.getElementById('sfb-q-motiv').textContent = 'How\'s your motivation?';
+  } else {
+    document.getElementById('sfb-q-pain').textContent = 'Any pain during the session?';
+    document.getElementById('sfb-q-nrg').textContent = 'Energy at the end?';
+    document.getElementById('sfb-q-motiv').style.display = 'none';
+    document.getElementById('sfb-motiv-row').style.display = 'none';
+  }
+
+  // Feeling section visibility (hidden for rest)
+  const feelSection = document.getElementById('sfb-feel-row').parentElement;
+  feelSection.style.display = isRest ? 'none' : 'block';
+
   const feelings = ['Tough','OK','Good','Great','Perfect'];
   const row = document.getElementById('sfb-feel-row');
   row.innerHTML = '';
@@ -2384,22 +3161,35 @@ function sfbStartEdit() {
     row.appendChild(btn);
   });
 
-  // Reset pain/nrg
-  const painMap  = {none:'sfb-pain-none', light:'sfb-pain-light', yes:'sfb-pain-yes'};
-  const nrgMap   = {low:'sfb-nrg-low', mid:'sfb-nrg-mid', high:'sfb-nrg-high'};
+  // Reset buttons
   ['sfb-pain-none','sfb-pain-light','sfb-pain-yes'].forEach(id => { const el=document.getElementById(id); if(el) el.className='tri-btn'; });
   ['sfb-nrg-low','sfb-nrg-mid','sfb-nrg-high'].forEach(id => { const el=document.getElementById(id); if(el) el.className='tri-btn'; });
+  ['sfb-motiv-low','sfb-motiv-mid','sfb-motiv-high'].forEach(id => { const el=document.getElementById(id); if(el) el.className='tri-btn'; });
+
   if (existing) {
-    const pg = {none:'g',light:'o',yes:'b'}[existing.pain];
-    if(painMap[existing.pain]) { const el=document.getElementById(painMap[existing.pain]); if(el) el.className='tri-btn sel-'+pg; }
-    const ng = {low:'b',mid:'o',high:'g'}[existing.energy];
-    if(nrgMap[existing.energy]) { const el=document.getElementById(nrgMap[existing.energy]); if(el) el.className='tri-btn sel-'+ng; }
-    if(existing.feeling!==null && existing.feeling!==undefined) {
+    if (existing.pain) {
+      const pg = {none:'g',light:'o',yes:'b'}[existing.pain];
+      const pMap = {none:'sfb-pain-none',light:'sfb-pain-light',yes:'sfb-pain-yes'};
+      if(pMap[existing.pain]) { const el=document.getElementById(pMap[existing.pain]); if(el) el.className='tri-btn sel-'+pg; }
+    }
+    if (existing.energy) {
+      const ng = {low:'b',mid:'o',high:'g'}[existing.energy];
+      const nMap = {low:'sfb-nrg-low',mid:'sfb-nrg-mid',high:'sfb-nrg-high'};
+      if(nMap[existing.energy]) { const el=document.getElementById(nMap[existing.energy]); if(el) el.className='tri-btn sel-'+ng; }
+    }
+    if (existing.motivation) {
+      const mg = {low:'b',mid:'o',high:'g'}[existing.motivation];
+      const mMap = {low:'sfb-motiv-low',mid:'sfb-motiv-mid',high:'sfb-motiv-high'};
+      if(mMap[existing.motivation]) { const el=document.getElementById(mMap[existing.motivation]); if(el) el.className='tri-btn sel-'+mg; }
+    }
+    if (!isRest && existing.feeling !== null && existing.feeling !== undefined) {
       const fl=document.getElementById('sfb-feel-'+existing.feeling);
       if(fl) fl.classList.add('selected');
     }
     sfbState.answers = {...existing};
   }
+
+  if (isRest) sfbState.answers.feeling = null;
   sfbCheckSave();
 }
 
@@ -2419,10 +3209,21 @@ function sfbSetNrg(val, grade) {
   sfbCheckSave();
 }
 
+function sfbSetMotiv(val, grade) {
+  sfbState.answers.motivation = val;
+  ['sfb-motiv-low','sfb-motiv-mid','sfb-motiv-high'].forEach(id => { const el=document.getElementById(id); if(el) el.className='tri-btn'; });
+  const map = {low:'sfb-motiv-low', mid:'sfb-motiv-mid', high:'sfb-motiv-high'};
+  if(map[val]) { const el=document.getElementById(map[val]); if(el) el.className='tri-btn sel-'+grade; }
+  sfbCheckSave();
+}
+
 function sfbCheckSave() {
-  const {feeling,pain,energy} = sfbState.answers;
+  const {feeling, pain, energy, motivation} = sfbState.answers;
+  const isRest = sfbState.sessType === 'x';
+  const feelingOk = isRest || (feeling !== null && feeling !== undefined);
+  const motivOk = isRest ? !!motivation : true;
   const btn = document.getElementById('sfb-save-btn');
-  if(btn) btn.disabled = !(feeling!==null && feeling!==undefined && pain && energy);
+  if(btn) btn.disabled = !(feelingOk && pain && energy && motivOk);
 }
 
 function sfbSave() {
@@ -2431,6 +3232,7 @@ function sfbSave() {
   state.sessionFeedbacks[key] = {...sfbState.answers};
   // Also mark session as done
   state.completed[key] = true;
+  saveState();
   closeSFB();
   renderProgramme();
   if(currentTab === 'progres') renderProgres();
@@ -2452,6 +3254,21 @@ let wciStep = 0;
 let wciAnswers = {};
 
 function openWCI(weekNum) {
+  const cw = getCurrentWeek();
+  // Only allow check-in for current week and week-1
+  if (weekNum > cw || weekNum < cw - 1) {
+    // Show a brief locked toast and return
+    const msg = weekNum > cw
+      ? 'This week hasn\'t started yet.'
+      : 'Check-ins are only available for the current week and the previous week.';
+    const toast = document.createElement('div');
+    toast.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--text);color:#fff;font-size:12px;font-family:var(--sans);padding:10px 18px;border-radius:0;z-index:999;pointer-events:none;opacity:0;transition:opacity 0.2s;white-space:nowrap';
+    toast.textContent = msg;
+    document.body.appendChild(toast);
+    requestAnimationFrame(() => { toast.style.opacity = '1'; });
+    setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, 2500);
+    return;
+  }
   wciWeek = weekNum;
   wciStep = 0;
   wciAnswers = {};
@@ -2468,7 +3285,7 @@ function openWCI(weekNum) {
   const doneSess = w.sess.filter((_,i)=>state.completed[`w${weekNum}d${i}`]).length;
   // Summary bar
   const bar = document.createElement('div');
-  bar.style.cssText='background:var(--card-alt);border:1px solid var(--border);border-radius:10px;padding:12px 16px';
+  bar.style.cssText='background:var(--card-alt);border-radius:0;padding:12px 16px';
   bar.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
     <span style="font-size:13px;font-weight:500;color:var(--text)">${doneSess} of ${totalSess} sessions done</span>
     <span style="font-size:12px;color:${doneSess===totalSess?'var(--pil)':'var(--muted)'}">${Math.round(doneSess/totalSess*100)}%</span>
@@ -2480,13 +3297,13 @@ function openWCI(weekNum) {
     const isDone=!!state.completed[`w${weekNum}d${i}`];
     const ti=tInfo(sess.t);
     const row=document.createElement('div');
-    row.style.cssText='display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--card-alt);border:1px solid var(--border);border-radius:9px';
+    row.style.cssText='display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--card-alt);border-radius:0';
     row.innerHTML=`
       <div style="width:18px;height:18px;border-radius:50%;border:1.5px solid ${isDone?ti.color:'rgba(28,20,10,0.15)'};background:${isDone?ti.color:'transparent'};flex-shrink:0;display:flex;align-items:center;justify-content:center">
         ${isDone?`<svg width="8" height="6" viewBox="0 0 8 6"><path d="M1 3l2 2 4-4" stroke="var(--bg)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`:''}
       </div>
-      <span style="font-size:12.5px;color:${isDone?'var(--text)':'var(--muted)'};flex:1">${sess.d} · ${sess.title}</span>
-      <span style="font-size:10px;padding:2px 7px;border-radius:5px;background:${ti.bg};color:${ti.color}">${ti.label}</span>`;
+      <span style="font-size:12.5px;color:${isDone?'var(--text)':'var(--muted)'};flex:1">${sessIdxToDay(i)} · ${sess.title}</span>
+      <span style="font-size:10px;padding:2px 7px;border-radius:0;background:${ti.bg};color:${ti.color}">${ti.label}</span>`;
     list.appendChild(row);
   });
 
@@ -2502,7 +3319,7 @@ function openWCI(weekNum) {
       const sess = w.sess[dayIdx];
       const feelings=['Tough','OK','Good','Great','Perfect'];
       const row=document.createElement('div');
-      row.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--card-alt);border:1px solid var(--border);border-radius:9px;font-size:12px';
+      row.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--card-alt);border-radius:0;font-size:12px';
       row.innerHTML=`<span style="color:var(--sub)">${sess?.d||''} · ${sess?.title||''}</span>
         <div style="display:flex;gap:6px;align-items:center">
           ${fb.feeling!==null?`<span style="color:var(--gold)">${feelings[fb.feeling]||''}</span>`:''}
@@ -2594,6 +3411,7 @@ function showWCIResult() {
   // Save
   if(!state.weeklyCheckins) state.weeklyCheckins={};
   state.weeklyCheckins[`w${wciWeek}`]={...wciAnswers};
+  saveState();
   // UI
   document.getElementById('wci-overview').style.display='none';
   document.getElementById('wci-questions').style.display='none';
@@ -2638,7 +3456,7 @@ function openDownload() {
   document.getElementById('view-download').style.display='block';
   const prog = getProg();
   const isApproved = state.track==='approved';
-  document.getElementById('dl-subtitle').textContent = (isApproved?'Runners Approved — 10K → Half-Marathon':'Baby Runners — 0 → 10K') + ' · 10 weeks';
+  document.getElementById('dl-subtitle').textContent = (isApproved?'Road to 21K — 10K → Half-Marathon':'Road to 10K — 0 → 10K') + ' · 10 weeks';
   // Pre-fill start date
   const inp = document.getElementById('dl-start-date');
   inp.value = state.startDate || new Date().toISOString().split('T')[0];
@@ -2720,7 +3538,7 @@ function previewCalendar() {
   previewBlock.style.display = 'block';
   previewList.innerHTML = previews.map(p =>
     `<div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
-      <span style="font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(28,20,10,0.05);color:${p.color};font-weight:500;flex-shrink:0">${p.label}</span>
+      <span style="font-size:10px;padding:2px 8px;border-radius:0;background:rgba(28,20,10,0.05);color:${p.color};font-weight:500;flex-shrink:0">${p.label}</span>
       <span style="color:var(--sub);white-space:nowrap">${p.date}</span>
       <span style="color:var(--muted);font-size:11px;white-space:nowrap">${p.time}</span>
       <span style="color:var(--muted)">· ${p.title}</span>
@@ -2734,7 +3552,7 @@ function downloadICS() {
   if (!startVal) return;
   const prog = getProg();
   const isApproved = state.track === 'approved';
-  const trackName  = isApproved ? 'Runners Approved 10K→Half-Marathon' : 'Baby Runners 0→10K';
+  const trackName  = isApproved ? 'Road to 21K ' : 'Road to 10K ';
   const calName    = 'Running × Pilates — ' + trackName;
   const now = Date.now();
   const pad = n => n.toString().padStart(2,'0');
@@ -2801,7 +3619,7 @@ function downloadICS() {
 function downloadSchedule() {
   const prog = getProg();
   const isApproved = state.track==='approved';
-  const trackName = isApproved?'Runners Approved — 10K to Half-Marathon':'Baby Runners — 0 to 10K';
+  const trackName = isApproved?'Road to 21K':'Road to 10K';
   const startVal = document.getElementById('dl-start-date')?.value;
   const T_COLORS = {r:'#C47A55',lr:'#B8914A',p:'#5D8A7A',x:'#9E9690'};
   const T_LABELS = {r:'Run',lr:'Long Run',p:'Pilates',x:'Rest'};
@@ -2809,25 +3627,25 @@ function downloadSchedule() {
   let html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Running × Pilates — ${trackName}</title>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'DM Sans',system-ui,sans-serif;background:#FAF8F4;color:#1C1814;padding:40px 24px;max-width:700px;margin:0 auto}
-    h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:36px;font-weight:300;margin-bottom:4px;line-height:1.1}
+    body{font-family:'Poppins',system-ui,sans-serif;background:#F6F2EC;color:#1C1814;padding:40px 24px;max-width:700px;margin:0 auto}
+    h1{font-family:'Poppins',system-ui,sans-serif;font-size:36px;font-weight:300;margin-bottom:4px;line-height:1.1}
     .sub{font-size:13px;color:#888;margin-bottom:32px;margin-top:6px}
     .week{margin-bottom:28px;break-inside:avoid}
     .week-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;padding-bottom:8px;border-bottom:1.5px solid #1C1814}
-    .week-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:400}
+    .week-title{font-family:'Poppins',system-ui,sans-serif;font-size:22px;font-weight:400}
     .week-theme{font-size:12px;color:#666;margin-top:2px}
     .week-phase{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#888}
-    .sess{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border-radius:8px;margin-bottom:6px;background:#fff;border:1px solid rgba(28,20,10,0.07)}
+    .sess{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border-radius:0;margin-bottom:6px;background:#fff;border:1px solid rgba(28,20,10,0.07)}
     .sess-day{font-size:11px;font-weight:500;color:#888;min-width:28px;flex-shrink:0;margin-top:1px}
     .sess-info{flex:1;min-width:0}
     .sess-title{font-size:13px;font-weight:500;color:#1C1814;margin-bottom:2px}
     .sess-desc{font-size:11.5px;color:#888;line-height:1.45}
-    .pill{font-size:10px;padding:2px 8px;border-radius:4px;font-weight:500;flex-shrink:0;margin-top:1px}
+    .pill{font-size:10px;padding:2px 8px;border-radius:0;font-weight:500;flex-shrink:0;margin-top:1px}
     .sess-dur{font-size:11px;color:#aaa;text-align:right;flex-shrink:0;margin-top:2px;white-space:nowrap}
     .footer{margin-top:32px;padding-top:20px;border-top:1px solid rgba(28,20,10,0.1);font-size:11px;color:#aaa;text-align:center}
     @media print{body{background:white;padding:20px}@page{margin:1.5cm}}
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
   </head><body>
   <h1>Running × Pilates</h1>
   <div class="sub">${trackName} · 10 weeks · Le Studio by Alice${startVal?' · Starts '+new Date(startVal+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}):''}</div>`;
@@ -2841,24 +3659,74 @@ function downloadSchedule() {
     });
     html += '</div>';
   });
-  html += '<div class="footer">Le Studio by Alice · Running × Pilates Programme</div></body></html>';
+  html += `<div class="print-cta" style="margin-top:32px;padding:16px 20px;background:#f0ede6;border-radius:0;text-align:center">
+    <div style="font-size:13px;font-weight:500;color:#1C1814;margin-bottom:6px">Save as PDF</div>
+    <div style="font-size:12px;color:#888;line-height:1.55">In your browser: <strong>File → Print</strong> (or Cmd/Ctrl+P) → select <strong>Save as PDF</strong> as the destination.</div>
+  </div>`;
+  html += '<div class="footer">Le Studio by Alice · Running × Pilates</div>';
+  html += `<script>window.onload=function(){window.print();}<\/script>`;
+  html += '</body></html>';
 
-  const blob = new Blob([html],{type:'text/html;charset=utf-8'});
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
-  a.href     = url;
-  a.download = `running-x-pilates-${state.track}-schedule.html`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  const win = window.open('', '_blank');
+  if (win) {
+    win.document.write(html);
+    win.document.close();
+  }
 }
 
 /* ═══════════ SETTINGS ═══════════ */
+function openCalendarGuide() {
+  closeSettings();
+  const panel = document.getElementById('view-calendar-guide');
+  panel.style.visibility = 'visible';
+  panel.style.transform = 'translateX(0)';
+  panel.scrollTop = 0;
+}
+
+function closeCalendarGuide() {
+  const panel = document.getElementById('view-calendar-guide');
+  panel.style.transform = 'translateX(100%)';
+  panel.style.visibility = 'hidden';
+}
+
 function toggleSettings() {
-  const el = document.getElementById('view-settings');
-  if (el.style.display === 'none' || el.style.display === '') openSettings();
+  const el      = document.getElementById('view-settings');
+  const guide   = document.getElementById('view-guide');
+  const install = document.getElementById('view-install');
+  const calGuide = document.getElementById('view-calendar-guide');
+  if (guide.style.visibility === 'visible')    { closeGuide();         return; }
+  if (install.style.visibility === 'visible')  { closeInstallGuide();  return; }
+  if (calGuide.style.visibility === 'visible') { closeCalendarGuide(); return; }
+  if (el.style.visibility === 'hidden' || el.style.visibility === '') openSettings();
   else closeSettings();
+}
+
+function openGuide() {
+  closeSettings();
+  const panel = document.getElementById('view-guide');
+  panel.style.visibility = 'visible';
+  panel.style.transform = 'translateX(0)';
+  panel.scrollTop = 0;
+}
+
+function closeGuide() {
+  const panel = document.getElementById('view-guide');
+  panel.style.transform = 'translateX(100%)';
+  panel.style.visibility = 'hidden';
+}
+
+function openInstallGuide() {
+  closeSettings();
+  const panel = document.getElementById('view-install');
+  panel.style.visibility = 'visible';
+  panel.style.transform = 'translateX(0)';
+  panel.scrollTop = 0;
+}
+
+function closeInstallGuide() {
+  const panel = document.getElementById('view-install');
+  panel.style.transform = 'translateX(100%)';
+  panel.style.visibility = 'hidden';
 }
 
 function openSettings() {
@@ -2874,16 +3742,33 @@ function openSettings() {
     stCalcPaces();
   }
   document.getElementById('st-race-date').value = state.raceDate || '';
+  document.getElementById('st-start-date').value = state.startDate || new Date().toISOString().split('T')[0];
+  stToggleStartDate();
   document.getElementById('reset-confirm').style.display = 'none';
   // Dev mode
   const mockDate = state._mockDate || '';
   document.getElementById('dev-mock-date').value = mockDate;
   updateDevBanner();
-  document.getElementById('view-settings').style.display = 'block';
+  // Slide panel in + show overlay
+  const overlay = document.getElementById('settings-overlay');
+  const panel   = document.getElementById('view-settings');
+  overlay.style.display = 'block';
+  panel.style.visibility = 'visible';
+  // Force reflow then animate
+  panel.getBoundingClientRect();
+  overlay.style.opacity = '1';
+  panel.style.transform = 'translateX(0)';
 }
 
 function closeSettings() {
-  document.getElementById('view-settings').style.display = 'none';
+  const overlay = document.getElementById('settings-overlay');
+  const panel   = document.getElementById('view-settings');
+  overlay.style.opacity = '0';
+  panel.style.transform = 'translateX(100%)';
+  setTimeout(() => {
+    overlay.style.display = 'none';
+    panel.style.visibility = 'hidden';
+  }, 360);
 }
 
 function stSelectTrack(t) {
@@ -2923,15 +3808,36 @@ function stCalcPaces() {
   }
 }
 
+function stToggleStartDate() {
+  const hasRace = !!document.getElementById('st-race-date').value;
+  document.getElementById('st-start-date-block').style.display = hasRace ? 'none' : 'block';
+}
+
 function saveSettings() {
   const name = document.getElementById('st-name').value.trim();
   const newTrack = document.getElementById('view-settings')._newTrack || state.track;
   const newPaces = document.getElementById('view-settings')._newPaces;
   const raceDate = document.getElementById('st-race-date').value || null;
+  const startDateInput = document.getElementById('st-start-date').value || null;
 
   if (name) state.userName = name;
   state.track = newTrack;
   if (newPaces) state.paces = newPaces;
+
+  // If no race date, apply the manual start date directly
+  if (!raceDate && startDateInput) {
+    state.startDate = startDateInput;
+    state.startWeek = 1;
+    state.raceDate = null;
+    state.viewWeek = getCurrentWeek();
+    saveState();
+    closeSettings();
+    renderHome();
+    if (currentTab === 'programme') renderProgramme();
+    if (currentTab === 'progres') renderProgres();
+    if (currentTab === 'sortie') renderSortie();
+    return;
+  }
 
   closeSettings();
   applyRaceDateChange(raceDate);
@@ -2942,13 +3848,42 @@ function confirmReset() {
 }
 
 function doReset() {
+  // Clear all state
   state.completed = {};
   state.weeklyCheckins = {};
   state.sessionFeedbacks = {};
   state.viewWeek = 1;
+  state.userName = '';
+  state.track = 'baby';
+  state.raceDate = null;
+  state.startWeek = 1;
+  state.startDate = new Date().toISOString().split('T')[0];
+  state.paces = null;
+  state._mockDate = null;
+  try { localStorage.removeItem(STATE_KEY); } catch(e) {}
+
+  // Close settings panel and overlay immediately on reset
+  document.getElementById('view-settings').style.transform = 'translateX(100%)';
+  document.getElementById('view-settings').style.visibility = 'hidden';
+  document.getElementById('settings-overlay').style.opacity = '0';
+  document.getElementById('settings-overlay').style.display = 'none';
   document.getElementById('reset-confirm').style.display = 'none';
-  closeSettings();
+
+  // Switch to home and re-render
   switchTab('home');
+  renderHome();
+
+  // Reset onboarding to step 0 and show it
+  obCurrentStep = 0;
+  document.querySelectorAll('.ob-step').forEach((s, i) => s.classList.toggle('active', i === 0));
+  obUpdateDots(0, 4);
+
+  const ov = document.getElementById('onboarding-overlay');
+  ov.classList.remove('visible');
+  ov.style.removeProperty('opacity');
+  ov.style.removeProperty('pointer-events');
+  ov.style.display = 'flex';
+  requestAnimationFrame(() => requestAnimationFrame(() => ov.classList.add('visible')));
 }
 
 /* DEV MODE */
@@ -2989,15 +3924,15 @@ function showRaceDateAlert(alert) {
   const detail = document.getElementById('race-alert-detail');
 
   if (alert.type === 'short') {
-    label.textContent = 'Programme adjusted';
-    label.style.color = 'var(--gold)';
-    title.textContent = 'Your race is in ' + alert.weeksToRace + ' week' + (alert.weeksToRace !== 1 ? 's' : '');
-    body.textContent  = 'That\'s less than 10 weeks away. Your programme has been automatically updated to match your race date.';
-    detail.style.background = 'var(--warn-bg)';
-    detail.style.border = '1px solid var(--gold-border)';
+    label.textContent = 'Programme adjusted — heads up';
+    label.style.color = 'var(--danger)';
+    title.textContent = 'Your race is in ' + alert.weeksToRace + ' week' + (alert.weeksToRace !== 1 ? 's' : '') + ' — this is ambitious';
+    body.textContent  = 'Less than 10 weeks is a compressed preparation. It\'s doable, but it increases the risk of injury. The programme has been adjusted to start at the right week — please be especially attentive to how your body responds.';
+    detail.style.background = 'var(--danger-bg)';
+    detail.style.border = '1.5px solid rgba(192,80,80,0.3)';
     detail.innerHTML =
-      '<span style="color:var(--gold);font-weight:500">Starting at Week ' + alert.startWeek + ' / 10</span><br>' +
-      'Weeks 1–' + (alert.startWeek - 1) + ' have been skipped. Your programme, Progress tab and Start tab are all updated to reflect this.';
+      '<span style="color:var(--danger);font-weight:500">Starting at Week ' + alert.startWeek + ' / 10</span><br>' +
+      'Weeks 1–' + (alert.startWeek - 1) + ' have been skipped. If you can, consider choosing a later race to follow the full 10-week build. Your Programme, Progress and Today tabs are updated.';
   } else {
     label.textContent = 'Programme start date set';
     label.style.color = 'var(--pil)';
@@ -3020,6 +3955,59 @@ function closeRaceDateAlert() {
 document.getElementById('race-alert-modal').addEventListener('click', function(e) {
   if (e.target === this) closeRaceDateAlert();
 });
+
+/* ═══════════ DEV MODE ACCESS ═══════════ */
+const DEV_HASH = '3a1bbf95994f3745699e53dc62e69153bd28878c7cc725edfbbdfc8996f6b2de'; // pylo25
+
+async function devUnlock() {
+  const input = document.getElementById('dev-code-input').value;
+  const buf   = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input));
+  const hash  = Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  if (hash === DEV_HASH) {
+    document.getElementById('dev-locked').style.display   = 'none';
+    document.getElementById('dev-unlocked').style.display = 'block';
+    document.getElementById('dev-code-error').style.display = 'none';
+    document.getElementById('dev-code-input').value = '';
+    // Sync current mock date into the new input
+    document.getElementById('dev-mock-date-2').value = state._mockDate || '';
+    updateDevBanner2();
+  } else {
+    document.getElementById('dev-code-error').style.display = 'block';
+  }
+}
+
+function devLock() {
+  document.getElementById('dev-locked').style.display   = 'block';
+  document.getElementById('dev-unlocked').style.display = 'none';
+}
+
+function applyMockDate2() {
+  const val = document.getElementById('dev-mock-date-2').value;
+  if (!val) return;
+  state._mockDate = val;
+  updateDevBanner2();
+  closeSettings();
+  switchTab('home');
+}
+
+function clearMockDate2() {
+  state._mockDate = null;
+  document.getElementById('dev-mock-date-2').value = '';
+  updateDevBanner2();
+  closeSettings();
+  switchTab('home');
+}
+
+function updateDevBanner2() {
+  const banner = document.getElementById('dev-active-banner-2');
+  if (!banner) return;
+  if (state._mockDate) {
+    banner.style.display = 'block';
+    document.getElementById('dev-active-label-2').textContent = new Date(state._mockDate + 'T00:00:00').toLocaleDateString('en-GB', {weekday:'short', day:'numeric', month:'long', year:'numeric'});
+  } else {
+    banner.style.display = 'none';
+  }
+}
 
 /* ═══════════ SETUP MODAL ═══════════ */
 function openSetup(){if(state.raceDate)document.getElementById('race-date-input').value=state.raceDate;document.getElementById('setup-modal').classList.add('open')}
@@ -3068,6 +4056,7 @@ function applyRaceDateChange(raceDate) {
   if (currentTab === 'sortie') renderSortie();
 
   if (raceAlert) showRaceDateAlert(raceAlert);
+  saveState();
 }
 document.getElementById('setup-modal').addEventListener('click',function(e){if(e.target===this)closeSetup()});
 
@@ -3106,20 +4095,36 @@ function obUpdateDots(step, total) {
 function obShowStep(n) {
   document.querySelectorAll('.ob-step').forEach((s,i)=>s.classList.toggle('active',i===n));
   obCurrentStep=n;
-  const total=state.track==='approved'?4:3;
+  const total=state.track==='approved'?5:4; // +1 for new welcome step
   obUpdateDots(n,total);
 }
 
+function obStartToday() {
+  document.getElementById('ob-race-input').value = '';
+  state.raceDate = null;
+  state.startWeek = 1;
+  state.startDate = new Date().toISOString().split('T')[0]; // today → Week 1 Day 1 = today
+  obShowStep(4);
+}
+
 function obBack3() {
-  // For approved track: back to step 2 (10K time); for baby: back to step 1
   obShowStep(state.track === 'approved' ? 2 : 1);
 }
 
 function obNext() {
   const next = obCurrentStep + 1;
-  // For baby runners, skip step 2 (10K time)
   if (next === 2 && state.track === 'baby') obShowStep(3);
   else obShowStep(next);
+}
+
+function obFinishAndInstall() {
+  obFinish();
+  setTimeout(() => openInstallGuide(), 400);
+}
+
+function obFinishAndGuide() {
+  obFinish();
+  setTimeout(() => openGuide(), 400);
 }
 
 function obSelectTrack(t) {
@@ -3169,8 +4174,8 @@ function obCheckRaceDate() {
   if(weeksToRace<10) {
     const startWeek=Math.max(1,Math.round(10-weeksToRace)+1);
     fb.className='race-feedback visible warn';
-    ft.innerHTML=`<span style="color:var(--gold);font-weight:500">Your race is in ${Math.floor(weeksToRace)} weeks</span> — less than the 10-week programme. You'll be starting at <strong>Week ${startWeek}/10</strong> to align with your race date. The programme will be adjusted accordingly.`;
-    state.startWeek=startWeek;
+    fb.style.cssText='background:var(--danger-bg);border:1px solid rgba(192,80,80,0.3);border-radius:0;padding:16px 18px;margin-top:16px';
+    ft.innerHTML=`<span style="color:var(--danger);font-weight:600">⚠ Your race is in ${Math.floor(weeksToRace)} week${Math.floor(weeksToRace)!==1?'s':''} — this is ambitious.</span><br><br>Less than 10 weeks is a compressed preparation that increases injury risk. We'll start you at <strong>Week ${startWeek}/10</strong>, but listen to your body carefully throughout.<br><br><span style="color:var(--danger);font-weight:500">If you can, consider a later race date to follow the full programme.</span>`;
   } else if(weeksToRace>10) {
     const startDateObj=new Date(race);
     startDateObj.setDate(startDateObj.getDate()-70);
@@ -3196,6 +4201,7 @@ function obFinish() {
   if(!state.startDate) state.startDate=new Date().toISOString().split('T')[0];
   state.viewWeek=getCurrentWeek();
   try{localStorage.setItem('rp_onboarded','1')}catch(e){}
+  saveState();
   const ov=document.getElementById('onboarding-overlay');
   ov.style.opacity='0';ov.style.pointerEvents='none';
   setTimeout(()=>{ov.style.display='none'},350);
@@ -3204,10 +4210,10 @@ function obFinish() {
 
 /* ═══════════ INIT ═══════════ */
 function init() {
-  state.viewWeek=getCurrentWeek();
+  loadState();
+  state.viewWeek = getCurrentWeek();
   renderHome();
-  obUpdateDots(0,3);
-  // Show onboarding whenever there is no active profile (state resets on reload)
+  obUpdateDots(0,4);
   if(!state.userName) {
     const ov=document.getElementById('onboarding-overlay');
     ov.style.display='flex';
