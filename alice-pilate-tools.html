@@ -278,9 +278,14 @@ input::placeholder{color:var(--muted)}
       </div>
     </div>
   </div>
+
+  <!-- Join the community CTA -->
+  <div style="margin-top:8px">
+    <a href="https://www.lestudiobyalice.com" target="_blank" style="display:block;width:100%;background:var(--gold);color:#fff;text-decoration:none;padding:15px 20px;text-align:center;font-family:var(--sans);font-size:12.5px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:opacity 0.15s" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">Join the community →</a>
+  </div>
+
 </div>
 
-<!-- ═══════════ PROGRAMME ═══════════ -->
 <div id="view-program" class="view">
   <div class="label" style="margin-bottom:8px">Program</div>
   <div class="serif-lg" style="margin-bottom:6px" id="pw-track-title">10 weeks</div>
@@ -1837,8 +1842,45 @@ const PROG_APPROVED = [
   ]},
 ];
 
+/* ═══════════ STATE ═══════════ */
+const STATE_KEY = 'rp_state_v1';
+const PERSIST_KEYS = ['track','userName','raceDate','startWeek','startDate','completed','paces','viewWeek','weeklyCheckins','sessionFeedbacks'];
+
+let state = {
+  track:'baby', userName:'', raceDate:null, startWeek:1,
+  startDate: new Date().toISOString().split('T')[0],
+  completed:{}, paces:null, viewWeek:1,
+  weeklyCheckins:{}, sessionFeedbacks:{},
+  _mockDate:null, _obTrackSelected:false
+};
+
+function saveState() {
+  try {
+    const toSave = {};
+    PERSIST_KEYS.forEach(k => { toSave[k] = state[k]; });
+    localStorage.setItem(STATE_KEY, JSON.stringify(toSave));
+  } catch(e) {}
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STATE_KEY);
+    if (raw) {
+      const saved = JSON.parse(raw);
+      PERSIST_KEYS.forEach(k => { if (saved[k] !== undefined) state[k] = saved[k]; });
+    }
+  } catch(e) {}
+}
+
 function getProg() { return state.track==='approved' ? PROG_APPROVED : PROG_BABY; }
-// getCurrentWeek is defined below with dev-mode mock date support
+
+const T_INFO = {
+  r:  {color:'var(--run)',  bg:'var(--run-bg)',  border:'var(--run-border)',  label:'Run'},
+  lr: {color:'var(--gold)', bg:'var(--gold-bg)', border:'var(--gold-border)', label:'Long Run'},
+  p:  {color:'var(--pil)',  bg:'var(--pil-bg)',  border:'var(--pil-border)',  label:'Pilates'},
+  x:  {color:'var(--rest)', bg:'var(--rest-bg)', border:'var(--rest-border)', label:'Rest'},
+};
+function tInfo(t) { return T_INFO[t] || T_INFO.x; }
 function getCurrentWeek() {
   const start = new Date((state.startDate || new Date().toISOString().split('T')[0]) + 'T00:00:00');
   const now = state._mockDate ? new Date(state._mockDate + 'T00:00:00') : new Date();
