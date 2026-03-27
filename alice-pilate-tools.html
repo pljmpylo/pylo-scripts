@@ -129,7 +129,7 @@ input[type=date]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:0.4}
 input::placeholder{color:var(--muted)}
 
 /* ONBOARDING */
-#onboarding-overlay{position:fixed;inset:0;background:rgba(28,20,10,0.6);display:flex;align-items:flex-end;justify-content:center;z-index:100;opacity:0;pointer-events:none;transition:opacity 0.35s ease;backdrop-filter:blur(6px)}
+#onboarding-overlay{position:fixed;inset:0;background:rgba(28,20,10,0.6);display:none;align-items:flex-end;justify-content:center;z-index:100;opacity:0;pointer-events:none;transition:opacity 0.35s ease}
 #onboarding-overlay.visible{opacity:1;pointer-events:all}
 #onboarding-box{width:100%;max-width:480px;background:var(--surface);border-radius:0;padding:36px 24px 52px;transform:translateY(40px);transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);max-height:92vh;overflow-y:auto}
 #onboarding-overlay.visible #onboarding-box{transform:translateY(0)}
@@ -3888,9 +3888,9 @@ function doReset() {
 
   const ov = document.getElementById('onboarding-overlay');
   ov.classList.remove('visible');
-  ov.style.removeProperty('opacity');
-  ov.style.removeProperty('pointer-events');
   ov.style.display = 'flex';
+  ov.style.pointerEvents = 'auto';
+  ov.style.opacity = '0';
   requestAnimationFrame(() => requestAnimationFrame(() => ov.classList.add('visible')));
 }
 
@@ -4211,8 +4211,9 @@ function obFinish() {
   try{localStorage.setItem('rp_onboarded','1')}catch(e){}
   saveState();
   const ov=document.getElementById('onboarding-overlay');
-  ov.style.opacity='0';ov.style.pointerEvents='none';
-  setTimeout(()=>{ov.style.display='none'},350);
+  ov.style.opacity='0';
+  ov.style.pointerEvents='none';
+  setTimeout(()=>{ ov.style.display='none'; ov.classList.remove('visible'); },350);
   renderHome();
 }
 
@@ -4225,9 +4226,9 @@ function init() {
   const ov = document.getElementById('onboarding-overlay');
   if (!state.userName) {
     ov.style.display = 'flex';
+    ov.style.pointerEvents = 'auto';
     requestAnimationFrame(() => requestAnimationFrame(() => ov.classList.add('visible')));
   } else {
-    // Explicitly hide the overlay so it never intercepts clicks
     ov.style.display = 'none';
     ov.style.pointerEvents = 'none';
   }
