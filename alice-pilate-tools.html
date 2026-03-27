@@ -1077,7 +1077,7 @@ input::placeholder{color:var(--muted)}
     <!-- Step 0: Welcome -->
     <div class="ob-step active" id="ob-step-0">
       <div class="label" style="margin-bottom:12px;color:var(--gold)">Le Studio by Alice</div>
-      <div style="font-family:var(--serif);font-size:44px;font-weight:300;color:var(--text);line-height:1.0;margin-bottom:18px">Running<br>× Pilates</div>
+      <div style="font-family:var(--serif);font-size:38px;font-weight:300;color:var(--text);line-height:1.0;margin-bottom:18px">Running × Pilates</div>
       <p style="font-size:14.5px;color:var(--sub);line-height:1.7;margin-bottom:32px">10 weeks to prepare your race — with Pilates as your foundation, week by week, injury-free.</p>
       <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px">
         <div style="display:flex;gap:14px;align-items:flex-start">
@@ -1101,7 +1101,7 @@ input::placeholder{color:var(--muted)}
       <button class="btn-sm" onclick="obShowStep(0)" style="margin-bottom:20px">← Back</button>
       <div class="label" style="margin-bottom:10px">Welcome</div>
       <div class="serif-lg" style="margin-bottom:24px;line-height:1.1">What's your<br>first name?</div>
-      <div style="margin-bottom:24px">
+      <div style="margin-bottom:28px">
         <input type="text" id="ob-name-input" placeholder="Your first name…" maxlength="30" oninput="obCheckStep1()">
       </div>
       <div class="label" style="margin-bottom:12px">Choose your programme</div>
@@ -3867,11 +3867,14 @@ function doReset() {
   state.startDate = new Date().toISOString().split('T')[0];
   state.paces = null;
   state._mockDate = null;
+  state._obTrackSelected = false;
   try { localStorage.removeItem(STATE_KEY); } catch(e) {}
+  try { localStorage.removeItem('rp_onboarded'); } catch(e) {}
 
   // Close settings panel and overlay immediately on reset
   document.getElementById('view-settings').style.transform = 'translateX(100%)';
   document.getElementById('view-settings').style.visibility = 'hidden';
+  document.getElementById('view-settings').style.pointerEvents = 'none';
   document.getElementById('settings-overlay').style.opacity = '0';
   document.getElementById('settings-overlay').style.display = 'none';
   document.getElementById('reset-confirm').style.display = 'none';
@@ -4135,15 +4138,16 @@ function obFinishAndGuide() {
 }
 
 function obSelectTrack(t) {
-  state.track=t;
-  document.getElementById('track-baby').classList.toggle('selected',t==='baby');
-  document.getElementById('track-approved').classList.toggle('selected',t==='approved');
+  state.track = t;
+  state._obTrackSelected = true;
+  document.getElementById('track-baby').classList.toggle('selected', t === 'baby');
+  document.getElementById('track-approved').classList.toggle('selected', t === 'approved');
   obCheckStep1();
 }
 
 function obCheckStep1() {
-  const name=document.getElementById('ob-name-input').value.trim();
-  document.getElementById('ob-s1-btn').disabled=!(name.length>0&&state.track);
+  const name = document.getElementById('ob-name-input').value.trim();
+  document.getElementById('ob-s1-btn').disabled = !(name.length > 0 && state._obTrackSelected);
 }
 
 function obCalcPaces() {
@@ -4232,6 +4236,34 @@ function init() {
     ov.style.pointerEvents = 'none';
   }
 }
+/* ═══════════ SWIPE NAVIGATION ═══════════ */
+(function() {
+  const TABS = ['home', 'sortie', 'programme', 'progres'];
+  let touchStartX = 0;
+  let touchStartY = 0;
+  const THRESHOLD = 60; // min px horizontal swipe
+  const RATIO = 1.5;    // must be more horizontal than vertical
+
+  document.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, {passive: true});
+
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) < THRESHOLD) return;
+    if (Math.abs(dx) < Math.abs(dy) * RATIO) return;
+    // Don't swipe if a panel is open
+    if (document.getElementById('view-settings').style.visibility === 'visible') return;
+    if (document.getElementById('view-guide').style.visibility === 'visible') return;
+    const idx = TABS.indexOf(currentTab);
+    if (idx === -1) return;
+    if (dx < 0 && idx < TABS.length - 1) switchTab(TABS[idx + 1]); // swipe left → next
+    if (dx > 0 && idx > 0) switchTab(TABS[idx - 1]);                // swipe right → prev
+  }, {passive: true});
+})();
+
 init();
 </script>
 </body>
