@@ -73,7 +73,7 @@ body{display:flex;flex-direction:column;align-items:center}
 
 .modal-overlay{position:fixed;inset:0;background:rgba(20,14,8,0.55);display:none;align-items:flex-end;z-index:40;backdrop-filter:blur(6px)}
 .modal-overlay.open{display:flex}
-.modal-box{width:100%;max-width:480px;margin:0 auto;background:var(--surface);border-radius:0 18px 0 0;padding:28px 22px 48px;border-top:1px solid var(--border);max-height:90vh;overflow-y:auto}
+.modal-box{width:100%;max-width:480px;margin:0 auto;background:var(--surface);border-radius:0;padding:28px 22px 48px;border-top:1px solid var(--border);max-height:90vh;overflow-y:auto}
 .modal-full{position:fixed;inset:0;background:var(--bg);z-index:40;overflow-y:auto;display:none}
 .modal-full.open{display:block}
 
@@ -2345,8 +2345,9 @@ function renderSortie() {
     document.getElementById('sl-run-title').textContent  = ts.title;
     document.getElementById('sl-run-desc').textContent   = ts.desc;
     const classLink = document.getElementById('sl-class-link');
-    if (ts.link) {
-      classLink.href = ts.link;
+    const tsClassUrl = ts.videoUrl || ts.link;
+    if (tsClassUrl) {
+      classLink.href = tsClassUrl;
       classLink.textContent = ts.t === 'p' ? 'Access the class →' : ts.t === 'x' ? 'View stretching classes →' : 'Access the class →';
       classLink.style.display = 'block';
     } else {
@@ -2376,10 +2377,9 @@ function renderSortie() {
   // Populate Pilates class link
   if (isPilates && ts) {
     const videoArea = document.getElementById('sl-video-link-area');
-    if (ts.link) {
-      videoArea.innerHTML = `<a href="${ts.link}" target="_blank" style="display:block;width:100%;background:var(--gold);color:#fff;text-decoration:none;padding:14px 18px;text-align:center;font-family:var(--sans);font-size:12.5px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:opacity 0.15s" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">${ts.link.includes('categories') ? 'View stretching classes →' : 'Access the class →'}</a>`;
-    } else {
-      videoArea.innerHTML = `<div style="background:var(--pil-bg);border:1px dashed var(--pil-border);border-radius:0;padding:16px;text-align:center"><div style="font-size:13px;color:var(--pil);font-weight:500;margin-bottom:4px">Class video</div><div style="font-size:12px;color:var(--muted);line-height:1.5">Link coming soon.</div></div>`;
+    const pilatesUrl = ts.videoUrl || ts.link;
+    if (pilatesUrl) {
+      videoArea.querySelector('a').href = pilatesUrl;
     }
   }
 
@@ -3168,10 +3168,10 @@ function openSFB(weekNum, dayIdx, sess) {
     document.getElementById('sfb-detail-desc').textContent = sess.desc;
     // Class link button
     const linkEl = document.getElementById('sfb-detail-link');
-    if (sess.link) {
-      linkEl.href = sess.link;
-      linkEl.style.display = 'block'; linkEl.style.display = 'block';
-      linkEl.textContent = sess.t === 'x' ? 'View stretching classes →' : 'Access the class →';
+    const classUrl = sess.videoUrl || sess.link;
+    if (classUrl) {
+      linkEl.href = classUrl;
+      linkEl.style.display = 'block';
     } else {
       linkEl.style.display = 'none';
     }
