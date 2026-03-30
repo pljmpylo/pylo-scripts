@@ -2664,7 +2664,14 @@ function showCIResult() {
 
   if (isPilatesFlow) {
     main.textContent = reds>=2 ? 'Continue to class anyway →' : 'Go to class →';
-    main.onclick = () => { showPanel('s-landing'); };
+    main.onclick = () => {
+      // Open the Pilates class link in a new tab (if available for today's session)
+      const {sess:ts} = getTodaySession();
+      const classUrl = ts && (ts.videoUrl || ts.link);
+      if (classUrl) window.open(classUrl, '_blank');
+      // Show the checkout/feedback form so the session can be marked done & rated
+      goCheckout();
+    };
   } else if (isRestFlow) {
     // Rest day: no warm-up, no run — just acknowledge and close
     main.textContent = reds>=2 ? 'Take it easy today ·  rest up' : 'Enjoy your rest day';
