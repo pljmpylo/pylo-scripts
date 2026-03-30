@@ -1081,14 +1081,9 @@ input::placeholder{color:var(--muted)}
     <!-- Guide -->
     <div class="label" style="margin-bottom:12px">Guide</div>
     <div class="cardp" style="margin-bottom:20px">
-      <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px">
-        <div style="width:36px;height:36px;border-radius:0;background:var(--gold-bg);border:1px solid var(--gold-border);flex-shrink:0;display:flex;align-items:center;justify-content:center">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2C4.69 2 2 4.69 2 8s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 9a.75.75 0 110-1.5A.75.75 0 018 11zm.75-3.5V11h-1.5V7.5h1.5zM8 6a1 1 0 100-2 1 1 0 000 2z" fill="var(--gold)"/></svg>
-        </div>
-        <div>
-          <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:3px">How the app works</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.45">All tabs, features and tips explained</div>
-        </div>
+      <div style="margin-bottom:14px">
+        <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:3px">How the app works</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.45">All tabs, features and tips explained</div>
       </div>
       <button onclick="openGuide()" style="width:100%;background:var(--text);color:var(--bg);border:none;border-radius:0;padding:13px 20px;font-size:13px;font-family:var(--sans);cursor:pointer;font-weight:500;transition:opacity 0.15s;margin-bottom:8px" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Open guide →</button>
       <button onclick="openInstallGuide()" style="width:100%;background:transparent;border:1.5px solid var(--gold-border);color:var(--gold);border-radius:0;padding:13px 20px;font-size:13px;font-family:var(--sans);cursor:pointer;font-weight:500;transition:all 0.15s;margin-bottom:8px" onmouseover="this.style.background='var(--gold-bg)'" onmouseout="this.style.background='transparent'">📲 Install as app on your phone →</button>
@@ -1115,7 +1110,7 @@ input::placeholder{color:var(--muted)}
       <div style="font-size:12.5px;color:var(--sub);line-height:1.55;margin-bottom:14px">Override today's date to simulate being at any point in the program. Useful for testing week-by-week behaviour.</div>
       <div style="margin-bottom:12px">
         <div style="font-size:12px;color:var(--muted);margin-bottom:6px">Simulated date</div>
-        <input type="date" id="dev-mock-date" style="font-size:14px;padding:12px 14px">
+        <input type="text" id="dev-mock-date" placeholder="JJ/MM/AAAA" maxlength="10" style="font-size:14px;padding:12px 14px">
       </div>
       <div id="dev-active-banner" style="display:none;margin-bottom:12px;padding:8px 12px;background:rgba(192,80,80,0.1);border-radius:0;font-size:12px;color:var(--danger)">
         🔴 Dev mode active — simulating: <strong id="dev-active-label"></strong>
@@ -1141,7 +1136,7 @@ input::placeholder{color:var(--muted)}
         <div style="font-size:12.5px;color:var(--sub);line-height:1.55;margin-bottom:14px">Override today's date to simulate being at any point in the program.</div>
         <div style="margin-bottom:12px">
           <div style="font-size:12px;color:var(--muted);margin-bottom:6px">Simulated date</div>
-          <input type="text" id="dev-mock-date-2" placeholder="Date (YYYY-MM-DD) or week number" style="font-size:13px;padding:12px 14px;border:none;background:var(--card-alt);font-family:var(--sans);color:var(--text);outline:none;flex:1">
+          <input type="text" id="dev-mock-date-2" placeholder="JJ/MM/AAAA ou n° de semaine" style="font-size:13px;padding:12px 14px;border:none;background:var(--card-alt);font-family:var(--sans);color:var(--text);outline:none;flex:1">
         </div>
         <div id="dev-active-banner-2" style="display:none;margin-bottom:12px;padding:8px 12px;background:rgba(192,80,80,0.1);border-radius:0;font-size:12px;color:var(--danger)">
           🔴 Active — simulating: <strong id="dev-active-label-2"></strong>
@@ -1997,7 +1992,7 @@ function getPct() {
 function getStreak() {
   const prog = getProg();
   let s=0;
-  for(let i=0;i<10;i++){
+  for(let i=0;i<prog.length;i++){
     const w=prog[i];
     const nonRest=w.sess.filter(ss=>ss.t!=='x').length;
     const done=w.sess.filter((ss,si)=>state.completed[`w${w.w}d${si}`]).length;
@@ -2007,7 +2002,8 @@ function getStreak() {
 }
 function getDaysToRace() {
   if(!state.raceDate) return null;
-  return Math.max(0, Math.ceil((new Date(state.raceDate)-new Date())/86400000));
+  const now = state._mockDate ? new Date(state._mockDate + 'T00:00:00') : new Date();
+  return Math.max(0, Math.ceil((new Date(state.raceDate + 'T00:00:00') - now)/86400000));
 }
 // Returns the program's start day as a JS day-of-week (0=Sun…6=Sat)
 function getStartDayJS() {
@@ -3653,10 +3649,18 @@ function fmtDisplayDate(d) {
 // Duration of a session in minutes (parsed from the dur string, fallback 45)
 function sessDurMins(sess) {
   if (!sess.dur || sess.dur === '—') return 45;
-  const hrMatch = sess.dur.match(/(\d+)h(\d+)?/);
-  if (hrMatch) return parseInt(hrMatch[1])*60 + parseInt(hrMatch[2]||0);
-  const minMatch = sess.dur.match(/(\d+)\s*min/);
-  if (minMatch) return parseInt(minMatch[1]);
+  // For ranges like "~1h45-2h30" or "~1h45-2h30", take the LAST (largest) h match
+  const hrMatches = [...sess.dur.matchAll(/(\d+)h(\d+)?/g)];
+  if (hrMatches.length > 0) {
+    const last = hrMatches[hrMatches.length - 1];
+    return parseInt(last[1])*60 + parseInt(last[2]||0);
+  }
+  // For ranges like "~60-70 min", take the LAST (largest) plain-minute match
+  const minMatches = [...sess.dur.matchAll(/(\d+)\s*min/g)];
+  if (minMatches.length > 0) {
+    const last = minMatches[minMatches.length - 1];
+    return parseInt(last[1]);
+  }
   return 45;
 }
 
@@ -3917,7 +3921,7 @@ function openSettings() {
   document.getElementById('reset-confirm').style.display = 'none';
   // Dev mode
   const mockDate = state._mockDate || '';
-  document.getElementById('dev-mock-date').value = mockDate;
+  document.getElementById('dev-mock-date').value = mockDate ? mockDate.split('-').reverse().join('/') : '';
   updateDevBanner();
   // Slide panel in + show overlay
   const overlay = document.getElementById('settings-overlay');
@@ -4081,9 +4085,16 @@ function doReset() {
 
 /* DEV MODE */
 function applyMockDate() {
-  const val = document.getElementById('dev-mock-date').value;
+  const val = document.getElementById('dev-mock-date').value.trim();
   if (!val) return;
-  state._mockDate = val;
+  // Accept DD/MM/YYYY or DD/MM/AAAA → convert to YYYY-MM-DD
+  const dmyMatch = val.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (dmyMatch) {
+    const [, d, m, y] = dmyMatch;
+    state._mockDate = y + '-' + m.padStart(2,'0') + '-' + d.padStart(2,'0');
+  } else {
+    state._mockDate = val; // fallback (already YYYY-MM-DD)
+  }
   updateDevBanner();
   closeSettings();
   switchTab('home');
@@ -4162,7 +4173,8 @@ async function devUnlock() {
     document.getElementById('dev-code-error').style.display = 'none';
     document.getElementById('dev-code-input').value = '';
     // Sync current mock date into the new input
-    document.getElementById('dev-mock-date-2').value = state._mockDate || '';
+    const md = state._mockDate;
+    document.getElementById('dev-mock-date-2').value = md ? md.split('-').reverse().join('/') : '';
     updateDevBanner2();
   } else {
     document.getElementById('dev-code-error').style.display = 'block';
@@ -4175,18 +4187,25 @@ function devLock() {
 }
 
 function applyMockDate2() {
-  const val = document.getElementById('dev-mock-date-2').value;
+  const val = document.getElementById('dev-mock-date-2').value.trim();
   if (!val) return;
   // If it's just a number 1-10, simulate being on that week
-  if (/^\d+$/.test(val.trim())) {
+  if (/^\d+$/.test(val)) {
     const wk = Math.min(10, Math.max(1, parseInt(val)));
     const start = new Date((state.startDate || new Date().toISOString().split('T')[0]) + 'T00:00:00');
     const simDate = new Date(start);
     simDate.setDate(simDate.getDate() + (wk - (state.startWeek || 1)) * 7);
     state._mockDate = simDate.toISOString().split('T')[0];
-    document.getElementById('dev-mock-date-2').value = state._mockDate;
+    document.getElementById('dev-mock-date-2').value = state._mockDate.split('-').reverse().join('/');
   } else {
-    state._mockDate = val;
+    // Accept DD/MM/YYYY or DD/MM/AAAA → convert to YYYY-MM-DD
+    const dmyMatch = val.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    if (dmyMatch) {
+      const [, d, m, y] = dmyMatch;
+      state._mockDate = y + '-' + m.padStart(2,'0') + '-' + d.padStart(2,'0');
+    } else {
+      state._mockDate = val; // fallback (already YYYY-MM-DD)
+    }
   }
   state.viewWeek = getCurrentWeek();
   updateDevBanner2();
