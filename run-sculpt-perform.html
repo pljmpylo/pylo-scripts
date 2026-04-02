@@ -89,7 +89,7 @@
     .body-sm { font-size: .875rem; font-weight: 300; line-height: 1.75; color: var(--black); }
 
     /* BUTTONS */
-    .btn { display: inline-flex; align-items: center; justify-content: flex-start; font-family: 'FuturaLT', Arial, sans-serif; font-size: .78rem; font-weight: 400; letter-spacing: .1em; text-transform: none; height: 2.75rem; padding: 0 2rem; border: none; position: relative; overflow: hidden; cursor: pointer; white-space: nowrap; text-decoration: none; transition: color 350ms ease-in-out; }
+    .btn { display: inline-flex; align-items: center; justify-content: flex-start; font-family: 'FuturaLT', Arial, sans-serif; font-size: .72rem; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; height: 2.5rem; padding: 0 1.75rem; border: none; position: relative; overflow: hidden; cursor: pointer; white-space: nowrap; text-decoration: none; transition: color 350ms ease-in-out; }
     .btn-primary { background: var(--blue); color: var(--white); }
     .btn-primary::before { content: ''; position: absolute; inset: 0; background: var(--white); border: 1px solid var(--blue); transform: scaleX(0); transform-origin: left; transition: transform 350ms ease-in-out; z-index: 0; }
     .btn-primary > span { position: relative; z-index: 1; }
@@ -120,24 +120,24 @@
     @keyframes bdot { 0%,100%{opacity:1} 50%{opacity:.3} }
     .hero-h1 {
       font-family: 'FuturaLT', Arial, sans-serif !important;
-      font-size: clamp(2.2rem, 5vw, 5rem) !important;
-      font-weight: 400 !important;
-      line-height: 1.1 !important;
-      letter-spacing: 0 !important;
+      font-size: clamp(2.4rem, 6vw, 6rem) !important;
+      font-weight: 300 !important;
+      line-height: 1.05 !important;
+      letter-spacing: .02em !important;
       text-transform: uppercase !important;
       text-align: left !important;
       color: rgb(255, 255, 255) !important;
-      display: block; margin-bottom: 10px;
+      display: block; margin-bottom: 16px;
     }
     .hero-sub {
-      font-family: 'FuturaLT', Arial, sans-serif;
-      font-size: clamp(1.1rem, 2.5vw, 1.75rem);
+      font-family: 'Jost', sans-serif;
+      font-size: clamp(.85rem, 1.4vw, 1.05rem);
       font-weight: 300;
-      line-height: 1.4;
-      color: rgba(255,255,255,.9);
-      max-width: 54ch;
-      margin-bottom: 2.25rem;
-      margin-top: .75rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,.75);
+      max-width: 46ch;
+      margin-bottom: 2rem;
+      margin-top: 0;
     }
     .hero-sub strong { color: var(--white); font-weight: 400; }
     .hero-actions { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: .75rem; }
