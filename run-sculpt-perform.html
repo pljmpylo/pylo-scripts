@@ -88,18 +88,71 @@
     .body-lg { font-size: 1rem; font-weight: 300; line-height: 1.8; color: var(--black); }
     .body-sm { font-size: .875rem; font-weight: 300; line-height: 1.75; color: var(--black); }
 
-    /* BUTTONS */
-    .btn { display: inline-flex; align-items: center; justify-content: flex-start; font-family: 'FuturaLT', Arial, sans-serif; font-size: .72rem; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; height: 2.5rem; padding: 0 1.75rem; border: none; position: relative; overflow: hidden; cursor: pointer; white-space: nowrap; text-decoration: none; transition: color 350ms ease-in-out; }
-    .btn-primary { background: var(--blue); color: var(--white); }
-    .btn-primary::before { content: ''; position: absolute; inset: 0; background: var(--white); border: 1px solid var(--blue); transform: scaleX(0); transform-origin: left; transition: transform 350ms ease-in-out; z-index: 0; }
-    .btn-primary > span { position: relative; z-index: 1; }
-    .btn-primary:hover, .btn-primary:focus { color: var(--blue); }
-    .btn-primary:hover::before, .btn-primary:focus::before { transform: scaleX(1); }
-    .btn-outline { background: transparent; color: var(--black); border: 1px solid var(--black); }
-    .btn-outline::before { content: ''; position: absolute; inset: 0; background: var(--black); transform: scaleX(0); transform-origin: left; transition: transform 350ms ease-in-out; z-index: 0; }
-    .btn-outline > span { position: relative; z-index: 1; }
-    .btn-outline:hover, .btn-outline:focus { color: var(--white); }
-    .btn-outline:hover::before, .btn-outline:focus::before { transform: scaleX(1); }
+    /* ── DESIGN SYSTEM BOUTONS ─────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-family: 'FuturaLT', Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      text-transform: capitalize;
+      letter-spacing: 0.04em;
+      padding: 0.3rem 1rem;
+      border-radius: 0;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      white-space: nowrap;
+      text-decoration: none;
+      box-shadow: none;
+      transition: color 0.45s ease;
+    }
+
+    /* fill — glisse de gauche à droite au hover, passe SOUS le texte */
+    .btn .fill {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      transform: translate3d(-101%, 0, 0);
+      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .btn:hover .fill, .btn:focus .fill {
+      transform: translate3d(0%, 0, 0);
+    }
+
+    /* label — reste AU-DESSUS du fill */
+    .btn .btn-label {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ── Variante bleu ──────────────────────────────────────── */
+    .btn-bleu {
+      background: #1a4bbe;
+      color: #ffffff;
+      border: 1.5px solid #1a4bbe;
+    }
+    .btn-bleu .fill  { background: #ffffff; }
+    .btn-bleu:hover, .btn-bleu:focus { color: #1a4bbe; }
+
+    /* ── Variante blanc ─────────────────────────────────────── */
+    .btn-blanc {
+      background: #ffffff;
+      color: #01050e;
+      border: 1.5px solid #ffffff;
+    }
+    .btn-blanc .fill  { background: #01050e; }
+    .btn-blanc:hover, .btn-blanc:focus { color: #ffffff; }
+
+    /* ── Variante ghost ─────────────────────────────────────── */
+    .btn-ghost {
+      background: transparent;
+      color: #01050e;
+      border: 1.5px solid #01050e;
+    }
+    .btn-ghost .fill  { background: #01050e; }
+    .btn-ghost:hover, .btn-ghost:focus { color: #ffffff; }
 
     /* ANNOUNCE */
     #announce { background: var(--black); padding: .55rem 0; overflow: hidden; }
@@ -325,9 +378,7 @@
     #final-cta .h-xl { color: var(--white); }
     .final-sub { font-family: 'Jost', sans-serif; font-size: .95rem; font-weight: 300; line-height: 1.8; max-width: 44ch; margin: 1.25rem 0 2.5rem; color: rgba(255,255,255,.5); }
     .final-actions { display: flex; align-items: center; justify-content: flex-start; gap: 1.25rem; flex-wrap: wrap; }
-    #final-cta .btn-primary { background: var(--white); color: var(--blue) !important; }
-    #final-cta .btn-primary::before { background: transparent; border: 1px solid rgba(255,255,255,.28); }
-    #final-cta .btn-primary:hover { color: rgba(255,255,255,.8); }
+    /* final-cta uses .btn-blanc — no override needed */
     .final-note { margin-top: 1.5rem; font-family: 'FuturaLT', Arial, sans-serif; font-size: .68rem; font-weight: 400; color: rgba(255,255,255,.65); }
     .final-note strong { font-weight: 600; color: #ffffff; }
 
@@ -346,9 +397,7 @@
     .ub-text strong { color: #ffffff; font-weight: 600; }
     .ub-right { display: flex; align-items: center; gap: 1.25rem; }
     .ub-time { font-family: 'FuturaLT', Arial, sans-serif; font-size: .7rem; font-weight: 400; letter-spacing: .06em; color: rgba(255,255,255,.5); }
-    #urgency-bar .btn-primary { background: #ffffff; color: var(--blue); border: none; }
-    #urgency-bar .btn-primary::before { background: var(--blue); border: none; }
-    #urgency-bar .btn-primary:hover, #urgency-bar .btn-primary:focus { color: #ffffff; }
+    /* urgency-bar uses .btn-blanc — no override needed */
 
     /* CHECKMARK SVG */
     .chk { display:inline-block; vertical-align:middle; flex-shrink:0; margin-top:.1rem; }
@@ -405,7 +454,7 @@
       One web-app guiding you every day.
     </p>
     <div class="hero-actions rv d3">
-      <a href="#pricing" class="btn btn-primary"><span>Run With Us</span></a>
+      <a href="#pricing" class="btn btn-blanc"><div class="fill"></div><span class="btn-label">Run With Us</span></a>
     </div>
     <div class="hero-proofs rv d4">
       <div class="hero-proof">
@@ -536,7 +585,7 @@
         <p class="alice-body rv d2">I've been practicing and teaching Pilates for over 10 years. One day it clicked: these two disciplines were made for each other. Pilates strengthens what running breaks down and keeps injuries away. Running forges my mental strength.</p>
         <p class="alice-body rv d3">RUN SCULPT PERFORM is the training I've used to prepare every single marathon and half-marathon — born from my love for Pilates and running, and from all of you who kept asking me to make this into a program.</p>
         <p class="alice-sig rv d4">— Alice</p>
-        <a href="#pricing" class="btn btn-primary rv d4"><span>Join the program</span></a>
+        <a href="#pricing" class="btn btn-bleu rv d4"><div class="fill"></div><span class="btn-label">Join The Program</span></a>
       </div>
     </div>
   </div>
@@ -642,9 +691,7 @@
           <li>Running as a lifestyle, not a competition</li>
         </ul>
         <p class="track-for">For you if you run, want to start, or simply want a smarter Pilates × Running routine. No specific distance in mind.</p>
-        <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-outline" style="font-size:.65rem; padding:.55rem 1.25rem;"><span>Start this track</span></a></div>
-      </div>
-      <div class="track rv d1">
+        <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-ghost"><div class="fill"></div><span class="btn-label">Start This Track</span></a></div>
         <div class="track-n">02</div>
         <p class="track-title">Road to 10K</p>
         <p class="track-goal">Goal: 0 → 10 km</p>
@@ -654,7 +701,7 @@
           <li>Your first 10K in 10 weeks</li>
         </ul>
         <p class="track-for">For you if you're ready to run your first 10km.</p>
-        <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-outline" style="font-size:.65rem; padding:.55rem 1.25rem;"><span>Start this track</span></a></div>
+        <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-ghost"><div class="fill"></div><span class="btn-label">Start This Track</span></a></div>
       </div>
       <div class="track rv d2">
         <div class="track-n">03</div>
@@ -666,7 +713,7 @@
           <li>Your half-marathon in 10 weeks</li>
         </ul>
         <p class="track-for">For you if you already run 10K and want to go further.</p>
-        <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-outline" style="font-size:.65rem; padding:.55rem 1.25rem;"><span>Start this track</span></a></div>
+        <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-ghost"><div class="fill"></div><span class="btn-label">Start This Track</span></a></div>
       </div>
     </div>
   </div>
@@ -708,13 +755,9 @@
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Journal + .ics calendar</p>
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private community + Spotify playlists</p>
         </div>
-        <a href="https://app.lestudiobyalice.com/checkout/new?o=199268"
-          class="pc-btn"
-          style="display:flex;width:100%;height:2.75rem;align-items:center;padding-left:1.5rem;background:#ffffff;color:var(--blue);font-family:FuturaLT,Arial,sans-serif;font-size:.8rem;font-weight:400;letter-spacing:.04em;text-decoration:none;position:relative;overflow:hidden;cursor:pointer;transition:color 350ms ease-in-out;"
-          onmouseover="this.style.color='#ffffff';this.querySelector('.ub').style.transform='scaleX(1)';this.querySelector('span:last-child').style.color='#ffffff';"
-          onmouseout="this.style.color='var(--blue)';this.querySelector('.ub').style.transform='scaleX(0)';this.querySelector('span:last-child').style.color='#1A4BBE';">
-          <span class="ub" style="position:absolute;inset:0;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform 350ms ease-in-out;z-index:0;"></span>
-          <span style="position:relative;z-index:1;color:#1A4BBE !important;transition:color 350ms ease-in-out;">Run With Us — €89</span>
+        <a href="https://app.lestudiobyalice.com/checkout/new?o=199268" class="btn btn-blanc pc-btn">
+          <div class="fill"></div>
+          <span class="btn-label">Run With Us — €89</span>
         </a>
         <p class="pc-note">Lifetime access · Secure payment · 7-day guarantee</p>
       </div>
@@ -733,7 +776,7 @@
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>+ New content every week</strong></p>
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>Access on all your devices · Cancel anytime</strong></p>
         </div>
-        <a href="https://www.lestudiobyalice.com/free-trial" class="btn btn-primary pc-btn"><span>Start My Free Trial</span></a>
+        <a href="https://www.lestudiobyalice.com/free-trial" class="btn btn-bleu pc-btn"><div class="fill"></div><span class="btn-label">Start My Free Trial</span></a>
         <p class="pc-note">3 free days · Secure payment · Full Access</p>
       </div>
     </div>
@@ -775,7 +818,7 @@
     <h2 class="h-lg rv" id="faq-h">Frequently asked questions</h2>
     <div class="faq-layout">
       <div class="faq-sidebar rv d1">
-        <div><a href="#pricing" class="btn btn-primary"><span>Join the program</span></a></div>
+        <div><a href="#pricing" class="btn btn-bleu"><div class="fill"></div><span class="btn-label">Join The Program</span></a></div>
       </div>
       <div class="faq-list rv d2">
 
@@ -839,7 +882,7 @@
     <h2 class="h-xl rv d1">RUN WITH US</h2>
     <p class="final-sub rv d2">The structure. The experts. The community. Everything is ready — all that's missing is you.</p>
     <div class="final-actions rv d3">
-      <a href="#pricing" class="btn btn-primary" style="padding:.8rem 2.5rem;"><span>I'm in</span></a>
+      <a href="#pricing" class="btn btn-blanc"><div class="fill"></div><span class="btn-label">I'm In</span></a>
     </div>
     <p class="final-note rv d4"><strong>Early birds end Sunday 12/04 midnight</strong></p>
   </div>
@@ -850,7 +893,7 @@
   <p class="ub-text"><strong>Early bird €89</strong> — until April 12 midnight only</p>
   <div class="ub-right">
     <span class="ub-time" id="ub-time"></span>
-    <a href="#pricing" class="btn btn-primary" style="padding:.6rem 1.75rem;"><span>Run with Le Studio</span></a>
+    <a href="#pricing" class="btn btn-blanc"><div class="fill"></div><span class="btn-label">Run With Le Studio</span></a>
   </div>
 </div>
 
