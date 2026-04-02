@@ -306,7 +306,14 @@
     .pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
     .pcard { padding: 3rem; display: flex; flex-direction: column; border: 1px solid rgba(17,17,17,.1); }
     .pcard:first-child { border-right: none; }
-    .pcard--feat { background: #111111; border-color: #111111; }
+    .pcard--feat { background: #111111; border-color: #111111; color: #ffffff; }
+    .pcard--feat * { color: #ffffff; }
+    .pcard--feat .pc-lbl { color: rgba(255,255,255,.5) !important; }
+    .pcard--feat .pc-was { color: rgba(255,255,255,.35) !important; text-decoration: line-through; }
+    .pcard--feat .pc-or { color: rgba(255,255,255,.5) !important; }
+    .pcard--feat .pc-note { color: rgba(255,255,255,.3) !important; }
+    .pcard--feat .pc-deadline { color: rgba(255,255,255,.65) !important; }
+    .pcard--feat .pc-badge { background: rgba(255,255,255,.12) !important; color: rgba(255,255,255,.8) !important; border: 1px solid rgba(255,255,255,.2) !important; }
     .pc-badge { display: inline-block; font-family: 'Jost', sans-serif; font-size: .58rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; padding: .3rem .85rem; margin-bottom: 2rem; width: fit-content; }
     .pcard--feat .pc-badge { background: var(--blue); color: #fff; border: 1px solid var(--blue); }
     .pcard .pc-badge { background: var(--white); color: var(--muted); border: 1px solid rgba(17,17,17,.1); }
@@ -744,12 +751,12 @@
 <!-- ═══ S9 — PRICING ═══════════════════════════════════════ -->
 <section id="pricing" class="s" aria-labelledby="pricing-h">
   <div class="wrap">
-    <!-- Header: left = title + countdown / right = description + bonus + guarantee -->
+    <!-- Header : titre à gauche, description à droite -->
     <div class="pricing-intro">
       <div>
         <span class="eyebrow rv">Choose your plan</span>
-        <h2 class="h-lg rv d1" id="pricing-h" style="margin-top:.75rem;">Two ways to start running with Le Studio.</h2>
-        <div class="cd-wrap rv" id="cd-wrap" aria-live="polite" style="margin-top:2rem;">
+        <h2 class="h-lg rv d1" id="pricing-h">Two ways to start running with Le Studio.</h2>
+        <div class="cd-wrap rv d2" id="cd-wrap" aria-live="polite">
           <span class="cd-label">Early bird closes in</span>
           <div class="cd-timer">
             <div class="cd-u"><span class="cd-n" id="cd-d">--</span><span class="cd-l">days</span></div>
@@ -763,6 +770,7 @@
       <p class="body-sm rv d2">Lifetime access. Secure payment. 14-day money-back guarantee. Start today at the early bird price and access all three tracks immediately.</p>
     </div>
 
+    <!-- Cards -->
     <div class="pricing-cards">
       <div class="pcard pcard--feat rv">
         <span class="pc-badge">Early bird — Limited spots</span>
@@ -771,14 +779,13 @@
         <p class="pc-was">€297</p>
         <p class="pc-or">or 2 × €49</p>
         <p class="pc-deadline">Until April 25 only</p>
-        <div class="pc-div"></div>
         <div class="pc-lines">
-          <p class="pc-line"><span class="pc-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Complete training app</p>
-          <p class="pc-line"><span class="pc-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>10-week running plan (3 tracks)</p>
-          <p class="pc-line"><span class="pc-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>29 Pilates classes</p>
-          <p class="pc-line"><span class="pc-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Nutrition & mindset ebook (100 pages)</p>
-          <p class="pc-line"><span class="pc-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Journal + .ics calendar</p>
-          <p class="pc-line"><span class="pc-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private community + Spotify playlists</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Complete training app</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>10-week running plan (3 tracks)</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>29 Pilates classes</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Nutrition & mindset ebook (100 pages)</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Journal + .ics calendar</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private community + Spotify playlists</p>
         </div>
         <a href="https://app.lestudiobyalice.com/checkout/new?o=199268" class="btn btn-primary pc-btn"><span style="position:relative;z-index:1;">Become a runner — €97</span></a>
         <p class="pc-note">Lifetime access · Secure payment · 14-day guarantee</p>
@@ -786,17 +793,16 @@
       <div class="pcard rv d1">
         <span class="pc-badge">Includes all of Le Studio</span>
         <p class="pc-lbl">Annual Studio Subscription</p>
-        <p class="pc-price"><sup>€</sup>20<span style="font-size:1.2rem;font-family:'Jost',sans-serif;vertical-align:baseline;font-weight:200;">/month</span></p>
-        <p class="pc-was" style="text-decoration:none; color:rgba(0,0,0,.45);">€250/year · 3 free days</p>
+        <p class="pc-price"><sup>€</sup>20<span style="font-size:1.5rem;font-family:'FuturaLT',Arial,sans-serif;vertical-align:baseline;font-weight:300;">/month</span></p>
+        <p class="pc-was" style="text-decoration:none; color:rgba(17,17,17,.45);">€250/year · 3 free days</p>
         <p class="pc-or">&nbsp;</p>
         <p class="pc-deadline">Everything in the one-shot plan, plus:</p>
-        <div class="pc-div"></div>
         <div class="pc-lines">
-          <p class="pc-line"><span class="pc-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Everything in the one-shot plan</p>
-          <p class="pc-line"><span class="pc-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>+ 235 on-demand classes, all levels</strong></p>
-          <p class="pc-line"><span class="pc-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>+ Exclusive programs & challenges</strong></p>
-          <p class="pc-line"><span class="pc-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>+ New content every week</strong></p>
-          <p class="pc-line"><span class="pc-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>Access on all your devices · Cancel anytime</strong></p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Everything in the one-shot plan</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>+ 235 on-demand classes, all levels</strong></p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>+ Exclusive programs & challenges</strong></p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>+ New content every week</strong></p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>Access on all your devices · Cancel anytime</strong></p>
         </div>
         <a href="https://www.lestudiobyalice.com/free-trial" class="btn btn-primary pc-btn"><span style="position:relative;z-index:1;">Start my free trial</span></a>
         <p class="pc-note">3 free days · Then €20/month · No commitment</p>
