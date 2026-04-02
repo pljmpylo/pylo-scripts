@@ -96,18 +96,18 @@
     .asp-item { display:flex; gap:1.25rem; align-items:flex-start; padding:1.35rem 0; border-bottom:1px solid var(--rule); }
     .asp-item:last-child { border-bottom:none; }
     .asp-arrow { font-family:var(--font); font-size:1rem; color:var(--bleu); flex-shrink:0; margin-top:.1rem; font-weight:400; }
-    .asp-text { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.75; color:var(--muted); }
-    .asp-text strong { font-weight:500; color:var(--noir); }
+    .asp-text { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.75; color:var(--noir); }
+    .asp-text strong { font-weight:300; color:var(--noir); }
     .res-quote { margin-top:2rem; padding-left:1.25rem; border-left:1px solid var(--rule); }
-    .res-quote p { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.7; color:var(--muted); }
+    .res-quote p { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.7; color:var(--noir); }
     .res-quote cite { display:block; margin-top:.75rem; font-family:var(--font); font-style:normal; font-size:.52rem; letter-spacing:.16em; text-transform:uppercase; font-weight:500; color:var(--muted); }
     .promise-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(3rem,6vw,5.5rem); align-items:center; }
     .benefit-list { margin-top:2rem; }
     .benefit-row { display:flex; gap:1rem; align-items:flex-start; padding:.9rem 0; border-bottom:1px solid var(--rule); }
     .benefit-row:last-of-type { border-bottom:none; }
     .benefit-check { flex-shrink:0; margin-top:.2rem; display:flex; }
-    .benefit-text { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.7; color:var(--muted); }
-    .benefit-text strong { font-weight:500; color:var(--noir); }
+    .benefit-text { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.7; color:var(--noir); }
+    .benefit-text strong { font-weight:300; color:var(--noir); }
     .promise-closing { margin-top:2rem; padding:1.25rem 1.5rem; border-left:2px solid var(--bleu); }
     .promise-closing p { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.65; color:var(--muted); }
     .promise-closing p strong { font-weight:500; color:var(--noir); }
@@ -132,7 +132,7 @@
     .alice-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(3rem,6vw,6rem); align-items:center; }
     .alice-photo { height:clamp(440px,55vw,600px); overflow:hidden; }
     .alice-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; }
-    .alice-body { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.85; margin-bottom:1.1rem; margin-top:.5rem; color:var(--muted); }
+    .alice-body { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.85; margin-bottom:1.1rem; margin-top:.5rem; color:var(--noir); }
     .alice-sig { font-family:var(--font); font-size:1.6rem; font-weight:300; letter-spacing:.1em; margin-top:1rem; margin-bottom:2rem; color:var(--noir); }
     .proof-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:3.5rem; border-top:1px solid var(--rule); }
     .proof-block { padding:2.5rem; border-right:1px solid var(--rule); }
@@ -140,7 +140,7 @@
     .proof-n { font-family:var(--font); font-size:.65rem; font-weight:400; letter-spacing:.2em; color:var(--bleu); line-height:1; margin-bottom:1.25rem; }
     .proof-block h3 { font-family:var(--font); font-size:1rem; font-weight:500; margin-bottom:.35rem; line-height:1.25; color:var(--noir); }
     .proof-role { font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.12em; text-transform:uppercase; color:var(--bleu); margin-bottom:1rem; }
-    .proof-body { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.8; color:var(--muted); }
+    .proof-body { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.8; color:var(--noir); }
     .photo-interlude { height:clamp(320px,38vw,460px); overflow:hidden; position:relative; }
     .photo-interlude img { width:100%; height:100%; object-fit:cover; object-position:center 45%; transition:transform 1.5s ease; }
     .photo-interlude:hover img { transform:scale(1.02); }
@@ -150,7 +150,7 @@
     .inc-num { font-family:var(--font); font-size:.65rem; font-weight:400; letter-spacing:.18em; color:var(--bleu); line-height:1; padding-top:.15rem; }
     .inc-right { display:flex; flex-direction:column; gap:.35rem; }
     .inc-title { font-family:var(--font); font-size:var(--size-small); font-weight:500; line-height:1.25; color:var(--noir); }
-    .inc-body  { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.7; color:var(--muted); }
+    .inc-body  { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.7; color:var(--noir); }
     .tracks-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:3.5rem; border-top:1px solid var(--rule); }
     .track { padding:2.5rem; display:flex; flex-direction:column; gap:.85rem; border-right:1px solid var(--rule); }
     .track:last-child { border-right:none; }
@@ -158,9 +158,9 @@
     .track-title { font-family:var(--font); font-size:1rem; font-weight:500; line-height:1.2; color:var(--noir); }
     .track-goal  { font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.16em; text-transform:uppercase; color:var(--bleu); }
     .track-list  { list-style:none; display:flex; flex-direction:column; gap:.4rem; }
-    .track-list li { font-family:var(--font); font-size:var(--size-small); font-weight:300; display:flex; gap:.75rem; align-items:flex-start; color:var(--muted); }
+    .track-list li { font-family:var(--font); font-size:var(--size-small); font-weight:300; display:flex; gap:.75rem; align-items:flex-start; color:var(--noir); }
     .track-list li::before { content:'—'; color:rgba(1,5,14,.25); flex-shrink:0; font-weight:300; }
-    .track-for { font-family:var(--font); font-size:var(--size-small); font-weight:300; padding-top:.5rem; line-height:1.6; color:rgba(1,5,14,.45); }
+    .track-for { font-family:var(--font); font-size:var(--size-small); font-weight:300; padding-top:.5rem; line-height:1.6; color:var(--noir); }
     .pricing-intro { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; margin-bottom:3rem; }
     .cd-wrap  { display:inline-flex; align-items:center; gap:1.5rem; padding:.8rem 0; flex-wrap:wrap; margin-bottom:2.5rem; }
     .cd-label { font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.18em; text-transform:uppercase; color:var(--bleu); }
@@ -204,14 +204,14 @@
     .pcard--feat .pc-note { color:rgba(255,255,255,.3) !important; }
     .pcard .pc-note       { color:var(--muted); }
     .bonus-inner { padding:4rem 0; display:grid; grid-template-columns:1fr auto; gap:4rem; align-items:center; }
-    .bonus-body  { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.8; color:var(--muted); }
-    .bonus-body strong { font-weight:500; color:var(--bleu); }
+    .bonus-body  { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.8; color:var(--noir); }
+    .bonus-body strong { font-weight:300; color:var(--noir); }
     .bonus-count { text-align:right; }
     .bonus-num   { font-family:var(--font); font-size:5rem; font-weight:300; color:var(--bleu); line-height:1; display:block; }
     .bonus-count-lbl { font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
     .guarantee-inner { display:flex; align-items:flex-start; gap:3rem; max-width:720px; padding:3rem 0; }
     .guarantee-title { font-family:var(--font); font-size:1.1rem; font-weight:500; margin-bottom:.6rem; line-height:1.2; color:var(--noir); }
-    .guarantee-body  { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.8; color:var(--muted); }
+    .guarantee-body  { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.8; color:var(--noir); }
     .faq-layout { display:grid; grid-template-columns:4fr 7fr; gap:clamp(3rem,6vw,6rem); margin-top:3rem; }
     .faq-sidebar { position:sticky; top:2rem; }
     .faq-list   { display:flex; flex-direction:column; }
@@ -222,7 +222,7 @@
     .faq-plus svg { width:9px; height:9px; stroke:var(--noir); transition:stroke .3s; }
     .faq-item.open .faq-plus { background:var(--bleu); border-color:var(--bleu); transform:rotate(45deg); }
     .faq-item.open .faq-plus svg { stroke:var(--blanc); }
-    .faq-a { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.85; max-height:0; overflow:hidden; padding-bottom:0; transition:max-height .45s cubic-bezier(.65,0,.35,1), padding .3s; color:var(--muted); }
+    .faq-a { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.85; max-height:0; overflow:hidden; padding-bottom:0; transition:max-height .45s cubic-bezier(.65,0,.35,1), padding .3s; color:var(--noir); }
     .faq-item.open .faq-a { max-height:420px; padding-bottom:1.5rem; }
     #final-cta { background:var(--bleu); padding:var(--pad) 0; }
     #final-cta .eyebrow { color:rgba(255,255,255,.6); }
@@ -262,15 +262,12 @@
     </div>
     <div class="hero-proofs rv d4">
       <div class="hero-proof">
-        <div class="hp-num">500+</div>
         <div class="hp-label">Co-created with 500+ of you</div>
       </div>
       <div class="hero-proof">
-        <div class="hp-num">10 wks</div>
         <div class="hp-label">Pilates × Running program</div>
       </div>
       <div class="hero-proof">
-        <div class="hp-num">✓</div>
         <div class="hp-label">Certified by a coach and a naturopath</div>
       </div>
     </div>
@@ -343,7 +340,7 @@
       <div>
         <span class="eyebrow rv">A sneak peek</span>
         <h2 class="h-lg rv d1" id="week-h">Your typical week, at a glance.</h2>
-        <p class="body-sm rv d2" style="margin-top:.75rem; max-width:36ch; color:var(--muted);">Every week follows the same logic: run better, recover with intention, progress at your rythme.</p>
+        <p class="body-sm rv d2" style="margin-top:.75rem; max-width:36ch; color:var(--noir);">Every week follows the same logic: run better, recover with intention, progress at your rythme.</p>
       </div>
       <div class="week-card rv d2">
         <div class="week-card-header">
@@ -499,7 +496,7 @@
         <span class="eyebrow rv">Choose your plan</span>
         <h2 class="h-lg rv d1" id="pricing-h">Two ways to start running with Le Studio.</h2>
       </div>
-      <p class="body-sm rv d2" style="color:var(--muted);">Lifetime access. Secure payment. 14-day guarantee. Start today at the early bird price and access all three tracks immediately.</p>
+      <p class="body-sm rv d2" style="color:var(--noir);">Lifetime access. Secure payment. 14-day guarantee. Start today at the early bird price and access all three tracks immediately.</p>
     </div>
     <div class="pricing-cards">
       <div class="pcard pcard--feat rv">
