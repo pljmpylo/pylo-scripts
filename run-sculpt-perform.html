@@ -67,6 +67,10 @@
     .btn-blanc:hover, .btn-blanc:focus  { color:var(--blanc); }
     .pc-btn-main:hover .fill, .pc-btn-main:focus .fill { transform:translate3d(0%,0,0); }
     .pc-btn-main:hover .btn-label, .pc-btn-main:focus .btn-label { color:var(--blanc); }
+    .pcard--feat .pc-btn-main { background:var(--blanc) !important; border-color:var(--noir) !important; }
+    .pcard--feat .pc-btn-main .btn-label { color:var(--noir) !important; }
+    .pcard--feat .pc-btn-main:hover .btn-label,
+    .pcard--feat .pc-btn-main:focus .btn-label { color:var(--blanc) !important; }
     .btn-ghost { background: transparent; color: var(--noir); border: 1.5px solid var(--noir); }
     .btn-ghost .fill  { background:var(--noir); }
     .btn-ghost:hover, .btn-ghost:focus  { color:var(--blanc); }
@@ -93,7 +97,7 @@
     .res-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(3rem,6vw,6rem); align-items:start; }
     .res-sticky { position:sticky; top:2rem; }
     .asp-list { display:flex; flex-direction:column; margin-top:2rem; }
-    .asp-item { display:flex; gap:1.25rem; align-items:flex-start; padding:1.35rem 0; border-bottom:1px solid var(--rule); }
+    .asp-item { display:flex; gap:1.25rem; align-items:flex-start; padding:1.35rem 0; }
     .asp-item:last-child { border-bottom:none; }
     .asp-arrow { font-family:var(--font); font-size:1rem; color:var(--bleu); flex-shrink:0; margin-top:.1rem; font-weight:400; }
     .asp-text { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.2; color:var(--noir); }
@@ -103,7 +107,7 @@
     .res-quote cite { display:block; margin-top:.75rem; font-family:var(--font); font-style:normal; font-size:.52rem; letter-spacing:.16em; text-transform:uppercase; font-weight:500; color:var(--muted); }
     .promise-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(3rem,6vw,5.5rem); align-items:center; }
     .benefit-list { margin-top:2rem; }
-    .benefit-row { display:flex; gap:1rem; align-items:flex-start; padding:.9rem 0; border-bottom:1px solid var(--rule); }
+    .benefit-row { display:flex; gap:1rem; align-items:flex-start; padding:.9rem 0; }
     .benefit-row:last-of-type { border-bottom:none; }
     .benefit-check { flex-shrink:0; margin-top:.2rem; display:flex; }
     .benefit-text { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.2; color:var(--noir); }
@@ -115,8 +119,8 @@
     .promise-photo img { width:100%; height:100%; object-fit:cover; object-position:center 30%; transition:transform .9s ease; }
     .promise-photo:hover img { transform:scale(1.02); }
     .week-grid { display:grid; grid-template-columns:1fr 1fr 1.2fr; gap:clamp(2rem,4vw,4rem); align-items:start; }
-    .week-photo { height:clamp(380px,45vw,520px); overflow:hidden; }
-    .week-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; transition:transform .9s ease; }
+    .week-photo { overflow:hidden; align-self:stretch; }
+    .week-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; transition:transform .9s ease; display:block; }
     .week-photo:hover img { transform:scale(1.02); }
     .week-card { overflow:hidden; border:1px solid var(--rule); }
     .week-card-header { padding:1rem 1.5rem; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--rule); }
@@ -145,7 +149,7 @@
     .photo-interlude img { width:100%; height:100%; object-fit:cover; object-position:center 45%; transition:transform 1.5s ease; }
     .photo-interlude:hover img { transform:scale(1.02); }
     .inc-list { margin-top:3rem; }
-    .inc-row { display:grid; grid-template-columns:3rem 1fr; gap:1.5rem; align-items:start; padding:1.5rem 0; border-bottom:1px solid var(--rule); }
+    .inc-row { display:grid; grid-template-columns:3rem 1fr; gap:1.5rem; align-items:center; padding:1.5rem 0; }
     .inc-row:last-child { border-bottom:none; }
     .inc-num { font-family:var(--font); font-size:.65rem; font-weight:400; letter-spacing:.18em; color:var(--bleu); line-height:1; padding-top:.15rem; }
     .inc-right { display:flex; flex-direction:column; gap:.35rem; }
@@ -161,7 +165,7 @@
     .track-list li { font-family:var(--font); font-size:var(--size-small); font-weight:300; display:flex; gap:.75rem; align-items:flex-start; color:var(--noir); line-height:1.2; }
     .track-list li::before { content:'—'; color:rgba(1,5,14,.25); flex-shrink:0; font-weight:300; }
     .track-for { font-family:var(--font); font-size:var(--size-small); font-weight:300; padding-top:.5rem; line-height:1.2; color:var(--noir); }
-    .pricing-intro { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; margin-bottom:3rem; }
+    .pricing-intro { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:end; margin-bottom:3rem; }
     .cd-wrap  { display:inline-flex; align-items:center; gap:1.5rem; padding:.8rem 0; flex-wrap:wrap; margin-bottom:2.5rem; }
     .cd-label { font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.18em; text-transform:uppercase; color:var(--bleu); }
     .cd-timer { display:flex; align-items:center; gap:.6rem; }
@@ -283,15 +287,15 @@
       </div>
       <div class="asp-list">
         <div class="asp-item rv d1">
-          <span class="asp-arrow">→</span>
+          
           <p class="asp-text">Pilates × Running no race, just structure</p>
         </div>
         <div class="asp-item rv d2">
-          <span class="asp-arrow">→</span>
+          
           <p class="asp-text">Road to your first 10k</p>
         </div>
         <div class="asp-item rv d3">
-          <span class="asp-arrow">→</span>
+          
           <p class="asp-text">Road to your first 21k</p>
         </div>
       </div>
@@ -307,19 +311,19 @@
       <div>
         <div class="benefit-list">
           <div class="benefit-row rv">
-            <div class="benefit-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            
             <p class="benefit-text">10K, half-marathon or pure enjoyment: <strong>your goal, your pace.</strong></p>
           </div>
           <div class="benefit-row rv d1">
-            <div class="benefit-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            
             <p class="benefit-text"><strong>30+ recipes</strong> designed for the real needs of a runner.</p>
           </div>
           <div class="benefit-row rv d2">
-            <div class="benefit-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            
             <p class="benefit-text"><strong>10 weeks of structured training</strong> — Pilates sessions and running plans included.</p>
           </div>
           <div class="benefit-row rv d3">
-            <div class="benefit-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            
             <p class="benefit-text">A <strong>strong &amp; aligned body</strong> to stay injury-free.</p>
           </div>
         </div>
@@ -372,7 +376,6 @@
       <div>
         <span class="eyebrow rv">Where it all started</span>
         <p class="alice-body rv d2">RUN SCULPT PERFORM is the training I've used to prepare every single marathon and half-marathon — born from my love for Pilates and running, and from all of you who kept asking me to make this into a program.</p>
-        <p class="alice-sig rv d3">— Alice</p>
         <a href="#pricing" class="btn btn-bleu rv d3"><div class="fill"></div><span class="btn-label">Join The Program</span></a>
       </div>
     </div>
@@ -440,7 +443,7 @@
         <div class="inc-row rv d3">
           <span class="inc-num">04</span>
           <div class="inc-right">
-            <p class="inc-title">29 integrated Pilates classes &amp; my fav. Spotify playlist</p>
+            <p class="inc-title">Integrated Pilates classes &amp; my fav. Spotify playlist</p>
             <p class="inc-body">29 classes linked to the running plan + 15 stretching classes.</p>
           </div>
         </div>
@@ -513,9 +516,9 @@
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Journal + .ics calendar</p>
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private community + Spotify playlists</p>
         </div>
-        <a href="https://app.lestudiobyalice.com/checkout/new?o=199268" class="btn pc-btn pc-btn-main" style="background:var(--blanc); color:var(--noir); border:1.5px solid var(--noir); display:flex; width:100%; justify-content:flex-start; position:relative; overflow:hidden;">
-          <div class="fill" style="background:var(--noir); position:absolute; inset:0; height:102%; z-index:1; transform:translate3d(-101%,0,0); transform-style:preserve-3d; transition:transform .45s cubic-bezier(.25,.46,.45,.94);"></div>
-          <span class="btn-label" style="position:relative; z-index:2; transition:color .45s ease;">Run With Us — €89</span>
+        <a href="https://app.lestudiobyalice.com/checkout/new?o=199268" class="btn btn-ghost pc-btn pc-btn-main">
+          <div class="fill"></div>
+          <span class="btn-label">Run With Us — €89</span>
         </a>
         <p class="pc-note">Lifetime access · Secure payment · 14-day guarantee</p>
       </div>
