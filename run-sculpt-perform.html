@@ -411,11 +411,11 @@
 
     /* RESPONSIVE */
     @media (max-width: 1024px) {
-      .proof-grid  { grid-template-columns: 1fr 1fr; }
-      .tracks-grid { grid-template-columns: 1fr 1fr; }
-      .track        { border-right: none; border-bottom: 1px solid rgba(17,17,17,.1); }
+      .proof-grid { grid-template-columns: 1fr 1fr; }
+      .tracks-grid { grid-template-columns: 1fr; }
+      .track { border-right: none; border-bottom: 1px solid rgba(17,17,17,.1); }
       .track:last-child { border-bottom: none; }
-      .proof-block  { border-right: none; border-bottom: 1px solid rgba(17,17,17,.1); }
+      .proof-block { border-right: none; border-bottom: 1px solid rgba(17,17,17,.1); }
       .proof-block:last-child { border-bottom: none; }
       .week-grid { grid-template-columns: 1fr 1fr; }
       .week-photo { display: none; }
@@ -425,8 +425,7 @@
       .res-sticky { position: static; }
       .promise-photo { height: 320px; order: -1; }
       .alice-photo { height: 320px; order: -1; }
-      .proof-grid  { grid-template-columns: 1fr; }
-      .tracks-grid { grid-template-columns: 1fr; }
+      .proof-grid { grid-template-columns: 1fr; }
       .pricing-cards { grid-template-columns: 1fr; }
       .pcard:first-child { border-right: 1px solid rgba(17,17,17,.1); border-bottom: none; }
       .bonus-inner { grid-template-columns: 1fr; }
@@ -700,6 +699,8 @@
         </ul>
         <p class="track-for">For you if you run, want to start, or simply want a smarter Pilates × Running routine. No specific distance in mind.</p>
         <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-ghost"><div class="fill"></div><span class="btn-label">Start This Track</span></a></div>
+      </div>
+      <div class="track rv d1">
         <div class="track-n">02</div>
         <p class="track-title">Road to 10K</p>
         <p class="track-goal">Goal: 0 → 10 km</p>
