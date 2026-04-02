@@ -2092,7 +2092,7 @@ const PROG_JUST_RUN = [
 
 /* ═══════════ STATE ═══════════ */
 const STATE_KEY = 'rp_state_v1';
-const PERSIST_KEYS = ['track','userName','raceDate','startWeek','startDate','completed','paces','viewWeek','weeklyCheckins','sessionFeedbacks'];
+const PERSIST_KEYS = ['track','userName','raceDate','startWeek','startDate','completed','paces','viewWeek','weeklyCheckins','sessionFeedbacks','ciDoneToday'];
 
 let state = {
   track:'baby', userName:'', raceDate:null, startWeek:1,
@@ -2561,6 +2561,12 @@ function renderSortie() {
     document.getElementById('sl-mode-run').style.display     = isRun     ? 'flex' : 'none';
     document.getElementById('sl-mode-rest').style.display    = isRest    ? 'flex' : 'none';
     document.getElementById('sl-mode-pilates').style.display = isPilates ? 'flex' : 'none';
+
+    // Hide body check button if already done today
+    const todayCIDate = new Date().toISOString().split('T')[0];
+    const ciDone = state.ciDoneToday === todayCIDate;
+    const ciBtn = document.querySelector('[onclick="startFlow(\'checkin\')"]');
+    if (ciBtn) ciBtn.style.display = ciDone ? 'none' : '';
   }
 
   // Populate Pilates class link
