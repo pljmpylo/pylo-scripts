@@ -295,7 +295,7 @@
 
     /* S9 PRICING */
     #pricing { background: var(--white); }
-    .pricing-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 3rem; }
+    .pricing-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-bottom: 3rem; }
     .cd-wrap { display: inline-flex; align-items: center; gap: 1.5rem; padding: .8rem 0; flex-wrap: wrap; margin-bottom: 2.5rem; }
     .cd-label { font-family: 'Jost', sans-serif; font-size: .58rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--blue); }
     .cd-timer { display: flex; align-items: center; gap: .6rem; }
@@ -306,8 +306,16 @@
     .pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
     .pcard { padding: 3rem; display: flex; flex-direction: column; border: 1px solid rgba(17,17,17,.1); }
     .pcard:first-child { border-right: none; }
-    .pcard--feat { background: #111111; border-color: #111111; color: #ffffff; }
-    .pcard--feat * { color: #ffffff; }
+    .pcard--feat { background: #111111; border-color: #111111; color: #ffffff !important; }
+    .pcard--feat * { color: #ffffff !important; }
+    .pcard--feat .pc-price { font-size: 4rem; font-weight: 300; line-height: 1; margin-bottom: .35rem; color: #ffffff !important; }
+    .pcard--feat .pc-lbl { color: rgba(255,255,255,.5) !important; }
+    .pcard--feat .pc-was { color: rgba(255,255,255,.35) !important; text-decoration: line-through; }
+    .pcard--feat .pc-or { color: rgba(255,255,255,.5) !important; }
+    .pcard--feat .pc-note { color: rgba(255,255,255,.3) !important; }
+    .pcard--feat .pc-deadline { color: rgba(255,255,255,.65) !important; }
+    .pcard--feat .pc-badge { background: rgba(255,255,255,.12) !important; color: rgba(255,255,255,.8) !important; border: 1px solid rgba(255,255,255,.2) !important; }
+    .pcard--feat .pc-line { color: rgba(255,255,255,.85) !important; }
     .pcard--feat .pc-lbl { color: rgba(255,255,255,.5) !important; }
     .pcard--feat .pc-was { color: rgba(255,255,255,.35) !important; text-decoration: line-through; }
     .pcard--feat .pc-or { color: rgba(255,255,255,.5) !important; }
@@ -351,7 +359,7 @@
 
     /* S10 BONUS */
     #bonus { background: var(--white); }
-    .bonus-inner { padding: 3rem; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; background: var(--white); border: 1px solid rgba(17,17,17,.08); }
+    .bonus-inner { padding: 4rem 0; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; background: transparent; border: none; border-top: 1px solid rgba(17,17,17,.1); border-bottom: 1px solid rgba(17,17,17,.1); }
     .bonus-title { font-family: 'Josefin Sans', sans-serif; font-size: 1.3rem; font-weight: 200; line-height: 1.25; margin-bottom: .75rem; }
     .bonus-body { font-family: 'Jost', sans-serif; font-size: .875rem; font-weight: 300; line-height: 1.8; }
     .bonus-body strong { font-weight: 600; color: var(--blue); }
@@ -361,7 +369,7 @@
 
     /* S11 GUARANTEE */
     #guarantee { padding: 5rem 0; background: var(--white); }
-    .guarantee-inner { display: flex; align-items: flex-start; gap: 2rem; max-width: 680px; margin: 0 auto; padding: 2.5rem; border: 1px solid rgba(17,17,17,.1); }
+    .guarantee-inner { display: flex; align-items: flex-start; gap: 3rem; max-width: 720px; margin: 0 auto; padding: 3rem 0; border: none; border-top: 1px solid rgba(17,17,17,.1); }
     .guarantee-title { font-family: 'Josefin Sans', sans-serif; font-size: 1.1rem; font-weight: 300; margin-bottom: .6rem; line-height: 1.2; }
     .guarantee-body { font-family: 'Jost', sans-serif; font-size: .85rem; font-weight: 300; line-height: 1.8; }
 
