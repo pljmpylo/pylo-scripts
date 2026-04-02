@@ -105,7 +105,7 @@
     .res-quote { margin-top:2rem; padding-left:1.25rem; border-left:1px solid var(--rule); }
     .res-quote p { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.2; color:var(--noir); }
     .res-quote cite { display:block; margin-top:.75rem; font-family:var(--font); font-style:normal; font-size:.52rem; letter-spacing:.16em; text-transform:uppercase; font-weight:500; color:var(--muted); }
-    .promise-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(3rem,6vw,5.5rem); align-items:center; }
+    .promise-grid { display:grid; grid-template-columns:1.7fr 0.3fr; gap:clamp(3rem,6vw,5.5rem); align-items:center; }
     .benefit-list { margin-top:2rem; }
     .benefit-row { display:flex; gap:1rem; align-items:center; padding:.9rem 0; }
     .benefit-row:last-of-type { border-bottom:none; }
@@ -115,7 +115,7 @@
     .promise-closing { margin-top:2rem; padding:1.25rem 1.5rem; border-left:2px solid var(--bleu); }
     .promise-closing p { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.65; color:var(--muted); }
     .promise-closing p strong { font-weight:500; color:var(--noir); }
-    .promise-photo { height:clamp(400px,55vw,580px); overflow:hidden; }
+    .promise-photo { height:clamp(180px,18vw,260px); overflow:hidden; }
     .promise-photo img { width:100%; height:100%; object-fit:cover; object-position:center 30%; transition:transform .9s ease; }
     .promise-photo:hover img { transform:scale(1.02); }
     .week-grid { display:grid; grid-template-columns:1fr 1fr 1.2fr; gap:clamp(2rem,4vw,4rem); align-items:start; }
@@ -638,7 +638,6 @@
 <div id="urgency-bar" role="complementary" aria-label="Early bird offer">
   <p class="ub-text"><strong>Early bird until April 12/04 Midnight</strong></p>
   <div class="ub-right">
-    <span class="ub-time" id="ub-time"></span>
     <a href="#pricing" class="btn btn-blanc"><div class="fill"></div><span class="btn-label">Run with Le Studio</span></a>
   </div>
 </div>
@@ -681,8 +680,6 @@
     if (cdD) cdD.textContent = pad(d);
     if (cdH) cdH.textContent = pad(hh);
     if (cdM) cdM.textContent = pad(mm);
-    const ut = document.getElementById('ub-time');
-    if (ut) ut.textContent = d + 'd ' + pad(hh) + 'h ' + pad(mm) + 'm';
   }
   tick();
   setInterval(tick, 60000);
