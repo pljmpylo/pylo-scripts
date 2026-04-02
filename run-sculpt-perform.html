@@ -6,304 +6,90 @@
   <meta name="description" content="RUN SCULPT PERFORM — A program fusing Pilates, Running and Nutrition. 10 weeks. Three tracks. One web-app guiding you every day." />
   <title>Run Sculpt Perform — Le Studio by Alice Pilate</title>
   <style>
-    /* ─────────────────────────────────────────────
-       FONT FACES — FuturaLT (source officielle)
-    ───────────────────────────────────────────── */
     @font-face { font-family:Futuralt; src:url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c65209d3d0d6c9c74d24_FuturaLT.ttf') format('truetype'); font-weight:400; font-display:swap; }
     @font-face { font-family:Futuralt; src:url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c651ad8acc9a6837b600_FuturaLT-Light.ttf') format('truetype'); font-weight:300; font-display:swap; }
     @font-face { font-family:Futuralt; src:url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c6512000cd44e6b1ea38_FuturaLT-Book.ttf') format('truetype'); font-weight:500; font-display:swap; }
     @font-face { font-family:Futuralt; src:url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c6516c8bedb4eb7fc4d2_FuturaLT-Heavy.ttf') format('truetype'); font-weight:600; font-display:swap; }
     @font-face { font-family:Futuralt; src:url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c651dcb8bf849db968c5_FuturaLT-Bold.ttf') format('truetype'); font-weight:700; font-display:swap; }
-
-    /* ─────────────────────────────────────────────
-       DESIGN TOKENS — source officielle lestudiobyalice.com
-    ───────────────────────────────────────────── */
     :root {
       --font:              Futuralt, Arial, sans-serif;
-
-      /* Couleurs officielles */
       --bleu:              #1a4bbe;
       --noir:              #01050e;
       --beige:             #f8f3ed;
       --blanc:             #ffffff;
       --muted:             rgba(1,5,14,.42);
       --rule:              rgba(1,5,14,.09);
-
-      /* Tailles officielles */
-      --size-h1:           6rem;       /* 96px desktop */
-      --size-h2:           3.25rem;    /* 52px */
-      --size-h3:           2rem;       /* 32px */
-      --size-large:        2rem;       /* 32px */
-      --size-medium:       1.75rem;    /* 28px */
-      --size-regular:      1.5rem;     /* 24px */
-      --size-normal:       1rem;       /* 16px — boutons, labels */
-      --size-small:        .875rem;    /* 14px */
-
+      --size-h1:           6rem;
+      --size-h2:           3.25rem;
+      --size-h3:           2rem;
+      --size-large:        2rem;
+      --size-medium:       1.75rem;
+      --size-regular:      1.5rem;
+      --size-normal:       1rem;
+      --size-small:        .875rem;
       --pad:               clamp(4.5rem, 8vw, 7rem);
       --wrap:              1160px;
     }
-
-    /* ─────────────────────────────────────────────
-       RESET
-    ───────────────────────────────────────────── */
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
     html { scroll-behavior:smooth; }
-    body {
-      background: var(--blanc);
-      color: var(--noir);
-      font-family: var(--font);
-      font-weight: 300;
-      font-size: var(--size-normal);
-      line-height: 1.2;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
+    body { background: var(--blanc); color: var(--noir); font-family: var(--font); font-weight: 300; font-size: var(--size-normal); line-height: 1.2; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
     a { color:inherit; text-decoration:none; }
     img { display:block; max-width:100%; }
     button { cursor:pointer; font-family:var(--font); }
-
     .wrap { max-width:var(--wrap); margin:0 auto; padding:0 clamp(1.5rem,4vw,3rem); }
     .s { padding:var(--pad) 0; }
-
-    /* Fonds alternés */
     .bg-blanc { background:var(--blanc); }
     .bg-beige { background:var(--beige); }
-
-    /* ─────────────────────────────────────────────
-       REVEAL
-    ───────────────────────────────────────────── */
     .rv { opacity:0; transform:translateY(18px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
     .rv.in { opacity:1; transform:none; }
     .d1 { transition-delay:.12s; }
     .d2 { transition-delay:.26s; }
     .d3 { transition-delay:.42s; }
     .d4 { transition-delay:.58s; }
-
-    /* ─────────────────────────────────────────────
-       TYPOGRAPHIE — design system officiel
-       Police unique : Futuralt · 3 poids (300/400/500)
-       Jamais d'italic · Jamais d'autre famille
-    ───────────────────────────────────────────── */
-
-    /* Eyebrow / overline — Futuralt 400 (Regular) */
-    .eyebrow {
-      font-family:    var(--font);
-      font-size:      .62rem;
-      font-weight:    400;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color:          var(--muted);
-      display:        block;
-      margin-bottom:  .9rem;
-    }
-
-    /* H1 — Futuralt Regular (400) · 6rem · uppercase */
-    .hero-h1 {
-      font-family:    var(--font) !important;
-      font-size:      clamp(2.4rem, 6vw, var(--size-h1)) !important;
-      font-weight:    400 !important;
-      line-height:    1.05 !important;
-      letter-spacing: normal !important;
-      text-transform: uppercase !important;
-      color:          var(--blanc) !important;
-      display:        block;
-      margin-bottom:  16px;
-    }
-
-    /* H2 — Futuralt Book (500) · 3.25rem · line-height 1 */
-    .h-xl, .h-lg {
-      font-family:    var(--font);
-      font-size:      var(--size-h2);
-      font-weight:    500;
-      line-height:    1;
-      letter-spacing: normal;
-      color:          var(--noir);
-      margin-top:     0;
-      margin-bottom:  10px;
-      text-align:     left;
-    }
-    /* H2 sur fond sombre (hero CTA) */
-    .on-dark .h-xl,
-    .on-dark .h-lg { color:var(--blanc); }
-
-    /* H3 / titres de card — Futuralt Light (300) · 2rem */
-    h3, .h-md {
-      font-family:    var(--font);
-      font-size:      var(--size-h3);
-      font-weight:    300;
-      line-height:    1;
-      letter-spacing: normal;
-      color:          var(--noir);
-      margin-bottom:  10px;
-    }
-
-    /* Corps de texte standard — Futuralt Light (300) */
-    p, li {
-      font-family:    var(--font);
-      font-weight:    300;
-      line-height:    1.6;
-      letter-spacing: normal;
-    }
-
-    /* Tailles corps */
-    .body-lg  { font-size:var(--size-regular); }    /* 24px */
-    .body-md  { font-size:var(--size-small);   }    /* 14px */
-    .body-sm  { font-size:var(--size-small);   }    /* 14px */
-
-    /* ─────────────────────────────────────────────
-       BOUTONS — design system officiel
-       Sliding fill · border-radius:0 · capitalize
-       padding: .3rem 4rem .3rem 1rem (asymétrique)
-    ───────────────────────────────────────────── */
-    .btn {
-      display:        inline-flex;
-      align-items:    center;
-      position:       relative;
-      overflow:       hidden;
-      cursor:         pointer;
-      text-decoration:none;
-
-      font-family:    var(--font);
-      font-size:      var(--size-normal);   /* 16px */
-      font-weight:    400;
-      line-height:    19.2px;
-      letter-spacing: normal;
-      text-transform: capitalize;
-
-      padding:        .3rem 4rem .3rem 1rem;
-      border-radius:  0;
-
-      transition:     color .45s ease;
-      white-space:    nowrap;
-    }
-
-    /* Fill — glisse de gauche à droite SOUS le texte */
-    .btn .fill {
-      position:   absolute;
-      inset:      0;
-      height:     102%;
-      z-index:    1;
-      transform:  translate3d(-101%, 0, 0);
-      transform-style: preserve-3d;
-      transition: transform .45s cubic-bezier(.25,.46,.45,.94);
-    }
-    .btn:hover .fill, .btn:focus .fill {
-      transform: translate3d(0%, 0, 0);
-    }
-    .btn .btn-label {
-      position: relative;
-      z-index:  2;
-    }
-
-    /* Variante bleu — sur fond blanc/beige */
-    .btn-bleu {
-      background: var(--bleu);
-      color:      var(--blanc);
-      border:     1.5px solid var(--bleu);
-    }
+    .eyebrow { font-family: var(--font); font-size: .62rem; font-weight: 400; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: .9rem; }
+    .hero-h1 { font-family: var(--font) !important; font-size: clamp(2.4rem, 6vw, var(--size-h1)) !important; font-weight: 400 !important; line-height: 1.05 !important; letter-spacing: normal !important; text-transform: uppercase !important; color: var(--blanc) !important; display: block; margin-bottom: 16px; }
+    .h-xl, .h-lg { font-family: var(--font); font-size: var(--size-h2); font-weight: 500; line-height: 1; letter-spacing: normal; color: var(--noir); margin-top: 0; margin-bottom: 10px; text-align: left; }
+    .on-dark .h-xl, .on-dark .h-lg { color:var(--blanc); }
+    h3, .h-md { font-family: var(--font); font-size: var(--size-h3); font-weight: 300; line-height: 1; letter-spacing: normal; color: var(--noir); margin-bottom: 10px; }
+    p, li { font-family: var(--font); font-weight: 300; line-height: 1.6; letter-spacing: normal; }
+    .body-lg  { font-size:var(--size-regular); }
+    .body-md  { font-size:var(--size-small);   }
+    .body-sm  { font-size:var(--size-small);   }
+    .btn { display: inline-flex; align-items: center; position: relative; overflow: hidden; cursor: pointer; text-decoration: none; font-family: var(--font); font-size: var(--size-normal); font-weight: 400; line-height: 19.2px; letter-spacing: normal; text-transform: capitalize; padding: .3rem 4rem .3rem 1rem; border-radius: 0; transition: color .45s ease; white-space: nowrap; }
+    .btn .fill { position: absolute; inset: 0; height: 102%; z-index: 1; transform: translate3d(-101%, 0, 0); transform-style: preserve-3d; transition: transform .45s cubic-bezier(.25,.46,.45,.94); }
+    .btn:hover .fill, .btn:focus .fill { transform: translate3d(0%, 0, 0); }
+    .btn .btn-label { position: relative; z-index: 2; }
+    .btn-bleu { background: var(--bleu); color: var(--blanc); border: 1.5px solid var(--bleu); }
     .btn-bleu .fill  { background:var(--blanc); }
-    .btn-bleu:hover,
-    .btn-bleu:focus  { color:var(--bleu); }
-
-    /* Variante blanc — sur fond sombre */
-    .btn-blanc {
-      background: var(--blanc);
-      color:      var(--noir);
-      border:     1.5px solid var(--blanc);
-    }
+    .btn-bleu:hover, .btn-bleu:focus  { color:var(--bleu); }
+    .btn-blanc { background: var(--blanc); color: var(--noir); border: 1.5px solid var(--blanc); }
     .btn-blanc .fill  { background:var(--noir); }
-    .btn-blanc:hover,
-    .btn-blanc:focus  { color:var(--blanc); }
-
-    /* Fix couleur dans pcard--feat */
-    .pcard--feat .btn-blanc,
-    .pcard--feat .btn-blanc .btn-label { color:var(--noir) !important; }
-    .pcard--feat .btn-blanc:hover .btn-label,
-    .pcard--feat .btn-blanc:focus .btn-label { color:var(--blanc) !important; }
-
-    /* Variante ghost — action secondaire sur fond clair */
-    .btn-ghost {
-      background: transparent;
-      color:      var(--noir);
-      border:     1.5px solid var(--noir);
-    }
+    .btn-blanc:hover, .btn-blanc:focus  { color:var(--blanc); }
+    .pcard--feat .btn-blanc, .pcard--feat .btn-blanc .btn-label { color:var(--noir) !important; }
+    .pcard--feat .btn-blanc:hover .btn-label, .pcard--feat .btn-blanc:focus .btn-label { color:var(--blanc) !important; }
+    .btn-ghost { background: transparent; color: var(--noir); border: 1.5px solid var(--noir); }
     .btn-ghost .fill  { background:var(--noir); }
-    .btn-ghost:hover,
-    .btn-ghost:focus  { color:var(--blanc); }
-
-    /* ─────────────────────────────────────────────
-       ANNOUNCE BAR
-    ───────────────────────────────────────────── */
+    .btn-ghost:hover, .btn-ghost:focus  { color:var(--blanc); }
     #announce { background:var(--noir); padding:.55rem 0; overflow:hidden; }
     .announce-track { display:flex; white-space:nowrap; animation:aScroll 38s linear infinite; }
     @keyframes aScroll { to { transform:translateX(-50%); } }
-    .a-item {
-      display:        inline-flex;
-      align-items:    center;
-      gap:            1.5rem;
-      padding:        0 2rem;
-      font-family:    var(--font);
-      font-size:      .6rem;
-      font-weight:    400;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color:          rgba(255,255,255,.45);
-    }
+    .a-item { display: inline-flex; align-items: center; gap: 1.5rem; padding: 0 2rem; font-family: var(--font); font-size: .6rem; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.45); }
     .a-item strong { color:var(--blanc); font-weight:500; }
     .a-sep { color:rgba(255,255,255,.15); font-size:.45rem; }
-
-    /* ─────────────────────────────────────────────
-       HERO — bg image full height
-    ───────────────────────────────────────────── */
     #hero { position:relative; min-height:95svh; display:flex; align-items:flex-end; overflow:hidden; }
-    .hero-bg {
-      position:            absolute; inset:0;
-      background-image:    url('https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7429.jpg');
-      background-size:     cover;
-      background-position: 75% 8%;
-      transition:          transform 10s ease;
-    }
+    .hero-bg { position: absolute; inset: 0; background-image: url('https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7429.jpg'); background-size: cover; background-position: 75% 8%; transition: transform 10s ease; }
     .hero-bg.loaded { transform:scale(1.03); }
-    .hero-overlay {
-      position:   absolute; inset:0;
-      background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.38) 38%, rgba(0,0,0,.1) 65%, transparent 100%);
-    }
-    .hero-content {
-      position:      relative; z-index:2;
-      padding:       0 clamp(1.5rem,4vw,3rem) clamp(3.5rem,6vw,5.5rem);
-      width:         100%; max-width:var(--wrap); margin:0 auto;
-    }
-    .hero-badge {
-      display:         inline-flex; align-items:center; gap:.5rem;
-      background:      rgba(255,255,255,.1);
-      border:          1px solid rgba(255,255,255,.18);
-      backdrop-filter: blur(8px);
-      padding:         .4rem 1rem;
-      font-family:     var(--font);
-      font-size:       .62rem; font-weight:400; letter-spacing:.06em;
-      color:           rgba(255,255,255,.75);
-      margin-bottom:   2rem;
-    }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.38) 38%, rgba(0,0,0,.1) 65%, transparent 100%); }
+    .hero-content { position: relative; z-index: 2; padding: 0 clamp(1.5rem,4vw,3rem) clamp(3.5rem,6vw,5.5rem); width: 100%; max-width: var(--wrap); margin: 0 auto; }
+    .hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(8px); padding: .4rem 1rem; font-family: var(--font); font-size: .62rem; font-weight: 400; letter-spacing: .06em; color: rgba(255,255,255,.75); margin-bottom: 2rem; }
     .badge-dot { width:5px; height:5px; border-radius:50%; background:var(--bleu); animation:bdot 2.2s ease infinite; }
     @keyframes bdot { 0%,100%{opacity:1} 50%{opacity:.3} }
-    .hero-sub {
-      font-family:   var(--font);
-      font-size:     clamp(.85rem, 1.4vw, 1rem);
-      font-weight:   300;
-      line-height:   1.7;
-      color:         rgba(255,255,255,.75);
-      max-width:     48ch;
-      margin-bottom: 2rem; margin-top:0;
-    }
+    .hero-sub { font-family: var(--font); font-size: clamp(.85rem, 1.4vw, 1rem); font-weight: 300; line-height: 1.7; color: rgba(255,255,255,.75); max-width: 48ch; margin-bottom: 2rem; margin-top: 0; }
     .hero-actions { display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; margin-bottom:.75rem; }
     .hero-proofs  { display:flex; gap:0; flex-wrap:wrap; margin-top:2.75rem; border-top:1px solid rgba(255,255,255,.1); }
     .hero-proof   { padding:1.1rem 3.5rem 1rem 0; }
     .hp-num   { font-family:var(--font); font-size:1.8rem; font-weight:400; color:var(--blanc); line-height:1; }
     .hp-label { font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.36); margin-top:.2rem; }
-
-    /* ─────────────────────────────────────────────
-       S2 RESONANCE — bg blanc
-    ───────────────────────────────────────────── */
     .res-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(3rem,6vw,6rem); align-items:start; }
     .res-sticky { position:sticky; top:2rem; }
     .asp-list { display:flex; flex-direction:column; margin-top:2rem; }
@@ -315,10 +101,6 @@
     .res-quote { margin-top:2rem; padding-left:1.25rem; border-left:1px solid var(--rule); }
     .res-quote p { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.7; color:var(--muted); }
     .res-quote cite { display:block; margin-top:.75rem; font-family:var(--font); font-style:normal; font-size:.52rem; letter-spacing:.16em; text-transform:uppercase; font-weight:500; color:var(--muted); }
-
-    /* ─────────────────────────────────────────────
-       S3 PROMISE — bg beige
-    ───────────────────────────────────────────── */
     .promise-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(3rem,6vw,5.5rem); align-items:center; }
     .benefit-list { margin-top:2rem; }
     .benefit-row { display:flex; gap:1rem; align-items:flex-start; padding:.9rem 0; border-bottom:1px solid var(--rule); }
@@ -332,10 +114,6 @@
     .promise-photo { height:clamp(400px,55vw,580px); overflow:hidden; }
     .promise-photo img { width:100%; height:100%; object-fit:cover; object-position:center 30%; transition:transform .9s ease; }
     .promise-photo:hover img { transform:scale(1.02); }
-
-    /* ─────────────────────────────────────────────
-       S4 WEEK — bg blanc
-    ───────────────────────────────────────────── */
     .week-grid { display:grid; grid-template-columns:1fr 1fr 1.2fr; gap:clamp(2rem,4vw,4rem); align-items:start; }
     .week-photo { height:clamp(380px,45vw,520px); overflow:hidden; }
     .week-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; transition:transform .9s ease; }
@@ -351,19 +129,11 @@
     .week-table td:first-child { font-weight:500; font-size:.65rem; letter-spacing:.08em; text-transform:uppercase; width:38%; color:var(--muted); }
     .week-table .wt-run td:last-child { font-weight:500; color:var(--bleu); }
     .week-table .wt-rest td:last-child { color:rgba(1,5,14,.35); }
-
-    /* ─────────────────────────────────────────────
-       S5 ALICE — bg beige
-    ───────────────────────────────────────────── */
     .alice-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(3rem,6vw,6rem); align-items:center; }
     .alice-photo { height:clamp(440px,55vw,600px); overflow:hidden; }
     .alice-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; }
     .alice-body { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.85; margin-bottom:1.1rem; margin-top:.5rem; color:var(--muted); }
     .alice-sig { font-family:var(--font); font-size:1.6rem; font-weight:300; letter-spacing:.1em; margin-top:1rem; margin-bottom:2rem; color:var(--noir); }
-
-    /* ─────────────────────────────────────────────
-       S6 PROOF — bg blanc
-    ───────────────────────────────────────────── */
     .proof-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:3.5rem; border-top:1px solid var(--rule); }
     .proof-block { padding:2.5rem; border-right:1px solid var(--rule); }
     .proof-block:last-child { border-right:none; }
@@ -371,15 +141,9 @@
     .proof-block h3 { font-family:var(--font); font-size:1rem; font-weight:500; margin-bottom:.35rem; line-height:1.25; color:var(--noir); }
     .proof-role { font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.12em; text-transform:uppercase; color:var(--bleu); margin-bottom:1rem; }
     .proof-body { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.8; color:var(--muted); }
-
-    /* PHOTO INTERLUDE */
     .photo-interlude { height:clamp(320px,38vw,460px); overflow:hidden; position:relative; }
     .photo-interlude img { width:100%; height:100%; object-fit:cover; object-position:center 45%; transition:transform 1.5s ease; }
     .photo-interlude:hover img { transform:scale(1.02); }
-
-    /* ─────────────────────────────────────────────
-       S7 INCLUDED — bg beige
-    ───────────────────────────────────────────── */
     .inc-list { margin-top:3rem; }
     .inc-row { display:grid; grid-template-columns:3rem 1fr; gap:1.5rem; align-items:start; padding:1.5rem 0; border-bottom:1px solid var(--rule); }
     .inc-row:last-child { border-bottom:none; }
@@ -387,10 +151,6 @@
     .inc-right { display:flex; flex-direction:column; gap:.35rem; }
     .inc-title { font-family:var(--font); font-size:var(--size-small); font-weight:500; line-height:1.25; color:var(--noir); }
     .inc-body  { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.7; color:var(--muted); }
-
-    /* ─────────────────────────────────────────────
-       S8 TRACKS — bg blanc
-    ───────────────────────────────────────────── */
     .tracks-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:3.5rem; border-top:1px solid var(--rule); }
     .track { padding:2.5rem; display:flex; flex-direction:column; gap:.85rem; border-right:1px solid var(--rule); }
     .track:last-child { border-right:none; }
@@ -401,10 +161,6 @@
     .track-list li { font-family:var(--font); font-size:var(--size-small); font-weight:300; display:flex; gap:.75rem; align-items:flex-start; color:var(--muted); }
     .track-list li::before { content:'—'; color:rgba(1,5,14,.25); flex-shrink:0; font-weight:300; }
     .track-for { font-family:var(--font); font-size:var(--size-small); font-weight:300; padding-top:.5rem; line-height:1.6; color:rgba(1,5,14,.45); }
-
-    /* ─────────────────────────────────────────────
-       S9 PRICING — bg beige
-    ───────────────────────────────────────────── */
     .pricing-intro { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; margin-bottom:3rem; }
     .cd-wrap  { display:inline-flex; align-items:center; gap:1.5rem; padding:.8rem 0; flex-wrap:wrap; margin-bottom:2.5rem; }
     .cd-label { font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.18em; text-transform:uppercase; color:var(--bleu); }
@@ -416,11 +172,8 @@
     .pricing-cards { display:grid; grid-template-columns:1fr 1fr; gap:0; }
     .pcard { padding:3rem; display:flex; flex-direction:column; border:1px solid var(--rule); }
     .pcard:first-child { border-right:none; }
-
-    /* Carte vedette — fond noir */
     .pcard--feat { background:var(--noir); border-color:var(--noir); color:var(--blanc) !important; }
     .pcard--feat * { color:var(--blanc) !important; }
-
     .pc-badge { display:inline-block; font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.16em; text-transform:uppercase; padding:.3rem .85rem; margin-bottom:2rem; width:fit-content; }
     .pcard--feat .pc-badge { background:var(--bleu); color:var(--blanc) !important; border:1px solid var(--bleu); }
     .pcard .pc-badge     { background:var(--blanc); color:var(--muted) !important; border:1px solid var(--rule); }
@@ -449,27 +202,15 @@
     .pc-note   { font-family:var(--font); font-size:.62rem; font-weight:300; text-align:center; margin-top:.75rem; letter-spacing:.04em; }
     .pcard--feat .pc-note { color:rgba(255,255,255,.3) !important; }
     .pcard .pc-note       { color:var(--muted); }
-
-    /* ─────────────────────────────────────────────
-       S10 BONUS — bg blanc
-    ───────────────────────────────────────────── */
     .bonus-inner { padding:4rem 0; display:grid; grid-template-columns:1fr auto; gap:4rem; align-items:center; }
     .bonus-body  { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.8; color:var(--muted); }
     .bonus-body strong { font-weight:500; color:var(--bleu); }
     .bonus-count { text-align:right; }
     .bonus-num   { font-family:var(--font); font-size:5rem; font-weight:300; color:var(--bleu); line-height:1; display:block; }
     .bonus-count-lbl { font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
-
-    /* ─────────────────────────────────────────────
-       S11 GUARANTEE — bg beige
-    ───────────────────────────────────────────── */
     .guarantee-inner { display:flex; align-items:flex-start; gap:3rem; max-width:720px; padding:3rem 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
     .guarantee-title { font-family:var(--font); font-size:1.1rem; font-weight:500; margin-bottom:.6rem; line-height:1.2; color:var(--noir); }
     .guarantee-body  { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.8; color:var(--muted); }
-
-    /* ─────────────────────────────────────────────
-       S12 FAQ — bg blanc
-    ───────────────────────────────────────────── */
     .faq-layout { display:grid; grid-template-columns:4fr 7fr; gap:clamp(3rem,6vw,6rem); margin-top:3rem; }
     .faq-sidebar { position:sticky; top:2rem; }
     .faq-list   { display:flex; flex-direction:column; }
@@ -482,10 +223,6 @@
     .faq-item.open .faq-plus svg { stroke:var(--blanc); }
     .faq-a { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.85; max-height:0; overflow:hidden; padding-bottom:0; transition:max-height .45s cubic-bezier(.65,0,.35,1), padding .3s; color:var(--muted); }
     .faq-item.open .faq-a { max-height:420px; padding-bottom:1.5rem; }
-
-    /* ─────────────────────────────────────────────
-       S13 FINAL CTA — bg bleu
-    ───────────────────────────────────────────── */
     #final-cta { background:var(--bleu); padding:var(--pad) 0; }
     #final-cta .eyebrow { color:rgba(255,255,255,.6); }
     #final-cta .h-xl { color:var(--blanc); }
@@ -493,66 +230,22 @@
     .final-actions { display:flex; align-items:center; justify-content:flex-start; gap:1.25rem; flex-wrap:wrap; }
     .final-note { margin-top:1.5rem; font-family:var(--font); font-size:.68rem; font-weight:400; color:rgba(255,255,255,.55); }
     .final-note strong { font-weight:500; color:rgba(255,255,255,.85); }
-
-    /* ─────────────────────────────────────────────
-       URGENCY BAR
-    ───────────────────────────────────────────── */
-    #urgency-bar {
-      position:fixed; bottom:0; left:0; right:0; z-index:200;
-      background:var(--noir);
-      border-top:1px solid rgba(255,255,255,.08);
-      padding:.9rem clamp(1.5rem,3vw,3rem);
-      display:flex; align-items:center; justify-content:space-between; gap:1rem;
-      transform:translateY(100%);
-      transition:transform .5s cubic-bezier(.22,1,.36,1);
-    }
+    #urgency-bar { position:fixed; bottom:0; left:0; right:0; z-index:200; background:var(--noir); border-top:1px solid rgba(255,255,255,.08); padding:.9rem clamp(1.5rem,3vw,3rem); display:flex; align-items:center; justify-content:space-between; gap:1rem; transform:translateY(100%); transition:transform .5s cubic-bezier(.22,1,.36,1); }
     #urgency-bar.show { transform:translateY(0); }
     .ub-text { font-family:var(--font); font-size:.78rem; font-weight:400; color:rgba(255,255,255,.85); }
     .ub-text strong { color:var(--blanc); font-weight:500; }
     .ub-right { display:flex; align-items:center; gap:1.25rem; }
     .ub-time  { font-family:var(--font); font-size:.7rem; font-weight:400; letter-spacing:.06em; color:rgba(255,255,255,.5); }
-
-    /* ─────────────────────────────────────────────
-       RESPONSIVE
-    ───────────────────────────────────────────── */
-    @media (max-width:1024px) {
-      .proof-grid  { grid-template-columns:1fr 1fr; }
-      .tracks-grid { grid-template-columns:1fr 1fr; }
-      .proof-block { border-right:none; border-bottom:1px solid var(--rule); }
-      .proof-block:last-child { border-bottom:none; }
-      .week-grid   { grid-template-columns:1fr 1fr; }
-      .week-photo  { display:none; }
-    }
-    @media (max-width:768px) {
-      .res-grid, .promise-grid, .week-grid, .alice-grid,
-      .faq-layout, .pricing-intro { grid-template-columns:1fr; }
-      .res-sticky   { position:static; }
-      .promise-photo { height:320px; order:-1; }
-      .alice-photo  { height:320px; order:-1; }
-      .proof-grid   { grid-template-columns:1fr; }
-      .tracks-grid  { grid-template-columns:1fr; }
-      .track  { border-right:none; border-bottom:1px solid var(--rule); }
-      .track:last-child { border-bottom:none; }
-      .pricing-cards { grid-template-columns:1fr; }
-      .pcard:first-child { border-right:1px solid var(--rule); border-bottom:none; }
-      .bonus-inner { grid-template-columns:1fr; }
-      .bonus-count { text-align:left; }
-      .guarantee-inner { flex-direction:column; }
-      #urgency-bar { flex-direction:column; align-items:flex-start; padding:1rem 1.5rem; }
-      .hero-proofs { flex-direction:column; }
-      .hero-proof  { padding-right:0; border-bottom:1px solid rgba(255,255,255,.08); padding-bottom:.85rem; }
-      #included > .wrap > div[style] { grid-template-columns:1fr !important; }
-    }
+    @media (max-width:1024px) { .proof-grid  { grid-template-columns:1fr 1fr; } .tracks-grid { grid-template-columns:1fr 1fr; } .proof-block { border-right:none; border-bottom:1px solid var(--rule); } .proof-block:last-child { border-bottom:none; } .week-grid   { grid-template-columns:1fr 1fr; } .week-photo  { display:none; } }
+    @media (max-width:768px) { .res-grid, .promise-grid, .week-grid, .alice-grid, .faq-layout, .pricing-intro { grid-template-columns:1fr; } .res-sticky   { position:static; } .promise-photo { height:320px; order:-1; } .alice-photo  { height:320px; order:-1; } .proof-grid   { grid-template-columns:1fr; } .tracks-grid  { grid-template-columns:1fr; } .track  { border-right:none; border-bottom:1px solid var(--rule); } .track:last-child { border-bottom:none; } .pricing-cards { grid-template-columns:1fr; } .pcard:first-child { border-right:1px solid var(--rule); border-bottom:none; } .bonus-inner { grid-template-columns:1fr; } .bonus-count { text-align:left; } .guarantee-inner { flex-direction:column; } #urgency-bar { flex-direction:column; align-items:flex-start; padding:1rem 1.5rem; } .hero-proofs { flex-direction:column; } .hero-proof  { padding-right:0; border-bottom:1px solid rgba(255,255,255,.08); padding-bottom:.85rem; } #included > .wrap > div[style] { grid-template-columns:1fr !important; } }
   </style>
 </head>
 <body>
 
-<!-- ANNOUNCEMENT BAR -->
 <div id="announce" aria-hidden="true">
   <div class="announce-track" id="announce-track"></div>
 </div>
 
-<!-- ═══ S1 — HERO ═══════════════════════════════════════════ -->
 <section id="hero" aria-label="Hero">
   <div class="hero-bg" id="hero-bg"></div>
   <div class="hero-overlay"></div>
@@ -587,7 +280,6 @@
   </div>
 </section>
 
-<!-- ═══ S2 — RESONANCE  bg-blanc ════════════════════════════ -->
 <section id="resonance" class="s bg-blanc" aria-labelledby="res-h">
   <div class="wrap">
     <div class="res-grid">
@@ -617,7 +309,6 @@
   </div>
 </section>
 
-<!-- ═══ S3 — PROMISE  bg-beige ═══════════════════════════════ -->
 <section id="promise" class="s bg-beige" aria-labelledby="promise-h">
   <div class="wrap">
     <span class="eyebrow rv">In 10 weeks</span>
@@ -642,9 +333,7 @@
             <p class="benefit-text">A <strong>strong &amp; aligned body</strong> to stay injury-free.</p>
           </div>
         </div>
-        <div class="promise-closing rv d4">
-          <p>The program gives you <strong>the structure to become the runner you want to be.</strong></p>
-        </div>
+
       </div>
       <div class="promise-photo rv d2">
         <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7012.jpg" alt="Alice Pilate" loading="lazy" />
@@ -653,7 +342,6 @@
   </div>
 </section>
 
-<!-- ═══ S4 — WEEK  bg-blanc ══════════════════════════════════ -->
 <section id="week" class="s bg-blanc" aria-labelledby="week-h">
   <div class="wrap">
     <div class="week-grid">
@@ -686,7 +374,6 @@
   </div>
 </section>
 
-<!-- ═══ S5 — ALICE  bg-beige ═════════════════════════════════ -->
 <section id="alice" class="s bg-beige" aria-labelledby="alice-h">
   <div class="wrap">
     <div class="alice-grid">
@@ -696,16 +383,14 @@
       <div>
         <span class="eyebrow rv">Where it all started</span>
         <h2 class="h-lg rv d1" id="alice-h" style="margin-top:.75rem;">10 years of Pilates. Then I laced up. That's how this program was born.</h2>
-        <p class="alice-body rv d2">I've been practicing and teaching Pilates for over 10 years. One day it clicked: these two disciplines were made for each other. Pilates strengthens what running breaks down and keeps injuries away. Running forges my mental strength.</p>
-        <p class="alice-body rv d3">RUN SCULPT PERFORM is the training I've used to prepare every single marathon and half-marathon — born from my love for Pilates and running, and from all of you who kept asking me to make this into a program.</p>
-        <p class="alice-sig rv d4">— Alice</p>
-        <a href="#pricing" class="btn btn-bleu rv d4"><div class="fill"></div><span class="btn-label">Join The Program</span></a>
+        <p class="alice-body rv d2">RUN SCULPT PERFORM is the training I've used to prepare every single marathon and half-marathon — born from my love for Pilates and running, and from all of you who kept asking me to make this into a program.</p>
+        <p class="alice-sig rv d3">— Alice</p>
+        <a href="#pricing" class="btn btn-bleu rv d3"><div class="fill"></div><span class="btn-label">Join The Program</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ S6 — PROOF  bg-blanc ═════════════════════════════════ -->
 <section id="proof" class="s bg-blanc" aria-labelledby="proof-h">
   <div class="wrap">
     <span class="eyebrow rv">Designed with experts</span>
@@ -715,7 +400,7 @@
         <div class="proof-n">01</div>
         <h3>500+ runners surveyed</h3>
         <p class="proof-role">Co-creation</p>
-        <p class="proof-body">This program was shaped by your answers. 198 runners shared their goals, their struggles, and what they needed. Every track, every week was built from that.</p>
+        <p class="proof-body">This program was shaped by your answers. 500+ runners shared their goals, their struggles, and what they needed. Every track, every week was built from that.</p>
       </div>
       <div class="proof-block rv d1">
         <div class="proof-n">02</div>
@@ -725,7 +410,7 @@
       </div>
       <div class="proof-block rv d2">
         <div class="proof-n">03</div>
-        <h3>Joseph Fanhert</h3>
+        <h3>Joseph Fahnert</h3>
         <p class="proof-role">Certified sports coach — Running, Triathlon, Physical preparation</p>
         <p class="proof-body">Joseph designed and validated every running plan in the program — intervals, tempo, long runs, all three tracks.</p>
       </div>
@@ -733,12 +418,10 @@
   </div>
 </section>
 
-<!-- PHOTO INTERLUDE -->
 <div class="photo-interlude" aria-hidden="true">
   <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7063.jpg" alt="" loading="lazy" />
 </div>
 
-<!-- ═══ S7 — INCLUDED  bg-beige ══════════════════════════════ -->
 <section id="included" class="s bg-beige" aria-labelledby="inc-h">
   <div class="wrap">
     <span class="eyebrow rv">Everything's included</span>
@@ -789,13 +472,11 @@
   </div>
 </section>
 
-<!-- ═══ S8 — TRACKS  bg-blanc ════════════════════════════════ -->
 <section id="tracks" class="s bg-blanc" aria-labelledby="tracks-h">
   <div class="wrap">
     <span class="eyebrow rv">Three tracks, one web-app</span>
     <h2 class="h-lg rv d1" id="tracks-h" style="margin-top:.75rem; margin-bottom:3rem;">Choose your starting line.</h2>
     <div class="tracks-grid">
-      <!-- Track 01 — séparé de 02 (bug HTML corrigé) -->
       <div class="track rv">
         <div class="track-n">01</div>
         <p class="track-title">Just Run &amp; Pilates</p>
@@ -808,7 +489,6 @@
         <p class="track-for">For you if you run, want to start, or simply want a smarter Pilates × Running routine. No specific distance in mind.</p>
         <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-ghost"><div class="fill"></div><span class="btn-label">Start This Track</span></a></div>
       </div>
-      <!-- Track 02 -->
       <div class="track rv d1">
         <div class="track-n">02</div>
         <p class="track-title">Road to 10K</p>
@@ -821,7 +501,6 @@
         <p class="track-for">For you if you're ready to run your first 10km.</p>
         <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-ghost"><div class="fill"></div><span class="btn-label">Start This Track</span></a></div>
       </div>
-      <!-- Track 03 -->
       <div class="track rv d2">
         <div class="track-n">03</div>
         <p class="track-title">Run to 21K</p>
@@ -838,7 +517,6 @@
   </div>
 </section>
 
-<!-- ═══ S9 — PRICING  bg-beige ═══════════════════════════════ -->
 <section id="pricing" class="s bg-beige" aria-labelledby="pricing-h">
   <div class="wrap">
     <div class="pricing-intro">
@@ -856,10 +534,9 @@
           </div>
         </div>
       </div>
-      <p class="body-sm rv d2" style="color:var(--muted);">Lifetime access. Secure payment. 7-day money-back guarantee. Start today at the early bird price and access all three tracks immediately.</p>
+      <p class="body-sm rv d2" style="color:var(--muted);">Lifetime access. Secure payment. 14-day guarantee. Start today at the early bird price and access all three tracks immediately.</p>
     </div>
     <div class="pricing-cards">
-      <!-- PLAN 1 — vedette fond noir -->
       <div class="pcard pcard--feat rv">
         <span class="pc-badge">Early bird — Ends 12/04 midnight</span>
         <p class="pc-lbl">RUN SCULPT PERFORM — One-shot</p>
@@ -880,7 +557,6 @@
         </a>
         <p class="pc-note">Lifetime access · Secure payment · 7-day guarantee</p>
       </div>
-      <!-- PLAN 2 -->
       <div class="pcard rv d1">
         <span class="pc-badge">Most popular</span>
         <p class="pc-lbl">Annual Studio Subscription</p>
@@ -902,7 +578,6 @@
   </div>
 </section>
 
-<!-- ═══ S10 — BONUS  bg-blanc ════════════════════════════════ -->
 <section id="bonus" class="bg-blanc" style="padding:2rem 0;" aria-label="Exclusive bonus">
   <div class="wrap">
     <div class="bonus-inner rv">
@@ -919,7 +594,6 @@
   </div>
 </section>
 
-<!-- ═══ S11 — GUARANTEE  bg-beige ════════════════════════════ -->
 <section id="guarantee" class="bg-beige" style="padding:2rem 0;" aria-label="Guarantee">
   <div class="wrap">
     <div class="guarantee-inner rv">
@@ -931,7 +605,6 @@
   </div>
 </section>
 
-<!-- ═══ S12 — FAQ  bg-blanc ══════════════════════════════════ -->
 <section id="faq" class="s bg-blanc" aria-labelledby="faq-h">
   <div class="wrap">
     <h2 class="h-lg rv" id="faq-h">Frequently asked questions</h2>
@@ -987,7 +660,6 @@
   </div>
 </section>
 
-<!-- ═══ S13 — FINAL CTA  bg-bleu ═════════════════════════════ -->
 <section id="final-cta" class="s" aria-label="Final call to action">
   <div class="wrap" style="text-align:left;">
     <span class="eyebrow rv" style="display:block; margin-bottom:1rem;">Your next start line</span>
@@ -1000,7 +672,6 @@
   </div>
 </section>
 
-<!-- URGENCY BAR -->
 <div id="urgency-bar" role="complementary" aria-label="Early bird offer">
   <p class="ub-text"><strong>Early bird €89</strong> — until April 12 midnight only</p>
   <div class="ub-right">
@@ -1012,59 +683,27 @@
 <script>
 (function () {
   'use strict';
-
-  // ANNOUNCE BAR
-  const aItems = [
-    'LAUNCHING APRIL 5',
-    'Early bird — <strong>€89</strong> until April 12',
-    'Co-created with <strong>500+ runners</strong>',
-    'Three tracks · One web-app',
-    '<strong>10 weeks</strong> — Pilates × Running × Nutrition',
-    'Certified by a coach and a naturopath',
-  ];
+  const aItems = ['LAUNCHING APRIL 5','Early bird — <strong>€89</strong> until April 12','Co-created with <strong>500+ runners</strong>','Three tracks · One web-app','<strong>10 weeks</strong> — Pilates × Running × Nutrition','Certified by a coach and a naturopath'];
   const at = document.getElementById('announce-track');
   let h = '';
-  for (let i = 0; i < 2; i++) aItems.forEach(item => {
-    h += `<span class="a-item">${item}<span class="a-sep">·</span></span>`;
-  });
+  for (let i = 0; i < 2; i++) aItems.forEach(item => { h += `<span class="a-item">${item}<span class="a-sep">·</span></span>`; });
   at.innerHTML = h;
-
-  // HERO BG zoom
   const bg = document.getElementById('hero-bg');
   if (bg) setTimeout(() => bg.classList.add('loaded'), 80);
-
-  // SCROLL REVEAL
   const rvEls = document.querySelectorAll('.rv');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } }); }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   rvEls.forEach(el => obs.observe(el));
-  document.querySelectorAll('#hero .rv').forEach((el, i) => {
-    setTimeout(() => el.classList.add('in'), 180 + i * 130);
-  });
-
-  // STICKY BAR
+  document.querySelectorAll('#hero .rv').forEach((el, i) => { setTimeout(() => el.classList.add('in'), 180 + i * 130); });
   const ub = document.getElementById('urgency-bar');
-  window.addEventListener('scroll', () => {
-    ub.classList.toggle('show', window.scrollY > window.innerHeight * 0.75);
-  }, { passive: true });
-
-  // FAQ
+  window.addEventListener('scroll', () => { ub.classList.toggle('show', window.scrollY > window.innerHeight * 0.75); }, { passive: true });
   document.querySelectorAll('.faq-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
       const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(i => {
-        i.classList.remove('open');
-        i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
-      });
+      document.querySelectorAll('.faq-item.open').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false'); });
       if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
     });
   });
-
-  // COUNTDOWN — April 12, 2026 23:59 Paris
   const DEADLINE = new Date('2026-04-12T23:59:00+02:00');
   function pad(n) { return String(n).padStart(2, '0'); }
   function tick() {
@@ -1081,7 +720,6 @@
   }
   tick();
   setInterval(tick, 60000);
-
 })();
 </script>
 </body>
