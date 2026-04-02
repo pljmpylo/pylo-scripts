@@ -349,10 +349,12 @@
     .pcard .pc-line { color: var(--black); }
     .pc-line strong { font-weight: 500; }
     .pcard--feat .pc-line strong { color: #fff; }
-    .pcard--feat .btn-primary { background: #ffffff !important; color: var(--blue) !important; }
-    .pcard--feat .btn-primary span { color: var(--blue) !important; }
-    .pcard--feat .btn-primary:hover, .pcard--feat .btn-primary:focus { color: #ffffff !important; }
-    .pcard--feat .btn-primary:hover span, .pcard--feat .btn-primary:focus span { color: #ffffff !important; }
+    /* CTA carte noire = même style que hero "I'm in" */
+    .pcard--feat .btn-primary { background: var(--blue) !important; color: #ffffff !important; }
+    .pcard--feat .btn-primary span { color: #ffffff !important; }
+    .pcard--feat .btn-primary::before { background: #ffffff; border: 1px solid var(--blue); }
+    .pcard--feat .btn-primary:hover, .pcard--feat .btn-primary:focus { color: var(--blue) !important; }
+    .pcard--feat .btn-primary:hover span, .pcard--feat .btn-primary:focus span { color: var(--blue) !important; }
     .pcard--feat .btn-primary::before { background: transparent; border: 1px solid rgba(255,255,255,.35); }
     .pcard--feat .btn-primary:hover, .pcard--feat .btn-primary:focus { color: rgba(255,255,255,.85); }
     .pc-btn { display: flex; width: 100%; }
@@ -394,16 +396,16 @@
     .faq-item.open .faq-a { max-height: 420px; padding-bottom: 1.5rem; }
 
     /* S13 FINAL CTA */
-    #final-cta { background: var(--black); padding: var(--pad) 0; }
-    #final-cta .eyebrow { color: rgba(255,255,255,.38); }
+    #final-cta { background: var(--blue); padding: var(--pad) 0; }
+    #final-cta .eyebrow { color: rgba(255,255,255,.75); }
     #final-cta .h-xl { color: var(--white); }
     .final-sub { font-family: 'Jost', sans-serif; font-size: .95rem; font-weight: 300; line-height: 1.8; max-width: 44ch; margin: 1.25rem 0 2.5rem; color: rgba(255,255,255,.5); }
     .final-actions { display: flex; align-items: center; justify-content: flex-start; gap: 1.25rem; flex-wrap: wrap; }
-    #final-cta .btn-primary { background: var(--white); color: var(--blue); }
+    #final-cta .btn-primary { background: var(--white); color: var(--blue) !important; }
     #final-cta .btn-primary::before { background: transparent; border: 1px solid rgba(255,255,255,.28); }
     #final-cta .btn-primary:hover { color: rgba(255,255,255,.8); }
-    .final-note { margin-top: 1.5rem; font-family: 'Jost', sans-serif; font-size: .68rem; font-weight: 300; color: rgba(255,255,255,.25); }
-    .final-note strong { font-weight: 500; color: rgba(255,255,255,.5); }
+    .final-note { margin-top: 1.5rem; font-family: 'FuturaLT', Arial, sans-serif; font-size: .68rem; font-weight: 400; color: rgba(255,255,255,.65); }
+    .final-note strong { font-weight: 600; color: #ffffff; }
 
     /* URGENCY BAR */
     #urgency-bar {
