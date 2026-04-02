@@ -3,58 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="RUN SCULPT PERFORM — The first program fusing Pilates, Running and Nutrition. 10 weeks. Three tracks. One app guiding you every day." />
+  <meta name="description" content="RUN SCULPT PERFORM — A program fusing Pilates, Running and Nutrition. 10 weeks. Three tracks. One web-app guiding you every day." />
   <title>Run Sculpt Perform — Le Studio by Alice Pilate</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
   <style>
-        @font-face {
+    @font-face {
       font-family: 'FuturaLT';
       src: url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c65209d3d0d6c9c74d24_FuturaLT.ttf') format('truetype');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
+      font-weight: 400; font-style: normal; font-display: swap;
     }
     @font-face {
       font-family: 'FuturaLT';
       src: url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c651ad8acc9a6837b600_FuturaLT-Light.ttf') format('truetype');
-      font-weight: 300;
-      font-style: normal;
-      font-display: swap;
+      font-weight: 300; font-style: normal; font-display: swap;
     }
     @font-face {
       font-family: 'FuturaLT';
       src: url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c6512000cd44e6b1ea38_FuturaLT-Book.ttf') format('truetype');
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
+      font-weight: 500; font-style: normal; font-display: swap;
     }
     @font-face {
       font-family: 'FuturaLT';
       src: url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c6516c8bedb4eb7fc4d2_FuturaLT-Heavy.ttf') format('truetype');
-      font-weight: 600;
-      font-style: normal;
-      font-display: swap;
+      font-weight: 600; font-style: normal; font-display: swap;
     }
     @font-face {
       font-family: 'FuturaLT';
       src: url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c651dcb8bf849db968c5_FuturaLT-Bold.ttf') format('truetype');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
+      font-weight: 700; font-style: normal; font-display: swap;
     }
     @font-face {
       font-family: 'FuturaLT';
       src: url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c651e40b0f5117497adf_FuturaLT-ExtraBold.ttf') format('truetype');
-      font-weight: 800;
-      font-style: normal;
-      font-display: swap;
+      font-weight: 800; font-style: normal; font-display: swap;
     }
 
-    /* ═══════════════════════════════════════════
-       TOKENS — Le Studio Design System
-    ═══════════════════════════════════════════ */
     :root {
       --blue:      #1A4BBE;
       --blue-h:    #1641A8;
@@ -94,45 +79,14 @@
 
     /* TYPOGRAPHY */
     .eyebrow { font-family: 'FuturaLT', Arial, sans-serif; font-size: .62rem; font-weight: 400; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: .9rem; }
-    .h-xl {
+    .h-xl, .h-lg, .h-md {
       font-family: 'FuturaLT', Arial, sans-serif;
-      font-size: 52px;
-      font-weight: 500;
-      font-style: normal;
-      line-height: 52px;
-      color: rgb(1, 5, 14);
-      margin-top: 0px;
-      margin-bottom: 10px;
-      text-align: left;
-      box-sizing: border-box;
-    }
-    .h-lg {
-      font-family: 'FuturaLT', Arial, sans-serif;
-      font-size: 52px;
-      font-weight: 500;
-      font-style: normal;
-      line-height: 52px;
-      color: rgb(1, 5, 14);
-      margin-top: 0px;
-      margin-bottom: 10px;
-      text-align: left;
-      box-sizing: border-box;
-    }
-    .h-md {
-      font-family: 'FuturaLT', Arial, sans-serif;
-      font-size: 52px;
-      font-weight: 500;
-      font-style: normal;
-      line-height: 52px;
-      color: rgb(1, 5, 14);
-      margin-top: 0px;
-      margin-bottom: 10px;
-      text-align: left;
-      box-sizing: border-box;
+      font-size: 52px; font-weight: 500; font-style: normal;
+      line-height: 52px; color: rgb(1, 5, 14);
+      margin-top: 0; margin-bottom: 10px; text-align: left; box-sizing: border-box;
     }
     .body-lg { font-size: 1rem; font-weight: 300; line-height: 1.8; color: var(--black); }
     .body-sm { font-size: .875rem; font-weight: 300; line-height: 1.75; color: var(--black); }
-    .body-xs { font-size: .75rem; font-weight: 300; line-height: 1.65; color: var(--black); }
 
     /* BUTTONS */
     .btn { display: inline-flex; align-items: center; justify-content: flex-start; font-family: 'FuturaLT', Arial, sans-serif; font-size: .78rem; font-weight: 400; letter-spacing: .1em; text-transform: none; height: 2.75rem; padding: 0 2rem; border: none; position: relative; overflow: hidden; cursor: pointer; white-space: nowrap; text-decoration: none; transition: color 350ms ease-in-out; }
@@ -168,26 +122,22 @@
       font-family: 'FuturaLT', Arial, sans-serif !important;
       font-size: clamp(2.2rem, 5vw, 5rem) !important;
       font-weight: 400 !important;
-      font-style: normal !important;
       line-height: 1.1 !important;
       letter-spacing: 0 !important;
       text-transform: uppercase !important;
       text-align: left !important;
       color: rgb(255, 255, 255) !important;
-      display: block;
-      margin-top: 0px;
-      margin-bottom: 10px;
-      box-sizing: border-box;
+      display: block; margin-bottom: 10px;
     }
     .hero-sub {
       font-family: 'FuturaLT', Arial, sans-serif;
-      font-size: 32px;
+      font-size: clamp(1.1rem, 2.5vw, 1.75rem);
       font-weight: 300;
-      font-style: normal;
       line-height: 1.4;
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(255,255,255,.9);
       max-width: 54ch;
       margin-bottom: 2.25rem;
+      margin-top: .75rem;
     }
     .hero-sub strong { color: var(--white); font-weight: 400; }
     .hero-actions { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: .75rem; }
@@ -218,10 +168,9 @@
     .benefit-row { display: flex; gap: 1rem; align-items: flex-start; padding: .9rem 0; border-bottom: 1px solid rgba(17,17,17,.07); }
     .benefit-row:last-of-type { border-bottom: none; }
     .benefit-check { flex-shrink: 0; margin-top: .2rem; display: flex; }
-    .benefit-dash { flex-shrink: 0; font-size: .88rem; color: var(--black); margin-top: .15rem; }
     .benefit-text { font-family: 'Jost', sans-serif; font-size: .875rem; font-weight: 300; line-height: 1.7; }
     .benefit-text strong { font-weight: 500; }
-    .promise-closing { margin-top: 2rem; padding: 1.5rem; background: var(--white); }
+    .promise-closing { margin-top: 2rem; padding: 1.5rem 0; }
     .promise-closing p { font-family: 'Josefin Sans', sans-serif; font-size: 1rem; font-weight: 300; line-height: 1.65; font-style: normal; }
     .promise-closing p strong { font-weight: 500; font-style: normal; }
     .promise-photo { height: clamp(400px,55vw,580px); overflow: hidden; }
@@ -234,7 +183,7 @@
     .week-photo { height: clamp(380px,45vw,520px); overflow: hidden; }
     .week-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .9s ease; }
     .week-photo:hover img { transform: scale(1.02); }
-    .week-card { background: var(--white); overflow: hidden; }
+    .week-card { background: var(--white); overflow: hidden; border: 1px solid rgba(17,17,17,.08); }
     .week-card-header { padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(17,17,17,.08); }
     .week-card-title { font-family: 'Josefin Sans', sans-serif; font-size: .75rem; font-weight: 500; letter-spacing: .03em; }
     .week-tag { font-family: 'Josefin Sans', sans-serif; font-size: .55rem; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; background: var(--blue); color: var(--white); padding: .2rem .6rem; }
@@ -277,8 +226,6 @@
     .inc-right { display: flex; flex-direction: column; gap: .35rem; }
     .inc-title { font-family: 'Josefin Sans', sans-serif; font-size: .88rem; font-weight: 400; line-height: 1.25; }
     .inc-body { font-family: 'Jost', sans-serif; font-size: .82rem; font-weight: 300; line-height: 1.7; }
-    .inc-photo-strip { margin-top: 2rem; height: clamp(200px, 25vw, 300px); overflow: hidden; }
-    .inc-photo-strip img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; }
 
     /* S8 TRACKS */
     #tracks { background: var(--white); }
@@ -290,7 +237,7 @@
     .track-goal { font-family: 'Jost', sans-serif; font-size: .58rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); }
     .track-list { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
     .track-list li { font-family: 'Jost', sans-serif; font-size: .82rem; font-weight: 300; display: flex; gap: .75rem; align-items: flex-start; }
-    .track-list li::before { content: '4'; color: rgba(17,17,17,.3); flex-shrink: 0; font-weight: 300; }
+    .track-list li::before { content: '—'; color: rgba(17,17,17,.3); flex-shrink: 0; font-weight: 300; }
     .track-for { font-family: 'Josefin Sans', sans-serif; font-size: .8rem; font-weight: 300; font-style: normal; padding-top: .5rem; line-height: 1.6; color: rgba(17,17,17,.55); }
 
     /* S9 PRICING */
@@ -308,63 +255,40 @@
     .pcard:first-child { border-right: none; }
     .pcard--feat { background: #111111; border-color: #111111; color: #ffffff !important; }
     .pcard--feat * { color: #ffffff !important; }
-    .pcard--feat .pc-price { font-size: 4rem; font-weight: 300; line-height: 1; margin-bottom: .35rem; color: #ffffff !important; }
-    .pcard--feat .pc-lbl { color: rgba(255,255,255,.5) !important; }
-    .pcard--feat .pc-was { color: rgba(255,255,255,.35) !important; text-decoration: line-through; }
-    .pcard--feat .pc-or { color: rgba(255,255,255,.5) !important; }
-    .pcard--feat .pc-note { color: rgba(255,255,255,.3) !important; }
-    .pcard--feat .pc-deadline { color: rgba(255,255,255,.65) !important; }
-    .pcard--feat .pc-badge { background: rgba(255,255,255,.12) !important; color: rgba(255,255,255,.8) !important; border: 1px solid rgba(255,255,255,.2) !important; }
-    .pcard--feat .pc-line { color: rgba(255,255,255,.85) !important; }
-    .pcard--feat .pc-lbl { color: rgba(255,255,255,.5) !important; }
-    .pcard--feat .pc-was { color: rgba(255,255,255,.35) !important; text-decoration: line-through; }
-    .pcard--feat .pc-or { color: rgba(255,255,255,.5) !important; }
-    .pcard--feat .pc-note { color: rgba(255,255,255,.3) !important; }
-    .pcard--feat .pc-deadline { color: rgba(255,255,255,.65) !important; }
-    .pcard--feat .pc-badge { background: rgba(255,255,255,.12) !important; color: rgba(255,255,255,.8) !important; border: 1px solid rgba(255,255,255,.2) !important; }
     .pc-badge { display: inline-block; font-family: 'Jost', sans-serif; font-size: .58rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; padding: .3rem .85rem; margin-bottom: 2rem; width: fit-content; }
-    .pcard--feat .pc-badge { background: var(--blue); color: #fff; border: 1px solid var(--blue); }
-    .pcard .pc-badge { background: var(--white); color: var(--muted); border: 1px solid rgba(17,17,17,.1); }
+    .pcard--feat .pc-badge { background: var(--blue); color: #fff !important; border: 1px solid var(--blue); }
+    .pcard .pc-badge { background: var(--white); color: var(--muted) !important; border: 1px solid rgba(17,17,17,.1); }
     .pc-lbl { font-family: 'Jost', sans-serif; font-size: .6rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; margin-bottom: .5rem; }
-    .pcard--feat .pc-lbl { color: rgba(255,255,255,.45); }
+    .pcard--feat .pc-lbl { color: rgba(255,255,255,.45) !important; }
     .pcard .pc-lbl { color: var(--muted); }
     .pc-price { font-family: 'Josefin Sans', sans-serif; font-size: 4rem; font-weight: 200; line-height: 1; margin-bottom: .35rem; }
-    .pcard--feat .pc-price { color: #fff; }
+    .pcard--feat .pc-price { color: #fff !important; }
     .pcard .pc-price { color: var(--black); }
     .pc-price sup { font-family: 'Josefin Sans', sans-serif; font-size: 1.5rem; vertical-align: super; }
     .pc-was { font-family: 'Jost', sans-serif; font-size: .8rem; font-weight: 300; margin-bottom: .2rem; }
-    .pcard--feat .pc-was { color: rgba(255,255,255,.32); text-decoration: line-through; }
+    .pcard--feat .pc-was { color: rgba(255,255,255,.32) !important; text-decoration: line-through; }
     .pcard .pc-was { color: rgba(17,17,17,.28); text-decoration: line-through; }
     .pc-or { font-family: 'Jost', sans-serif; font-size: .8rem; font-weight: 300; margin-bottom: .2rem; }
-    .pcard--feat .pc-or { color: rgba(255,255,255,.45); }
+    .pcard--feat .pc-or { color: rgba(255,255,255,.45) !important; }
     .pcard .pc-or { color: var(--muted); }
     .pc-deadline { font-family: 'Jost', sans-serif; font-size: .72rem; font-weight: 500; letter-spacing: .06em; margin-bottom: 2rem; }
-    .pcard--feat .pc-deadline { color: #8AABFF; }
+    .pcard--feat .pc-deadline { color: #8AABFF !important; }
     .pcard .pc-deadline { color: var(--black); }
-    .pc-div { display: none; }
     .pc-lines { display: flex; flex-direction: column; gap: .6rem; margin-bottom: 2.5rem; flex: 1; }
     .pc-line { display: flex; gap: .75rem; align-items: flex-start; font-family: 'Jost', sans-serif; font-size: .82rem; font-weight: 300; }
     .pc-check { flex-shrink: 0; margin-top: .2rem; display: flex; }
-    .pcard--feat .pc-line { color: rgba(255,255,255,.8); }
+    .pcard--feat .pc-line { color: rgba(255,255,255,.8) !important; }
     .pcard .pc-line { color: var(--black); }
     .pc-line strong { font-weight: 500; }
-    .pcard--feat .pc-line strong { color: #fff; }
-    /* CTA carte noire = même style que hero "I'm in" */
-    .pcard--feat .btn-primary { background: var(--blue) !important; color: #ffffff !important; }
-    .pcard--feat .btn-primary span { color: #ffffff !important; }
-    .pcard--feat .btn-primary::before { background: #ffffff; border: 1px solid var(--blue); }
-    .pcard--feat .btn-primary:hover, .pcard--feat .btn-primary:focus { color: var(--blue) !important; }
-    .pcard--feat .btn-primary:hover span, .pcard--feat .btn-primary:focus span { color: var(--blue) !important; }
-    .pcard--feat .btn-primary::before { background: transparent; border: 1px solid rgba(255,255,255,.35); }
-    .pcard--feat .btn-primary:hover, .pcard--feat .btn-primary:focus { color: rgba(255,255,255,.85); }
+    .pcard--feat .pc-line strong { color: #fff !important; }
     .pc-btn { display: flex; width: 100%; justify-content: flex-start; }
     .pc-note { font-family: 'Jost', sans-serif; font-size: .62rem; font-weight: 300; text-align: center; margin-top: .75rem; letter-spacing: .04em; }
-    .pcard--feat .pc-note { color: rgba(255,255,255,.3); }
+    .pcard--feat .pc-note { color: rgba(255,255,255,.3) !important; }
     .pcard .pc-note { color: var(--muted); }
 
     /* S10 BONUS */
     #bonus { background: var(--white); }
-    .bonus-inner { padding: 4rem 0; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; background: transparent; border: none; }
+    .bonus-inner { padding: 4rem 0; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; background: transparent; }
     .bonus-title { font-family: 'Josefin Sans', sans-serif; font-size: 1.3rem; font-weight: 200; line-height: 1.25; margin-bottom: .75rem; }
     .bonus-body { font-family: 'Jost', sans-serif; font-size: .875rem; font-weight: 300; line-height: 1.8; }
     .bonus-body strong { font-weight: 600; color: var(--blue); }
@@ -374,19 +298,19 @@
 
     /* S11 GUARANTEE */
     #guarantee { padding: 5rem 0; background: var(--white); }
-    .guarantee-inner { display: flex; align-items: flex-start; gap: 3rem; max-width: 720px; margin: 0 auto; padding: 3rem 0; border: none; }
+    .guarantee-inner { display: flex; align-items: flex-start; gap: 3rem; max-width: 720px; padding: 3rem 0; border-top: 1px solid rgba(17,17,17,.08); border-bottom: 1px solid rgba(17,17,17,.08); }
     .guarantee-title { font-family: 'Josefin Sans', sans-serif; font-size: 1.1rem; font-weight: 300; margin-bottom: .6rem; line-height: 1.2; }
     .guarantee-body { font-family: 'Jost', sans-serif; font-size: .85rem; font-weight: 300; line-height: 1.8; }
+
 
     /* S12 FAQ */
     #faq { background: var(--white); }
     .faq-layout { display: grid; grid-template-columns: 4fr 7fr; gap: clamp(3rem,6vw,6rem); margin-top: 3rem; }
     .faq-sidebar { position: sticky; top: 2rem; }
     .faq-sidebar-note { font-family: 'Jost', sans-serif; font-size: .85rem; font-weight: 300; line-height: 1.75; margin-top: 1.25rem; }
-    .faq-sidebar-note a { color: var(--black); text-decoration: underline; text-underline-offset: 3px; }
     .faq-list { display: flex; flex-direction: column; }
     .faq-item { border-bottom: 1px solid rgba(17,17,17,.1); }
-    .faq-btn { width: 100%; background: none; border: none; cursor: pointer; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 1.35rem 0; text-align: left; font-family: 'Jost', sans-serif; }
+    .faq-btn { width: 100%; background: none; border: none; cursor: pointer; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 1.35rem 0; text-align: left; }
     .faq-q { font-family: 'Josefin Sans', sans-serif; font-size: .88rem; font-weight: 400; line-height: 1.45; }
     .faq-plus { width: 22px; height: 22px; flex-shrink: 0; border: 1px solid rgba(17,17,17,.2); display: flex; align-items: center; justify-content: center; margin-top: .1rem; transition: background .3s, border-color .3s, transform .4s cubic-bezier(0.22,1,0.36,1); }
     .faq-plus svg { width: 9px; height: 9px; stroke: var(--black); transition: stroke .3s; }
@@ -422,17 +346,12 @@
     .ub-text strong { color: #ffffff; font-weight: 600; }
     .ub-right { display: flex; align-items: center; gap: 1.25rem; }
     .ub-time { font-family: 'FuturaLT', Arial, sans-serif; font-size: .7rem; font-weight: 400; letter-spacing: .06em; color: rgba(255,255,255,.5); }
-    #urgency-bar .btn-primary {
-      background: #ffffff;
-      color: var(--blue);
-      border: none;
-    }
-    #urgency-bar .btn-primary::before {
-      background: var(--blue);
-      border: none;
-    }
-    #urgency-bar .btn-primary:hover,
-    #urgency-bar .btn-primary:focus { color: #ffffff; }
+    #urgency-bar .btn-primary { background: #ffffff; color: var(--blue); border: none; }
+    #urgency-bar .btn-primary::before { background: var(--blue); border: none; }
+    #urgency-bar .btn-primary:hover, #urgency-bar .btn-primary:focus { color: #ffffff; }
+
+    /* CHECKMARK SVG */
+    .chk { display:inline-block; vertical-align:middle; flex-shrink:0; margin-top:.1rem; }
 
     /* RESPONSIVE */
     @media (max-width: 1024px) {
@@ -447,18 +366,6 @@
     }
     @media (max-width: 768px) {
       .res-grid, .promise-grid, .week-grid, .alice-grid, .faq-layout, .pricing-intro { grid-template-columns: 1fr; }
-      .res-h2 {
-      font-family: 'FuturaLT', Arial, sans-serif;
-      font-size: 52px;
-      font-weight: 500;
-      font-style: normal;
-      line-height: 52px;
-      color: rgb(1, 5, 14);
-      margin-top: 0px;
-      margin-bottom: 10px;
-      text-align: left;
-      box-sizing: border-box;
-    }
       .res-sticky { position: static; }
       .promise-photo { height: 320px; order: -1; }
       .alice-photo { height: 320px; order: -1; }
@@ -471,14 +378,12 @@
       #urgency-bar { flex-direction: column; align-items: flex-start; padding: 1rem 1.5rem; }
       .hero-proofs { flex-direction: column; }
       .hero-proof { padding-right: 0; border-bottom: 1px solid rgba(255,255,255,.08); padding-bottom: .85rem; }
+      #included > .wrap > div[style] { grid-template-columns: 1fr !important; }
     }
-    @media (max-width: 480px) {
-      .hero-
-    }
-
   </style>
 </head>
 <body>
+
 <!-- ANNOUNCEMENT BAR -->
 <div id="announce" aria-hidden="true">
   <div class="announce-track" id="announce-track"></div>
@@ -491,19 +396,17 @@
   <div class="hero-content">
     <div class="hero-badge rv">
       <span class="badge-dot"></span>
-      The first 15 sign-ups get a free in-person class with Alice in Paris
+      The first 15 Annual members get a free in-person class with Alice in Paris + On Running outfit
     </div>
-    <h1 class="hero-h1 rv d1" style="font-family:'FuturaLT',Arial,sans-serif;font-size:clamp(2.2rem, 5vw, 5rem);font-weight:400;font-style:normal;line-height:1.1;letter-spacing:0;text-transform:uppercase;">RUN SCULPT PERFORM</h1>
+    <h1 class="hero-h1 rv d1">RUN SCULPT PERFORM</h1>
     <p class="hero-sub rv d2">
-      The first program fusing Pilates, Running and Nutrition —
-      whether you're lacing up for the first time, chasing your first 10K or half-marathon,
-      or building a smarter running routine.<br><br>
-      10 weeks. Three tracks. One app guiding you every day.
+      A program fusing Pilates, Running and Nutrition —<br>
+      whether you're lacing up for the first time, chasing your first 10K or half-marathon.<br>
+      One web-app guiding you every day.
     </p>
     <div class="hero-actions rv d3">
-      <a href="#pricing" class="btn btn-primary"><span style="position:relative;z-index:1;">I'm in</span></a>
+      <a href="#pricing" class="btn btn-primary"><span>Run With Us</span></a>
     </div>
-    <p class="hero-note rv d4">€97 one-time or included in the annual Studio subscription</p>
     <div class="hero-proofs rv d4">
       <div class="hero-proof">
         <div class="hp-num">500+</div>
@@ -511,7 +414,7 @@
       </div>
       <div class="hero-proof">
         <div class="hp-num">10 wks</div>
-        <div class="hp-label">→ Complete Pilates × Running program</div>
+        <div class="hp-label">Pilates × Running program</div>
       </div>
       <div class="hero-proof">
         <div class="hp-num">✓</div>
@@ -525,28 +428,26 @@
 <section id="resonance" class="s" aria-labelledby="res-h">
   <div class="wrap">
     <div class="res-grid">
-      <!-- Colonne gauche : H2 massif + citation -->
       <div class="res-sticky">
         <span class="eyebrow rv">Sound like you?</span>
-        <h2 class="res-h2 rv d1" id="res-h" style="font-family:FuturaLT,Arial,sans-serif;font-size:52px;font-weight:500;font-style:normal;line-height:52px;color:rgb(1,5,14);margin-top:0;margin-bottom:10px;text-align:left;box-sizing:border-box;">This program was designed for you.</h2>
+        <h2 class="h-lg rv d1" id="res-h">Designed for every runner.</h2>
         <div class="res-quote rv d2">
           <p>"500+ runners told us exactly this. This program was built from your answers."</p>
           <cite>Co-built with Le Studio community</cite>
         </div>
       </div>
-      <!-- Colonne droite : items numérotés -->
       <div class="asp-list">
         <div class="asp-item rv d1">
-          <span class="asp-num">01</span>
-          <p class="asp-text">You want to <strong>start running</strong> — with a real plan that takes you from zero to your first 10K.</p>
+          <span class="asp-arrow">→</span>
+          <p class="asp-text"><strong>Pilates × Running</strong> — no race, just structure.</p>
         </div>
         <div class="asp-item rv d2">
-          <span class="asp-num">02</span>
-          <p class="asp-text">You already run and dream of <strong>going further</strong> — a half-marathon, with Pilates keeping you injury-free.</p>
+          <span class="asp-arrow">→</span>
+          <p class="asp-text"><strong>Road to your first 10K</strong> — zero to finish line in 10 weeks.</p>
         </div>
         <div class="asp-item rv d3">
-          <span class="asp-num">03</span>
-          <p class="asp-text">You run for pleasure and want a <strong>smarter Pilates × Running routine</strong> — no pressure, just consistency.</p>
+          <span class="asp-arrow">→</span>
+          <p class="asp-text"><strong>Road to your first 21K</strong> — from 10K to your first half-marathon.</p>
         </div>
       </div>
     </div>
@@ -562,20 +463,20 @@
       <div>
         <div class="benefit-list">
           <div class="benefit-row rv">
-            <div class="benefit-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="benefit-check"><svg class="chk" width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <p class="benefit-text">10K, half-marathon or pure enjoyment: <strong>your goal, your pace.</strong></p>
           </div>
           <div class="benefit-row rv d1">
-            <div class="benefit-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <p class="benefit-text">A <strong>strong, mobile, aligned body</strong> to stay injury-free.</p>
-          </div>
-          <div class="benefit-row rv d2">
-            <div class="benefit-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="benefit-check"><svg class="chk" width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <p class="benefit-text"><strong>30+ recipes</strong> designed for the real needs of a runner.</p>
           </div>
-          <div class="benefit-row rv d3">
-            <div class="benefit-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="benefit-row rv d2">
+            <div class="benefit-check"><svg class="chk" width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <p class="benefit-text"><strong>10 weeks of structured training</strong> — Pilates sessions and running plans included.</p>
+          </div>
+          <div class="benefit-row rv d3">
+            <div class="benefit-check"><svg class="chk" width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <p class="benefit-text">A <strong>strong &amp; aligned body</strong> to stay injury-free.</p>
           </div>
         </div>
         <div class="promise-closing rv d4">
@@ -594,12 +495,12 @@
   <div class="wrap">
     <div class="week-grid">
       <div class="week-photo rv">
-        <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__6960.jpg" alt="Alice Pilate running, Grand Palais" loading="lazy" />
+        <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__6960.jpg" alt="Alice Pilate running" loading="lazy" />
       </div>
       <div>
         <span class="eyebrow rv">A sneak peek</span>
         <h2 class="h-lg rv d1" id="week-h">Your typical week, at a glance.</h2>
-        <p class="body-sm rv d2" style="margin-top:.75rem; max-width:34ch;">Every week follows the same logic: run better, recover with intention, progress without forcing.</p>
+        <p class="body-sm rv d2" style="margin-top:.75rem; max-width:36ch;">Every week follows the same logic: run better, recover with intention, progress at your rythme.</p>
       </div>
       <div class="week-card rv d2">
         <div class="week-card-header">
@@ -609,12 +510,12 @@
         <table class="week-table" aria-label="Example week schedule">
           <tbody>
             <tr class="wt-run"><td>Monday</td><td>Endurance run</td></tr>
-            <tr><td>Tuesday</td><td>Pilates — Strength</td></tr>
+            <tr><td>Tuesday</td><td>Pilates – Full Body</td></tr>
             <tr class="wt-rest"><td>Wednesday</td><td>Active rest</td></tr>
             <tr class="wt-run"><td>Thursday</td><td>Interval run</td></tr>
-            <tr><td>Friday</td><td>Pilates — Mobility</td></tr>
+            <tr><td>Friday</td><td>Pilates – Core</td></tr>
             <tr class="wt-run"><td>Saturday</td><td>Long run</td></tr>
-            <tr class="wt-rest"><td>Sunday</td><td>Restorative Pilates</td></tr>
+            <tr class="wt-rest"><td>Sunday</td><td>Stretching</td></tr>
           </tbody>
         </table>
       </div>
@@ -630,12 +531,12 @@
         <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7067.jpg" alt="Alice Pilate" loading="lazy" />
       </div>
       <div>
-        <span class="eyebrow rv">Who I am</span>
+        <span class="eyebrow rv">Where it all started</span>
         <h2 class="h-lg rv d1" id="alice-h" style="margin-top:.75rem;">10 years of Pilates. Then I laced up. That's how this program was born.</h2>
         <p class="alice-body rv d2">I've been practicing and teaching Pilates for over 10 years. One day it clicked: these two disciplines were made for each other. Pilates strengthens what running breaks down and keeps injuries away. Running forges my mental strength.</p>
-        <p class="alice-body rv d3">RUN SCULPT PERFORM is the method born from my passion for Pilates and running. The one I use myself, the one that got me through the marathon, and the one I co-created with 500+ of you.</p>
+        <p class="alice-body rv d3">RUN SCULPT PERFORM is the training I've used to prepare every single marathon and half-marathon — born from my love for Pilates and running, and from all of you who kept asking me to make this into a program.</p>
         <p class="alice-sig rv d4">— Alice</p>
-        <a href="#pricing" class="btn btn-primary rv d4"><span style="position:relative;z-index:1;">Join the program</span></a>
+        <a href="#pricing" class="btn btn-primary rv d4"><span>Join the program</span></a>
       </div>
     </div>
   </div>
@@ -655,15 +556,15 @@
       </div>
       <div class="proof-block rv d1">
         <div class="proof-n">02</div>
-        <h3>Joseph Fanhert</h3>
-        <p class="proof-role">Certified sports coach — Running, Triathlon, Physical preparation</p>
-        <p class="proof-body">Joseph designed and validated every running plan in the program — intervals, tempo, long runs, all three tracks.</p>
-      </div>
-      <div class="proof-block rv d2">
-        <div class="proof-n">03</div>
         <h3>Aurélie Canzoneri</h3>
         <p class="proof-role">Certified naturopath FÉNA — Stanford Continuing Studies, Nutrition Science — Published author</p>
         <p class="proof-body">Aurélie created the nutrition track: 30+ recipes and a mindset guide calibrated for female runners.</p>
+      </div>
+      <div class="proof-block rv d2">
+        <div class="proof-n">03</div>
+        <h3>Joseph Fanhert</h3>
+        <p class="proof-role">Certified sports coach — Running, Triathlon, Physical preparation</p>
+        <p class="proof-body">Joseph designed and validated every running plan in the program — intervals, tempo, long runs, all three tracks.</p>
       </div>
     </div>
   </div>
@@ -678,54 +579,48 @@
 <section id="included" class="s" aria-labelledby="inc-h">
   <div class="wrap">
     <span class="eyebrow rv">Everything's included</span>
-    <h2 class="h-lg rv d1" id="inc-h" style="margin-top:.75rem;">One program. A clear structure to reach your goals.</h2>
+    <h2 class="h-lg rv d1" id="inc-h" style="margin-top:.75rem;">One program. A clear structure to reach your goals, stay motivated and injury free.</h2>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,5rem); align-items:start; margin-top:2.5rem;">
-      <!-- Left: numbered list -->
       <div class="inc-list" style="margin-top:0;">
         <div class="inc-row rv">
           <span class="inc-num">01</span>
           <div class="inc-right">
             <p class="inc-title">Daily training app</p>
-            <p class="inc-body">Morning check-in, progress dashboard, pace simulator — everything in one app.</p>
+            <p class="inc-body">Morning check-in, synced .ics calendar, progress dashboard, pace simulator.</p>
           </div>
         </div>
         <div class="inc-row rv d1">
           <span class="inc-num">02</span>
           <div class="inc-right">
             <p class="inc-title">Week-by-week running plan</p>
-            <p class="inc-body">3 adapted tracks: Road to 10K, Run to 21K, or Just Run & Pilates. 10 weeks of progression.</p>
+            <p class="inc-body">3 adapted tracks: Road to 10K, Run to 21K, or Just Run &amp; Pilates.</p>
           </div>
         </div>
         <div class="inc-row rv d2">
           <span class="inc-num">03</span>
           <div class="inc-right">
-            <p class="inc-title">29 integrated Pilates classes</p>
-            <p class="inc-body">29 classes linked to the running plan + 15 stretching classes: prevention, performance, active recovery.</p>
+            <p class="inc-title">Private community</p>
+            <p class="inc-body">Private channel between runners &amp; events.</p>
           </div>
         </div>
         <div class="inc-row rv d3">
           <span class="inc-num">04</span>
           <div class="inc-right">
-            <p class="inc-title">100-page ebook — Nutrition & Mindset</p>
-            <p class="inc-body">30+ recipes by Aurélie Canzoneri. Mental preparation, visualization, neuroscience.</p>
+            <p class="inc-title">29 integrated Pilates classes &amp; my fav. Spotify playlist</p>
+            <p class="inc-body">29 classes linked to the running plan + 15 stretching classes.</p>
           </div>
         </div>
         <div class="inc-row rv d4">
           <span class="inc-num">05</span>
           <div class="inc-right">
-            <p class="inc-title">Private community + tracking tools</p>
-            <p class="inc-body">Private channel between runners, training journal, synced .ics calendar, Spotify playlists.</p>
+            <p class="inc-title">90-page ebook &amp; More</p>
+            <p class="inc-body">30+ recipes by Aurélie Canzoneri &amp; mental preparation with visualization.</p>
           </div>
         </div>
       </div>
-      <!-- Right: photo -->
       <div class="rv d2" style="height:clamp(420px,55vw,600px); overflow:hidden; position:sticky; top:2rem;">
-        <img
-          src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7019.jpg"
-          alt="Le Studio"
-          loading="lazy"
-          style="width:100%; height:100%; object-fit:cover; object-position:center 55%;"
-        />
+        <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7019.jpg" alt="Le Studio" loading="lazy"
+          style="width:100%; height:100%; object-fit:cover; object-position:center 55%;" />
       </div>
     </div>
   </div>
@@ -734,20 +629,20 @@
 <!-- ═══ S8 — TRACKS ════════════════════════════════════════ -->
 <section id="tracks" class="s" aria-labelledby="tracks-h">
   <div class="wrap">
-    <span class="eyebrow rv">Three tracks, one program</span>
-    <h2 class="h-lg rv d1" id="tracks-h" style="margin-top:.75rem; margin-bottom:3rem;">Choose your starting line. We'll handle the road.</h2>
+    <span class="eyebrow rv">Three tracks, one web-app</span>
+    <h2 class="h-lg rv d1" id="tracks-h" style="margin-top:.75rem; margin-bottom:3rem;">Choose your starting line.</h2>
     <div class="tracks-grid">
       <div class="track rv">
         <div class="track-n">01</div>
-        <p class="track-title">Just Run & Pilates</p>
+        <p class="track-title">Just Run &amp; Pilates</p>
         <p class="track-goal">Goal: Run better, no distance pressure</p>
         <ul class="track-list">
           <li>Run when you want, how you want</li>
           <li>Pilates adapted to your running practice</li>
           <li>Running as a lifestyle, not a competition</li>
         </ul>
-        <p class="track-for">For you if you already run and want a smarter Pilates × Running routine.</p>
-        <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-outline" style="font-size:.65rem; padding:.55rem 1.25rem;"><span style="position:relative;z-index:1;">Start this track</span></a></div>
+        <p class="track-for">For you if you run, want to start, or simply want a smarter Pilates × Running routine. No specific distance in mind.</p>
+        <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-outline" style="font-size:.65rem; padding:.55rem 1.25rem;"><span>Start this track</span></a></div>
       </div>
       <div class="track rv d1">
         <div class="track-n">02</div>
@@ -758,8 +653,8 @@
           <li>Pilates focused on pelvic stability</li>
           <li>Your first 10K in 10 weeks</li>
         </ul>
-        <p class="track-for">For you if you can't yet run 30 minutes straight today.</p>
-        <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-outline" style="font-size:.65rem; padding:.55rem 1.25rem;"><span style="position:relative;z-index:1;">Start this track</span></a></div>
+        <p class="track-for">For you if you're ready to run your first 10km.</p>
+        <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-outline" style="font-size:.65rem; padding:.55rem 1.25rem;"><span>Start this track</span></a></div>
       </div>
       <div class="track rv d2">
         <div class="track-n">03</div>
@@ -771,7 +666,7 @@
           <li>Your half-marathon in 10 weeks</li>
         </ul>
         <p class="track-for">For you if you already run 10K and want to go further.</p>
-        <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-outline" style="font-size:.65rem; padding:.55rem 1.25rem;"><span style="position:relative;z-index:1;">Start this track</span></a></div>
+        <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-outline" style="font-size:.65rem; padding:.55rem 1.25rem;"><span>Start this track</span></a></div>
       </div>
     </div>
   </div>
@@ -780,7 +675,6 @@
 <!-- ═══ S9 — PRICING ═══════════════════════════════════════ -->
 <section id="pricing" class="s" aria-labelledby="pricing-h">
   <div class="wrap">
-    <!-- Header : titre à gauche, description à droite -->
     <div class="pricing-intro">
       <div>
         <span class="eyebrow rv">Choose your plan</span>
@@ -796,45 +690,51 @@
           </div>
         </div>
       </div>
-      <p class="body-sm rv d2">Lifetime access. Secure payment. 14-day money-back guarantee. Start today at the early bird price and access all three tracks immediately.</p>
+      <p class="body-sm rv d2">Lifetime access. Secure payment. 7-day money-back guarantee. Start today at the early bird price and access all three tracks immediately.</p>
     </div>
-
-    <!-- Cards -->
     <div class="pricing-cards">
+      <!-- PLAN 1 -->
       <div class="pcard pcard--feat rv">
-        <span class="pc-badge">Early bird — Limited spots</span>
+        <span class="pc-badge">Early bird — Ends 12/04 midnight</span>
         <p class="pc-lbl">RUN SCULPT PERFORM — One-shot</p>
-        <p class="pc-price"><sup>€</sup>97</p>
-        <p class="pc-was">€297</p>
-        <p class="pc-or">or 2 × €49</p>
-        <p class="pc-deadline">Until April 25 only</p>
+        <p class="pc-price"><sup>€</sup>89</p>
+        <p class="pc-was">€119</p>
+        <p class="pc-deadline">Until April 12 only</p>
         <div class="pc-lines">
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Complete training app</p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>10-week running plan (3 tracks)</p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>29 Pilates classes</p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Nutrition & mindset ebook (100 pages)</p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Journal + .ics calendar</p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private community + Spotify playlists</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Complete training web-app</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>10-week running plan (3 tracks)</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>29 Pilates classes</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Nutrition &amp; mindset ebook (+90 pages)</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Journal + .ics calendar</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private community + Spotify playlists</p>
         </div>
-        <a href="https://app.lestudiobyalice.com/checkout/new?o=199268" class="pc-btn" style="display:flex;width:100%;height:2.75rem;align-items:center;justify-content:flex-start;padding-left:1.5rem;background:#ffffff;color:var(--blue);font-family:FuturaLT,Arial,sans-serif;font-size:.8rem;font-weight:400;letter-spacing:.04em;text-decoration:none;position:relative;overflow:hidden;cursor:pointer;transition:color 350ms ease-in-out;" onmouseover="this.style.color='#ffffff';this.querySelector('.ub').style.transform='scaleX(1)';" onmouseout="this.style.color='var(--blue)';this.querySelector('.ub').style.transform='scaleX(0)';"><span class="ub" style="position:absolute;inset:0;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform 350ms ease-in-out;z-index:0;"></span><span style="position:relative;z-index:1;color:#1A4BBE !important;">Become a runner — €97</span></a>
-        <p class="pc-note">Lifetime access · Secure payment · 14-day guarantee</p>
+        <a href="https://app.lestudiobyalice.com/checkout/new?o=199268"
+          class="pc-btn"
+          style="display:flex;width:100%;height:2.75rem;align-items:center;padding-left:1.5rem;background:#ffffff;color:var(--blue);font-family:FuturaLT,Arial,sans-serif;font-size:.8rem;font-weight:400;letter-spacing:.04em;text-decoration:none;position:relative;overflow:hidden;cursor:pointer;transition:color 350ms ease-in-out;"
+          onmouseover="this.style.color='#ffffff';this.querySelector('.ub').style.transform='scaleX(1)';this.querySelector('span:last-child').style.color='#ffffff';"
+          onmouseout="this.style.color='var(--blue)';this.querySelector('.ub').style.transform='scaleX(0)';this.querySelector('span:last-child').style.color='#1A4BBE';">
+          <span class="ub" style="position:absolute;inset:0;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform 350ms ease-in-out;z-index:0;"></span>
+          <span style="position:relative;z-index:1;color:#1A4BBE !important;transition:color 350ms ease-in-out;">Run With Us — €89</span>
+        </a>
+        <p class="pc-note">Lifetime access · Secure payment · 7-day guarantee</p>
       </div>
+      <!-- PLAN 2 -->
       <div class="pcard rv d1">
-        <span class="pc-badge">Includes all of Le Studio</span>
+        <span class="pc-badge">Most popular</span>
         <p class="pc-lbl">Annual Studio Subscription</p>
         <p class="pc-price"><sup>€</sup>20<span style="font-size:1.5rem;font-family:'FuturaLT',Arial,sans-serif;vertical-align:baseline;font-weight:300;">/month</span></p>
-        <p class="pc-was" style="text-decoration:none; color:rgba(17,17,17,.45);">€250/year · 3 free days</p>
+        <p class="pc-was" style="text-decoration:none; color:rgba(17,17,17,.45);">€240/year · 3 free days</p>
         <p class="pc-or">&nbsp;</p>
         <p class="pc-deadline">Everything in the one-shot plan, plus:</p>
         <div class="pc-lines">
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Everything in the one-shot plan</p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>+ 235 on-demand classes, all levels</strong></p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>+ Exclusive programs & challenges</strong></p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>+ New content every week</strong></p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>Access on all your devices · Cancel anytime</strong></p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Everything in the one-shot plan</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>+ 235 on-demand classes, all levels</strong></p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>+ 15 programs &amp; challenges</strong></p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>+ New content every week</strong></p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>Access on all your devices · Cancel anytime</strong></p>
         </div>
-        <a href="https://www.lestudiobyalice.com/free-trial" class="btn btn-primary pc-btn"><span style="position:relative;z-index:1;">Start my free trial</span></a>
-        <p class="pc-note">3 free days · Then €20/month · No commitment</p>
+        <a href="https://www.lestudiobyalice.com/free-trial" class="btn btn-primary pc-btn"><span>Start My Free Trial</span></a>
+        <p class="pc-note">3 free days · Secure payment · Full Access</p>
       </div>
     </div>
   </div>
@@ -847,7 +747,7 @@
       <div>
         <p style="font-size:.62rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:.75rem;">Bonus</p>
         <h2 class="h-lg" style="margin-bottom:.75rem;">Live Pilates × Run class in studio</h2>
-        <p class="body-sm">The first 15 sign-ups get access to an exclusive in-person class with Alice at a Marais studio in Paris, May 27.</p>
+        <p class="body-sm">The first 15 Annual members get a <strong>free in-person Pilates × Running class in Paris on April 27</strong> — plus a full On Running outfit, while spots last.</p>
       </div>
       <div class="bonus-count">
         <span class="bonus-num">15</span>
@@ -863,7 +763,7 @@
     <div class="guarantee-inner rv">
       <div>
         <p class="guarantee-title">Satisfied or refunded. Period.</p>
-        <p class="guarantee-body">If within 14 days you feel this program isn't for you — full refund, no questions asked. We believe in this program and we want you to start without pressure.</p>
+        <p class="guarantee-body">If within 7 days you feel this program isn't for you — full refund, no questions asked. We believe in this program and we want you to start without pressure.</p>
       </div>
     </div>
   </div>
@@ -875,51 +775,58 @@
     <h2 class="h-lg rv" id="faq-h">Frequently asked questions</h2>
     <div class="faq-layout">
       <div class="faq-sidebar rv d1">
-        <div><a href="#pricing" class="btn btn-primary"><span style="position:relative;z-index:1;">Join the program</span></a></div>
+        <div><a href="#pricing" class="btn btn-primary"><span>Join the program</span></a></div>
       </div>
       <div class="faq-list rv d2">
+
         <div class="faq-item">
           <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">I'm scared of getting injured if I start running more.</span>
+            <span class="faq-q">How does the program help me progress without hitting a plateau or getting injured?</span>
             <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-a">Injury was the #1 frustration in our survey — 31% of runners told us pain holds them back. That's exactly why the entire program is built on a Pilates foundation. Every week pairs your running sessions with targeted Pilates that strengthens what running breaks down: hips, core, hamstrings, ankles. If something already hurts when you run, this is where it gets fixed.</div>
+          <div class="faq-a">Most running injuries don't come from bad luck — they come from running with a body that isn't ready for it. That's why Joseph, our certified running coach, built every training plan with technique and progressive load at the core: you're never asked to do more than your body is ready for. The Pilates sessions I aligned around his plans are there to strengthen exactly what running breaks down week after week. The web-app's daily check-in gives you tailored advice before each session. Warm-ups and cool-downs are included every time. You just follow the plan.</div>
         </div>
+
         <div class="faq-item">
           <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">I already run 2-3 times a week. Why would I need this?</span>
+            <span class="faq-q">I do Pilates but I don't really consider myself a runner. Is this program for me?</span>
             <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-a">72% of the runners who answered our survey run regularly — and their top frustrations were stagnation and lack of structure. Running by feel only gets you so far. This program replaces guesswork with a week-by-week plan: what to run, when to do Pilates, when to rest. The structure is the product.</div>
+          <div class="faq-a">This is exactly who I built it for. You don't need to be a runner to start — the Pilates you already do is your foundation. The program builds from there. Three tracks exist precisely for this: Road to 10K for those starting from zero, Run to 21K for those preparing a half-marathon, and Just Run & Pilates for those who want a smarter routine without a distance goal.</div>
         </div>
+
         <div class="faq-item">
           <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">I'm not convinced Pilates actually makes a difference for running.</span>
+            <span class="faq-q">Do I need a running goal to join the program?</span>
             <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-a">55% of respondents ranked injury prevention as their #1 reason for combining Pilates and running. It's not a trend — it's biomechanics. Pilates builds the stabilizers that running alone ignores. Core that holds your posture at km 15. Hips that absorb impact without breaking down. Every session is designed by a certified coach.</div>
+          <div class="faq-a">No. The Just Run & Pilates track exists for those who simply want to run better and feel like running is a natural part of their life — with no objective in mind. If you don't know yet what you want, that's also a valid answer to get started.</div>
         </div>
+
         <div class="faq-item">
           <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">I don't have time for an extra program on top of my runs.</span>
+            <span class="faq-q">What's actually included in the program?</span>
             <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-a">This doesn't add to your routine — it replaces it. 3 running sessions (30–60 min) + 3 Pilates classes (30–45 min). Sunday is rest. The app tells you what to do each morning. No thinking, no planning. Built for busy weeks.</div>
+          <div class="faq-a">Everything you need, in one place. A 10-week plan built around your track. 29 Pilates classes integrated into the running plan. 30+ recipes designed for the real needs of a female runner. All my running and Pilates advice, plus a mental preparation module. A private channel dedicated to all runners in the program. Everything accessible in a PDF and in the web-app, which guides you every morning.</div>
         </div>
+
         <div class="faq-item">
           <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">I've tried running plans before and always dropped off after a few weeks.</span>
+            <span class="faq-q">How does the program fit into my week without burning me out?</span>
             <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-a">20% of surveyed runners said motivation and consistency were their main struggle. Generic plans fail because they give you content without structure. Three tracks, daily guidance in the app, progressive difficulty, and a private community — you don't decide what to do, you just show up.</div>
+          <div class="faq-a">This program doesn't add to your week — it replaces it. The web-app tells you what to do every morning depending on your track. No thinking, no planning. Built for busy weeks.</div>
         </div>
+
         <div class="faq-item">
           <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">Is €97 really worth it for 10 weeks?</span>
+            <span class="faq-q">How does the program help me stay motivated over time?</span>
             <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-a">The program includes a full running plan by a certified coach, 10 weeks of Pilates classes, 30+ nutrition recipes from a certified naturopath, and daily app guidance. That's less than a single session with a running coach. Early bird €97 until April 25 — then back to €297.</div>
+          <div class="faq-a">The week-by-week structure does a lot of the heavy lifting — you always know what's next, the progression is built in, and the level rises with you without you having to figure anything out. When motivation dips (it happens), the private channel is there: ask a question, share a win, read what others are going through. Sometimes that's all it takes to get your shoes on.</div>
         </div>
+
       </div>
     </div>
   </div>
@@ -929,34 +836,34 @@
 <section id="final-cta" class="s" aria-label="Final call to action">
   <div class="wrap" style="text-align:left;">
     <span class="eyebrow rv" style="display:block; margin-bottom:1rem;">Your next start line</span>
-    <h2 class="h-xl rv d1">10 weeks to become<br>the runner you already are.</h2>
+    <h2 class="h-xl rv d1">RUN WITH US</h2>
     <p class="final-sub rv d2">The structure. The experts. The community. Everything is ready — all that's missing is you.</p>
     <div class="final-actions rv d3">
-      <a href="#pricing" class="btn btn-primary" style="padding:.8rem 2.5rem;"><span style="position:relative;z-index:1;">I'm in</span></a>
+      <a href="#pricing" class="btn btn-primary" style="padding:.8rem 2.5rem;"><span>I'm in</span></a>
     </div>
-    <p class="final-note rv d4"><strong>€97 one-time</strong> early bird until April 25 · or Le Studio annual from <strong>€20/month</strong></p>
+    <p class="final-note rv d4"><strong>Early birds end Sunday 12/04 midnight</strong></p>
   </div>
 </section>
 
 <!-- URGENCY BAR -->
 <div id="urgency-bar" role="complementary" aria-label="Early bird offer">
-  <p class="ub-text"><strong>Early bird €97</strong> — until April 25 only</p>
+  <p class="ub-text"><strong>Early bird €89</strong> — until April 12 midnight only</p>
   <div class="ub-right">
     <span class="ub-time" id="ub-time"></span>
-    <a href="#pricing" class="btn btn-primary" style="padding:.6rem 1.75rem;"><span style="position:relative;z-index:1;">Become a runner</span></a>
+    <a href="#pricing" class="btn btn-primary" style="padding:.6rem 1.75rem;"><span>Run with Le Studio</span></a>
   </div>
 </div>
 
 <script>
-(function() {
+(function () {
   'use strict';
 
   // ANNOUNCE BAR
   const aItems = [
     'LAUNCHING APRIL 5',
-    'Early bird — <strong>€97</strong> until April 25',
+    'Early bird — <strong>€89</strong> until April 12',
     'Co-created with <strong>500+ runners</strong>',
-    'Three tracks · One app',
+    'Three tracks · One web-app',
     '<strong>10 weeks</strong> — Pilates × Running × Nutrition',
     'Certified by a coach and a naturopath',
   ];
@@ -974,7 +881,9 @@
   // SCROLL REVEAL
   const rvEls = document.querySelectorAll('.rv');
   const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   rvEls.forEach(el => obs.observe(el));
   document.querySelectorAll('#hero .rv').forEach((el, i) => {
@@ -1000,15 +909,19 @@
     });
   });
 
-  // COUNTDOWN — April 25, 2026 23:59 Paris
-  const DEADLINE = new Date('2026-04-25T23:59:00+02:00');
-  function pad(n) { return String(n).padStart(2,'0'); }
+  // COUNTDOWN — April 12, 2026 23:59 Paris time
+  const DEADLINE = new Date('2026-04-12T23:59:00+02:00');
+  function pad(n) { return String(n).padStart(2, '0'); }
   function tick() {
     const diff = DEADLINE - new Date();
-    if (diff <= 0) { const cw = document.getElementById('cd-wrap'); if (cw) cw.style.display='none'; return; }
-    const d = Math.floor(diff/86400000);
-    const hh = Math.floor((diff%86400000)/3600000);
-    const mm = Math.floor((diff%3600000)/60000);
+    if (diff <= 0) {
+      const cw = document.getElementById('cd-wrap');
+      if (cw) cw.style.display = 'none';
+      return;
+    }
+    const d  = Math.floor(diff / 86400000);
+    const hh = Math.floor((diff % 86400000) / 3600000);
+    const mm = Math.floor((diff % 3600000) / 60000);
     document.getElementById('cd-d').textContent = pad(d);
     document.getElementById('cd-h').textContent = pad(hh);
     document.getElementById('cd-m').textContent = pad(mm);
