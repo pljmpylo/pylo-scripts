@@ -133,7 +133,7 @@
     @keyframes bdot { 0%,100%{opacity:1} 50%{opacity:.3} }
     .hero-h1 {
       font-family: 'FuturaLT', Arial, sans-serif !important;
-      font-size: 52px !important;
+      font-size: clamp(3.5rem, 9vw, 9rem) !important;
       font-weight: 400 !important;
       font-style: normal !important;
       line-height: 57.2px !important;
@@ -174,7 +174,7 @@
     .asp-arrow { font-family: 'Jost', sans-serif; font-size: 1rem; color: var(--blue); flex-shrink: 0; margin-top: .1rem; font-weight: 400; }
     .asp-text { font-family: 'Jost', sans-serif; font-size: .875rem; font-weight: 300; line-height: 1.75; }
     .asp-text strong { font-weight: 500; }
-    .res-quote { margin-top: 2.5rem; padding: 1.5rem; border-left: 2px solid var(--blue); }
+    .res-quote { margin-top: 2rem; padding: 0; border: none; }
     .res-quote p { font-family: 'Josefin Sans', sans-serif; font-size: .95rem; font-weight: 300; font-style: normal; line-height: 1.7; }
     .res-quote cite { display: block; margin-top: .75rem; font-family: 'Jost', sans-serif; font-style: normal; font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 500; color: var(--muted); }
 
@@ -378,6 +378,7 @@
     }
     @media (max-width: 768px) {
       .res-grid, .promise-grid, .week-grid, .alice-grid, .faq-layout, .pricing-intro { grid-template-columns: 1fr; }
+      .res-h2 { font-size: clamp(2.5rem, 10vw, 4rem); }
       .res-sticky { position: static; }
       .promise-photo { height: 320px; order: -1; }
       .alice-photo { height: 320px; order: -1; }
@@ -412,7 +413,7 @@
       <span class="badge-dot"></span>
       The first 15 sign-ups get a free in-person class with Alice in Paris
     </div>
-    <h1 class="hero-h1 rv d1" style="font-family:'FuturaLT',Arial,sans-serif;font-size:52px;font-weight:400;font-style:normal;line-height:57.2px;letter-spacing:0;text-transform:uppercase;">RUN SCULPT PERFORM</h1>
+    <h1 class="hero-h1 rv d1" style="font-family:'FuturaLT',Arial,sans-serif;font-size:clamp(3.5rem, 9vw, 9rem);font-weight:400;font-style:normal;line-height:57.2px;letter-spacing:0;text-transform:uppercase;">RUN SCULPT PERFORM</h1>
     <p class="hero-sub rv d2">
       The first program fusing <strong>Pilates, Running and Nutrition</strong> —
       whether you're lacing up for the first time, chasing your first 10K or half-marathon,
@@ -444,33 +445,28 @@
 <section id="resonance" class="s" aria-labelledby="res-h">
   <div class="wrap">
     <div class="res-grid">
+      <!-- Colonne gauche : H2 massif + citation -->
       <div class="res-sticky">
         <span class="eyebrow rv">Sound like you?</span>
-        <h2 class="h-lg rv d1" id="res-h">
-          This program was designed for you
-        </h2>
-      </div>
-      <div>
-        <div class="asp-list">
-          <div class="asp-item rv">
-            <span class="asp-arrow">→</span>
-            <p class="asp-text">You want to <strong>start running</strong> — with a real plan that takes you from zero to your first 10K.</p>
-          </div>
-          <div class="asp-item rv d1">
-            <span class="asp-arrow">→</span>
-            <p class="asp-text">You already run and dream of <strong>going further</strong> — a half-marathon, with Pilates keeping you injury-free.</p>
-          </div>
-          <div class="asp-item rv d2">
-            <span class="asp-arrow">→</span>
-            <p class="asp-text">You run for pleasure and want a <strong>smarter Pilates × Running routine</strong> — no pressure, just consistency.</p>
-          </div>
-        </div>
-        <div class="res-quote rv d3">
+        <h2 class="res-h2 rv d1" id="res-h">This program was designed for you.</h2>
+        <div class="res-quote rv d2">
           <p>"500+ runners told us exactly this. This program was built from your answers."</p>
-          <cite>— Co-built with Le Studio community</cite>
+          <cite>Co-built with Le Studio community</cite>
         </div>
-        <div style="margin-top:2rem;" class="rv d3">
-          <a href="#pricing" class="btn btn-primary"><span style="position:relative;z-index:1;">Join the program</span></a>
+      </div>
+      <!-- Colonne droite : items numérotés -->
+      <div class="asp-list">
+        <div class="asp-item rv d1">
+          <span class="asp-num">01</span>
+          <p class="asp-text">You want to <strong>start running</strong> — with a real plan that takes you from zero to your first 10K.</p>
+        </div>
+        <div class="asp-item rv d2">
+          <span class="asp-num">02</span>
+          <p class="asp-text">You already run and dream of <strong>going further</strong> — a half-marathon, with Pilates keeping you injury-free.</p>
+        </div>
+        <div class="asp-item rv d3">
+          <span class="asp-num">03</span>
+          <p class="asp-text">You run for pleasure and want a <strong>smarter Pilates × Running routine</strong> — no pressure, just consistency.</p>
         </div>
       </div>
     </div>
