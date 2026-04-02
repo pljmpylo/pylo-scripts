@@ -242,7 +242,7 @@
     .ub-right { display:flex; align-items:center; gap:1.25rem; }
     .ub-time  { font-family:var(--font); font-size:.7rem; font-weight:400; letter-spacing:.06em; color:rgba(255,255,255,.5); }
     @media (max-width:1024px) { .proof-grid  { grid-template-columns:1fr 1fr; } .tracks-grid { grid-template-columns:1fr 1fr; } .proof-block { border-right:none; border-bottom:1px solid var(--rule); } .proof-block:last-child { border-bottom:none; } .week-grid   { grid-template-columns:1fr 1fr; } .week-photo  { display:none; } }
-    @media (max-width:768px) { .res-grid, .promise-grid, .week-grid, .alice-grid, .faq-layout, .pricing-intro { grid-template-columns:1fr; } .res-sticky   { position:static; } .promise-photo { height:320px; order:-1; } .alice-photo  { height:320px; order:-1; } .proof-grid   { grid-template-columns:1fr; } .tracks-grid  { grid-template-columns:1fr; } .track  { border-right:none; border-bottom:1px solid var(--rule); } .track:last-child { border-bottom:none; } .pricing-cards { grid-template-columns:1fr; } .pcard:first-child { border-right:1px solid var(--rule); border-bottom:none; } .bonus-inner { grid-template-columns:1fr; } .bonus-count { text-align:left; } .guarantee-inner { flex-direction:column; } #urgency-bar { flex-direction:column; align-items:flex-start; padding:1rem 1.5rem; } .hero-proofs { flex-direction:column; } .hero-proof  { padding-right:0; border-bottom:1px solid rgba(255,255,255,.08); padding-bottom:.85rem; } #included > .wrap > div[style] { grid-template-columns:1fr !important; } }
+    @media (max-width:768px) { .hero-h1 { padding-top: 3rem !important; } .res-grid, .promise-grid, .week-grid, .alice-grid, .faq-layout, .pricing-intro { grid-template-columns:1fr; } .res-sticky   { position:static; } .promise-photo { height:320px; order:-1; } .alice-photo  { height:320px; order:-1; } .proof-grid   { grid-template-columns:1fr; } .tracks-grid  { grid-template-columns:1fr; } .track  { border-right:none; border-bottom:1px solid var(--rule); } .track:last-child { border-bottom:none; } .pricing-cards { grid-template-columns:1fr; } .pcard:first-child { border-right:1px solid var(--rule); border-bottom:none; } .bonus-inner { grid-template-columns:1fr; } .bonus-count { text-align:left; } .guarantee-inner { flex-direction:column; } #urgency-bar { flex-direction:column; align-items:flex-start; padding:1rem 1.5rem; } .hero-proofs { flex-direction:column; } .hero-proof  { padding-right:0; border-bottom:1px solid rgba(255,255,255,.08); padding-bottom:.85rem; } #included > .wrap > div[style] { grid-template-columns:1fr !important; } }
   </style>
 </head>
 <body>
@@ -257,14 +257,9 @@
   <div class="hero-content">
     <h1 class="hero-h1 rv d1">RUN SCULPT PERFORM</h1>
     <p class="hero-sub rv d2">
-      A program fusing Pilates, Running and Nutrition —<br>
-      whether you're lacing up for the first time, chasing your first 10K or half-marathon.<br>
-      One web-app guiding you every day.
+      A program fusing Pilates, Running and Nutrition —
     </p>
-    <div class="hero-actions rv d3">
-      <a href="#pricing" class="btn btn-blanc"><div class="fill"></div><span class="btn-label">Run With Us</span></a>
-    </div>
-    <div class="hero-proofs rv d4">
+    <div class="hero-proofs rv d3">
       <div class="hero-proof">
         <div class="hp-label">Co-created with 500+ of you</div>
       </div>
@@ -275,6 +270,9 @@
         <div class="hp-label">Certified by a coach and a naturopath</div>
       </div>
     </div>
+    <div class="hero-actions rv d4" style="margin-top:2rem;">
+      <a href="#pricing" class="btn btn-blanc"><div class="fill"></div><span class="btn-label">Run With Us</span></a>
+    </div>
   </div>
 </section>
 
@@ -283,6 +281,9 @@
     <div class="res-grid">
       <div class="res-sticky">
         <h2 class="h-lg rv d1" id="res-h">Designed for every runner</h2>
+        <div class="rv d2" style="margin-top:1.5rem;">
+          <a href="#pricing" class="btn btn-bleu"><div class="fill"></div><span class="btn-label">Run With Us</span></a>
+        </div>
       </div>
       <div class="asp-list">
         <div class="asp-item rv d1">
@@ -341,7 +342,7 @@
       </div>
       <div>
         <h2 class="h-lg rv d1" id="week-h">Your typical week, at a glance.</h2>
-        <p class="body-sm rv d2" style="margin-top:.75rem; max-width:36ch; color:var(--noir);">Every week follows the same logic: run better, recover with intention, progress at your rythme.</p>
+        <p class="body-sm rv d2" style="margin-top:2.5rem; max-width:36ch; color:var(--noir);">Every week follows the same logic: run better, recover with intention, progress at your rythme.</p>
       </div>
       <div class="week-card rv d2">
         <div class="week-card-header">
@@ -491,7 +492,6 @@
       <div>
         <h2 class="h-lg rv d1" id="pricing-h">Two ways to start running with Le Studio.</h2>
       </div>
-      <p class="body-sm rv d2" style="color:var(--noir);">Lifetime access. Secure payment. 14-day guarantee. Start today at the early bird price and access all three tracks immediately.</p>
     </div>
     <div class="pricing-cards">
       <div class="pcard pcard--feat rv">
@@ -564,9 +564,6 @@
   <div class="wrap">
     <h2 class="h-lg rv" id="faq-h">Frequently asked questions</h2>
     <div class="faq-layout">
-      <div class="faq-sidebar rv d1">
-        <div><a href="#pricing" class="btn btn-bleu"><div class="fill"></div><span class="btn-label">Join The Program</span></a></div>
-      </div>
       <div class="faq-list rv d2">
         <div class="faq-item">
           <button class="faq-btn" aria-expanded="false">
