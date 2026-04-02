@@ -1,1024 +1,1955 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="RUN SCULPT PERFORM — The first program fusing Pilates, Running and Nutrition. 10 weeks. Three tracks. One app guiding you every day." />
-  <title>Run Sculpt Perform — Le Studio by Alice Pilate</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
-  <style>
-        @font-face {
-      font-family: 'FuturaLT';
-      src: url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c65209d3d0d6c9c74d24_FuturaLT.ttf') format('truetype');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'FuturaLT';
-      src: url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c651ad8acc9a6837b600_FuturaLT-Light.ttf') format('truetype');
-      font-weight: 300;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'FuturaLT';
-      src: url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c6512000cd44e6b1ea38_FuturaLT-Book.ttf') format('truetype');
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'FuturaLT';
-      src: url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c6516c8bedb4eb7fc4d2_FuturaLT-Heavy.ttf') format('truetype');
-      font-weight: 600;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'FuturaLT';
-      src: url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c651dcb8bf849db968c5_FuturaLT-Bold.ttf') format('truetype');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'FuturaLT';
-      src: url('https://cdn.prod.website-files.com/6790c2b6d33ae1e2d15b5279/6790c651e40b0f5117497adf_FuturaLT-ExtraBold.ttf') format('truetype');
-      font-weight: 800;
-      font-style: normal;
-      font-display: swap;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RUN SCULPT PERFORM — Le Studio by Alice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    /* ═══════════════════════════════════════════
-       TOKENS — Le Studio Design System
-    ═══════════════════════════════════════════ */
-    :root {
-      --blue:      #1A4BBE;
-      --blue-h:    #1641A8;
-      --black:     #111111;
-      --white:     #FFFFFF;
-      --off-white: #FFFFFF;
-      --muted:     rgba(17,17,17,0.42);
-      --pad:       clamp(4rem, 8vw, 7rem);
-    }
+<style>
+/* ─── DESIGN SYSTEM ─────────────────────────────────────── */
+:root {
+  --black:       #01050e;
+  --white:       #ffffff;
+  --blue:        #1539C8;
+  --blue-hover:  #0f2a99;
+  --blue-light:  #e8edfc;
+  --gray-1:      #6b7280;
+  --gray-2:      #9ca3af;
+  --gray-3:      #f3f4f6;
+  --border:      rgba(1,5,14,0.10);
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--white);
-      color: var(--black);
-      font-family: 'Jost', sans-serif;
-      font-weight: 300;
-      font-size: 0.9rem;
-      line-height: 1.65;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    button { cursor: pointer; font-family: 'Jost', sans-serif; }
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans:    'DM Sans', system-ui, sans-serif;
 
-    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 3rem); }
-    .s { padding: var(--pad) 0; }
+  --max:      1200px;
+  --max-text: 720px;
+  --gutter:   clamp(20px, 5vw, 60px);
+  --section:  clamp(80px, 10vw, 140px);
+  --section-sm: clamp(48px, 6vw, 80px);
 
-    /* REVEAL */
-    .rv { opacity: 0; transform: translateY(18px); transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1); }
-    .rv.in { opacity: 1; transform: none; }
-    .d1 { transition-delay: .12s; }
-    .d2 { transition-delay: .26s; }
-    .d3 { transition-delay: .42s; }
-    .d4 { transition-delay: .58s; }
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+}
 
-    /* TYPOGRAPHY */
-    .eyebrow { font-family: 'FuturaLT', Arial, sans-serif; font-size: .62rem; font-weight: 400; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: .9rem; }
-    .h-xl {
-      font-family: 'FuturaLT', Arial, sans-serif;
-      font-size: 52px;
-      font-weight: 500;
-      font-style: normal;
-      line-height: 52px;
-      color: rgb(1, 5, 14);
-      margin-top: 0px;
-      margin-bottom: 10px;
-      text-align: left;
-      box-sizing: border-box;
-    }
-    .h-lg {
-      font-family: 'FuturaLT', Arial, sans-serif;
-      font-size: 52px;
-      font-weight: 500;
-      font-style: normal;
-      line-height: 52px;
-      color: rgb(1, 5, 14);
-      margin-top: 0px;
-      margin-bottom: 10px;
-      text-align: left;
-      box-sizing: border-box;
-    }
-    .h-md {
-      font-family: 'FuturaLT', Arial, sans-serif;
-      font-size: 52px;
-      font-weight: 500;
-      font-style: normal;
-      line-height: 52px;
-      color: rgb(1, 5, 14);
-      margin-top: 0px;
-      margin-bottom: 10px;
-      text-align: left;
-      box-sizing: border-box;
-    }
-    .body-lg { font-size: 1rem; font-weight: 300; line-height: 1.8; color: var(--black); }
-    .body-sm { font-size: .875rem; font-weight: 300; line-height: 1.75; color: var(--black); }
-    .body-xs { font-size: .75rem; font-weight: 300; line-height: 1.65; color: var(--black); }
+/* ─── RESET ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-sans);
+  color: var(--black);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; object-fit: cover; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
 
-    /* BUTTONS */
-    .btn { display: inline-flex; align-items: center; justify-content: flex-start; font-family: 'FuturaLT', Arial, sans-serif; font-size: .78rem; font-weight: 400; letter-spacing: .1em; text-transform: none; height: 2.75rem; padding: 0 2rem; border: none; position: relative; overflow: hidden; cursor: pointer; white-space: nowrap; text-decoration: none; transition: color 350ms ease-in-out; }
-    .btn-primary { background: var(--blue); color: var(--white); }
-    .btn-primary::before { content: ''; position: absolute; inset: 0; background: var(--white); border: 1px solid var(--blue); transform: scaleX(0); transform-origin: left; transition: transform 350ms ease-in-out; z-index: 0; }
-    .btn-primary > span { position: relative; z-index: 1; }
-    .btn-primary:hover, .btn-primary:focus { color: var(--blue); }
-    .btn-primary:hover::before, .btn-primary:focus::before { transform: scaleX(1); }
-    .btn-outline { background: transparent; color: var(--black); border: 1px solid var(--black); }
-    .btn-outline::before { content: ''; position: absolute; inset: 0; background: var(--black); transform: scaleX(0); transform-origin: left; transition: transform 350ms ease-in-out; z-index: 0; }
-    .btn-outline > span { position: relative; z-index: 1; }
-    .btn-outline:hover, .btn-outline:focus { color: var(--white); }
-    .btn-outline:hover::before, .btn-outline:focus::before { transform: scaleX(1); }
+/* ─── UTILITY ────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 20px;
+}
+.divider {
+  width: 40px;
+  height: 1.5px;
+  background: var(--blue);
+  margin-bottom: 20px;
+}
 
-    /* ANNOUNCE */
-    #announce { background: var(--black); padding: .55rem 0; overflow: hidden; }
-    .announce-track { display: flex; white-space: nowrap; animation: aScroll 32s linear infinite; }
-    @keyframes aScroll { to { transform: translateX(-50%); } }
-    .a-item { display: inline-flex; align-items: center; gap: 1.5rem; padding: 0 2rem; font-family: 'Jost', sans-serif; font-size: .6rem; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.45); }
-    .a-item strong { color: var(--white); font-weight: 500; }
-    .a-sep { color: rgba(255,255,255,.15); font-size: .45rem; }
+/* ─── BUTTONS ────────────────────────────────────────────── */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: capitalize;
+  transition: color 0.35s var(--ease);
+  z-index: 0;
+  white-space: nowrap;
+}
+.btn .fill {
+  position: absolute;
+  inset: 0;
+  transform: translateY(101%);
+  transition: transform 0.45s var(--ease-out);
+  z-index: -1;
+}
+.btn:hover .fill { transform: translateY(0); }
 
-    /* HERO */
-    #hero { position: relative; min-height: 95svh; display: flex; align-items: flex-end; overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; background-image: url('https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7429.jpg'); background-size: cover; background-position: 75% 8%; transition: transform 10s ease; }
-    .hero-bg.loaded { transform: scale(1.03); }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.38) 38%, rgba(0,0,0,.1) 65%, transparent 100%); }
-    .hero-content { position: relative; z-index: 2; padding: 0 clamp(1.5rem,4vw,3rem); padding-bottom: clamp(3.5rem,6vw,5.5rem); width: 100%; max-width: 1160px; margin: 0 auto; }
-    .hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(8px); padding: .4rem 1rem; font-family: 'Jost', sans-serif; font-size: .62rem; font-weight: 400; letter-spacing: .06em; color: rgba(255,255,255,.75); margin-bottom: 2rem; }
-    .badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--blue); animation: bdot 2.2s ease infinite; }
-    @keyframes bdot { 0%,100%{opacity:1} 50%{opacity:.3} }
-    .hero-h1 {
-      font-family: 'FuturaLT', Arial, sans-serif !important;
-      font-size: clamp(2.2rem, 5vw, 5rem) !important;
-      font-weight: 400 !important;
-      font-style: normal !important;
-      line-height: 1.1 !important;
-      letter-spacing: 0 !important;
-      text-transform: uppercase !important;
-      text-align: left !important;
-      color: rgb(255, 255, 255) !important;
-      display: block;
-      margin-top: 0px;
-      margin-bottom: 10px;
-      box-sizing: border-box;
-    }
-    .hero-sub {
-      font-family: 'FuturaLT', Arial, sans-serif;
-      font-size: 32px;
-      font-weight: 300;
-      font-style: normal;
-      line-height: 1.4;
-      color: rgba(255, 255, 255, 0.9);
-      max-width: 54ch;
-      margin-bottom: 2.25rem;
-    }
-    .hero-sub strong { color: var(--white); font-weight: 400; }
-    .hero-actions { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: .75rem; }
-    .hero-note { font-family: 'Jost', sans-serif; font-size: .72rem; font-weight: 300; color: rgba(255,255,255,.45); }
-    .hero-proofs { display: flex; gap: 0; flex-wrap: wrap; margin-top: 2.75rem; border-top: 1px solid rgba(255,255,255,.1); }
-    .hero-proof { padding: 1.1rem 3.5rem 1rem 0; }
-    .hp-num { font-family: 'Josefin Sans', sans-serif; font-size: 1.8rem; font-weight: 200; color: var(--white); line-height: 1; }
-    .hp-label { font-family: 'Jost', sans-serif; font-size: .58rem; font-weight: 400; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.36); margin-top: .2rem; }
+.btn-primary {
+  padding: 16px 36px;
+  background: var(--blue);
+  color: var(--white);
+}
+.btn-primary .fill { background: var(--black); }
+.btn-primary:hover { color: var(--white); }
 
-    /* S2 RESONANCE */
-    #resonance { background: var(--white); }
-    .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem,6vw,6rem); align-items: start; }
-    .res-sticky { position: sticky; top: 2rem; }
-    .asp-list { display: flex; flex-direction: column; margin-top: 2rem; }
-    .asp-item { display: flex; gap: 1.25rem; align-items: flex-start; padding: 1.35rem 0; border-bottom: 1px solid rgba(17,17,17,.08); }
-    .asp-item:last-child { border-bottom: none; }
-    .asp-arrow { font-family: 'Jost', sans-serif; font-size: 1rem; color: var(--blue); flex-shrink: 0; margin-top: .1rem; font-weight: 400; }
-    .asp-text { font-family: 'Jost', sans-serif; font-size: .875rem; font-weight: 300; line-height: 1.75; }
-    .asp-text strong { font-weight: 500; }
-    .res-quote { margin-top: 2rem; padding: 0; border: none; }
-    .res-quote p { font-family: 'Josefin Sans', sans-serif; font-size: .95rem; font-weight: 300; font-style: normal; line-height: 1.7; }
-    .res-quote cite { display: block; margin-top: .75rem; font-family: 'Jost', sans-serif; font-style: normal; font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 500; color: var(--muted); }
+.btn-primary-lg {
+  padding: 20px 52px;
+  font-size: 15px;
+}
 
-    /* S3 PROMISE */
-    #promise { background: var(--white); }
-    .promise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem,6vw,5.5rem); align-items: center; }
-    .benefit-list { margin-top: 2rem; }
-    .benefit-row { display: flex; gap: 1rem; align-items: flex-start; padding: .9rem 0; border-bottom: 1px solid rgba(17,17,17,.07); }
-    .benefit-row:last-of-type { border-bottom: none; }
-    .benefit-check { flex-shrink: 0; margin-top: .2rem; display: flex; }
-    .benefit-dash { flex-shrink: 0; font-size: .88rem; color: var(--black); margin-top: .15rem; }
-    .benefit-text { font-family: 'Jost', sans-serif; font-size: .875rem; font-weight: 300; line-height: 1.7; }
-    .benefit-text strong { font-weight: 500; }
-    .promise-closing { margin-top: 2rem; padding: 1.5rem; background: var(--white); }
-    .promise-closing p { font-family: 'Josefin Sans', sans-serif; font-size: 1rem; font-weight: 300; line-height: 1.65; font-style: normal; }
-    .promise-closing p strong { font-weight: 500; font-style: normal; }
-    .promise-photo { height: clamp(400px,55vw,580px); overflow: hidden; }
-    .promise-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transition: transform .9s ease; }
-    .promise-photo:hover img { transform: scale(1.02); }
+.btn-white {
+  padding: 16px 36px;
+  background: var(--white);
+  color: var(--black);
+}
+.btn-white .fill { background: var(--blue); }
+.btn-white:hover { color: var(--white); }
 
-    /* S4 WEEK */
-    #week { background: var(--white); }
-    .week-grid { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: clamp(2rem,4vw,4rem); align-items: start; }
-    .week-photo { height: clamp(380px,45vw,520px); overflow: hidden; }
-    .week-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .9s ease; }
-    .week-photo:hover img { transform: scale(1.02); }
-    .week-card { background: var(--white); overflow: hidden; }
-    .week-card-header { padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(17,17,17,.08); }
-    .week-card-title { font-family: 'Josefin Sans', sans-serif; font-size: .75rem; font-weight: 500; letter-spacing: .03em; }
-    .week-tag { font-family: 'Josefin Sans', sans-serif; font-size: .55rem; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; background: var(--blue); color: var(--white); padding: .2rem .6rem; }
-    .week-table { width: 100%; border-collapse: collapse; }
-    .week-table tr { border-bottom: 1px solid rgba(17,17,17,.06); }
-    .week-table tr:last-child { border-bottom: none; }
-    .week-table td { padding: .8rem 1.5rem; font-family: 'Jost', sans-serif; font-size: .8rem; }
-    .week-table td:first-child { font-weight: 500; font-size: .65rem; letter-spacing: .08em; text-transform: uppercase; width: 38%; color: var(--muted); }
-    .week-table .wt-run td:last-child { font-weight: 500; color: var(--blue); }
-    .week-table .wt-rest td:last-child { font-style: normal; color: rgba(17,17,17,.4); }
+.btn-outline {
+  padding: 14px 32px;
+  background: transparent;
+  color: var(--black);
+  border: 1.5px solid var(--black);
+}
+.btn-outline .fill { background: var(--black); }
+.btn-outline:hover { color: var(--white); }
 
-    /* S5 ALICE */
-    #alice { background: var(--white); }
-    .alice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem,6vw,6rem); align-items: center; }
-    .alice-photo { height: clamp(440px,55vw,600px); overflow: hidden; }
-    .alice-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-    .alice-body { font-family: 'Jost', sans-serif; font-size: .9rem; font-weight: 300; line-height: 1.85; margin-bottom: 1.1rem; margin-top: .5rem; }
-    .alice-sig { font-family: 'Josefin Sans', sans-serif; font-size: 1.6rem; font-weight: 100; font-style: normal; letter-spacing: .1em; margin-top: 1rem; margin-bottom: 2rem; }
+.btn .arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--ease);
+  font-size: 16px;
+}
+.btn:hover .arrow { transform: translateX(4px); }
 
-    /* S6 PROOF */
-    #proof { background: var(--white); }
-    .proof-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin-top: 3.5rem; border-top: 1px solid rgba(17,17,17,.1); }
-    .proof-block { padding: 2.5rem; border-right: 1px solid rgba(17,17,17,.1); }
-    .proof-block:last-child { border-right: none; }
-    .proof-n { font-family: 'Josefin Sans', sans-serif; font-size: .65rem; font-weight: 400; letter-spacing: .2em; color: var(--blue); line-height: 1; margin-bottom: 1.25rem; }
-    .proof-block h3 { font-family: 'Josefin Sans', sans-serif; font-size: 1rem; font-weight: 400; margin-bottom: .35rem; line-height: 1.25; }
-    .proof-role { font-family: 'Jost', sans-serif; font-size: .6rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem; }
-    .proof-body { font-family: 'Jost', sans-serif; font-size: .85rem; font-weight: 300; line-height: 1.8; }
+/* ─── STICKY URGENCY BAR ─────────────────────────────────── */
+.urgency-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--black);
+  color: var(--white);
+  padding: 14px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  transform: translateY(100%);
+  animation: slideUp 0.6s 1s var(--ease-out) forwards;
+}
+@keyframes slideUp { to { transform: translateY(0); } }
+.urgency-bar p {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+.urgency-bar strong { font-weight: 600; color: var(--blue-light); }
+.urgency-bar .btn-urgent {
+  flex-shrink: 0;
+  padding: 10px 24px;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  transition: background 0.3s var(--ease);
+  border-radius: 2px;
+}
+.urgency-bar .btn-urgent:hover { background: var(--blue-hover); }
 
-    /* PHOTO INTERLUDE */
-    .photo-interlude { height: clamp(320px,38vw,460px); overflow: hidden; position: relative; }
-    .photo-interlude img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
+/* ─── NAV ────────────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  padding: 20px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.nav.scrolled {
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--border);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  transition: color 0.4s;
+}
+.nav.scrolled .nav-logo { color: var(--black); }
+.nav .btn-nav {
+  padding: 10px 22px;
+  background: var(--white);
+  color: var(--black);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  transition: background 0.3s, color 0.3s;
+  border-radius: 2px;
+}
+.nav.scrolled .btn-nav {
+  background: var(--blue);
+  color: var(--white);
+}
+.nav.scrolled .btn-nav:hover { background: var(--black); }
 
-    /* S7 INCLUDED */
-    #included { background: var(--white); }
-    .inc-list { margin-top: 3rem; }
-    .inc-row { display: grid; grid-template-columns: 3rem 1fr; gap: 1.5rem; align-items: start; padding: 1.5rem 0; border-bottom: 1px solid rgba(17,17,17,.07); }
-    .inc-row:last-child { border-bottom: none; }
-    .inc-num { font-family: 'Josefin Sans', sans-serif; font-size: .65rem; font-weight: 400; letter-spacing: .18em; color: var(--blue); line-height: 1; padding-top: .15rem; }
-    .inc-right { display: flex; flex-direction: column; gap: .35rem; }
-    .inc-title { font-family: 'Josefin Sans', sans-serif; font-size: .88rem; font-weight: 400; line-height: 1.25; }
-    .inc-body { font-family: 'Jost', sans-serif; font-size: .82rem; font-weight: 300; line-height: 1.7; }
-    .inc-photo-strip { margin-top: 2rem; height: clamp(200px, 25vw, 300px); overflow: hidden; }
-    .inc-photo-strip img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; }
+/* ─── HERO ───────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+.hero-visual {
+  position: relative;
+  background: var(--black);
+  overflow: hidden;
+  min-height: 100svh;
+}
+.hero-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transform: scale(1.04);
+  animation: zoomOut 8s var(--ease-out) forwards;
+}
+@keyframes zoomOut { to { transform: scale(1); } }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(1,5,14,0.2) 0%, transparent 60%),
+              linear-gradient(to right, var(--black) 0%, transparent 40%);
+}
+.hero-content {
+  position: relative;
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 120px clamp(32px, 5vw, 80px) clamp(60px, 8vw, 100px);
+  z-index: 2;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid rgba(255,255,255,0.25);
+  font-size: 11.5px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 32px;
+  animation: fadeUp 0.8s 0.2s var(--ease-out) both;
+  width: fit-content;
+}
+.hero-badge .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(54px, 7vw, 96px);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 28px;
+  animation: fadeUp 0.8s 0.35s var(--ease-out) both;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(255,255,255,0.65);
+}
+.hero-sub {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+  max-width: 440px;
+  margin-bottom: 44px;
+  animation: fadeUp 0.8s 0.5s var(--ease-out) both;
+}
+.hero-cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeUp 0.8s 0.65s var(--ease-out) both;
+}
+.hero-price-note {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 52px;
+  padding-top: 32px;
+  animation: fadeUp 0.8s 0.8s var(--ease-out) both;
+}
+.hero-stat {
+  padding-right: 20px;
+}
+.hero-stat:not(:last-child) {
+  border-right: 1px solid rgba(255,255,255,0.1);
+  margin-right: 20px;
+}
+.hero-stat strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.hero-stat span {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
 
-    /* S8 TRACKS */
-    #tracks { background: var(--white); }
-    .tracks-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin-top: 3.5rem; border-top: 1px solid rgba(17,17,17,.1); }
-    .track { padding: 2.5rem; display: flex; flex-direction: column; gap: .85rem; border-right: 1px solid rgba(17,17,17,.1); background: var(--white); }
-    .track:last-child { border-right: none; }
-    .track-n { font-family: 'Josefin Sans', sans-serif; font-size: 2.5rem; font-weight: 100; color: rgba(17,17,17,.12); line-height: 1; letter-spacing: .05em; }
-    .track-title { font-family: 'Josefin Sans', sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.2; }
-    .track-goal { font-family: 'Jost', sans-serif; font-size: .58rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); }
-    .track-list { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
-    .track-list li { font-family: 'Jost', sans-serif; font-size: .82rem; font-weight: 300; display: flex; gap: .75rem; align-items: flex-start; }
-    .track-list li::before { content: '4'; color: rgba(17,17,17,.3); flex-shrink: 0; font-weight: 300; }
-    .track-for { font-family: 'Josefin Sans', sans-serif; font-size: .8rem; font-weight: 300; font-style: normal; padding-top: .5rem; line-height: 1.6; color: rgba(17,17,17,.55); }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
-    /* S9 PRICING */
-    #pricing { background: var(--white); }
-    .pricing-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-bottom: 3rem; }
-    .cd-wrap { display: inline-flex; align-items: center; gap: 1.5rem; padding: .8rem 0; flex-wrap: wrap; margin-bottom: 2.5rem; }
-    .cd-label { font-family: 'Jost', sans-serif; font-size: .58rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--blue); }
-    .cd-timer { display: flex; align-items: center; gap: .6rem; }
-    .cd-u { text-align: center; }
-    .cd-n { font-family: 'Josefin Sans', sans-serif; font-size: 2rem; font-weight: 200; display: block; line-height: 1; }
-    .cd-l { font-family: 'Jost', sans-serif; font-size: .5rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-    .cd-sep { font-family: 'Josefin Sans', sans-serif; font-size: 1.5rem; font-weight: 200; color: rgba(17,17,17,.2); padding-bottom: .35rem; }
-    .pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-    .pcard { padding: 3rem; display: flex; flex-direction: column; border: 1px solid rgba(17,17,17,.1); }
-    .pcard:first-child { border-right: none; }
-    .pcard--feat { background: #111111; border-color: #111111; color: #ffffff !important; }
-    .pcard--feat * { color: #ffffff !important; }
-    .pcard--feat .pc-price { font-size: 4rem; font-weight: 300; line-height: 1; margin-bottom: .35rem; color: #ffffff !important; }
-    .pcard--feat .pc-lbl { color: rgba(255,255,255,.5) !important; }
-    .pcard--feat .pc-was { color: rgba(255,255,255,.35) !important; text-decoration: line-through; }
-    .pcard--feat .pc-or { color: rgba(255,255,255,.5) !important; }
-    .pcard--feat .pc-note { color: rgba(255,255,255,.3) !important; }
-    .pcard--feat .pc-deadline { color: rgba(255,255,255,.65) !important; }
-    .pcard--feat .pc-badge { background: rgba(255,255,255,.12) !important; color: rgba(255,255,255,.8) !important; border: 1px solid rgba(255,255,255,.2) !important; }
-    .pcard--feat .pc-line { color: rgba(255,255,255,.85) !important; }
-    .pcard--feat .pc-lbl { color: rgba(255,255,255,.5) !important; }
-    .pcard--feat .pc-was { color: rgba(255,255,255,.35) !important; text-decoration: line-through; }
-    .pcard--feat .pc-or { color: rgba(255,255,255,.5) !important; }
-    .pcard--feat .pc-note { color: rgba(255,255,255,.3) !important; }
-    .pcard--feat .pc-deadline { color: rgba(255,255,255,.65) !important; }
-    .pcard--feat .pc-badge { background: rgba(255,255,255,.12) !important; color: rgba(255,255,255,.8) !important; border: 1px solid rgba(255,255,255,.2) !important; }
-    .pc-badge { display: inline-block; font-family: 'Jost', sans-serif; font-size: .58rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; padding: .3rem .85rem; margin-bottom: 2rem; width: fit-content; }
-    .pcard--feat .pc-badge { background: var(--blue); color: #fff; border: 1px solid var(--blue); }
-    .pcard .pc-badge { background: var(--white); color: var(--muted); border: 1px solid rgba(17,17,17,.1); }
-    .pc-lbl { font-family: 'Jost', sans-serif; font-size: .6rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; margin-bottom: .5rem; }
-    .pcard--feat .pc-lbl { color: rgba(255,255,255,.45); }
-    .pcard .pc-lbl { color: var(--muted); }
-    .pc-price { font-family: 'Josefin Sans', sans-serif; font-size: 4rem; font-weight: 200; line-height: 1; margin-bottom: .35rem; }
-    .pcard--feat .pc-price { color: #fff; }
-    .pcard .pc-price { color: var(--black); }
-    .pc-price sup { font-family: 'Josefin Sans', sans-serif; font-size: 1.5rem; vertical-align: super; }
-    .pc-was { font-family: 'Jost', sans-serif; font-size: .8rem; font-weight: 300; margin-bottom: .2rem; }
-    .pcard--feat .pc-was { color: rgba(255,255,255,.32); text-decoration: line-through; }
-    .pcard .pc-was { color: rgba(17,17,17,.28); text-decoration: line-through; }
-    .pc-or { font-family: 'Jost', sans-serif; font-size: .8rem; font-weight: 300; margin-bottom: .2rem; }
-    .pcard--feat .pc-or { color: rgba(255,255,255,.45); }
-    .pcard .pc-or { color: var(--muted); }
-    .pc-deadline { font-family: 'Jost', sans-serif; font-size: .72rem; font-weight: 500; letter-spacing: .06em; margin-bottom: 2rem; }
-    .pcard--feat .pc-deadline { color: #8AABFF; }
-    .pcard .pc-deadline { color: var(--black); }
-    .pc-div { display: none; }
-    .pc-lines { display: flex; flex-direction: column; gap: .6rem; margin-bottom: 2.5rem; flex: 1; }
-    .pc-line { display: flex; gap: .75rem; align-items: flex-start; font-family: 'Jost', sans-serif; font-size: .82rem; font-weight: 300; }
-    .pc-check { flex-shrink: 0; margin-top: .2rem; display: flex; }
-    .pcard--feat .pc-line { color: rgba(255,255,255,.8); }
-    .pcard .pc-line { color: var(--black); }
-    .pc-line strong { font-weight: 500; }
-    .pcard--feat .pc-line strong { color: #fff; }
-    /* CTA carte noire = même style que hero "I'm in" */
-    .pcard--feat .btn-primary { background: var(--blue) !important; color: #ffffff !important; }
-    .pcard--feat .btn-primary span { color: #ffffff !important; }
-    .pcard--feat .btn-primary::before { background: #ffffff; border: 1px solid var(--blue); }
-    .pcard--feat .btn-primary:hover, .pcard--feat .btn-primary:focus { color: var(--blue) !important; }
-    .pcard--feat .btn-primary:hover span, .pcard--feat .btn-primary:focus span { color: var(--blue) !important; }
-    .pcard--feat .btn-primary::before { background: transparent; border: 1px solid rgba(255,255,255,.35); }
-    .pcard--feat .btn-primary:hover, .pcard--feat .btn-primary:focus { color: rgba(255,255,255,.85); }
-    .pc-btn { display: flex; width: 100%; justify-content: flex-start; }
-    .pc-note { font-family: 'Jost', sans-serif; font-size: .62rem; font-weight: 300; text-align: center; margin-top: .75rem; letter-spacing: .04em; }
-    .pcard--feat .pc-note { color: rgba(255,255,255,.3); }
-    .pcard .pc-note { color: var(--muted); }
+/* ─── SECTION: RESONANCE ─────────────────────────────────── */
+.s-resonance {
+  padding-block: var(--section);
+  background: var(--white);
+}
+.s-resonance .inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+}
+.resonance-visual {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+.resonance-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+.resonance-visual:hover img { transform: scale(1.04); }
+.resonance-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--border);
+}
+.resonance-label {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  padding: 8px 14px;
+  background: var(--white);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+.resonance-text h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 58px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 36px;
+}
+.resonance-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.resonance-item {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 16px;
+}
+.resonance-item:first-child { border-top: 1px solid var(--border); }
+.resonance-arrow {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--blue-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--blue);
+  margin-top: 2px;
+}
+.resonance-item p {
+  font-size: 15.5px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--black);
+}
+.resonance-quote {
+  margin-top: 36px;
+  padding: 24px;
+  background: var(--gray-3);
+  border-left: 2.5px solid var(--blue);
+}
+.resonance-quote p {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.resonance-quote cite {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-1);
+  font-style: normal;
+}
 
-    /* S10 BONUS */
-    #bonus { background: var(--white); }
-    .bonus-inner { padding: 4rem 0; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; background: transparent; border: none; }
-    .bonus-title { font-family: 'Josefin Sans', sans-serif; font-size: 1.3rem; font-weight: 200; line-height: 1.25; margin-bottom: .75rem; }
-    .bonus-body { font-family: 'Jost', sans-serif; font-size: .875rem; font-weight: 300; line-height: 1.8; }
-    .bonus-body strong { font-weight: 600; color: var(--blue); }
-    .bonus-count { text-align: right; }
-    .bonus-num { font-family: 'Josefin Sans', sans-serif; font-size: 5rem; font-weight: 200; color: var(--blue); line-height: 1; display: block; }
-    .bonus-count-lbl { font-family: 'Jost', sans-serif; font-size: .58rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+/* ─── SECTION: TRANSFORMATION ────────────────────────────── */
+.s-transform {
+  padding-block: var(--section);
+  background: var(--black);
+  color: var(--white);
+}
+.s-transform .inner {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: start;
+}
+.transform-left h2 {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 4.5vw, 64px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+.transform-left h2 em {
+  font-style: italic;
+  color: rgba(255,255,255,0.45);
+  display: block;
+}
+.transform-left .eyebrow { color: var(--blue-light); opacity: 0.7; }
+.transform-left p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.5);
+  margin-top: 28px;
+  font-style: italic;
+}
+.transform-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.benefit-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 20px;
+  align-items: start;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.benefit-item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+.benefit-item.visible { opacity: 1; transform: translateY(0); }
+.benefit-number {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+  padding-top: 4px;
+}
+.benefit-content strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.benefit-content p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.45);
+}
 
-    /* S11 GUARANTEE */
-    #guarantee { padding: 5rem 0; background: var(--white); }
-    .guarantee-inner { display: flex; align-items: flex-start; gap: 3rem; max-width: 720px; margin: 0 auto; padding: 3rem 0; border: none; }
-    .guarantee-title { font-family: 'Josefin Sans', sans-serif; font-size: 1.1rem; font-weight: 300; margin-bottom: .6rem; line-height: 1.2; }
-    .guarantee-body { font-family: 'Jost', sans-serif; font-size: .85rem; font-weight: 300; line-height: 1.8; }
+/* ─── SECTION: PHOTOS BAND ───────────────────────────────── */
+.s-photo-band {
+  overflow: hidden;
+}
+.photo-strip {
+  display: grid;
+  grid-template-columns: 3fr 2fr 2fr 3fr;
+  gap: 3px;
+  height: 420px;
+}
+.photo-strip-item {
+  overflow: hidden;
+  position: relative;
+}
+.photo-strip-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.5s var(--ease);
+}
+.photo-strip-item:hover img { transform: scale(1.06); }
+.photo-strip-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 20px 16px;
+  background: linear-gradient(transparent, rgba(1,5,14,0.6));
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
 
-    /* S12 FAQ */
-    #faq { background: var(--white); }
-    .faq-layout { display: grid; grid-template-columns: 4fr 7fr; gap: clamp(3rem,6vw,6rem); margin-top: 3rem; }
-    .faq-sidebar { position: sticky; top: 2rem; }
-    .faq-sidebar-note { font-family: 'Jost', sans-serif; font-size: .85rem; font-weight: 300; line-height: 1.75; margin-top: 1.25rem; }
-    .faq-sidebar-note a { color: var(--black); text-decoration: underline; text-underline-offset: 3px; }
-    .faq-list { display: flex; flex-direction: column; }
-    .faq-item { border-bottom: 1px solid rgba(17,17,17,.1); }
-    .faq-btn { width: 100%; background: none; border: none; cursor: pointer; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 1.35rem 0; text-align: left; font-family: 'Jost', sans-serif; }
-    .faq-q { font-family: 'Josefin Sans', sans-serif; font-size: .88rem; font-weight: 400; line-height: 1.45; }
-    .faq-plus { width: 22px; height: 22px; flex-shrink: 0; border: 1px solid rgba(17,17,17,.2); display: flex; align-items: center; justify-content: center; margin-top: .1rem; transition: background .3s, border-color .3s, transform .4s cubic-bezier(0.22,1,0.36,1); }
-    .faq-plus svg { width: 9px; height: 9px; stroke: var(--black); transition: stroke .3s; }
-    .faq-item.open .faq-plus { background: var(--blue); border-color: var(--blue); transform: rotate(45deg); }
-    .faq-item.open .faq-plus svg { stroke: var(--white); }
-    .faq-a { font-family: 'Jost', sans-serif; font-size: .85rem; font-weight: 300; line-height: 1.85; max-height: 0; overflow: hidden; padding-bottom: 0; transition: max-height .45s cubic-bezier(.65,0,.35,1), padding .3s; }
-    .faq-item.open .faq-a { max-height: 420px; padding-bottom: 1.5rem; }
+/* ─── SECTION: PROGRAM PREVIEW ───────────────────────────── */
+.s-program {
+  padding-block: var(--section);
+  background: var(--white);
+}
+.program-header {
+  text-align: center;
+  max-width: 560px;
+  margin-inline: auto;
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+.program-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+.program-header p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--gray-1);
+}
+.program-tracks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.track-card {
+  background: var(--black);
+  color: var(--white);
+  padding: clamp(28px, 3.5vw, 52px);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: background 0.4s var(--ease);
+}
+.track-card:nth-child(2) { background: var(--blue); }
+.track-card:nth-child(3) { background: #0f1929; }
+.track-card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 80px; height: 80px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 0 0 0 80px;
+}
+.track-number {
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 300;
+  line-height: 1;
+  color: rgba(255,255,255,0.08);
+  margin-bottom: -16px;
+}
+.track-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 16px;
+}
+.track-card h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.track-card p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.55);
+}
+.track-includes {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.track-includes li {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.track-includes li::before {
+  content: '→';
+  color: var(--blue-light);
+  font-size: 11px;
+}
+.track-card:nth-child(2) .track-includes li::before { color: rgba(255,255,255,0.6); }
 
-    /* S13 FINAL CTA */
-    #final-cta { background: var(--blue); padding: var(--pad) 0; }
-    #final-cta .eyebrow { color: rgba(255,255,255,.75); }
-    #final-cta .h-xl { color: var(--white); }
-    .final-sub { font-family: 'Jost', sans-serif; font-size: .95rem; font-weight: 300; line-height: 1.8; max-width: 44ch; margin: 1.25rem 0 2.5rem; color: rgba(255,255,255,.5); }
-    .final-actions { display: flex; align-items: center; justify-content: flex-start; gap: 1.25rem; flex-wrap: wrap; }
-    #final-cta .btn-primary { background: var(--white); color: var(--blue) !important; }
-    #final-cta .btn-primary::before { background: transparent; border: 1px solid rgba(255,255,255,.28); }
-    #final-cta .btn-primary:hover { color: rgba(255,255,255,.8); }
-    .final-note { margin-top: 1.5rem; font-family: 'FuturaLT', Arial, sans-serif; font-size: .68rem; font-weight: 400; color: rgba(255,255,255,.65); }
-    .final-note strong { font-weight: 600; color: #ffffff; }
+/* ─── SECTION: INCLUDED ──────────────────────────────────── */
+.s-included {
+  padding-block: var(--section);
+  background: var(--gray-3);
+}
+.included-header {
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+.included-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  max-width: 520px;
+}
+.included-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.included-item {
+  background: var(--white);
+  padding: 36px 32px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s var(--ease);
+}
+.included-item:hover { border-bottom-color: var(--blue); }
+.included-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--blue-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.included-item h3 {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+.included-item p {
+  font-size: 13.5px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--gray-1);
+}
 
-    /* URGENCY BAR */
-    #urgency-bar {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
-      background: var(--black);
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding: .9rem clamp(1.5rem,3vw,3rem);
-      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-      transform: translateY(100%);
-      transition: transform .5s cubic-bezier(0.22,1,0.36,1);
-    }
-    #urgency-bar.show { transform: translateY(0); }
-    .ub-text { font-family: 'FuturaLT', Arial, sans-serif; font-size: .78rem; font-weight: 400; color: rgba(255,255,255,.85); }
-    .ub-text strong { color: #ffffff; font-weight: 600; }
-    .ub-right { display: flex; align-items: center; gap: 1.25rem; }
-    .ub-time { font-family: 'FuturaLT', Arial, sans-serif; font-size: .7rem; font-weight: 400; letter-spacing: .06em; color: rgba(255,255,255,.5); }
-    #urgency-bar .btn-primary {
-      background: #ffffff;
-      color: var(--blue);
-      border: none;
-    }
-    #urgency-bar .btn-primary::before {
-      background: var(--blue);
-      border: none;
-    }
-    #urgency-bar .btn-primary:hover,
-    #urgency-bar .btn-primary:focus { color: #ffffff; }
+/* ─── SECTION: MEET ALICE ────────────────────────────────── */
+.s-alice {
+  padding-block: var(--section);
+  background: var(--white);
+}
+.s-alice .inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+}
+.alice-visual {
+  position: relative;
+}
+.alice-visual .main-img {
+  aspect-ratio: 4/5;
+  overflow: hidden;
+}
+.alice-visual .main-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.alice-visual .accent-img {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 180px;
+  height: 220px;
+  overflow: hidden;
+  border: 5px solid var(--white);
+  box-shadow: 0 12px 40px rgba(1,5,14,0.15);
+}
+.alice-visual .accent-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.alice-text .eyebrow { margin-bottom: 12px; }
+.alice-text h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 28px;
+}
+.alice-text .lead {
+  font-size: 17px;
+  font-weight: 400;
+  font-family: var(--font-display);
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+.alice-text p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--gray-1);
+  margin-bottom: 14px;
+}
+.alice-credentials {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+.credential {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+.credential .dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+}
 
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .proof-grid { grid-template-columns: 1fr 1fr; }
-      .tracks-grid { grid-template-columns: 1fr; }
-      .track { border-right: none; border-bottom: 1px solid rgba(17,17,17,.1); }
-      .track:last-child { border-bottom: none; }
-      .proof-block { border-right: none; border-bottom: 1px solid rgba(17,17,17,.1); }
-      .proof-block:last-child { border-bottom: none; }
-      .week-grid { grid-template-columns: 1fr 1fr; }
-      .week-photo { display: none; }
-    }
-    @media (max-width: 768px) {
-      .res-grid, .promise-grid, .week-grid, .alice-grid, .faq-layout, .pricing-intro { grid-template-columns: 1fr; }
-      .res-h2 {
-      font-family: 'FuturaLT', Arial, sans-serif;
-      font-size: 52px;
-      font-weight: 500;
-      font-style: normal;
-      line-height: 52px;
-      color: rgb(1, 5, 14);
-      margin-top: 0px;
-      margin-bottom: 10px;
-      text-align: left;
-      box-sizing: border-box;
-    }
-      .res-sticky { position: static; }
-      .promise-photo { height: 320px; order: -1; }
-      .alice-photo { height: 320px; order: -1; }
-      .proof-grid { grid-template-columns: 1fr; }
-      .pricing-cards { grid-template-columns: 1fr; }
-      .pcard:first-child { border-right: 1px solid rgba(17,17,17,.1); border-bottom: none; }
-      .bonus-inner { grid-template-columns: 1fr; }
-      .bonus-count { text-align: left; }
-      .guarantee-inner { flex-direction: column; }
-      #urgency-bar { flex-direction: column; align-items: flex-start; padding: 1rem 1.5rem; }
-      .hero-proofs { flex-direction: column; }
-      .hero-proof { padding-right: 0; border-bottom: 1px solid rgba(255,255,255,.08); padding-bottom: .85rem; }
-    }
-    @media (max-width: 480px) {
-      .hero-
-    }
+/* ─── SECTION: SOCIAL PROOF ──────────────────────────────── */
+.s-testimonials {
+  padding-block: var(--section);
+  background: var(--black);
+  color: var(--white);
+  overflow: hidden;
+}
+.testimonials-header {
+  text-align: center;
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+.testimonials-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--white);
+}
+.testimonials-header .eyebrow { color: rgba(255,255,255,0.4); }
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.testi-card {
+  background: rgba(255,255,255,0.04);
+  padding: 36px 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.3s var(--ease);
+}
+.testi-card:hover { background: rgba(255,255,255,0.07); }
+.testi-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 20px;
+  color: var(--blue);
+  font-size: 14px;
+}
+.testi-quote {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.testi-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testi-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.testi-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white);
+  display: block;
+}
+.testi-detail {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.06em;
+  display: block;
+  margin-top: 2px;
+}
+.testi-photo {
+  grid-column: span 1;
+  min-height: 280px;
+  overflow: hidden;
+}
+.testi-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: filter 0.6s var(--ease);
+}
+.testi-photo:hover img { filter: grayscale(0%); }
 
-  </style>
+/* ─── SECTION: PRICING ───────────────────────────────────── */
+.s-pricing {
+  padding-block: var(--section);
+  background: var(--white);
+}
+.pricing-header {
+  text-align: center;
+  max-width: 540px;
+  margin-inline: auto;
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+.pricing-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+.pricing-header p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--gray-1);
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  max-width: 860px;
+  margin-inline: auto;
+}
+.pricing-card {
+  padding: clamp(32px, 4vw, 56px);
+  border: 1px solid var(--border);
+  position: relative;
+}
+.pricing-card.featured {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+.pricing-badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 4px 10px;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.pricing-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gray-2);
+  margin-bottom: 12px;
+}
+.pricing-card.featured .pricing-label { color: rgba(255,255,255,0.4); }
+.pricing-price {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 5vw, 72px);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.pricing-price sup {
+  font-size: 0.4em;
+  vertical-align: super;
+  margin-right: 2px;
+}
+.pricing-period {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--gray-1);
+  margin-bottom: 28px;
+}
+.pricing-card.featured .pricing-period { color: rgba(255,255,255,0.4); }
+.pricing-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+.pricing-features li {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--gray-1);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+.pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.55); }
+.pricing-features li::before {
+  content: '✓';
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.pricing-note {
+  font-size: 12px;
+  color: var(--gray-2);
+  text-align: center;
+  margin-top: 24px;
+}
+.pricing-note a { color: var(--blue); }
+
+/* ─── SECTION: BONUS ─────────────────────────────────────── */
+.s-bonus {
+  padding-block: var(--section-sm);
+  background: var(--blue);
+  color: var(--white);
+}
+.s-bonus .inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+}
+.bonus-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px solid rgba(255,255,255,0.3);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 16px;
+}
+.s-bonus h2 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.s-bonus h2 strong { font-weight: 600; }
+.s-bonus p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.7);
+  max-width: 560px;
+}
+.bonus-spots {
+  flex-shrink: 0;
+  text-align: center;
+  padding: 28px 36px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.bonus-spots strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1;
+}
+.bonus-spots span {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+/* ─── SECTION: GUARANTEE ─────────────────────────────────── */
+.s-guarantee {
+  padding-block: var(--section-sm);
+  background: var(--gray-3);
+}
+.s-guarantee .inner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
+  max-width: 840px;
+  margin-inline: auto;
+}
+.guarantee-icon {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border: 2px solid var(--black);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+.guarantee-icon span:first-child {
+  font-size: 30px;
+}
+.guarantee-icon span:last-child {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.guarantee-text h3 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.guarantee-text p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--gray-1);
+}
+
+/* ─── SECTION: FAQ ───────────────────────────────────────── */
+.s-faq {
+  padding-block: var(--section);
+  background: var(--white);
+}
+.faq-header {
+  text-align: center;
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+.faq-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  max-width: 960px;
+  margin-inline: auto;
+}
+.faq-item {
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--black);
+  transition: color 0.2s;
+}
+.faq-question:hover { color: var(--blue); }
+.faq-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: transform 0.3s var(--ease), color 0.2s;
+  color: var(--gray-2);
+  margin-top: 1px;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); color: var(--blue); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s var(--ease), padding 0.3s var(--ease);
+  padding: 0 24px;
+}
+.faq-item.open .faq-answer {
+  max-height: 300px;
+  padding: 0 24px 22px;
+}
+.faq-answer p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--gray-1);
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+
+/* ─── SECTION: FINAL CTA ─────────────────────────────────── */
+.s-final {
+  padding-block: var(--section);
+  background: var(--black);
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.s-final::before {
+  content: 'RUN';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: clamp(160px, 25vw, 320px);
+  font-weight: 300;
+  color: rgba(255,255,255,0.025);
+  pointer-events: none;
+  white-space: nowrap;
+  letter-spacing: -0.04em;
+}
+.s-final .container { position: relative; z-index: 2; }
+.s-final .eyebrow { color: rgba(255,255,255,0.35); }
+.s-final h2 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  max-width: 780px;
+  margin-inline: auto;
+  margin-bottom: 20px;
+}
+.s-final h2 em { font-style: italic; color: rgba(255,255,255,0.45); }
+.s-final .sub {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.45);
+  max-width: 460px;
+  margin-inline: auto;
+  margin-bottom: 48px;
+}
+.s-final .cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.final-note {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.06em;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────── */
+footer {
+  padding-block: clamp(32px, 4vw, 52px);
+  padding-bottom: clamp(72px, 8vw, 100px); /* space for urgency bar */
+  background: var(--black);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.5);
+}
+.footer-copy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.04em;
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+.footer-links a {
+  font-size: 12px;
+  color: rgba(255,255,255,0.25);
+  transition: color 0.2s;
+  letter-spacing: 0.04em;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+/* ─── SCROLL REVEAL ──────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ─── MOBILE ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-visual { min-height: 55vh; grid-row: 1; }
+  .hero-content { min-height: auto; padding-top: 48px; }
+  .hero-stats { grid-template-columns: 1fr 1fr 1fr; }
+  .hero-stat:not(:last-child) { margin-right: 12px; padding-right: 12px; }
+
+  .s-resonance .inner,
+  .s-alice .inner { grid-template-columns: 1fr; }
+  .alice-visual .accent-img { right: 16px; bottom: -20px; }
+
+  .s-transform .inner { grid-template-columns: 1fr; }
+  .transform-left h2 { font-size: clamp(32px, 6vw, 48px); }
+
+  .photo-strip { grid-template-columns: 1fr 1fr; height: 320px; }
+  .photo-strip-item:nth-child(3),
+  .photo-strip-item:nth-child(4) { display: none; }
+
+  .program-tracks { grid-template-columns: 1fr; gap: 2px; }
+  .included-grid { grid-template-columns: 1fr 1fr; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .testi-photo { display: none; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .s-bonus .inner { grid-template-columns: 1fr; }
+  .bonus-spots { text-align: left; padding: 20px; }
+  .s-guarantee .inner { grid-template-columns: 1fr; text-align: center; }
+  .guarantee-icon { margin-inline: auto; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .urgency-bar { flex-direction: column; gap: 10px; text-align: center; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 600px) {
+  .hero-stats { grid-template-columns: 1fr; gap: 16px; }
+  .hero-stat:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px; margin-right: 0; padding-right: 0; }
+  .included-grid { grid-template-columns: 1fr; }
+  .resonance-visual { aspect-ratio: 4/3; }
+}
+</style>
 </head>
 <body>
-<!-- ANNOUNCEMENT BAR -->
-<div id="announce" aria-hidden="true">
-  <div class="announce-track" id="announce-track"></div>
+
+<!-- ── URGENCY BAR ── -->
+<div class="urgency-bar">
+  <p><strong>Early bird — €97</strong> only until April 25. After that, it goes back to €297.</p>
+  <a href="#pricing" class="btn-urgent">Become a runner →</a>
 </div>
 
-<!-- ═══ S1 — HERO ═══════════════════════════════════════════ -->
-<section id="hero" aria-label="Hero">
-  <div class="hero-bg" id="hero-bg"></div>
-  <div class="hero-overlay"></div>
+<!-- ── NAV ── -->
+<nav class="nav" id="mainNav">
+  <span class="nav-logo">Le Studio by Alice</span>
+  <a href="#pricing" class="btn-nav">I'm in — €97</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- HERO -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-visual">
+    <img
+      src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7429.jpg"
+      alt="RUN SCULPT PERFORM"
+    >
+    <div class="hero-overlay"></div>
+  </div>
   <div class="hero-content">
-    <div class="hero-badge rv">
-      <span class="badge-dot"></span>
+    <div class="hero-badge">
+      <span class="dot"></span>
       The first 15 sign-ups get a free in-person class with Alice in Paris
     </div>
-    <h1 class="hero-h1 rv d1" style="font-family:'FuturaLT',Arial,sans-serif;font-size:clamp(2.2rem, 5vw, 5rem);font-weight:400;font-style:normal;line-height:1.1;letter-spacing:0;text-transform:uppercase;">RUN SCULPT PERFORM</h1>
-    <p class="hero-sub rv d2">
-      The first program fusing Pilates, Running and Nutrition —
-      whether you're lacing up for the first time, chasing your first 10K or half-marathon,
-      or building a smarter running routine.<br><br>
-      10 weeks. Three tracks. One app guiding you every day.
+    <h1>
+      Run<br>
+      <em>Sculpt</em><br>
+      Perform
+    </h1>
+    <p class="hero-sub">
+      The first program fusing Pilates, Running and Nutrition — whether you're lacing up for the first time, chasing your first 10K or half-marathon, or building a smarter routine.<br><br>
+      <strong style="color:rgba(255,255,255,0.8); font-weight:400;">10 weeks. Three tracks. One app guiding you every day.</strong>
     </p>
-    <div class="hero-actions rv d3">
-      <a href="#pricing" class="btn btn-primary"><span style="position:relative;z-index:1;">I'm in</span></a>
+    <div class="hero-cta-group">
+      <a href="#pricing" class="btn btn-primary btn-primary-lg">
+        <div class="fill"></div>
+        I'm in <span class="arrow">→</span>
+      </a>
+      <p class="hero-price-note">€97 one-time · or included in Le Studio annual subscription</p>
     </div>
-    <p class="hero-note rv d4">€97 one-time or included in the annual Studio subscription</p>
-    <div class="hero-proofs rv d4">
-      <div class="hero-proof">
-        <div class="hp-num">500+</div>
-        <div class="hp-label">Co-created with 500+ of you</div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <strong>500+</strong>
+        <span>Co-created with the community</span>
       </div>
-      <div class="hero-proof">
-        <div class="hp-num">10 wks</div>
-        <div class="hp-label">→ Complete Pilates × Running program</div>
+      <div class="hero-stat">
+        <strong>10 wks</strong>
+        <span>Complete Pilates × Running program</span>
       </div>
-      <div class="hero-proof">
-        <div class="hp-num">✓</div>
-        <div class="hp-label">Certified by a coach and a naturopath</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ S2 — RESONANCE ═════════════════════════════════════ -->
-<section id="resonance" class="s" aria-labelledby="res-h">
-  <div class="wrap">
-    <div class="res-grid">
-      <!-- Colonne gauche : H2 massif + citation -->
-      <div class="res-sticky">
-        <span class="eyebrow rv">Sound like you?</span>
-        <h2 class="res-h2 rv d1" id="res-h" style="font-family:FuturaLT,Arial,sans-serif;font-size:52px;font-weight:500;font-style:normal;line-height:52px;color:rgb(1,5,14);margin-top:0;margin-bottom:10px;text-align:left;box-sizing:border-box;">This program was designed for you.</h2>
-        <div class="res-quote rv d2">
-          <p>"500+ runners told us exactly this. This program was built from your answers."</p>
-          <cite>Co-built with Le Studio community</cite>
-        </div>
-      </div>
-      <!-- Colonne droite : items numérotés -->
-      <div class="asp-list">
-        <div class="asp-item rv d1">
-          <span class="asp-num">01</span>
-          <p class="asp-text">You want to <strong>start running</strong> — with a real plan that takes you from zero to your first 10K.</p>
-        </div>
-        <div class="asp-item rv d2">
-          <span class="asp-num">02</span>
-          <p class="asp-text">You already run and dream of <strong>going further</strong> — a half-marathon, with Pilates keeping you injury-free.</p>
-        </div>
-        <div class="asp-item rv d3">
-          <span class="asp-num">03</span>
-          <p class="asp-text">You run for pleasure and want a <strong>smarter Pilates × Running routine</strong> — no pressure, just consistency.</p>
-        </div>
+      <div class="hero-stat">
+        <strong>2</strong>
+        <span>Certified experts — coach & naturopath</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ S3 — PROMISE ═══════════════════════════════════════ -->
-<section id="promise" class="s" aria-labelledby="promise-h">
-  <div class="wrap">
-    <span class="eyebrow rv">In 10 weeks</span>
-    <h2 class="h-lg rv d1" id="promise-h">The RUN SCULPT PERFORM benefits</h2>
-    <div class="promise-grid" style="margin-top:2.5rem;">
-      <div>
-        <div class="benefit-list">
-          <div class="benefit-row rv">
-            <div class="benefit-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <p class="benefit-text">10K, half-marathon or pure enjoyment: <strong>your goal, your pace.</strong></p>
-          </div>
-          <div class="benefit-row rv d1">
-            <div class="benefit-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <p class="benefit-text">A <strong>strong, mobile, aligned body</strong> to stay injury-free.</p>
-          </div>
-          <div class="benefit-row rv d2">
-            <div class="benefit-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <p class="benefit-text"><strong>30+ recipes</strong> designed for the real needs of a runner.</p>
-          </div>
-          <div class="benefit-row rv d3">
-            <div class="benefit-check"><svg style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-top:.1rem;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <p class="benefit-text"><strong>10 weeks of structured training</strong> — Pilates sessions and running plans included.</p>
-          </div>
-        </div>
-        <div class="promise-closing rv d4">
-          <p>The program gives you <strong>the structure to become the runner you want to be.</strong></p>
-        </div>
-      </div>
-      <div class="promise-photo rv d2">
-        <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7012.jpg" alt="Alice Pilate" loading="lazy" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ S4 — WEEK ══════════════════════════════════════════ -->
-<section id="week" class="s" aria-labelledby="week-h">
-  <div class="wrap">
-    <div class="week-grid">
-      <div class="week-photo rv">
-        <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__6960.jpg" alt="Alice Pilate running, Grand Palais" loading="lazy" />
-      </div>
-      <div>
-        <span class="eyebrow rv">A sneak peek</span>
-        <h2 class="h-lg rv d1" id="week-h">Your typical week, at a glance.</h2>
-        <p class="body-sm rv d2" style="margin-top:.75rem; max-width:34ch;">Every week follows the same logic: run better, recover with intention, progress without forcing.</p>
-      </div>
-      <div class="week-card rv d2">
-        <div class="week-card-header">
-          <span class="week-card-title">Week 4 — Build Phase</span>
-          <span class="week-tag">Example</span>
-        </div>
-        <table class="week-table" aria-label="Example week schedule">
-          <tbody>
-            <tr class="wt-run"><td>Monday</td><td>Endurance run</td></tr>
-            <tr><td>Tuesday</td><td>Pilates — Strength</td></tr>
-            <tr class="wt-rest"><td>Wednesday</td><td>Active rest</td></tr>
-            <tr class="wt-run"><td>Thursday</td><td>Interval run</td></tr>
-            <tr><td>Friday</td><td>Pilates — Mobility</td></tr>
-            <tr class="wt-run"><td>Saturday</td><td>Long run</td></tr>
-            <tr class="wt-rest"><td>Sunday</td><td>Restorative Pilates</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ S5 — ALICE ═════════════════════════════════════════ -->
-<section id="alice" class="s" aria-labelledby="alice-h">
-  <div class="wrap">
-    <div class="alice-grid">
-      <div class="alice-photo rv">
-        <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7067.jpg" alt="Alice Pilate" loading="lazy" />
-      </div>
-      <div>
-        <span class="eyebrow rv">Who I am</span>
-        <h2 class="h-lg rv d1" id="alice-h" style="margin-top:.75rem;">10 years of Pilates. Then I laced up. That's how this program was born.</h2>
-        <p class="alice-body rv d2">I've been practicing and teaching Pilates for over 10 years. One day it clicked: these two disciplines were made for each other. Pilates strengthens what running breaks down and keeps injuries away. Running forges my mental strength.</p>
-        <p class="alice-body rv d3">RUN SCULPT PERFORM is the method born from my passion for Pilates and running. The one I use myself, the one that got me through the marathon, and the one I co-created with 500+ of you.</p>
-        <p class="alice-sig rv d4">— Alice</p>
-        <a href="#pricing" class="btn btn-primary rv d4"><span style="position:relative;z-index:1;">Join the program</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ S6 — PROOF ═════════════════════════════════════════ -->
-<section id="proof" class="s" aria-labelledby="proof-h">
-  <div class="wrap">
-    <span class="eyebrow rv">Designed with experts</span>
-    <h2 class="h-lg rv d1" id="proof-h" style="margin-top:.75rem;">Co-created with 500+ runners. Built with two experts.</h2>
-    <div class="proof-grid">
-      <div class="proof-block rv">
-        <div class="proof-n">01</div>
-        <h3>500+ runners surveyed</h3>
-        <p class="proof-role">Co-creation</p>
-        <p class="proof-body">This program was shaped by your answers. 198 runners shared their goals, their struggles, and what they needed. Every track, every week was built from that.</p>
-      </div>
-      <div class="proof-block rv d1">
-        <div class="proof-n">02</div>
-        <h3>Joseph Fanhert</h3>
-        <p class="proof-role">Certified sports coach — Running, Triathlon, Physical preparation</p>
-        <p class="proof-body">Joseph designed and validated every running plan in the program — intervals, tempo, long runs, all three tracks.</p>
-      </div>
-      <div class="proof-block rv d2">
-        <div class="proof-n">03</div>
-        <h3>Aurélie Canzoneri</h3>
-        <p class="proof-role">Certified naturopath FÉNA — Stanford Continuing Studies, Nutrition Science — Published author</p>
-        <p class="proof-body">Aurélie created the nutrition track: 30+ recipes and a mindset guide calibrated for female runners.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PHOTO INTERLUDE -->
-<div class="photo-interlude" aria-hidden="true">
-  <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7063.jpg" alt="" loading="lazy" />
-</div>
-
-<!-- ═══ S7 — INCLUDED ══════════════════════════════════════ -->
-<section id="included" class="s" aria-labelledby="inc-h">
-  <div class="wrap">
-    <span class="eyebrow rv">Everything's included</span>
-    <h2 class="h-lg rv d1" id="inc-h" style="margin-top:.75rem;">One program. A clear structure to reach your goals.</h2>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,5rem); align-items:start; margin-top:2.5rem;">
-      <!-- Left: numbered list -->
-      <div class="inc-list" style="margin-top:0;">
-        <div class="inc-row rv">
-          <span class="inc-num">01</span>
-          <div class="inc-right">
-            <p class="inc-title">Daily training app</p>
-            <p class="inc-body">Morning check-in, progress dashboard, pace simulator — everything in one app.</p>
-          </div>
-        </div>
-        <div class="inc-row rv d1">
-          <span class="inc-num">02</span>
-          <div class="inc-right">
-            <p class="inc-title">Week-by-week running plan</p>
-            <p class="inc-body">3 adapted tracks: Road to 10K, Run to 21K, or Just Run & Pilates. 10 weeks of progression.</p>
-          </div>
-        </div>
-        <div class="inc-row rv d2">
-          <span class="inc-num">03</span>
-          <div class="inc-right">
-            <p class="inc-title">29 integrated Pilates classes</p>
-            <p class="inc-body">29 classes linked to the running plan + 15 stretching classes: prevention, performance, active recovery.</p>
-          </div>
-        </div>
-        <div class="inc-row rv d3">
-          <span class="inc-num">04</span>
-          <div class="inc-right">
-            <p class="inc-title">100-page ebook — Nutrition & Mindset</p>
-            <p class="inc-body">30+ recipes by Aurélie Canzoneri. Mental preparation, visualization, neuroscience.</p>
-          </div>
-        </div>
-        <div class="inc-row rv d4">
-          <span class="inc-num">05</span>
-          <div class="inc-right">
-            <p class="inc-title">Private community + tracking tools</p>
-            <p class="inc-body">Private channel between runners, training journal, synced .ics calendar, Spotify playlists.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Right: photo -->
-      <div class="rv d2" style="height:clamp(420px,55vw,600px); overflow:hidden; position:sticky; top:2rem;">
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- RESONANCE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="s-resonance">
+  <div class="container">
+    <div class="inner">
+      <div class="resonance-visual reveal">
         <img
-          src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7019.jpg"
-          alt="Le Studio"
-          loading="lazy"
-          style="width:100%; height:100%; object-fit:cover; object-position:center 55%;"
-        />
+          src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__6988.jpg"
+          alt="Running with intention"
+        >
+        <div class="resonance-label">Le Studio × Running</div>
+      </div>
+      <div class="resonance-text">
+        <div class="eyebrow reveal">Sound like you?</div>
+        <h2 class="reveal">This program was designed for you</h2>
+        <ul class="resonance-list">
+          <li class="resonance-item reveal reveal-delay-1">
+            <span class="resonance-arrow">→</span>
+            <p>You want to start running — with a real plan that takes you from zero to your first 10K, without guessing</p>
+          </li>
+          <li class="resonance-item reveal reveal-delay-2">
+            <span class="resonance-arrow">→</span>
+            <p>You already run and dream of going further — a half-marathon, with Pilates keeping you injury-free along the way</p>
+          </li>
+          <li class="resonance-item reveal reveal-delay-3">
+            <span class="resonance-arrow">→</span>
+            <p>You run for pleasure and want a smarter Pilates × Running routine — no pressure, just real consistency</p>
+          </li>
+        </ul>
+        <div class="resonance-quote reveal reveal-delay-4">
+          <p>"500+ runners told us exactly this. This program was built from your answers."</p>
+          <cite>— Co-built with Le Studio community</cite>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ S8 — TRACKS ════════════════════════════════════════ -->
-<section id="tracks" class="s" aria-labelledby="tracks-h">
-  <div class="wrap">
-    <span class="eyebrow rv">Three tracks, one program</span>
-    <h2 class="h-lg rv d1" id="tracks-h" style="margin-top:.75rem; margin-bottom:3rem;">Choose your starting line. We'll handle the road.</h2>
-    <div class="tracks-grid">
-      <div class="track rv">
-        <div class="track-n">01</div>
-        <p class="track-title">Just Run & Pilates</p>
-        <p class="track-goal">Goal: Run better, no distance pressure</p>
-        <ul class="track-list">
-          <li>Run when you want, how you want</li>
-          <li>Pilates adapted to your running practice</li>
-          <li>Running as a lifestyle, not a competition</li>
-        </ul>
-        <p class="track-for">For you if you already run and want a smarter Pilates × Running routine.</p>
-        <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-outline" style="font-size:.65rem; padding:.55rem 1.25rem;"><span style="position:relative;z-index:1;">Start this track</span></a></div>
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- TRANSFORMATION / BENEFITS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="s-transform">
+  <div class="container">
+    <div class="inner">
+      <div class="transform-left reveal">
+        <div class="eyebrow">In 10 weeks</div>
+        <h2>
+          The RUN<br>SCULPT<br>
+          <em>PERFORM</em><br>
+          benefits
+        </h2>
+        <p>The program gives you the structure to become the runner you want to be.</p>
+        <a href="#pricing" class="btn btn-white" style="margin-top:32px;">
+          <div class="fill"></div>
+          Start now <span class="arrow">→</span>
+        </a>
       </div>
-      <div class="track rv d1">
-        <div class="track-n">02</div>
-        <p class="track-title">Road to 10K</p>
-        <p class="track-goal">Goal: 0 → 10 km</p>
-        <ul class="track-list">
-          <li>Progressive walk/run intervals</li>
-          <li>Pilates focused on pelvic stability</li>
-          <li>Your first 10K in 10 weeks</li>
-        </ul>
-        <p class="track-for">For you if you can't yet run 30 minutes straight today.</p>
-        <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-outline" style="font-size:.65rem; padding:.55rem 1.25rem;"><span style="position:relative;z-index:1;">Start this track</span></a></div>
-      </div>
-      <div class="track rv d2">
-        <div class="track-n">03</div>
-        <p class="track-title">Run to 21K</p>
-        <p class="track-goal">Goal: 10 km → Half-marathon</p>
-        <ul class="track-list">
-          <li>Progressive interval and tempo sessions</li>
-          <li>Performance Pilates + injury prevention</li>
-          <li>Your half-marathon in 10 weeks</li>
-        </ul>
-        <p class="track-for">For you if you already run 10K and want to go further.</p>
-        <div style="margin-top:1.25rem;"><a href="#pricing" class="btn btn-outline" style="font-size:.65rem; padding:.55rem 1.25rem;"><span style="position:relative;z-index:1;">Start this track</span></a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ S9 — PRICING ═══════════════════════════════════════ -->
-<section id="pricing" class="s" aria-labelledby="pricing-h">
-  <div class="wrap">
-    <!-- Header : titre à gauche, description à droite -->
-    <div class="pricing-intro">
-      <div>
-        <span class="eyebrow rv">Choose your plan</span>
-        <h2 class="h-lg rv d1" id="pricing-h">Two ways to start running with Le Studio.</h2>
-        <div class="cd-wrap rv d2" id="cd-wrap" aria-live="polite">
-          <span class="cd-label">Early bird closes in</span>
-          <div class="cd-timer">
-            <div class="cd-u"><span class="cd-n" id="cd-d">--</span><span class="cd-l">days</span></div>
-            <span class="cd-sep">:</span>
-            <div class="cd-u"><span class="cd-n" id="cd-h">--</span><span class="cd-l">hours</span></div>
-            <span class="cd-sep">:</span>
-            <div class="cd-u"><span class="cd-n" id="cd-m">--</span><span class="cd-l">mins</span></div>
+      <div class="transform-right">
+        <div class="benefit-item">
+          <span class="benefit-number">01</span>
+          <div class="benefit-content">
+            <strong>10K, Half-marathon or pure enjoyment</strong>
+            <p>Your goal, your pace. Three dedicated tracks so you progress exactly where you are — and toward exactly where you want to go.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-number">02</span>
+          <div class="benefit-content">
+            <strong>A strong, mobile, aligned body</strong>
+            <p>Pilates sessions built specifically for runners — to stay injury-free, move efficiently, and feel better every single session.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-number">03</span>
+          <div class="benefit-content">
+            <strong>30+ recipes for real runners</strong>
+            <p>Nutrition designed for the actual needs of a runner's body. Energy, recovery, performance — all covered.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-number">04</span>
+          <div class="benefit-content">
+            <strong>10 weeks of structured training</strong>
+            <p>Pilates sessions and progressive running plans, day by day. The structure that was missing — finally in your pocket.</p>
           </div>
         </div>
       </div>
-      <p class="body-sm rv d2">Lifetime access. Secure payment. 14-day money-back guarantee. Start today at the early bird price and access all three tracks immediately.</p>
-    </div>
-
-    <!-- Cards -->
-    <div class="pricing-cards">
-      <div class="pcard pcard--feat rv">
-        <span class="pc-badge">Early bird — Limited spots</span>
-        <p class="pc-lbl">RUN SCULPT PERFORM — One-shot</p>
-        <p class="pc-price"><sup>€</sup>97</p>
-        <p class="pc-was">€297</p>
-        <p class="pc-or">or 2 × €49</p>
-        <p class="pc-deadline">Until April 25 only</p>
-        <div class="pc-lines">
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Complete training app</p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>10-week running plan (3 tracks)</p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>29 Pilates classes</p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Nutrition & mindset ebook (100 pages)</p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Journal + .ics calendar</p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private community + Spotify playlists</p>
-        </div>
-        <a href="https://app.lestudiobyalice.com/checkout/new?o=199268" class="pc-btn" style="display:flex;width:100%;height:2.75rem;align-items:center;justify-content:flex-start;padding-left:1.5rem;background:#ffffff;color:var(--blue);font-family:FuturaLT,Arial,sans-serif;font-size:.8rem;font-weight:400;letter-spacing:.04em;text-decoration:none;position:relative;overflow:hidden;cursor:pointer;transition:color 350ms ease-in-out;" onmouseover="this.style.color='#ffffff';this.querySelector('.ub').style.transform='scaleX(1)';" onmouseout="this.style.color='var(--blue)';this.querySelector('.ub').style.transform='scaleX(0)';"><span class="ub" style="position:absolute;inset:0;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform 350ms ease-in-out;z-index:0;"></span><span style="position:relative;z-index:1;color:#1A4BBE !important;">Become a runner — €97</span></a>
-        <p class="pc-note">Lifetime access · Secure payment · 14-day guarantee</p>
-      </div>
-      <div class="pcard rv d1">
-        <span class="pc-badge">Includes all of Le Studio</span>
-        <p class="pc-lbl">Annual Studio Subscription</p>
-        <p class="pc-price"><sup>€</sup>20<span style="font-size:1.5rem;font-family:'FuturaLT',Arial,sans-serif;vertical-align:baseline;font-weight:300;">/month</span></p>
-        <p class="pc-was" style="text-decoration:none; color:rgba(17,17,17,.45);">€250/year · 3 free days</p>
-        <p class="pc-or">&nbsp;</p>
-        <p class="pc-deadline">Everything in the one-shot plan, plus:</p>
-        <div class="pc-lines">
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Everything in the one-shot plan</p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>+ 235 on-demand classes, all levels</strong></p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>+ Exclusive programs & challenges</strong></p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>+ New content every week</strong></p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>Access on all your devices · Cancel anytime</strong></p>
-        </div>
-        <a href="https://www.lestudiobyalice.com/free-trial" class="btn btn-primary pc-btn"><span style="position:relative;z-index:1;">Start my free trial</span></a>
-        <p class="pc-note">3 free days · Then €20/month · No commitment</p>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ S10 — BONUS ════════════════════════════════════════ -->
-<section id="bonus" style="padding:2rem 0;" aria-label="Exclusive bonus">
-  <div class="wrap">
-    <div class="bonus-inner rv">
-      <div>
-        <p style="font-size:.62rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:.75rem;">Bonus</p>
-        <h2 class="h-lg" style="margin-bottom:.75rem;">Live Pilates × Run class in studio</h2>
-        <p class="body-sm">The first 15 sign-ups get access to an exclusive in-person class with Alice at a Marais studio in Paris, May 27.</p>
-      </div>
-      <div class="bonus-count">
-        <span class="bonus-num">15</span>
-        <span class="bonus-count-lbl">spots only</span>
-      </div>
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PHOTO BAND -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="s-photo-band">
+  <div class="photo-strip">
+    <div class="photo-strip-item">
+      <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7012.jpg" alt="Running">
     </div>
-  </div>
-</section>
-
-<!-- ═══ S11 — GUARANTEE ════════════════════════════════════ -->
-<section id="guarantee" style="padding:2rem 0;" aria-label="Guarantee">
-  <div class="wrap">
-    <div class="guarantee-inner rv">
-      <div>
-        <p class="guarantee-title">Satisfied or refunded. Period.</p>
-        <p class="guarantee-body">If within 14 days you feel this program isn't for you — full refund, no questions asked. We believe in this program and we want you to start without pressure.</p>
-      </div>
+    <div class="photo-strip-item">
+      <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7019.jpg" alt="Pilates">
+      <div class="photo-strip-label">Pilates × Running</div>
     </div>
-  </div>
-</section>
-
-<!-- ═══ S12 — FAQ ══════════════════════════════════════════ -->
-<section id="faq" class="s" aria-labelledby="faq-h">
-  <div class="wrap">
-    <h2 class="h-lg rv" id="faq-h">Frequently asked questions</h2>
-    <div class="faq-layout">
-      <div class="faq-sidebar rv d1">
-        <div><a href="#pricing" class="btn btn-primary"><span style="position:relative;z-index:1;">Join the program</span></a></div>
-      </div>
-      <div class="faq-list rv d2">
-        <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">I'm scared of getting injured if I start running more.</span>
-            <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
-          </button>
-          <div class="faq-a">Injury was the #1 frustration in our survey — 31% of runners told us pain holds them back. That's exactly why the entire program is built on a Pilates foundation. Every week pairs your running sessions with targeted Pilates that strengthens what running breaks down: hips, core, hamstrings, ankles. If something already hurts when you run, this is where it gets fixed.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">I already run 2-3 times a week. Why would I need this?</span>
-            <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
-          </button>
-          <div class="faq-a">72% of the runners who answered our survey run regularly — and their top frustrations were stagnation and lack of structure. Running by feel only gets you so far. This program replaces guesswork with a week-by-week plan: what to run, when to do Pilates, when to rest. The structure is the product.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">I'm not convinced Pilates actually makes a difference for running.</span>
-            <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
-          </button>
-          <div class="faq-a">55% of respondents ranked injury prevention as their #1 reason for combining Pilates and running. It's not a trend — it's biomechanics. Pilates builds the stabilizers that running alone ignores. Core that holds your posture at km 15. Hips that absorb impact without breaking down. Every session is designed by a certified coach.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">I don't have time for an extra program on top of my runs.</span>
-            <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
-          </button>
-          <div class="faq-a">This doesn't add to your routine — it replaces it. 3 running sessions (30–60 min) + 3 Pilates classes (30–45 min). Sunday is rest. The app tells you what to do each morning. No thinking, no planning. Built for busy weeks.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">I've tried running plans before and always dropped off after a few weeks.</span>
-            <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
-          </button>
-          <div class="faq-a">20% of surveyed runners said motivation and consistency were their main struggle. Generic plans fail because they give you content without structure. Three tracks, daily guidance in the app, progressive difficulty, and a private community — you don't decide what to do, you just show up.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-btn" aria-expanded="false">
-            <span class="faq-q">Is €97 really worth it for 10 weeks?</span>
-            <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
-          </button>
-          <div class="faq-a">The program includes a full running plan by a certified coach, 10 weeks of Pilates classes, 30+ nutrition recipes from a certified naturopath, and daily app guidance. That's less than a single session with a running coach. Early bird €97 until April 25 — then back to €297.</div>
-        </div>
-      </div>
+    <div class="photo-strip-item">
+      <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7063.jpg" alt="Training">
     </div>
-  </div>
-</section>
-
-<!-- ═══ S13 — FINAL CTA ════════════════════════════════════ -->
-<section id="final-cta" class="s" aria-label="Final call to action">
-  <div class="wrap" style="text-align:left;">
-    <span class="eyebrow rv" style="display:block; margin-bottom:1rem;">Your next start line</span>
-    <h2 class="h-xl rv d1">10 weeks to become<br>the runner you already are.</h2>
-    <p class="final-sub rv d2">The structure. The experts. The community. Everything is ready — all that's missing is you.</p>
-    <div class="final-actions rv d3">
-      <a href="#pricing" class="btn btn-primary" style="padding:.8rem 2.5rem;"><span style="position:relative;z-index:1;">I'm in</span></a>
+    <div class="photo-strip-item">
+      <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7067.jpg" alt="Performance">
+      <div class="photo-strip-label">10 weeks</div>
     </div>
-    <p class="final-note rv d4"><strong>€97 one-time</strong> early bird until April 25 · or Le Studio annual from <strong>€20/month</strong></p>
-  </div>
-</section>
-
-<!-- URGENCY BAR -->
-<div id="urgency-bar" role="complementary" aria-label="Early bird offer">
-  <p class="ub-text"><strong>Early bird €97</strong> — until April 25 only</p>
-  <div class="ub-right">
-    <span class="ub-time" id="ub-time"></span>
-    <a href="#pricing" class="btn btn-primary" style="padding:.6rem 1.75rem;"><span style="position:relative;z-index:1;">Become a runner</span></a>
   </div>
 </div>
 
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- THREE TRACKS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="s-program">
+  <div class="container">
+    <div class="program-header reveal">
+      <div class="eyebrow">Choose your track</div>
+      <h2>One program, three paths</h2>
+      <p>Whether you're a complete beginner or a seasoned runner, your track adapts to your level and ambition. Start where you are.</p>
+    </div>
+    <div class="program-tracks">
+      <div class="track-card reveal reveal-delay-1">
+        <div class="track-number">01</div>
+        <div class="track-tag">Beginner</div>
+        <h3>Zero to 10K</h3>
+        <p>A gentle, progressive build from your first run to your first milestone race — with Pilates protecting every step.</p>
+        <ul class="track-includes">
+          <li>3 runs/week (30–45 min)</li>
+          <li>3 Pilates sessions (30–40 min)</li>
+          <li>Beginner nutrition guide</li>
+          <li>Daily app guidance</li>
+        </ul>
+      </div>
+      <div class="track-card reveal reveal-delay-2">
+        <div class="track-number">02</div>
+        <div class="track-tag">Intermediate</div>
+        <h3>Half-Marathon Ready</h3>
+        <p>Structured long-run programming combined with targeted Pilates to build the endurance and resilience a half-marathon demands.</p>
+        <ul class="track-includes">
+          <li>3–4 runs/week (40–60 min)</li>
+          <li>3 Pilates sessions (35–45 min)</li>
+          <li>Race-day nutrition strategy</li>
+          <li>Injury prevention focus</li>
+        </ul>
+      </div>
+      <div class="track-card reveal reveal-delay-3">
+        <div class="track-number">03</div>
+        <div class="track-tag">Lifestyle</div>
+        <h3>Smarter Routine</h3>
+        <p>For runners who love the sport and want a more intelligent, balanced practice — less injury, more joy, real consistency.</p>
+        <ul class="track-includes">
+          <li>3 runs/week (30–50 min)</li>
+          <li>3 Pilates sessions (35–40 min)</li>
+          <li>Recovery & longevity focus</li>
+          <li>Flexible programming</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- WHAT'S INCLUDED -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="s-included">
+  <div class="container">
+    <div class="included-header reveal">
+      <div class="eyebrow">What you get</div>
+      <h2>Everything you need. Nothing you don't.</h2>
+    </div>
+    <div class="included-grid">
+      <div class="included-item reveal reveal-delay-1">
+        <div class="included-icon">🏃</div>
+        <h3>Progressive Running Plans</h3>
+        <p>Day-by-day structured plans adapted to your track. No guesswork — just open the app and go.</p>
+      </div>
+      <div class="included-item reveal reveal-delay-2">
+        <div class="included-icon">🧘</div>
+        <h3>30+ Pilates Video Sessions</h3>
+        <p>Filmed exclusively for runners. Focus on mobility, core strength, and injury prevention.</p>
+      </div>
+      <div class="included-item reveal reveal-delay-3">
+        <div class="included-icon">🥗</div>
+        <h3>30+ Runner Recipes</h3>
+        <p>Designed by a certified naturopath. Energy, recovery, and performance — covered for every phase.</p>
+      </div>
+      <div class="included-item reveal reveal-delay-1">
+        <div class="included-icon">📱</div>
+        <h3>Daily App Guidance</h3>
+        <p>Your full program — runs, Pilates, nutrition — lives in one app. Structured, trackable, simple.</p>
+      </div>
+      <div class="included-item reveal reveal-delay-2">
+        <div class="included-icon">🤝</div>
+        <h3>Private Community Access</h3>
+        <p>A space for accountability, motivation, and shared progress. You're not doing this alone.</p>
+      </div>
+      <div class="included-item reveal reveal-delay-3">
+        <div class="included-icon">♾️</div>
+        <h3>Lifetime Access</h3>
+        <p>10 weeks of content — yours to keep and revisit. Run it again next season. Or just enjoy it on your schedule.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MEET ALICE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="s-alice">
+  <div class="container">
+    <div class="inner">
+      <div class="alice-visual reveal">
+        <div class="main-img">
+          <img
+            src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__6989.jpg"
+            alt="Alice — Founder, Le Studio"
+          >
+        </div>
+        <div class="accent-img">
+          <img
+            src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__6960.jpg"
+            alt="Le Studio"
+          >
+        </div>
+      </div>
+      <div class="alice-text reveal reveal-delay-2">
+        <div class="eyebrow">Your expert</div>
+        <h2>Meet Alice</h2>
+        <p class="lead">"I built this program because I was you — a runner who loved the sport but kept hitting the same walls."</p>
+        <p>Alice is the founder of Le Studio, a Pilates-first wellness platform trusted by thousands. She's a certified Pilates instructor with a background in sports performance and a passion for accessible, intelligent movement.</p>
+        <p>RUN SCULPT PERFORM was co-created with 500+ members of the Le Studio community — real runners, real frustrations, real transformation. Alice co-developed the nutrition side with a certified naturopath, making this the most complete running program she's ever built.</p>
+        <div class="alice-credentials">
+          <div class="credential"><span class="dot"></span>Certified Pilates Instructor</div>
+          <div class="credential"><span class="dot"></span>Sports Performance</div>
+          <div class="credential"><span class="dot"></span>500+ Community Members</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- TESTIMONIALS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="s-testimonials">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <div class="eyebrow">Community</div>
+      <h2>What 500+ runners told us</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"I tried 4 running plans before this. None of them stuck. Alice's approach is the first one that actually fits my real life."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div>
+            <span class="testi-name">Sophie M.</span>
+            <span class="testi-detail">Completed 10K track · Paris</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The Pilates component is the thing I didn't know I needed. No pain in 10 weeks. First time that's ever happened."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">C</div>
+          <div>
+            <span class="testi-name">Charlotte B.</span>
+            <span class="testi-detail">Half-marathon track · Lyon</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-photo">
+        <img
+          src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7258.jpg"
+          alt="Running community"
+        >
+      </div>
+      <div class="testi-card reveal reveal-delay-3">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The nutrition section alone was worth it. I never knew how badly I was fueling my runs. Total game changer."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">M</div>
+          <div>
+            <span class="testi-name">Marie L.</span>
+            <span class="testi-detail">Lifestyle track · Bordeaux</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-4">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"I was running 3x a week with no real progress. 10 weeks later I feel like a completely different athlete."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">J</div>
+          <div>
+            <span class="testi-name">Julie R.</span>
+            <span class="testi-detail">Half-marathon track · Nantes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PRICING -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="s-pricing" id="pricing">
+  <div class="container">
+    <div class="pricing-header reveal">
+      <div class="eyebrow">Simple pricing</div>
+      <h2>One program. Two ways in.</h2>
+      <p>Both options give you full access to all three tracks, all content, lifetime access — and the community.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card featured reveal reveal-delay-1">
+        <div class="pricing-badge">Early Bird</div>
+        <div class="pricing-label">One-time purchase</div>
+        <div class="pricing-price"><sup>€</sup>97</div>
+        <div class="pricing-period">One-time · Early bird until April 25</div>
+        <ul class="pricing-features">
+          <li>Full 10-week program (all 3 tracks)</li>
+          <li>30+ Pilates sessions for runners</li>
+          <li>Progressive running plans</li>
+          <li>30+ nutrition recipes</li>
+          <li>Daily app guidance</li>
+          <li>Private community access</li>
+          <li>Lifetime access — yours to keep</li>
+        </ul>
+        <a href="#" class="btn btn-white" style="width:100%; justify-content:center;">
+          <div class="fill"></div>
+          I'm in <span class="arrow">→</span>
+        </a>
+      </div>
+      <div class="pricing-card reveal reveal-delay-2">
+        <div class="pricing-label">Le Studio Annual</div>
+        <div class="pricing-price"><sup>€</sup>20<span style="font-size:0.4em; vertical-align:baseline;">/mo</span></div>
+        <div class="pricing-period">Billed annually · Full Studio access</div>
+        <ul class="pricing-features">
+          <li>RUN SCULPT PERFORM included</li>
+          <li>Full Le Studio class library</li>
+          <li>New programs as they launch</li>
+          <li>Live sessions with Alice</li>
+          <li>All tracks, all content</li>
+          <li>No commitment</li>
+        </ul>
+        <a href="#" class="btn btn-outline" style="width:100%; justify-content:center;">
+          <div class="fill"></div>
+          Explore Le Studio <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+    <p class="pricing-note reveal">Not sure? You have <a href="#guarantee">14 days to decide</a> — full refund, no questions asked.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- BONUS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="s-bonus">
+  <div class="container">
+    <div class="inner">
+      <div class="reveal">
+        <div class="bonus-badge">Exclusive bonus</div>
+        <h2><strong>Live Pilates × Run class</strong><br>in studio, in Paris.</h2>
+        <p>The first 15 sign-ups get access to an exclusive in-person class with Alice at a Marais studio in Paris, May 27. Come run and move together — for real.</p>
+      </div>
+      <div class="bonus-spots reveal reveal-delay-2">
+        <strong>15</strong>
+        <span>spots only</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- GUARANTEE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="s-guarantee" id="guarantee">
+  <div class="container">
+    <div class="inner reveal">
+      <div class="guarantee-icon">
+        <span>✓</span>
+        <span>14 days</span>
+      </div>
+      <div class="guarantee-text">
+        <h3>Satisfied or refunded. Period.</h3>
+        <p>If within 14 days you feel this program isn't right for you — full refund, no questions asked. We believe in what we've built, and we want you to start without any pressure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- FAQ -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="s-faq">
+  <div class="container">
+    <div class="faq-header reveal">
+      <div class="eyebrow">Questions</div>
+      <h2>Everything you might be thinking</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-question">
+          I'm scared of getting injured if I run more.
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Injury prevention was the #1 frustration in our survey — 31% of runners told us pain holds them back. That's exactly why the entire program is built on a Pilates foundation. Every running week is paired with targeted sessions that protect your body as your mileage builds.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-question">
+          I already run 2–3 times a week. Why would I need this?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>72% of the runners who answered our survey run regularly — and their top frustrations were stagnation and lack of structure. Running consistently is great. Running with purpose, Pilates support, and a real progression plan is what takes you further.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-question">
+          I'm not convinced Pilates actually makes a difference for running.
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>55% of respondents ranked injury prevention as their #1 reason for combining Pilates and running. Every Pilates session in this program is designed specifically for runner bodies — hips, glutes, core, posture. It's not generic. It was built for this.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-question">
+          I don't have time for an extra program on top of my runs.
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>This doesn't add to your routine — it replaces it. 3 running sessions (30–60 min) + 3 Pilates classes (30–45 min). Sunday is rest. It's designed to fit real life, not an ideal one.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-question">
+          I've tried running plans before and always dropped off.
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>20% of surveyed runners said motivation and consistency were their main struggle. Three tracks with progressive difficulty, daily app guidance, and a private community are in place specifically to keep you going. You're not alone in this one.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-question">
+          Is €97 really worth it for 10 weeks?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Less than the cost of a single session with a running coach. The early bird price of €97 is available until April 25 — after that, it goes back to €297. And remember: 14-day full refund if it's not right for you.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- FINAL CTA -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="s-final">
+  <div class="container">
+    <div class="eyebrow reveal">Your move</div>
+    <h2 class="reveal">10 weeks to become<br>the runner you <em>already are.</em></h2>
+    <p class="sub reveal">The structure. The experts. The community.<br>Everything is ready — all that's missing is you.</p>
+    <div class="cta-group reveal">
+      <a href="#pricing" class="btn btn-primary btn-primary-lg">
+        <div class="fill"></div>
+        I'm in <span class="arrow">→</span>
+      </a>
+      <p class="final-note">€97 one-time · Early bird until April 25 · 14-day refund guaranteed</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- FOOTER -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container footer-inner">
+    <span class="footer-logo">Le Studio by Alice</span>
+    <p class="footer-copy">© 2025 Le Studio by Alice. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── SCRIPTS ─────────────────────────────────────────── -->
 <script>
-(function() {
-  'use strict';
+// ── Nav scroll ──
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
 
-  // ANNOUNCE BAR
-  const aItems = [
-    'LAUNCHING APRIL 5',
-    'Early bird — <strong>€97</strong> until April 25',
-    'Co-created with <strong>500+ runners</strong>',
-    'Three tracks · One app',
-    '<strong>10 weeks</strong> — Pilates × Running × Nutrition',
-    'Certified by a coach and a naturopath',
-  ];
-  const at = document.getElementById('announce-track');
-  let h = '';
-  for (let i = 0; i < 2; i++) aItems.forEach(item => {
-    h += `<span class="a-item">${item}<span class="a-sep">·</span></span>`;
+// ── Scroll reveal ──
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
   });
-  at.innerHTML = h;
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
 
-  // HERO BG zoom
-  const bg = document.getElementById('hero-bg');
-  if (bg) setTimeout(() => bg.classList.add('loaded'), 80);
-
-  // SCROLL REVEAL
-  const rvEls = document.querySelectorAll('.rv');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  rvEls.forEach(el => obs.observe(el));
-  document.querySelectorAll('#hero .rv').forEach((el, i) => {
-    setTimeout(() => el.classList.add('in'), 180 + i * 130);
+// ── Benefit items reveal (stagger) ──
+const benefits = document.querySelectorAll('.benefit-item');
+const benefitObserver = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 120);
+      benefitObserver.unobserve(e.target);
+    }
   });
+}, { threshold: 0.1 });
+benefits.forEach(el => benefitObserver.observe(el));
 
-  // STICKY BAR
-  const ub = document.getElementById('urgency-bar');
-  window.addEventListener('scroll', () => {
-    ub.classList.toggle('show', window.scrollY > window.innerHeight * 0.75);
-  }, { passive: true });
-
-  // FAQ
-  document.querySelectorAll('.faq-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(i => {
-        i.classList.remove('open');
-        i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
-      });
-      if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
-    });
+// ── FAQ accordion ──
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    // Open clicked (if was closed)
+    if (!isOpen) item.classList.add('open');
   });
-
-  // COUNTDOWN — April 25, 2026 23:59 Paris
-  const DEADLINE = new Date('2026-04-25T23:59:00+02:00');
-  function pad(n) { return String(n).padStart(2,'0'); }
-  function tick() {
-    const diff = DEADLINE - new Date();
-    if (diff <= 0) { const cw = document.getElementById('cd-wrap'); if (cw) cw.style.display='none'; return; }
-    const d = Math.floor(diff/86400000);
-    const hh = Math.floor((diff%86400000)/3600000);
-    const mm = Math.floor((diff%3600000)/60000);
-    document.getElementById('cd-d').textContent = pad(d);
-    document.getElementById('cd-h').textContent = pad(hh);
-    document.getElementById('cd-m').textContent = pad(mm);
-    const ut = document.getElementById('ub-time');
-    if (ut) ut.textContent = d + 'd ' + pad(hh) + 'h ' + pad(mm) + 'm';
-  }
-  tick();
-  setInterval(tick, 60000);
-
-})();
+});
 </script>
 </body>
 </html>
