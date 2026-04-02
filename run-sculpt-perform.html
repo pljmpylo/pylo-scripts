@@ -3,348 +3,429 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RUN SCULPT PERFORM — Le Studio by Alice</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Run Sculpt Perform — Le Studio by Alice</title>
 
 <style>
-/* ─── DESIGN SYSTEM ─────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────
+   FUTURALT — Fallback stack pixel-fidèle
+   Remplacer par @font-face Futuralt réel en production
+───────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&display=swap');
+
+/* ─────────────────────────────────────────────────────────────
+   DESIGN TOKENS — SOURCE OF TRUTH (lestudiobyalice.com)
+───────────────────────────────────────────────────────────── */
 :root {
-  --black:       #01050e;
-  --white:       #ffffff;
-  --blue:        #1539C8;
-  --blue-hover:  #0f2a99;
-  --blue-light:  #e8edfc;
-  --gray-1:      #6b7280;
-  --gray-2:      #9ca3af;
-  --gray-3:      #f3f4f6;
-  --border:      rgba(1,5,14,0.10);
+  /* COLORS */
+  --colors--bleu:  #1a4bbe;
+  --colors--noir:  #01050e;
+  --colors--beige: #f8f3ed;
+  --colors--blanc: #ffffff;
+  --colors--transparent: #fff0;
+  --border-subtle: rgba(1, 5, 14, 0.10);
 
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-sans:    'DM Sans', system-ui, sans-serif;
+  /* TEXT SIZES */
+  --text-size--h1:      6rem;      /* 96px */
+  --text-size--h2:      3.25rem;   /* 52px */
+  --text-size--large:   2rem;      /* 32px — H3 / body */
+  --text-size--medium:  1.75rem;   /* 28px */
+  --text-size--regular: 1.5rem;    /* 24px */
+  --text-size--normal:  1rem;      /* 16px */
+  --text-size--small:   .875rem;   /* 14px */
 
-  --max:      1200px;
-  --max-text: 720px;
-  --gutter:   clamp(20px, 5vw, 60px);
-  --section:  clamp(80px, 10vw, 140px);
-  --section-sm: clamp(48px, 6vw, 80px);
+  /* FONT */
+  --font: 'Jost', 'Century Gothic', Arial, sans-serif;
+  /* Production: 'Futuralt', Arial, sans-serif */
 
-  --ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  /* LAYOUT */
+  --max: 1200px;
+  --gutter: clamp(20px, 5vw, 60px);
+  --section: clamp(80px, 10vw, 140px);
+  --section-sm: clamp(52px, 6vw, 88px);
 }
 
 /* ─── RESET ──────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; }
 body {
-  font-family: var(--font-sans);
-  color: var(--black);
-  background: var(--white);
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  font-family:             var(--font);
+  font-size:               var(--text-size--large);
+  font-weight:             300;
+  line-height:             1.2;
+  color:                   var(--colors--noir);
+  background:              var(--colors--blanc);
+  -webkit-font-smoothing:  antialiased;
+  overflow-x:              hidden;
 }
-img { display: block; max-width: 100%; object-fit: cover; }
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
+img  { display: block; max-width: 100%; object-fit: cover; }
+a    { text-decoration: none; color: inherit; }
+ul   { list-style: none; }
 
-/* ─── UTILITY ────────────────────────────────────────────── */
+/* ─── CONTAINER ──────────────────────────────────────────── */
 .container {
-  width: 100%;
-  max-width: var(--max);
+  width:         100%;
+  max-width:     var(--max);
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
-.eyebrow {
-  display: inline-block;
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 500;
+
+/* ─────────────────────────────────────────────────────────────
+   TYPOGRAPHIE — OFFICIELLE LESTUDIOBYALICE
+───────────────────────────────────────────────────────────── */
+h1 {
+  font-family:    var(--font);
+  font-size:      var(--text-size--h1);
+  font-weight:    400;
+  line-height:    1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color:          var(--colors--blanc);
+  margin-bottom:  10px;
+}
+h2 {
+  font-family:    var(--font);
+  font-size:      var(--text-size--h2);
+  font-weight:    500;
+  line-height:    1.0;
+  color:          var(--colors--noir);
+  margin-bottom:  10px;
+}
+h3 {
+  font-family:    var(--font);
+  font-size:      var(--text-size--large);
+  font-weight:    300;
+  line-height:    1.0;
+  margin-bottom:  10px;
+}
+p {
+  font-family:    var(--font);
+  font-size:      var(--text-size--large);
+  font-weight:    300;
+  line-height:    1.5;
+  margin-bottom:  10px;
+}
+.overline {
+  font-family:    var(--font);
+  font-size:      var(--text-size--small);
+  font-weight:    400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--blue);
-  margin-bottom: 20px;
-}
-.divider {
-  width: 40px;
-  height: 1.5px;
-  background: var(--blue);
-  margin-bottom: 20px;
+  color:          var(--colors--bleu);
+  display:        block;
+  margin-bottom:  20px;
 }
 
-/* ─── BUTTONS ────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────
+   BOUTONS — SYSTÈME OFFICIEL (sliding fill · border-radius: 0)
+───────────────────────────────────────────────────────────── */
 .btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  overflow: hidden;
-  border: none;
-  cursor: pointer;
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: capitalize;
-  transition: color 0.35s var(--ease);
-  z-index: 0;
-  white-space: nowrap;
+  display:          inline-flex;
+  align-items:      center;
+  justify-content:  flex-start;
+  position:         relative;
+  overflow:         hidden;
+  gap:              15px;
+  border-radius:    0;
+  cursor:           pointer;
+  font-family:      var(--font);
+  font-size:        var(--text-size--normal);
+  font-weight:      400;
+  text-transform:   capitalize;     /* Title Case */
+  text-decoration:  none;
+  white-space:      nowrap;
+  transition:       color 0.45s ease;
 }
+
+/* Le div qui glisse — translate3d(-101% → 0%) */
 .btn .fill {
-  position: absolute;
-  inset: 0;
-  transform: translateY(101%);
-  transition: transform 0.45s var(--ease-out);
-  z-index: -1;
+  position:         absolute;
+  inset:            0%;
+  height:           102%;
+  transform:        translate3d(-101%, 0px, 0px);
+  transform-style:  preserve-3d;
+  transition:       transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index:          0;
 }
-.btn:hover .fill { transform: translateY(0); }
-
-.btn-primary {
-  padding: 16px 36px;
-  background: var(--blue);
-  color: var(--white);
+.btn:hover .fill {
+  transform: translate3d(0%, 0px, 0px);
 }
-.btn-primary .fill { background: var(--black); }
-.btn-primary:hover { color: var(--white); }
-
-.btn-primary-lg {
-  padding: 20px 52px;
-  font-size: 15px;
+.btn .label {
+  position: relative;
+  z-index:  2;
 }
 
-.btn-white {
-  padding: 16px 36px;
-  background: var(--white);
-  color: var(--black);
+/* ── Bouton Bleu (principal) ─────────────────── */
+.btn-bleu {
+  background-color: var(--colors--bleu);
+  color:            var(--colors--blanc);
+  border:           1.5px solid var(--colors--bleu);
+  padding:          .6rem 3rem .6rem 1.4rem;
 }
-.btn-white .fill { background: var(--blue); }
-.btn-white:hover { color: var(--white); }
+.btn-bleu .fill    { background-color: var(--colors--blanc); }
+.btn-bleu:hover    { color: var(--colors--bleu); }
 
-.btn-outline {
-  padding: 14px 32px;
-  background: transparent;
-  color: var(--black);
-  border: 1.5px solid var(--black);
+/* ── Bouton grand (hero) ─────────────────────── */
+.btn-bleu-lg {
+  padding: .85rem 4rem .85rem 1.8rem;
+  font-size: var(--text-size--small);
+  letter-spacing: 0.06em;
 }
-.btn-outline .fill { background: var(--black); }
-.btn-outline:hover { color: var(--white); }
 
-.btn .arrow {
-  display: inline-block;
-  transition: transform 0.3s var(--ease);
-  font-size: 16px;
+/* ── Bouton Blanc (sur fond sombre) ──────────── */
+.btn-blanc {
+  background-color: var(--colors--blanc);
+  color:            var(--colors--noir);
+  border:           1.5px solid var(--colors--blanc);
+  padding:          .6rem 3rem .6rem 1.4rem;
 }
-.btn:hover .arrow { transform: translateX(4px); }
+.btn-blanc .fill   { background-color: var(--colors--noir); }
+.btn-blanc:hover   { color: var(--colors--blanc); }
 
-/* ─── STICKY URGENCY BAR ─────────────────────────────────── */
+/* ── Bouton Ghost (sur fond beige / blanc) ───── */
+.btn-ghost {
+  background-color: transparent;
+  color:            var(--colors--noir);
+  border:           1.5px solid var(--colors--noir);
+  padding:          .6rem 3rem .6rem 1.4rem;
+}
+.btn-ghost .fill   { background-color: var(--colors--noir); }
+.btn-ghost:hover   { color: var(--colors--blanc); }
+
+/* ─────────────────────────────────────────────────────────────
+   STICKY URGENCY BAR
+───────────────────────────────────────────────────────────── */
 .urgency-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: var(--black);
-  color: var(--white);
-  padding: 14px var(--gutter);
-  display: flex;
+  position:  fixed;
+  bottom:    0;
+  left:      0;
+  right:     0;
+  z-index:   1000;
+  background: var(--colors--noir);
+  color:      var(--colors--blanc);
+  padding:    14px var(--gutter);
+  display:    flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  transform: translateY(100%);
-  animation: slideUp 0.6s 1s var(--ease-out) forwards;
+  gap:        28px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  transform:  translateY(100%);
+  animation:  slideUp 0.5s 1.2s ease forwards;
 }
 @keyframes slideUp { to { transform: translateY(0); } }
 .urgency-bar p {
-  font-size: 13px;
-  font-weight: 400;
+  font-family:    var(--font);
+  font-size:      var(--text-size--small);
+  font-weight:    300;
   letter-spacing: 0.04em;
 }
-.urgency-bar strong { font-weight: 600; color: var(--blue-light); }
-.urgency-bar .btn-urgent {
-  flex-shrink: 0;
-  padding: 10px 24px;
-  background: var(--blue);
-  color: var(--white);
-  font-size: 13px;
+.urgency-bar strong {
   font-weight: 500;
-  letter-spacing: 0.06em;
-  transition: background 0.3s var(--ease);
-  border-radius: 2px;
 }
-.urgency-bar .btn-urgent:hover { background: var(--blue-hover); }
 
-/* ─── NAV ────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────
+   NAV
+───────────────────────────────────────────────────────────── */
 .nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 900;
-  padding: 20px var(--gutter);
-  display: flex;
+  position:   fixed;
+  top:        0;
+  left:       0;
+  right:      0;
+  z-index:    900;
+  padding:    20px var(--gutter);
+  display:    flex;
   align-items: center;
   justify-content: space-between;
-  transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 .nav.scrolled {
-  background: rgba(255,255,255,0.96);
+  background:     rgba(255,255,255,0.96);
   backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 var(--border);
+  box-shadow:     0 1px 0 var(--border-subtle);
 }
 .nav-logo {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  color: var(--white);
-  transition: color 0.4s;
+  font-family:    var(--font);
+  font-size:      var(--text-size--small);
+  font-weight:    400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color:          var(--colors--blanc);
+  transition:     color 0.4s ease;
 }
-.nav.scrolled .nav-logo { color: var(--black); }
-.nav .btn-nav {
-  padding: 10px 22px;
-  background: var(--white);
-  color: var(--black);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  transition: background 0.3s, color 0.3s;
-  border-radius: 2px;
-}
-.nav.scrolled .btn-nav {
-  background: var(--blue);
-  color: var(--white);
-}
-.nav.scrolled .btn-nav:hover { background: var(--black); }
+.nav.scrolled .nav-logo { color: var(--colors--noir); }
 
-/* ─── HERO ───────────────────────────────────────────────── */
+/* Nav CTA = btn-bleu taille réduite */
+.nav-cta {
+  display:         inline-flex;
+  align-items:     center;
+  position:        relative;
+  overflow:        hidden;
+  padding:         .35rem 2.2rem .35rem 1rem;
+  background:      var(--colors--blanc);
+  color:           var(--colors--noir);
+  border:          1.5px solid var(--colors--blanc);
+  border-radius:   0;
+  font-family:     var(--font);
+  font-size:       var(--text-size--small);
+  font-weight:     400;
+  letter-spacing:  0.06em;
+  text-transform:  capitalize;
+  text-decoration: none;
+  transition:      color 0.45s ease, background 0.4s ease, border-color 0.4s ease;
+}
+.nav-cta .fill {
+  position:    absolute;
+  inset:       0;
+  height:      102%;
+  background:  var(--colors--noir);
+  transform:   translate3d(-101%, 0, 0);
+  transition:  transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.nav-cta .label { position: relative; z-index: 2; }
+.nav-cta:hover .fill { transform: translate3d(0, 0, 0); }
+.nav-cta:hover { color: var(--colors--blanc); }
+
+.nav.scrolled .nav-cta {
+  background:   var(--colors--bleu);
+  color:        var(--colors--blanc);
+  border-color: var(--colors--bleu);
+}
+.nav.scrolled .nav-cta .fill { background: var(--colors--noir); }
+
+/* ─────────────────────────────────────────────────────────────
+   HERO
+───────────────────────────────────────────────────────────── */
 .hero {
-  position: relative;
-  min-height: 100svh;
-  display: grid;
+  display:      grid;
   grid-template-columns: 1fr 1fr;
-  overflow: hidden;
+  min-height:   100svh;
+  overflow:     hidden;
 }
-.hero-visual {
-  position: relative;
-  background: var(--black);
-  overflow: hidden;
-  min-height: 100svh;
+
+.hero-media {
+  position:    relative;
+  background:  var(--colors--noir);
+  overflow:    hidden;
+  min-height:  100svh;
 }
-.hero-visual img {
-  width: 100%;
-  height: 100%;
+.hero-media img {
+  width:     100%;
+  height:    100%;
   object-fit: cover;
-  opacity: 0.85;
-  transform: scale(1.04);
-  animation: zoomOut 8s var(--ease-out) forwards;
+  opacity:   0.80;
+  transform: scale(1.06);
+  animation: heroZoom 9s ease-out forwards;
 }
-@keyframes zoomOut { to { transform: scale(1); } }
-.hero-overlay {
+@keyframes heroZoom { to { transform: scale(1); } }
+.hero-media-overlay {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(1,5,14,0.2) 0%, transparent 60%),
-              linear-gradient(to right, var(--black) 0%, transparent 40%);
+  inset:    0;
+  background: linear-gradient(
+    to right, var(--colors--noir) 0%, transparent 45%
+  );
 }
+
 .hero-content {
-  position: relative;
-  background: var(--black);
-  color: var(--white);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 120px clamp(32px, 5vw, 80px) clamp(60px, 8vw, 100px);
-  z-index: 2;
+  position:         relative;
+  background:       var(--colors--noir);
+  color:            var(--colors--blanc);
+  display:          flex;
+  flex-direction:   column;
+  justify-content:  flex-end;
+  padding:          140px clamp(28px, 4vw, 72px) clamp(60px, 7vw, 100px);
+  z-index:          2;
 }
+
 .hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  border: 1px solid rgba(255,255,255,0.25);
-  font-size: 11.5px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: 32px;
-  animation: fadeUp 0.8s 0.2s var(--ease-out) both;
-  width: fit-content;
+  display:        inline-flex;
+  align-items:    center;
+  gap:            10px;
+  padding:        6px 14px;
+  border:         1px solid rgba(255,255,255,0.2);
+  font-family:    var(--font);
+  font-size:      var(--text-size--small);
+  font-weight:    300;
+  letter-spacing: 0.06em;
+  color:          rgba(255,255,255,0.6);
+  margin-bottom:  36px;
+  width:          fit-content;
+  animation:      fadeUp 0.7s 0.2s ease both;
 }
 .hero-badge .dot {
-  width: 6px; height: 6px;
+  width:         7px;
+  height:        7px;
   border-radius: 50%;
-  background: var(--blue);
-  flex-shrink: 0;
-  animation: pulse 2s infinite;
+  background:    var(--colors--bleu);
+  flex-shrink:   0;
+  animation:     pulse 2.5s infinite;
 }
 @keyframes pulse {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  50%       { opacity: 0.25; }
 }
+
 .hero h1 {
-  font-family: var(--font-display);
-  font-size: clamp(54px, 7vw, 96px);
+  font-size:    clamp(2.5rem, 5.5vw, var(--text-size--h1));
+  line-height:  1.0;
+  animation:    fadeUp 0.7s 0.35s ease both;
+}
+.hero h1 span {
+  display:   block;
+  color:     rgba(255,255,255,0.35);
   font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.01em;
-  color: var(--white);
-  margin-bottom: 28px;
-  animation: fadeUp 0.8s 0.35s var(--ease-out) both;
 }
-.hero h1 em {
-  font-style: italic;
-  color: rgba(255,255,255,0.65);
-}
+
 .hero-sub {
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.65);
-  max-width: 440px;
-  margin-bottom: 44px;
-  animation: fadeUp 0.8s 0.5s var(--ease-out) both;
+  font-size:    var(--text-size--normal);
+  font-weight:  300;
+  line-height:  1.75;
+  color:        rgba(255,255,255,0.55);
+  max-width:    400px;
+  margin-top:   20px;
+  margin-bottom: 40px;
+  animation:    fadeUp 0.7s 0.5s ease both;
 }
-.hero-cta-group {
-  display: flex;
+
+.hero-ctas {
+  display:        flex;
   flex-direction: column;
-  gap: 14px;
-  animation: fadeUp 0.8s 0.65s var(--ease-out) both;
+  gap:            12px;
+  animation:      fadeUp 0.7s 0.65s ease both;
 }
-.hero-price-note {
-  font-size: 12px;
-  color: rgba(255,255,255,0.4);
-  letter-spacing: 0.06em;
+.hero-price {
+  font-size:   var(--text-size--small);
+  font-weight: 300;
+  color:       rgba(255,255,255,0.3);
+  letter-spacing: 0.04em;
   margin-top: 4px;
 }
+
 .hero-stats {
-  display: grid;
+  display:          grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  margin-top: 52px;
-  padding-top: 32px;
-  animation: fadeUp 0.8s 0.8s var(--ease-out) both;
+  border-top:       1px solid rgba(255,255,255,0.08);
+  margin-top:       52px;
+  padding-top:      32px;
+  animation:        fadeUp 0.7s 0.8s ease both;
 }
-.hero-stat {
-  padding-right: 20px;
-}
+.hero-stat { padding-right: 16px; }
 .hero-stat:not(:last-child) {
-  border-right: 1px solid rgba(255,255,255,0.1);
-  margin-right: 20px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  margin-right: 16px;
 }
 .hero-stat strong {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 28px;
+  display:     block;
+  font-family: var(--font);
+  font-size:   var(--text-size--medium);
   font-weight: 400;
-  color: var(--white);
+  color:       var(--colors--blanc);
   line-height: 1;
   margin-bottom: 6px;
 }
 .hero-stat span {
-  font-size: 11px;
-  color: rgba(255,255,255,0.45);
-  line-height: 1.5;
+  font-size:    .75rem;
+  font-weight:  300;
+  color:        rgba(255,255,255,0.35);
+  line-height:  1.5;
   letter-spacing: 0.04em;
 }
 
@@ -353,1092 +434,1047 @@ ul { list-style: none; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ─── SECTION: RESONANCE ─────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────
+   RESONANCE — fond blanc
+───────────────────────────────────────────────────────────── */
 .s-resonance {
   padding-block: var(--section);
-  background: var(--white);
+  background:    var(--colors--blanc);
 }
 .s-resonance .inner {
-  display: grid;
+  display:   grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 6vw, 100px);
+  gap:       clamp(40px, 6vw, 100px);
   align-items: center;
-}
-.resonance-visual {
-  position: relative;
-  aspect-ratio: 3/4;
-  overflow: hidden;
-}
-.resonance-visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 1.2s var(--ease);
-}
-.resonance-visual:hover img { transform: scale(1.04); }
-.resonance-visual::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 1px solid var(--border);
-}
-.resonance-label {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  padding: 8px 14px;
-  background: var(--white);
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--black);
-}
-.resonance-text h2 {
-  font-family: var(--font-display);
-  font-size: clamp(36px, 4vw, 58px);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  margin-bottom: 36px;
-}
-.resonance-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-.resonance-item {
-  padding: 22px 0;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  gap: 16px;
-}
-.resonance-item:first-child { border-top: 1px solid var(--border); }
-.resonance-arrow {
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--blue-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  color: var(--blue);
-  margin-top: 2px;
-}
-.resonance-item p {
-  font-size: 15.5px;
-  font-weight: 300;
-  line-height: 1.6;
-  color: var(--black);
-}
-.resonance-quote {
-  margin-top: 36px;
-  padding: 24px;
-  background: var(--gray-3);
-  border-left: 2.5px solid var(--blue);
-}
-.resonance-quote p {
-  font-family: var(--font-display);
-  font-size: 17px;
-  font-style: italic;
-  line-height: 1.6;
-  color: var(--black);
-  margin-bottom: 10px;
-}
-.resonance-quote cite {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gray-1);
-  font-style: normal;
 }
 
-/* ─── SECTION: TRANSFORMATION ────────────────────────────── */
-.s-transform {
-  padding-block: var(--section);
-  background: var(--black);
-  color: var(--white);
+.resonance-img {
+  position:    relative;
+  aspect-ratio: 3/4;
+  overflow:    hidden;
 }
-.s-transform .inner {
-  display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: clamp(40px, 6vw, 100px);
-  align-items: start;
+.resonance-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s ease;
 }
-.transform-left h2 {
-  font-family: var(--font-display);
-  font-size: clamp(38px, 4.5vw, 64px);
-  font-weight: 300;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
-  color: var(--white);
-  margin-bottom: 24px;
+.resonance-img:hover img { transform: scale(1.04); }
+.resonance-img::after {
+  content:  '';
+  position: absolute;
+  inset:    0;
+  border:   1px solid var(--border-subtle);
+  pointer-events: none;
 }
-.transform-left h2 em {
-  font-style: italic;
-  color: rgba(255,255,255,0.45);
-  display: block;
+.img-caption {
+  position:    absolute;
+  bottom:      0;
+  left:        0;
+  right:       0;
+  padding:     28px 24px 20px;
+  background:  linear-gradient(transparent, rgba(1,5,14,0.5));
+  font-family: var(--font);
+  font-size:   .7rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color:       rgba(255,255,255,0.6);
 }
-.transform-left .eyebrow { color: var(--blue-light); opacity: 0.7; }
-.transform-left p {
-  font-size: 15px;
+
+.resonance-text h2 {
+  color:        var(--colors--noir);
+  margin-bottom: 32px;
+}
+.resonance-list { display: flex; flex-direction: column; }
+.resonance-item {
+  display:       flex;
+  gap:           20px;
+  padding:       20px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.resonance-item:first-child { border-top: 1px solid var(--border-subtle); }
+.resonance-item .arrow {
+  flex-shrink:  0;
+  font-family:  var(--font);
+  font-size:    var(--text-size--small);
+  font-weight:  400;
+  color:        var(--colors--bleu);
+  margin-top:   2px;
+  letter-spacing: 0;
+}
+.resonance-item p {
+  font-size:   var(--text-size--normal);
   font-weight: 300;
   line-height: 1.7;
-  color: rgba(255,255,255,0.5);
-  margin-top: 28px;
-  font-style: italic;
+  margin-bottom: 0;
 }
-.transform-right {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+
+.quote-block {
+  margin-top:  32px;
+  padding:     24px;
+  background:  var(--colors--beige);
+  border-left: 2px solid var(--colors--bleu);
 }
-.benefit-item {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 20px;
+.quote-block p {
+  font-size:   var(--text-size--normal);
+  font-weight: 300;
+  font-style:  italic;
+  line-height: 1.7;
+  color:       var(--colors--noir);
+  margin-bottom: 8px;
+}
+.quote-block cite {
+  font-size:      .75rem;
+  font-weight:    400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color:          rgba(1,5,14,0.4);
+  font-style:     normal;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BENEFITS — fond noir
+───────────────────────────────────────────────────────────── */
+.s-benefits {
+  padding-block: var(--section);
+  background:    var(--colors--noir);
+  color:         var(--colors--blanc);
+}
+.s-benefits .inner {
+  display:   grid;
+  grid-template-columns: 4fr 6fr;
+  gap:       clamp(40px, 6vw, 100px);
   align-items: start;
-  padding: 28px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
 }
-.benefit-item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
-.benefit-item.visible { opacity: 1; transform: translateY(0); }
-.benefit-number {
-  font-family: var(--font-display);
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  color: var(--blue);
-  padding-top: 4px;
-}
-.benefit-content strong {
-  display: block;
-  font-size: 16px;
+.benefits-left h2 {
+  font-size:  clamp(2rem, 3.5vw, var(--text-size--h2));
   font-weight: 500;
-  color: var(--white);
+  line-height: 1.0;
+  color:      var(--colors--blanc);
+}
+.benefits-left h2 em {
+  display:    block;
+  font-style: normal;
+  font-weight: 300;
+  color:      rgba(255,255,255,0.3);
+}
+.benefits-left .overline {
+  color: rgba(255,255,255,0.35);
+}
+.benefits-left p {
+  font-size:  var(--text-size--normal);
+  font-weight: 300;
+  color:      rgba(255,255,255,0.4);
+  font-style: italic;
+  margin-top: 24px;
+  line-height: 1.7;
+}
+
+.benefits-list { display: flex; flex-direction: column; }
+.benefit-item {
+  display:   grid;
+  grid-template-columns: 52px 1fr;
+  gap:       20px;
+  padding:   28px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  opacity:   0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.benefit-item:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+.benefit-item.visible { opacity: 1; transform: translateY(0); }
+.benefit-n {
+  font-family:    var(--font);
+  font-size:      var(--text-size--small);
+  font-weight:    400;
+  letter-spacing: 0.1em;
+  color:          var(--colors--bleu);
+  padding-top:    4px;
+}
+.benefit-body strong {
+  display:      block;
+  font-size:    var(--text-size--normal);
+  font-weight:  500;
+  color:        var(--colors--blanc);
   margin-bottom: 6px;
   letter-spacing: -0.01em;
 }
-.benefit-content p {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.45);
-}
-
-/* ─── SECTION: PHOTOS BAND ───────────────────────────────── */
-.s-photo-band {
-  overflow: hidden;
-}
-.photo-strip {
-  display: grid;
-  grid-template-columns: 3fr 2fr 2fr 3fr;
-  gap: 3px;
-  height: 420px;
-}
-.photo-strip-item {
-  overflow: hidden;
-  position: relative;
-}
-.photo-strip-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 1.5s var(--ease);
-}
-.photo-strip-item:hover img { transform: scale(1.06); }
-.photo-strip-label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 24px 20px 16px;
-  background: linear-gradient(transparent, rgba(1,5,14,0.6));
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
-}
-
-/* ─── SECTION: PROGRAM PREVIEW ───────────────────────────── */
-.s-program {
-  padding-block: var(--section);
-  background: var(--white);
-}
-.program-header {
-  text-align: center;
-  max-width: 560px;
-  margin-inline: auto;
-  margin-bottom: clamp(48px, 6vw, 80px);
-}
-.program-header h2 {
-  font-family: var(--font-display);
-  font-size: clamp(36px, 4vw, 56px);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  margin-bottom: 16px;
-}
-.program-header p {
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 1.7;
-  color: var(--gray-1);
-}
-.program-tracks {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-}
-.track-card {
-  background: var(--black);
-  color: var(--white);
-  padding: clamp(28px, 3.5vw, 52px);
-  position: relative;
-  overflow: hidden;
-  cursor: default;
-  transition: background 0.4s var(--ease);
-}
-.track-card:nth-child(2) { background: var(--blue); }
-.track-card:nth-child(3) { background: #0f1929; }
-.track-card::before {
-  content: '';
-  position: absolute;
-  top: 0; right: 0;
-  width: 80px; height: 80px;
-  background: rgba(255,255,255,0.04);
-  border-radius: 0 0 0 80px;
-}
-.track-number {
-  font-family: var(--font-display);
-  font-size: 72px;
-  font-weight: 300;
-  line-height: 1;
-  color: rgba(255,255,255,0.08);
-  margin-bottom: -16px;
-}
-.track-tag {
-  display: inline-block;
-  padding: 4px 10px;
-  border: 1px solid rgba(255,255,255,0.2);
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 16px;
-}
-.track-card h3 {
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 1.2;
-  margin-bottom: 14px;
-}
-.track-card p {
-  font-size: 14px;
+.benefit-body p {
+  font-size:   var(--text-size--small);
   font-weight: 300;
   line-height: 1.65;
-  color: rgba(255,255,255,0.55);
+  color:       rgba(255,255,255,0.4);
+  margin-bottom: 0;
 }
-.track-includes {
-  margin-top: 28px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.track-includes li {
-  font-size: 12.5px;
-  color: rgba(255,255,255,0.5);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.track-includes li::before {
-  content: '→';
-  color: var(--blue-light);
-  font-size: 11px;
-}
-.track-card:nth-child(2) .track-includes li::before { color: rgba(255,255,255,0.6); }
 
-/* ─── SECTION: INCLUDED ──────────────────────────────────── */
-.s-included {
-  padding-block: var(--section);
-  background: var(--gray-3);
+/* ─────────────────────────────────────────────────────────────
+   PHOTO BAND
+───────────────────────────────────────────────────────────── */
+.photo-band {
+  display:      grid;
+  grid-template-columns: 3fr 2fr 2fr 3fr;
+  gap:          2px;
+  height:       440px;
+  overflow:     hidden;
 }
-.included-header {
+.photo-band-item {
+  position: relative;
+  overflow: hidden;
+}
+.photo-band-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1.5s ease;
+}
+.photo-band-item:hover img { transform: scale(1.06); }
+.photo-band-label {
+  position:   absolute;
+  bottom:     0;
+  left:       0;
+  right:      0;
+  padding:    28px 20px 16px;
+  background: linear-gradient(transparent, rgba(1,5,14,0.55));
+  font-family: var(--font);
+  font-size:  .65rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color:      rgba(255,255,255,0.55);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TRACKS — fond beige
+───────────────────────────────────────────────────────────── */
+.s-tracks {
+  padding-block: var(--section);
+  background:    var(--colors--beige);
+}
+.tracks-header {
   margin-bottom: clamp(48px, 6vw, 80px);
 }
-.included-header h2 {
-  font-family: var(--font-display);
-  font-size: clamp(36px, 4vw, 56px);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  max-width: 520px;
+.tracks-header h2 { color: var(--colors--noir); }
+.tracks-header p {
+  font-size:  var(--text-size--normal);
+  font-weight: 300;
+  color:      rgba(1,5,14,0.5);
+  max-width:  520px;
+  margin-top: 16px;
 }
+
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:     2px;
+}
+.track-card {
+  background: var(--colors--noir);
+  color:      var(--colors--blanc);
+  padding:    clamp(28px, 3.5vw, 52px);
+  position:   relative;
+  overflow:   hidden;
+}
+.track-card:nth-child(2) { background: var(--colors--bleu); }
+.track-card:nth-child(3) { background: #0b1428; }
+
+.track-n {
+  font-family:  var(--font);
+  font-size:    5rem;
+  font-weight:  300;
+  line-height:  1;
+  color:        rgba(255,255,255,0.06);
+  margin-bottom: -12px;
+}
+.track-tag {
+  display:        inline-block;
+  padding:        3px 10px;
+  border:         1px solid rgba(255,255,255,0.18);
+  font-size:      .65rem;
+  font-weight:    400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color:          rgba(255,255,255,0.5);
+  margin-bottom:  14px;
+}
+.track-card h3 {
+  font-size:    var(--text-size--regular);
+  font-weight:  400;
+  color:        var(--colors--blanc);
+  line-height:  1.15;
+  margin-bottom: 12px;
+}
+.track-card p {
+  font-size:   var(--text-size--small);
+  font-weight: 300;
+  line-height: 1.7;
+  color:       rgba(255,255,255,0.5);
+  margin-bottom: 0;
+}
+.track-includes {
+  margin-top:  28px;
+  padding-top: 24px;
+  border-top:  1px solid rgba(255,255,255,0.08);
+  display:     flex;
+  flex-direction: column;
+  gap:         8px;
+}
+.track-includes li {
+  font-size:  var(--text-size--small);
+  font-weight: 300;
+  color:      rgba(255,255,255,0.4);
+  display:    flex;
+  align-items: flex-start;
+  gap:        10px;
+  line-height: 1.5;
+}
+.track-includes li::before {
+  content:     '-';
+  color:       rgba(255,255,255,0.25);
+  font-weight: 300;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   INCLUDED — fond blanc
+───────────────────────────────────────────────────────────── */
+.s-included {
+  padding-block: var(--section);
+  background:    var(--colors--blanc);
+}
+.included-header { margin-bottom: clamp(48px, 6vw, 80px); }
+.included-header h2 { max-width: 500px; color: var(--colors--noir); }
+
 .included-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  gap:     2px;
 }
 .included-item {
-  background: var(--white);
-  padding: 36px 32px;
+  padding:      36px 32px;
+  background:   var(--colors--beige);
   border-bottom: 2px solid transparent;
-  transition: border-color 0.3s var(--ease);
+  transition:   border-color 0.3s ease;
 }
-.included-item:hover { border-bottom-color: var(--blue); }
-.included-icon {
-  width: 40px;
-  height: 40px;
-  background: var(--blue-light);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  margin-bottom: 20px;
-}
+.included-item:hover { border-bottom-color: var(--colors--bleu); }
 .included-item h3 {
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  font-size:    var(--text-size--normal);
+  font-weight:  500;
+  color:        var(--colors--noir);
   margin-bottom: 10px;
+  letter-spacing: 0.02em;
 }
 .included-item p {
-  font-size: 13.5px;
+  font-size:   var(--text-size--small);
   font-weight: 300;
-  line-height: 1.65;
-  color: var(--gray-1);
+  line-height: 1.7;
+  color:       rgba(1,5,14,0.55);
+  margin-bottom: 0;
+}
+.item-num {
+  font-family:    var(--font);
+  font-size:      .65rem;
+  font-weight:    400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color:          var(--colors--bleu);
+  display:        block;
+  margin-bottom:  16px;
 }
 
-/* ─── SECTION: MEET ALICE ────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────
+   ALICE — fond beige
+───────────────────────────────────────────────────────────── */
 .s-alice {
   padding-block: var(--section);
-  background: var(--white);
+  background:    var(--colors--beige);
 }
 .s-alice .inner {
-  display: grid;
+  display:     grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 6vw, 100px);
+  gap:         clamp(40px, 6vw, 100px);
   align-items: center;
 }
 .alice-visual {
   position: relative;
 }
-.alice-visual .main-img {
+.alice-main {
   aspect-ratio: 4/5;
-  overflow: hidden;
+  overflow:    hidden;
 }
-.alice-visual .main-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.alice-main img { width: 100%; height: 100%; object-fit: cover; }
+.alice-accent {
+  position:    absolute;
+  bottom:      -28px;
+  right:       -28px;
+  width:       170px;
+  height:      210px;
+  overflow:    hidden;
+  border:      5px solid var(--colors--beige);
+  box-shadow:  0 10px 36px rgba(1,5,14,0.12);
 }
-.alice-visual .accent-img {
-  position: absolute;
-  bottom: -30px;
-  right: -30px;
-  width: 180px;
-  height: 220px;
-  overflow: hidden;
-  border: 5px solid var(--white);
-  box-shadow: 0 12px 40px rgba(1,5,14,0.15);
-}
-.alice-visual .accent-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.alice-text .eyebrow { margin-bottom: 12px; }
-.alice-text h2 {
-  font-family: var(--font-display);
-  font-size: clamp(36px, 4vw, 52px);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  margin-bottom: 28px;
-}
+.alice-accent img { width: 100%; height: 100%; object-fit: cover; }
+
+.alice-text h2 { color: var(--colors--noir); margin-bottom: 24px; }
 .alice-text .lead {
-  font-size: 17px;
-  font-weight: 400;
-  font-family: var(--font-display);
-  font-style: italic;
-  line-height: 1.6;
-  color: var(--black);
+  font-size:    var(--text-size--regular);
+  font-weight:  300;
+  font-style:   italic;
+  line-height:  1.45;
+  color:        var(--colors--noir);
   margin-bottom: 20px;
 }
 .alice-text p {
-  font-size: 15px;
+  font-size:   var(--text-size--normal);
   font-weight: 300;
   line-height: 1.75;
-  color: var(--gray-1);
-  margin-bottom: 14px;
+  color:       rgba(1,5,14,0.55);
 }
-.alice-credentials {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 28px;
+.alice-creds {
+  display:      flex;
+  gap:          20px;
+  flex-wrap:    wrap;
+  margin-top:   28px;
+  padding-top:  24px;
+  border-top:   1px solid var(--border-subtle);
 }
-.credential {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+.cred {
+  font-size:      .75rem;
+  font-weight:    400;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: var(--black);
-}
-.credential .dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--blue);
-  flex-shrink: 0;
+  color:          var(--colors--noir);
 }
 
-/* ─── SECTION: SOCIAL PROOF ──────────────────────────────── */
-.s-testimonials {
+/* ─────────────────────────────────────────────────────────────
+   TESTIMONIALS — fond noir
+───────────────────────────────────────────────────────────── */
+.s-testi {
   padding-block: var(--section);
-  background: var(--black);
-  color: var(--white);
-  overflow: hidden;
+  background:    var(--colors--noir);
+  color:         var(--colors--blanc);
+  overflow:      hidden;
 }
-.testimonials-header {
-  text-align: center;
+.testi-header {
+  text-align:    center;
   margin-bottom: clamp(48px, 6vw, 80px);
 }
-.testimonials-header h2 {
-  font-family: var(--font-display);
-  font-size: clamp(36px, 4vw, 56px);
-  font-weight: 300;
-  line-height: 1.1;
-  color: var(--white);
-}
-.testimonials-header .eyebrow { color: rgba(255,255,255,0.4); }
+.testi-header h2 { color: var(--colors--blanc); }
+.testi-header .overline { color: rgba(255,255,255,0.3); justify-content: center; }
 .testi-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  gap:     2px;
 }
 .testi-card {
-  background: rgba(255,255,255,0.04);
-  padding: 36px 32px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  transition: background 0.3s var(--ease);
+  background:  rgba(255,255,255,0.04);
+  padding:     36px 32px;
+  border-top:  1px solid rgba(255,255,255,0.07);
+  transition:  background 0.3s ease;
 }
 .testi-card:hover { background: rgba(255,255,255,0.07); }
-.testi-stars {
-  display: flex;
-  gap: 3px;
-  margin-bottom: 20px;
-  color: var(--blue);
-  font-size: 14px;
-}
 .testi-quote {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-style: italic;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--white);
+  font-size:    var(--text-size--normal);
+  font-weight:  300;
+  font-style:   italic;
+  line-height:  1.65;
+  color:        var(--colors--blanc);
   margin-bottom: 20px;
 }
-.testi-author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.testi-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.1);
-  display: flex;
-  align-items: center;
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-init {
+  width:         36px;
+  height:        36px;
+  background:    rgba(26,75,190,0.25);
+  border:        1px solid rgba(26,75,190,0.4);
+  display:       flex;
+  align-items:   center;
   justify-content: center;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--white);
-  flex-shrink: 0;
+  font-size:     var(--text-size--small);
+  font-weight:   400;
+  color:         var(--colors--blanc);
+  flex-shrink:   0;
 }
 .testi-name {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--white);
-  display: block;
+  font-size:      var(--text-size--small);
+  font-weight:    400;
+  color:          var(--colors--blanc);
+  display:        block;
+  letter-spacing: 0.04em;
 }
 .testi-detail {
-  font-size: 11px;
-  color: rgba(255,255,255,0.35);
+  font-size:      .7rem;
+  font-weight:    300;
+  color:          rgba(255,255,255,0.3);
   letter-spacing: 0.06em;
-  display: block;
-  margin-top: 2px;
+  display:        block;
+  margin-top:     2px;
 }
 .testi-photo {
-  grid-column: span 1;
-  min-height: 280px;
   overflow: hidden;
+  min-height: 280px;
 }
 .testi-photo img {
   width: 100%; height: 100%;
   object-fit: cover;
-  filter: grayscale(20%);
-  transition: filter 0.6s var(--ease);
+  filter: grayscale(15%);
+  transition: filter 0.6s ease;
 }
 .testi-photo:hover img { filter: grayscale(0%); }
 
-/* ─── SECTION: PRICING ───────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────
+   PRICING — fond blanc
+───────────────────────────────────────────────────────────── */
 .s-pricing {
   padding-block: var(--section);
-  background: var(--white);
+  background:    var(--colors--blanc);
 }
 .pricing-header {
-  text-align: center;
-  max-width: 540px;
+  text-align:    center;
+  max-width:     520px;
   margin-inline: auto;
   margin-bottom: clamp(48px, 6vw, 80px);
 }
-.pricing-header h2 {
-  font-family: var(--font-display);
-  font-size: clamp(36px, 4vw, 56px);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  margin-bottom: 14px;
-}
+.pricing-header h2 { color: var(--colors--noir); }
 .pricing-header p {
-  font-size: 15px;
+  font-size:  var(--text-size--normal);
   font-weight: 300;
-  line-height: 1.7;
-  color: var(--gray-1);
+  color:      rgba(1,5,14,0.5);
+  margin-top: 14px;
 }
+
 .pricing-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  max-width: 860px;
+  gap:     2px;
+  max-width: 820px;
   margin-inline: auto;
 }
 .pricing-card {
-  padding: clamp(32px, 4vw, 56px);
-  border: 1px solid var(--border);
-  position: relative;
+  padding:    clamp(32px, 4vw, 52px);
+  border:     1px solid var(--border-subtle);
+  position:   relative;
 }
 .pricing-card.featured {
-  background: var(--black);
-  color: var(--white);
-  border-color: var(--black);
+  background:   var(--colors--noir);
+  color:        var(--colors--blanc);
+  border-color: var(--colors--noir);
 }
-.pricing-badge {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  padding: 4px 10px;
-  background: var(--blue);
-  color: var(--white);
-  font-size: 10px;
-  font-weight: 600;
+.pricing-flag {
+  position:    absolute;
+  top:         0;
+  right:       0;
+  padding:     5px 14px;
+  background:  var(--colors--bleu);
+  color:       var(--colors--blanc);
+  font-family: var(--font);
+  font-size:   .65rem;
+  font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 .pricing-label {
-  font-size: 11px;
-  font-weight: 500;
+  font-size:      .7rem;
+  font-weight:    400;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--gray-2);
-  margin-bottom: 12px;
+  color:          rgba(1,5,14,0.4);
+  display:        block;
+  margin-bottom:  12px;
 }
-.pricing-card.featured .pricing-label { color: rgba(255,255,255,0.4); }
+.pricing-card.featured .pricing-label { color: rgba(255,255,255,0.3); }
+
 .pricing-price {
-  font-family: var(--font-display);
-  font-size: clamp(48px, 5vw, 72px);
-  font-weight: 300;
-  line-height: 1;
+  font-family:    var(--font);
+  font-size:      clamp(52px, 5vw, 80px);
+  font-weight:    300;
+  line-height:    1;
   letter-spacing: -0.02em;
-  margin-bottom: 6px;
+  margin-bottom:  4px;
 }
 .pricing-price sup {
-  font-size: 0.4em;
+  font-size:  0.35em;
   vertical-align: super;
   margin-right: 2px;
 }
-.pricing-period {
-  font-size: 13px;
+.pricing-sub {
+  font-size:   var(--text-size--small);
   font-weight: 300;
-  color: var(--gray-1);
+  color:       rgba(1,5,14,0.4);
   margin-bottom: 28px;
 }
-.pricing-card.featured .pricing-period { color: rgba(255,255,255,0.4); }
+.pricing-card.featured .pricing-sub { color: rgba(255,255,255,0.35); }
+
 .pricing-features {
-  display: flex;
+  display:        flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 36px;
+  gap:            10px;
+  margin-bottom:  36px;
 }
 .pricing-features li {
-  font-size: 14px;
+  font-size:   var(--text-size--small);
   font-weight: 300;
-  color: var(--gray-1);
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
+  color:       rgba(1,5,14,0.6);
+  display:     flex;
+  gap:         10px;
   line-height: 1.5;
 }
-.pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.55); }
+.pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.45); }
 .pricing-features li::before {
-  content: '✓';
-  color: var(--blue);
-  font-weight: 600;
-  font-size: 13px;
+  content:    '-';
+  color:      var(--colors--bleu);
+  font-weight: 400;
   flex-shrink: 0;
-  margin-top: 1px;
 }
 .pricing-note {
-  font-size: 12px;
-  color: var(--gray-2);
-  text-align: center;
-  margin-top: 24px;
+  font-size:     var(--text-size--small);
+  font-weight:   300;
+  color:         rgba(1,5,14,0.35);
+  text-align:    center;
+  margin-top:    24px;
+  letter-spacing: 0.04em;
 }
-.pricing-note a { color: var(--blue); }
+.pricing-note a { color: var(--colors--bleu); }
 
-/* ─── SECTION: BONUS ─────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────
+   BONUS — fond bleu
+───────────────────────────────────────────────────────────── */
 .s-bonus {
   padding-block: var(--section-sm);
-  background: var(--blue);
-  color: var(--white);
+  background:    var(--colors--bleu);
+  color:         var(--colors--blanc);
 }
 .s-bonus .inner {
-  display: grid;
+  display:     grid;
   grid-template-columns: 1fr auto;
-  gap: 40px;
+  gap:         40px;
   align-items: center;
 }
-.bonus-badge {
-  display: inline-block;
-  padding: 4px 10px;
-  border: 1px solid rgba(255,255,255,0.3);
-  font-size: 10px;
+.bonus-flag {
+  display:        inline-block;
+  padding:        3px 10px;
+  border:         1px solid rgba(255,255,255,0.25);
+  font-size:      .65rem;
+  font-weight:    400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 16px;
+  color:          rgba(255,255,255,0.6);
+  margin-bottom:  14px;
 }
 .s-bonus h2 {
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3.5vw, 44px);
-  font-weight: 300;
-  line-height: 1.15;
+  font-size:    clamp(1.75rem, 3vw, var(--text-size--h2));
+  font-weight:  300;
+  line-height:  1.15;
+  color:        var(--colors--blanc);
   margin-bottom: 12px;
 }
-.s-bonus h2 strong { font-weight: 600; }
+.s-bonus h2 strong { font-weight: 500; }
 .s-bonus p {
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.7);
-  max-width: 560px;
-}
-.bonus-spots {
-  flex-shrink: 0;
-  text-align: center;
-  padding: 28px 36px;
-  border: 1px solid rgba(255,255,255,0.3);
-}
-.bonus-spots strong {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 52px;
-  font-weight: 300;
-  line-height: 1;
-}
-.bonus-spots span {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
-}
-
-/* ─── SECTION: GUARANTEE ─────────────────────────────────── */
-.s-guarantee {
-  padding-block: var(--section-sm);
-  background: var(--gray-3);
-}
-.s-guarantee .inner {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: clamp(32px, 5vw, 80px);
-  align-items: center;
-  max-width: 840px;
-  margin-inline: auto;
-}
-.guarantee-icon {
-  flex-shrink: 0;
-  width: 100px;
-  height: 100px;
-  border: 2px solid var(--black);
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-}
-.guarantee-icon span:first-child {
-  font-size: 30px;
-}
-.guarantee-icon span:last-child {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-.guarantee-text h3 {
-  font-family: var(--font-display);
-  font-size: clamp(24px, 3vw, 36px);
-  font-weight: 400;
-  line-height: 1.2;
-  margin-bottom: 12px;
-}
-.guarantee-text p {
-  font-size: 15px;
+  font-size:  var(--text-size--normal);
   font-weight: 300;
   line-height: 1.7;
-  color: var(--gray-1);
+  color:      rgba(255,255,255,0.6);
+  max-width:  520px;
+  margin-bottom: 0;
+}
+.bonus-count {
+  flex-shrink:  0;
+  text-align:   center;
+  padding:      28px 40px;
+  border:       1px solid rgba(255,255,255,0.25);
+}
+.bonus-count strong {
+  display:     block;
+  font-family: var(--font);
+  font-size:   clamp(3rem, 5vw, 5rem);
+  font-weight: 300;
+  line-height: 1;
+  color:       var(--colors--blanc);
+}
+.bonus-count span {
+  font-size:      .65rem;
+  font-weight:    400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color:          rgba(255,255,255,0.5);
 }
 
-/* ─── SECTION: FAQ ───────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────
+   GUARANTEE — fond beige
+───────────────────────────────────────────────────────────── */
+.s-guarantee {
+  padding-block: var(--section-sm);
+  background:    var(--colors--beige);
+}
+.s-guarantee .inner {
+  display:     grid;
+  grid-template-columns: auto 1fr;
+  gap:         clamp(32px, 5vw, 80px);
+  align-items: center;
+  max-width:   800px;
+  margin-inline: auto;
+}
+.guarantee-badge {
+  width:         96px;
+  height:        96px;
+  border:        1.5px solid var(--colors--noir);
+  display:       flex;
+  flex-direction: column;
+  align-items:   center;
+  justify-content: center;
+  gap:           2px;
+  flex-shrink:   0;
+}
+.guarantee-badge strong {
+  font-size:   var(--text-size--normal);
+  font-weight: 400;
+  color:       var(--colors--noir);
+}
+.guarantee-badge span {
+  font-size:      .6rem;
+  font-weight:    400;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color:          rgba(1,5,14,0.5);
+}
+.guarantee-text h3 {
+  font-size:    var(--text-size--regular);
+  font-weight:  400;
+  line-height:  1.2;
+  color:        var(--colors--noir);
+  margin-bottom: 10px;
+}
+.guarantee-text p {
+  font-size:   var(--text-size--normal);
+  font-weight: 300;
+  line-height: 1.7;
+  color:       rgba(1,5,14,0.55);
+  margin-bottom: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FAQ — fond blanc
+───────────────────────────────────────────────────────────── */
 .s-faq {
   padding-block: var(--section);
-  background: var(--white);
+  background:    var(--colors--blanc);
 }
 .faq-header {
-  text-align: center;
+  text-align:    center;
   margin-bottom: clamp(48px, 6vw, 72px);
 }
-.faq-header h2 {
-  font-family: var(--font-display);
-  font-size: clamp(36px, 4vw, 52px);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-}
+.faq-header h2 { color: var(--colors--noir); }
+
 .faq-grid {
-  display: grid;
+  display:   grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2px;
+  gap:       2px;
   max-width: 960px;
   margin-inline: auto;
 }
-.faq-item {
-  border-top: 1px solid var(--border);
-  overflow: hidden;
-}
-.faq-question {
-  width: 100%;
-  display: flex;
+.faq-item { border-top: 1px solid var(--border-subtle); overflow: hidden; }
+.faq-q {
+  width:      100%;
+  display:    flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 16px;
-  padding: 22px 24px;
+  gap:        16px;
+  padding:    20px 0;
   background: none;
-  border: none;
-  cursor: pointer;
+  border:     none;
+  cursor:     pointer;
   text-align: left;
-  font-family: var(--font-sans);
-  font-size: 14.5px;
-  font-weight: 500;
+  font-family: var(--font);
+  font-size:  var(--text-size--normal);
+  font-weight: 400;
   line-height: 1.5;
-  color: var(--black);
+  color:      var(--colors--noir);
   transition: color 0.2s;
 }
-.faq-question:hover { color: var(--blue); }
+.faq-q:hover { color: var(--colors--bleu); }
 .faq-icon {
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  transition: transform 0.3s var(--ease), color 0.2s;
-  color: var(--gray-2);
-  margin-top: 1px;
+  font-size:   18px;
+  color:       rgba(1,5,14,0.25);
+  transition:  transform 0.3s ease, color 0.2s;
+  margin-top:  2px;
 }
-.faq-item.open .faq-icon { transform: rotate(45deg); color: var(--blue); }
-.faq-answer {
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+  color:     var(--colors--bleu);
+}
+.faq-a {
   max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s var(--ease), padding 0.3s var(--ease);
-  padding: 0 24px;
+  overflow:   hidden;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+  padding:    0;
 }
-.faq-item.open .faq-answer {
-  max-height: 300px;
-  padding: 0 24px 22px;
+.faq-item.open .faq-a {
+  max-height: 320px;
+  padding-bottom: 20px;
 }
-.faq-answer p {
-  font-size: 14px;
+.faq-a p {
+  font-size:   var(--text-size--small);
   font-weight: 300;
-  line-height: 1.7;
-  color: var(--gray-1);
-  border-top: 1px solid var(--border);
+  line-height: 1.75;
+  color:       rgba(1,5,14,0.55);
+  border-top:  1px solid var(--border-subtle);
   padding-top: 16px;
+  margin-bottom: 0;
 }
 
-/* ─── SECTION: FINAL CTA ─────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────
+   FINAL CTA — fond noir
+───────────────────────────────────────────────────────────── */
 .s-final {
   padding-block: var(--section);
-  background: var(--black);
-  color: var(--white);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+  background:    var(--colors--noir);
+  color:         var(--colors--blanc);
+  text-align:    center;
+  position:      relative;
+  overflow:      hidden;
 }
-.s-final::before {
-  content: 'RUN';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--font-display);
-  font-size: clamp(160px, 25vw, 320px);
+.final-watermark {
+  position:   absolute;
+  top:        50%;
+  left:       50%;
+  transform:  translate(-50%, -50%);
+  font-family: var(--font);
+  font-size:   clamp(120px, 20vw, 260px);
   font-weight: 300;
-  color: rgba(255,255,255,0.025);
-  pointer-events: none;
+  color:       rgba(255,255,255,0.02);
   white-space: nowrap;
+  text-transform: uppercase;
   letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select:    none;
 }
 .s-final .container { position: relative; z-index: 2; }
-.s-final .eyebrow { color: rgba(255,255,255,0.35); }
+.s-final .overline  { color: rgba(255,255,255,0.25); }
 .s-final h2 {
-  font-family: var(--font-display);
-  font-size: clamp(40px, 5vw, 72px);
-  font-weight: 300;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  color: var(--white);
-  max-width: 780px;
+  font-size:    clamp(2.5rem, 5vw, var(--text-size--h1));
+  font-weight:  300;
+  line-height:  1.0;
+  color:        var(--colors--blanc);
+  text-transform: uppercase;
+  max-width:    820px;
   margin-inline: auto;
   margin-bottom: 20px;
 }
-.s-final h2 em { font-style: italic; color: rgba(255,255,255,0.45); }
+.s-final h2 strong {
+  font-weight: 500;
+  display:     block;
+}
 .s-final .sub {
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.45);
-  max-width: 460px;
+  font-size:    var(--text-size--normal);
+  font-weight:  300;
+  line-height:  1.7;
+  color:        rgba(255,255,255,0.35);
+  max-width:    440px;
   margin-inline: auto;
   margin-bottom: 48px;
 }
-.s-final .cta-group {
-  display: flex;
+.final-cta-group {
+  display:        flex;
   flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  align-items:    center;
+  gap:            14px;
 }
 .final-note {
-  font-size: 12px;
-  color: rgba(255,255,255,0.3);
-  letter-spacing: 0.06em;
+  font-size:      .7rem;
+  font-weight:    300;
+  color:          rgba(255,255,255,0.25);
+  letter-spacing: 0.08em;
 }
 
-/* ─── FOOTER ─────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────────────────────── */
 footer {
-  padding-block: clamp(32px, 4vw, 52px);
-  padding-bottom: clamp(72px, 8vw, 100px); /* space for urgency bar */
-  background: var(--black);
-  border-top: 1px solid rgba(255,255,255,0.06);
+  background:    var(--colors--noir);
+  border-top:    1px solid rgba(255,255,255,0.06);
+  padding:       48px var(--gutter) 96px;
 }
 .footer-inner {
-  display: flex;
+  display:     flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
+  gap:         24px;
+  flex-wrap:   wrap;
 }
 .footer-logo {
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  color: rgba(255,255,255,0.5);
+  font-family:    var(--font);
+  font-size:      .7rem;
+  font-weight:    400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color:          rgba(255,255,255,0.35);
 }
 .footer-copy {
-  font-size: 12px;
-  color: rgba(255,255,255,0.25);
+  font-size:   .7rem;
+  font-weight: 300;
+  color:       rgba(255,255,255,0.2);
   letter-spacing: 0.04em;
 }
-.footer-links {
-  display: flex;
-  gap: 24px;
-}
+.footer-links { display: flex; gap: 24px; }
 .footer-links a {
-  font-size: 12px;
-  color: rgba(255,255,255,0.25);
-  transition: color 0.2s;
+  font-size:   .7rem;
+  font-weight: 300;
+  color:       rgba(255,255,255,0.2);
+  transition:  color 0.2s;
   letter-spacing: 0.04em;
 }
 .footer-links a:hover { color: rgba(255,255,255,0.6); }
 
-/* ─── SCROLL REVEAL ──────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────
+   SCROLL REVEAL
+───────────────────────────────────────────────────────────── */
 .reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  opacity:   0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.10s; }
+.d2 { transition-delay: 0.20s; }
+.d3 { transition-delay: 0.30s; }
+.d4 { transition-delay: 0.40s; }
 
-/* ─── MOBILE ──────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────
+   MOBILE
+───────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; }
-  .hero-visual { min-height: 55vh; grid-row: 1; }
-  .hero-content { min-height: auto; padding-top: 48px; }
+  .hero-media { min-height: 55svh; }
+  .hero-content { padding-top: 48px; }
   .hero-stats { grid-template-columns: 1fr 1fr 1fr; }
-  .hero-stat:not(:last-child) { margin-right: 12px; padding-right: 12px; }
+  .hero-stat:not(:last-child) { margin-right: 10px; padding-right: 10px; }
 
   .s-resonance .inner,
+  .s-benefits .inner,
   .s-alice .inner { grid-template-columns: 1fr; }
-  .alice-visual .accent-img { right: 16px; bottom: -20px; }
+  .alice-accent { right: 12px; bottom: -16px; }
 
-  .s-transform .inner { grid-template-columns: 1fr; }
-  .transform-left h2 { font-size: clamp(32px, 6vw, 48px); }
+  .photo-band { grid-template-columns: 1fr 1fr; height: 300px; }
+  .photo-band-item:nth-child(3),
+  .photo-band-item:nth-child(4) { display: none; }
 
-  .photo-strip { grid-template-columns: 1fr 1fr; height: 320px; }
-  .photo-strip-item:nth-child(3),
-  .photo-strip-item:nth-child(4) { display: none; }
-
-  .program-tracks { grid-template-columns: 1fr; gap: 2px; }
+  .tracks-grid { grid-template-columns: 1fr; gap: 2px; }
   .included-grid { grid-template-columns: 1fr 1fr; }
   .testi-grid { grid-template-columns: 1fr; }
   .testi-photo { display: none; }
   .pricing-grid { grid-template-columns: 1fr; }
   .s-bonus .inner { grid-template-columns: 1fr; }
-  .bonus-spots { text-align: left; padding: 20px; }
-  .s-guarantee .inner { grid-template-columns: 1fr; text-align: center; }
-  .guarantee-icon { margin-inline: auto; }
+  .bonus-count { text-align: left; padding: 20px; }
+  .s-guarantee .inner { grid-template-columns: 1fr; }
+  .guarantee-badge { margin-inline: auto; }
   .faq-grid { grid-template-columns: 1fr; }
   .urgency-bar { flex-direction: column; gap: 10px; text-align: center; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 600px) {
+  h1 { font-size: clamp(2rem, 10vw, 3.5rem); }
+  h2 { font-size: clamp(1.5rem, 7vw, 2.5rem); }
   .hero-stats { grid-template-columns: 1fr; gap: 16px; }
-  .hero-stat:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px; margin-right: 0; padding-right: 0; }
+  .hero-stat:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 16px; margin-right: 0; padding-right: 0; }
   .included-grid { grid-template-columns: 1fr; }
-  .resonance-visual { aspect-ratio: 4/3; }
+  .resonance-img { aspect-ratio: 4/3; }
 }
 </style>
 </head>
 <body>
 
-<!-- ── URGENCY BAR ── -->
+<!-- ════ URGENCY BAR ════════════════════════════════════════ -->
 <div class="urgency-bar">
-  <p><strong>Early bird — €97</strong> only until April 25. After that, it goes back to €297.</p>
-  <a href="#pricing" class="btn-urgent">Become a runner →</a>
+  <p><strong>Early Bird — 97€</strong> &nbsp;·&nbsp; Until April 25 only. Price goes to 297€ after.</p>
+  <a href="#pricing" class="btn btn-blanc">
+    <div class="fill"></div>
+    <span class="label">Become a runner</span>
+  </a>
 </div>
 
-<!-- ── NAV ── -->
-<nav class="nav" id="mainNav">
+<!-- ════ NAV ════════════════════════════════════════════════ -->
+<nav class="nav" id="nav">
   <span class="nav-logo">Le Studio by Alice</span>
-  <a href="#pricing" class="btn-nav">I'm in — €97</a>
+  <a href="#pricing" class="nav-cta">
+    <div class="fill"></div>
+    <span class="label">I'm in — 97€</span>
+  </a>
 </nav>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- HERO -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section class="hero" id="hero">
-  <div class="hero-visual">
-    <img
-      src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7429.jpg"
-      alt="RUN SCULPT PERFORM"
-    >
-    <div class="hero-overlay"></div>
+<!-- ════ HERO ════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-media">
+    <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7429.jpg" alt="Run Sculpt Perform">
+    <div class="hero-media-overlay"></div>
   </div>
+
   <div class="hero-content">
     <div class="hero-badge">
       <span class="dot"></span>
       The first 15 sign-ups get a free in-person class with Alice in Paris
     </div>
+
     <h1>
       Run<br>
-      <em>Sculpt</em><br>
+      <span>Sculpt</span><br>
       Perform
     </h1>
+
     <p class="hero-sub">
-      The first program fusing Pilates, Running and Nutrition — whether you're lacing up for the first time, chasing your first 10K or half-marathon, or building a smarter routine.<br><br>
-      <strong style="color:rgba(255,255,255,0.8); font-weight:400;">10 weeks. Three tracks. One app guiding you every day.</strong>
+      The first program fusing Pilates, Running and Nutrition.
+      10 weeks. Three tracks. One app guiding you every day.
     </p>
-    <div class="hero-cta-group">
-      <a href="#pricing" class="btn btn-primary btn-primary-lg">
+
+    <div class="hero-ctas">
+      <a href="#pricing" class="btn btn-bleu btn-bleu-lg">
         <div class="fill"></div>
-        I'm in <span class="arrow">→</span>
+        <span class="label">I'm In</span>
       </a>
-      <p class="hero-price-note">€97 one-time · or included in Le Studio annual subscription</p>
+      <p class="hero-price">97€ one-time &nbsp;·&nbsp; or included in Le Studio annual subscription</p>
     </div>
+
     <div class="hero-stats">
       <div class="hero-stat">
         <strong>500+</strong>
-        <span>Co-created with the community</span>
+        <span>Co-created with you</span>
       </div>
       <div class="hero-stat">
         <strong>10 wks</strong>
-        <span>Complete Pilates × Running program</span>
+        <span>Complete Pilates x Running program</span>
       </div>
       <div class="hero-stat">
         <strong>2</strong>
-        <span>Certified experts — coach & naturopath</span>
+        <span>Certified experts — coach and naturopath</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- RESONANCE -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section class="s-resonance">
+<!-- ════ RESONANCE ══════════════════════════════════════════ -->
+<section class="s-resonance" id="about">
   <div class="container">
     <div class="inner">
-      <div class="resonance-visual reveal">
-        <img
-          src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__6988.jpg"
-          alt="Running with intention"
-        >
-        <div class="resonance-label">Le Studio × Running</div>
+      <div class="resonance-img reveal">
+        <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__6988.jpg" alt="Running with intention">
+        <div class="img-caption">Le Studio x Running</div>
       </div>
       <div class="resonance-text">
-        <div class="eyebrow reveal">Sound like you?</div>
+        <span class="overline reveal">Sound like you?</span>
         <h2 class="reveal">This program was designed for you</h2>
         <ul class="resonance-list">
-          <li class="resonance-item reveal reveal-delay-1">
-            <span class="resonance-arrow">→</span>
-            <p>You want to start running — with a real plan that takes you from zero to your first 10K, without guessing</p>
+          <li class="resonance-item reveal d1">
+            <span class="arrow">→</span>
+            <p>You want to start running — with a real plan that takes you from zero to your first 10K</p>
           </li>
-          <li class="resonance-item reveal reveal-delay-2">
-            <span class="resonance-arrow">→</span>
-            <p>You already run and dream of going further — a half-marathon, with Pilates keeping you injury-free along the way</p>
+          <li class="resonance-item reveal d2">
+            <span class="arrow">→</span>
+            <p>You already run and dream of going further — a half-marathon, with Pilates keeping you injury-free</p>
           </li>
-          <li class="resonance-item reveal reveal-delay-3">
-            <span class="resonance-arrow">→</span>
-            <p>You run for pleasure and want a smarter Pilates × Running routine — no pressure, just real consistency</p>
+          <li class="resonance-item reveal d3">
+            <span class="arrow">→</span>
+            <p>You run for pleasure and want a smarter Pilates x Running routine — no pressure, just consistency</p>
           </li>
         </ul>
-        <div class="resonance-quote reveal reveal-delay-4">
+        <div class="quote-block reveal d4">
           <p>"500+ runners told us exactly this. This program was built from your answers."</p>
           <cite>— Co-built with Le Studio community</cite>
         </div>
@@ -1447,52 +1483,47 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- TRANSFORMATION / BENEFITS -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section class="s-transform">
+<!-- ════ BENEFITS ═══════════════════════════════════════════ -->
+<section class="s-benefits">
   <div class="container">
     <div class="inner">
-      <div class="transform-left reveal">
-        <div class="eyebrow">In 10 weeks</div>
-        <h2>
-          The RUN<br>SCULPT<br>
-          <em>PERFORM</em><br>
-          benefits
-        </h2>
+      <div class="benefits-left reveal">
+        <span class="overline">In 10 weeks</span>
+        <h2>The Run<br>Sculpt<br><em>Perform</em><br>benefits</h2>
         <p>The program gives you the structure to become the runner you want to be.</p>
-        <a href="#pricing" class="btn btn-white" style="margin-top:32px;">
+        <a href="#pricing" class="btn btn-blanc" style="margin-top:32px;">
           <div class="fill"></div>
-          Start now <span class="arrow">→</span>
+          <span class="label">Start Now</span>
         </a>
       </div>
-      <div class="transform-right">
+
+      <div class="benefits-list">
         <div class="benefit-item">
-          <span class="benefit-number">01</span>
-          <div class="benefit-content">
-            <strong>10K, Half-marathon or pure enjoyment</strong>
-            <p>Your goal, your pace. Three dedicated tracks so you progress exactly where you are — and toward exactly where you want to go.</p>
+          <span class="benefit-n">01</span>
+          <div class="benefit-body">
+            <strong>10K, half-marathon or pure enjoyment</strong>
+            <p>Your goal, your pace. Three dedicated tracks so you progress exactly where you are.</p>
           </div>
         </div>
         <div class="benefit-item">
-          <span class="benefit-number">02</span>
-          <div class="benefit-content">
+          <span class="benefit-n">02</span>
+          <div class="benefit-body">
             <strong>A strong, mobile, aligned body</strong>
-            <p>Pilates sessions built specifically for runners — to stay injury-free, move efficiently, and feel better every single session.</p>
+            <p>Pilates built specifically for runners — stay injury-free and move more efficiently.</p>
           </div>
         </div>
         <div class="benefit-item">
-          <span class="benefit-number">03</span>
-          <div class="benefit-content">
+          <span class="benefit-n">03</span>
+          <div class="benefit-body">
             <strong>30+ recipes for real runners</strong>
-            <p>Nutrition designed for the actual needs of a runner's body. Energy, recovery, performance — all covered.</p>
+            <p>Nutrition designed by a certified naturopath for energy, recovery and performance.</p>
           </div>
         </div>
         <div class="benefit-item">
-          <span class="benefit-number">04</span>
-          <div class="benefit-content">
+          <span class="benefit-n">04</span>
+          <div class="benefit-body">
             <strong>10 weeks of structured training</strong>
-            <p>Pilates sessions and progressive running plans, day by day. The structure that was missing — finally in your pocket.</p>
+            <p>Pilates sessions and running plans, day by day. The structure that was missing — in your pocket.</p>
           </div>
         </div>
       </div>
@@ -1500,72 +1531,66 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- PHOTO BAND -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<div class="s-photo-band">
-  <div class="photo-strip">
-    <div class="photo-strip-item">
-      <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7012.jpg" alt="Running">
-    </div>
-    <div class="photo-strip-item">
-      <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7019.jpg" alt="Pilates">
-      <div class="photo-strip-label">Pilates × Running</div>
-    </div>
-    <div class="photo-strip-item">
-      <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7063.jpg" alt="Training">
-    </div>
-    <div class="photo-strip-item">
-      <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7067.jpg" alt="Performance">
-      <div class="photo-strip-label">10 weeks</div>
-    </div>
+<!-- ════ PHOTO BAND ═════════════════════════════════════════ -->
+<div class="photo-band">
+  <div class="photo-band-item">
+    <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7012.jpg" alt="Running">
+  </div>
+  <div class="photo-band-item">
+    <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7019.jpg" alt="Pilates">
+    <div class="photo-band-label">Pilates x Running</div>
+  </div>
+  <div class="photo-band-item">
+    <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7063.jpg" alt="Training">
+  </div>
+  <div class="photo-band-item">
+    <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7067.jpg" alt="Perform">
+    <div class="photo-band-label">10 weeks</div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- THREE TRACKS -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section class="s-program">
+<!-- ════ TRACKS ═════════════════════════════════════════════ -->
+<section class="s-tracks">
   <div class="container">
-    <div class="program-header reveal">
-      <div class="eyebrow">Choose your track</div>
+    <div class="tracks-header reveal">
+      <span class="overline">Choose your track</span>
       <h2>One program, three paths</h2>
-      <p>Whether you're a complete beginner or a seasoned runner, your track adapts to your level and ambition. Start where you are.</p>
+      <p>Start where you are. Progress toward exactly what you want.</p>
     </div>
-    <div class="program-tracks">
-      <div class="track-card reveal reveal-delay-1">
-        <div class="track-number">01</div>
+    <div class="tracks-grid">
+      <div class="track-card reveal d1">
+        <div class="track-n">01</div>
         <div class="track-tag">Beginner</div>
-        <h3>Zero to 10K</h3>
+        <h3>Zero To 10K</h3>
         <p>A gentle, progressive build from your first run to your first milestone race — with Pilates protecting every step.</p>
         <ul class="track-includes">
-          <li>3 runs/week (30–45 min)</li>
-          <li>3 Pilates sessions (30–40 min)</li>
+          <li>3 runs per week (30-45 min)</li>
+          <li>3 Pilates sessions (30-40 min)</li>
           <li>Beginner nutrition guide</li>
           <li>Daily app guidance</li>
         </ul>
       </div>
-      <div class="track-card reveal reveal-delay-2">
-        <div class="track-number">02</div>
+      <div class="track-card reveal d2">
+        <div class="track-n">02</div>
         <div class="track-tag">Intermediate</div>
         <h3>Half-Marathon Ready</h3>
-        <p>Structured long-run programming combined with targeted Pilates to build the endurance and resilience a half-marathon demands.</p>
+        <p>Structured long-run programming with targeted Pilates to build the endurance a half-marathon demands.</p>
         <ul class="track-includes">
-          <li>3–4 runs/week (40–60 min)</li>
-          <li>3 Pilates sessions (35–45 min)</li>
+          <li>3-4 runs per week (40-60 min)</li>
+          <li>3 Pilates sessions (35-45 min)</li>
           <li>Race-day nutrition strategy</li>
           <li>Injury prevention focus</li>
         </ul>
       </div>
-      <div class="track-card reveal reveal-delay-3">
-        <div class="track-number">03</div>
+      <div class="track-card reveal d3">
+        <div class="track-n">03</div>
         <div class="track-tag">Lifestyle</div>
         <h3>Smarter Routine</h3>
-        <p>For runners who love the sport and want a more intelligent, balanced practice — less injury, more joy, real consistency.</p>
+        <p>For runners who love the sport and want a more intelligent, balanced practice — less injury, more joy.</p>
         <ul class="track-includes">
-          <li>3 runs/week (30–50 min)</li>
-          <li>3 Pilates sessions (35–40 min)</li>
-          <li>Recovery & longevity focus</li>
+          <li>3 runs per week (30-50 min)</li>
+          <li>3 Pilates sessions (35-40 min)</li>
+          <li>Recovery and longevity focus</li>
           <li>Flexible programming</li>
         </ul>
       </div>
@@ -1573,143 +1598,124 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- WHAT'S INCLUDED -->
-<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ════ INCLUDED ═══════════════════════════════════════════ -->
 <section class="s-included">
   <div class="container">
     <div class="included-header reveal">
-      <div class="eyebrow">What you get</div>
+      <span class="overline">What you get</span>
       <h2>Everything you need. Nothing you don't.</h2>
     </div>
     <div class="included-grid">
-      <div class="included-item reveal reveal-delay-1">
-        <div class="included-icon">🏃</div>
+      <div class="included-item reveal d1">
+        <span class="item-num">01 — Running</span>
         <h3>Progressive Running Plans</h3>
         <p>Day-by-day structured plans adapted to your track. No guesswork — just open the app and go.</p>
       </div>
-      <div class="included-item reveal reveal-delay-2">
-        <div class="included-icon">🧘</div>
+      <div class="included-item reveal d2">
+        <span class="item-num">02 — Pilates</span>
         <h3>30+ Pilates Video Sessions</h3>
-        <p>Filmed exclusively for runners. Focus on mobility, core strength, and injury prevention.</p>
+        <p>Filmed for runners. Mobility, core strength, and injury prevention built into every session.</p>
       </div>
-      <div class="included-item reveal reveal-delay-3">
-        <div class="included-icon">🥗</div>
+      <div class="included-item reveal d3">
+        <span class="item-num">03 — Nutrition</span>
         <h3>30+ Runner Recipes</h3>
-        <p>Designed by a certified naturopath. Energy, recovery, and performance — covered for every phase.</p>
+        <p>Designed by a certified naturopath for energy, recovery, and performance at every phase.</p>
       </div>
-      <div class="included-item reveal reveal-delay-1">
-        <div class="included-icon">📱</div>
+      <div class="included-item reveal d1">
+        <span class="item-num">04 — App</span>
         <h3>Daily App Guidance</h3>
-        <p>Your full program — runs, Pilates, nutrition — lives in one app. Structured, trackable, simple.</p>
+        <p>Runs, Pilates, nutrition — one app. Structured, trackable, and always in your pocket.</p>
       </div>
-      <div class="included-item reveal reveal-delay-2">
-        <div class="included-icon">🤝</div>
+      <div class="included-item reveal d2">
+        <span class="item-num">05 — Community</span>
         <h3>Private Community Access</h3>
-        <p>A space for accountability, motivation, and shared progress. You're not doing this alone.</p>
+        <p>Accountability, motivation, shared progress. You are not doing this alone.</p>
       </div>
-      <div class="included-item reveal reveal-delay-3">
-        <div class="included-icon">♾️</div>
+      <div class="included-item reveal d3">
+        <span class="item-num">06 — Access</span>
         <h3>Lifetime Access</h3>
-        <p>10 weeks of content — yours to keep and revisit. Run it again next season. Or just enjoy it on your schedule.</p>
+        <p>Yours to keep and revisit. Run the program again next season, on your schedule.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- MEET ALICE -->
-<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ════ MEET ALICE ══════════════════════════════════════════ -->
 <section class="s-alice">
   <div class="container">
     <div class="inner">
       <div class="alice-visual reveal">
-        <div class="main-img">
-          <img
-            src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__6989.jpg"
-            alt="Alice — Founder, Le Studio"
-          >
+        <div class="alice-main">
+          <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__6989.jpg" alt="Alice — Founder, Le Studio">
         </div>
-        <div class="accent-img">
-          <img
-            src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__6960.jpg"
-            alt="Le Studio"
-          >
+        <div class="alice-accent">
+          <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__6960.jpg" alt="Le Studio">
         </div>
       </div>
-      <div class="alice-text reveal reveal-delay-2">
-        <div class="eyebrow">Your expert</div>
+      <div class="alice-text reveal d2">
+        <span class="overline">Your expert</span>
         <h2>Meet Alice</h2>
         <p class="lead">"I built this program because I was you — a runner who loved the sport but kept hitting the same walls."</p>
-        <p>Alice is the founder of Le Studio, a Pilates-first wellness platform trusted by thousands. She's a certified Pilates instructor with a background in sports performance and a passion for accessible, intelligent movement.</p>
-        <p>RUN SCULPT PERFORM was co-created with 500+ members of the Le Studio community — real runners, real frustrations, real transformation. Alice co-developed the nutrition side with a certified naturopath, making this the most complete running program she's ever built.</p>
-        <div class="alice-credentials">
-          <div class="credential"><span class="dot"></span>Certified Pilates Instructor</div>
-          <div class="credential"><span class="dot"></span>Sports Performance</div>
-          <div class="credential"><span class="dot"></span>500+ Community Members</div>
+        <p>Alice is the founder of Le Studio, a Pilates-first wellness platform trusted by thousands. She is a certified Pilates instructor with a background in sports performance.</p>
+        <p>Run Sculpt Perform was co-created with 500+ members of the Le Studio community. Alice developed the nutrition side with a certified naturopath, making this the most complete running program she has ever built.</p>
+        <div class="alice-creds">
+          <span class="cred">Certified Pilates Instructor</span>
+          <span class="cred">Sports Performance</span>
+          <span class="cred">500+ Community Members</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- TESTIMONIALS -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section class="s-testimonials">
+<!-- ════ TESTIMONIALS ════════════════════════════════════════ -->
+<section class="s-testi">
   <div class="container">
-    <div class="testimonials-header reveal">
-      <div class="eyebrow">Community</div>
+    <div class="testi-header reveal">
+      <span class="overline">Community</span>
       <h2>What 500+ runners told us</h2>
     </div>
     <div class="testi-grid">
-      <div class="testi-card reveal reveal-delay-1">
-        <div class="testi-stars">★★★★★</div>
+      <div class="testi-card reveal d1">
         <p class="testi-quote">"I tried 4 running plans before this. None of them stuck. Alice's approach is the first one that actually fits my real life."</p>
         <div class="testi-author">
-          <div class="testi-avatar">S</div>
+          <div class="testi-init">S</div>
           <div>
             <span class="testi-name">Sophie M.</span>
-            <span class="testi-detail">Completed 10K track · Paris</span>
+            <span class="testi-detail">10K track — Paris</span>
           </div>
         </div>
       </div>
-      <div class="testi-card reveal reveal-delay-2">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"The Pilates component is the thing I didn't know I needed. No pain in 10 weeks. First time that's ever happened."</p>
+      <div class="testi-card reveal d2">
+        <p class="testi-quote">"The Pilates component is the thing I didn't know I needed. No pain in 10 weeks. First time that has ever happened."</p>
         <div class="testi-author">
-          <div class="testi-avatar">C</div>
+          <div class="testi-init">C</div>
           <div>
             <span class="testi-name">Charlotte B.</span>
-            <span class="testi-detail">Half-marathon track · Lyon</span>
+            <span class="testi-detail">Half-marathon track — Lyon</span>
           </div>
         </div>
       </div>
-      <div class="testi-photo">
-        <img
-          src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7258.jpg"
-          alt="Running community"
-        >
+      <div class="testi-photo reveal d3">
+        <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7258.jpg" alt="Running community">
       </div>
-      <div class="testi-card reveal reveal-delay-3">
-        <div class="testi-stars">★★★★★</div>
+      <div class="testi-card reveal d1">
         <p class="testi-quote">"The nutrition section alone was worth it. I never knew how badly I was fueling my runs. Total game changer."</p>
         <div class="testi-author">
-          <div class="testi-avatar">M</div>
+          <div class="testi-init">M</div>
           <div>
             <span class="testi-name">Marie L.</span>
-            <span class="testi-detail">Lifestyle track · Bordeaux</span>
+            <span class="testi-detail">Lifestyle track — Bordeaux</span>
           </div>
         </div>
       </div>
-      <div class="testi-card reveal reveal-delay-4">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"I was running 3x a week with no real progress. 10 weeks later I feel like a completely different athlete."</p>
+      <div class="testi-card reveal d2">
+        <p class="testi-quote">"I was running 3 times a week with no real progress. 10 weeks later I feel like a completely different athlete."</p>
         <div class="testi-author">
-          <div class="testi-avatar">J</div>
+          <div class="testi-init">J</div>
           <div>
             <span class="testi-name">Julie R.</span>
-            <span class="testi-detail">Half-marathon track · Nantes</span>
+            <span class="testi-detail">Half-marathon track — Nantes</span>
           </div>
         </div>
       </div>
@@ -1717,51 +1723,48 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- PRICING -->
-<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ════ PRICING ════════════════════════════════════════════ -->
 <section class="s-pricing" id="pricing">
   <div class="container">
     <div class="pricing-header reveal">
-      <div class="eyebrow">Simple pricing</div>
+      <span class="overline">Simple pricing</span>
       <h2>One program. Two ways in.</h2>
-      <p>Both options give you full access to all three tracks, all content, lifetime access — and the community.</p>
+      <p>Both options include full access to all three tracks, all content, and lifetime access.</p>
     </div>
     <div class="pricing-grid">
-      <div class="pricing-card featured reveal reveal-delay-1">
-        <div class="pricing-badge">Early Bird</div>
-        <div class="pricing-label">One-time purchase</div>
+      <div class="pricing-card featured reveal d1">
+        <div class="pricing-flag">Early Bird</div>
+        <span class="pricing-label">One-time purchase</span>
         <div class="pricing-price"><sup>€</sup>97</div>
-        <div class="pricing-period">One-time · Early bird until April 25</div>
+        <p class="pricing-sub">One-time — Early bird until April 25</p>
         <ul class="pricing-features">
-          <li>Full 10-week program (all 3 tracks)</li>
+          <li>Full 10-week program — all 3 tracks</li>
           <li>30+ Pilates sessions for runners</li>
           <li>Progressive running plans</li>
           <li>30+ nutrition recipes</li>
           <li>Daily app guidance</li>
           <li>Private community access</li>
-          <li>Lifetime access — yours to keep</li>
+          <li>Lifetime access</li>
         </ul>
-        <a href="#" class="btn btn-white" style="width:100%; justify-content:center;">
+        <a href="#" class="btn btn-blanc" style="width:100%; justify-content:center;">
           <div class="fill"></div>
-          I'm in <span class="arrow">→</span>
+          <span class="label">I'm In</span>
         </a>
       </div>
-      <div class="pricing-card reveal reveal-delay-2">
-        <div class="pricing-label">Le Studio Annual</div>
-        <div class="pricing-price"><sup>€</sup>20<span style="font-size:0.4em; vertical-align:baseline;">/mo</span></div>
-        <div class="pricing-period">Billed annually · Full Studio access</div>
+      <div class="pricing-card reveal d2">
+        <span class="pricing-label">Le Studio Annual</span>
+        <div class="pricing-price"><sup>€</sup>20<span style="font-size:.35em; vertical-align:baseline; font-weight:300;">/mo</span></div>
+        <p class="pricing-sub">Billed annually — Full Studio access</p>
         <ul class="pricing-features">
-          <li>RUN SCULPT PERFORM included</li>
+          <li>Run Sculpt Perform included</li>
           <li>Full Le Studio class library</li>
           <li>New programs as they launch</li>
           <li>Live sessions with Alice</li>
-          <li>All tracks, all content</li>
           <li>No commitment</li>
         </ul>
-        <a href="#" class="btn btn-outline" style="width:100%; justify-content:center;">
+        <a href="#" class="btn btn-ghost" style="width:100%; justify-content:center;">
           <div class="fill"></div>
-          Explore Le Studio <span class="arrow">→</span>
+          <span class="label">Explore Le Studio</span>
         </a>
       </div>
     </div>
@@ -1769,136 +1772,127 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- BONUS -->
-<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ════ BONUS ═══════════════════════════════════════════════ -->
 <section class="s-bonus">
   <div class="container">
     <div class="inner">
       <div class="reveal">
-        <div class="bonus-badge">Exclusive bonus</div>
-        <h2><strong>Live Pilates × Run class</strong><br>in studio, in Paris.</h2>
+        <div class="bonus-flag">Exclusive Bonus</div>
+        <h2><strong>Live Pilates x Run class</strong><br>in studio, in Paris.</h2>
         <p>The first 15 sign-ups get access to an exclusive in-person class with Alice at a Marais studio in Paris, May 27. Come run and move together — for real.</p>
       </div>
-      <div class="bonus-spots reveal reveal-delay-2">
+      <div class="bonus-count reveal d2">
         <strong>15</strong>
-        <span>spots only</span>
+        <span>Spots Only</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- GUARANTEE -->
-<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ════ GUARANTEE ══════════════════════════════════════════ -->
 <section class="s-guarantee" id="guarantee">
   <div class="container">
     <div class="inner reveal">
-      <div class="guarantee-icon">
-        <span>✓</span>
-        <span>14 days</span>
+      <div class="guarantee-badge">
+        <strong>14</strong>
+        <span>Days</span>
       </div>
       <div class="guarantee-text">
         <h3>Satisfied or refunded. Period.</h3>
-        <p>If within 14 days you feel this program isn't right for you — full refund, no questions asked. We believe in what we've built, and we want you to start without any pressure.</p>
+        <p>If within 14 days you feel this program is not right for you — full refund, no questions asked. We believe in what we built, and we want you to start without pressure.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- FAQ -->
-<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ════ FAQ ═════════════════════════════════════════════════ -->
 <section class="s-faq">
   <div class="container">
     <div class="faq-header reveal">
-      <div class="eyebrow">Questions</div>
+      <span class="overline">Questions</span>
       <h2>Everything you might be thinking</h2>
     </div>
     <div class="faq-grid">
-      <div class="faq-item reveal reveal-delay-1">
-        <button class="faq-question">
+      <div class="faq-item reveal d1">
+        <button class="faq-q">
           I'm scared of getting injured if I run more.
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-answer">
-          <p>Injury prevention was the #1 frustration in our survey — 31% of runners told us pain holds them back. That's exactly why the entire program is built on a Pilates foundation. Every running week is paired with targeted sessions that protect your body as your mileage builds.</p>
+        <div class="faq-a">
+          <p>Injury prevention was the #1 frustration in our survey — 31% of runners told us pain holds them back. That is exactly why the entire program is built on a Pilates foundation. Every running week is paired with targeted sessions that protect your body as your mileage builds.</p>
         </div>
       </div>
-      <div class="faq-item reveal reveal-delay-2">
-        <button class="faq-question">
-          I already run 2–3 times a week. Why would I need this?
+      <div class="faq-item reveal d2">
+        <button class="faq-q">
+          I already run 2-3 times a week. Why would I need this?
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-answer">
+        <div class="faq-a">
           <p>72% of the runners who answered our survey run regularly — and their top frustrations were stagnation and lack of structure. Running consistently is great. Running with purpose, Pilates support, and a real progression plan is what takes you further.</p>
         </div>
       </div>
-      <div class="faq-item reveal reveal-delay-1">
-        <button class="faq-question">
-          I'm not convinced Pilates actually makes a difference for running.
+      <div class="faq-item reveal d1">
+        <button class="faq-q">
+          I'm not convinced Pilates makes a difference for running.
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-answer">
-          <p>55% of respondents ranked injury prevention as their #1 reason for combining Pilates and running. Every Pilates session in this program is designed specifically for runner bodies — hips, glutes, core, posture. It's not generic. It was built for this.</p>
+        <div class="faq-a">
+          <p>55% of respondents ranked injury prevention as their #1 reason for combining Pilates and running. Every session in this program is designed specifically for runner bodies — hips, glutes, core, posture. It is not generic. It was built for this.</p>
         </div>
       </div>
-      <div class="faq-item reveal reveal-delay-2">
-        <button class="faq-question">
+      <div class="faq-item reveal d2">
+        <button class="faq-q">
           I don't have time for an extra program on top of my runs.
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-answer">
-          <p>This doesn't add to your routine — it replaces it. 3 running sessions (30–60 min) + 3 Pilates classes (30–45 min). Sunday is rest. It's designed to fit real life, not an ideal one.</p>
+        <div class="faq-a">
+          <p>This does not add to your routine — it replaces it. 3 running sessions (30-60 min) + 3 Pilates classes (30-45 min). Sunday is rest. It is designed to fit real life, not an ideal one.</p>
         </div>
       </div>
-      <div class="faq-item reveal reveal-delay-1">
-        <button class="faq-question">
+      <div class="faq-item reveal d1">
+        <button class="faq-q">
           I've tried running plans before and always dropped off.
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-answer">
-          <p>20% of surveyed runners said motivation and consistency were their main struggle. Three tracks with progressive difficulty, daily app guidance, and a private community are in place specifically to keep you going. You're not alone in this one.</p>
+        <div class="faq-a">
+          <p>20% of surveyed runners said motivation and consistency were their main struggle. Three tracks, progressive difficulty, daily app guidance, and a private community are specifically in place to keep you going.</p>
         </div>
       </div>
-      <div class="faq-item reveal reveal-delay-2">
-        <button class="faq-question">
-          Is €97 really worth it for 10 weeks?
+      <div class="faq-item reveal d2">
+        <button class="faq-q">
+          Is 97€ really worth it for 10 weeks?
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-answer">
-          <p>Less than the cost of a single session with a running coach. The early bird price of €97 is available until April 25 — after that, it goes back to €297. And remember: 14-day full refund if it's not right for you.</p>
+        <div class="faq-a">
+          <p>Less than the cost of a single session with a running coach. The early bird price of 97€ is available until April 25 — after that, it goes back to 297€. And you have 14 days to decide if it is right for you.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- FINAL CTA -->
-<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ════ FINAL CTA ═══════════════════════════════════════════ -->
 <section class="s-final">
+  <div class="final-watermark">Run</div>
   <div class="container">
-    <div class="eyebrow reveal">Your move</div>
-    <h2 class="reveal">10 weeks to become<br>the runner you <em>already are.</em></h2>
-    <p class="sub reveal">The structure. The experts. The community.<br>Everything is ready — all that's missing is you.</p>
-    <div class="cta-group reveal">
-      <a href="#pricing" class="btn btn-primary btn-primary-lg">
+    <span class="overline reveal">Your move</span>
+    <h2 class="reveal">10 weeks to become<br><strong>the runner you already are.</strong></h2>
+    <p class="sub reveal">The structure. The experts. The community. Everything is ready — all that's missing is you.</p>
+    <div class="final-cta-group reveal">
+      <a href="#pricing" class="btn btn-bleu btn-bleu-lg">
         <div class="fill"></div>
-        I'm in <span class="arrow">→</span>
+        <span class="label">I'm In</span>
       </a>
-      <p class="final-note">€97 one-time · Early bird until April 25 · 14-day refund guaranteed</p>
+      <p class="final-note">97€ one-time &nbsp;·&nbsp; Early bird until April 25 &nbsp;·&nbsp; 14-day refund guaranteed</p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- FOOTER -->
-<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ════ FOOTER ══════════════════════════════════════════════ -->
 <footer>
   <div class="container footer-inner">
     <span class="footer-logo">Le Studio by Alice</span>
-    <p class="footer-copy">© 2025 Le Studio by Alice. All rights reserved.</p>
+    <p class="footer-copy">2025 Le Studio by Alice. All rights reserved.</p>
     <div class="footer-links">
       <a href="#">Privacy</a>
       <a href="#">Terms</a>
@@ -1907,46 +1901,44 @@ footer {
   </div>
 </footer>
 
-<!-- ─── SCRIPTS ─────────────────────────────────────────── -->
+<!-- ════ SCRIPTS ═════════════════════════════════════════════ -->
 <script>
-// ── Nav scroll ──
-const nav = document.getElementById('mainNav');
+// ── Nav scroll
+const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
 
-// ── Scroll reveal ──
+// ── Scroll reveal
 const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
+const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.classList.add('visible');
-      observer.unobserve(e.target);
+      revealObs.unobserve(e.target);
     }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-reveals.forEach(el => observer.observe(el));
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => revealObs.observe(el));
 
-// ── Benefit items reveal (stagger) ──
+// ── Benefit items stagger
 const benefits = document.querySelectorAll('.benefit-item');
-const benefitObserver = new IntersectionObserver((entries) => {
+const benObs = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
     if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 120);
-      benefitObserver.unobserve(e.target);
+      setTimeout(() => e.target.classList.add('visible'), i * 130);
+      benObs.unobserve(e.target);
     }
   });
 }, { threshold: 0.1 });
-benefits.forEach(el => benefitObserver.observe(el));
+benefits.forEach(el => benObs.observe(el));
 
-// ── FAQ accordion ──
-document.querySelectorAll('.faq-question').forEach(btn => {
+// ── FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
     const item = btn.closest('.faq-item');
     const isOpen = item.classList.contains('open');
-    // Close all
     document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-    // Open clicked (if was closed)
     if (!isOpen) item.classList.add('open');
   });
 });
