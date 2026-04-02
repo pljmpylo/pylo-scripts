@@ -15,7 +15,7 @@
       --font:              Futuralt, Arial, sans-serif;
       --bleu:              #1a4bbe;
       --noir:              #01050e;
-      --beige:             #f8f3ed;
+      --beige:             #ffffff;
       --blanc:             #ffffff;
       --muted:             rgba(1,5,14,.42);
       --rule:              rgba(1,5,14,.09);
@@ -172,10 +172,11 @@
     .pricing-cards { display:grid; grid-template-columns:1fr 1fr; gap:0; }
     .pcard { padding:3rem; display:flex; flex-direction:column; border:1px solid var(--rule); }
     .pcard:first-child { border-right:none; }
-    .pcard--feat { background:var(--noir); border-color:var(--noir); color:var(--blanc) !important; }
+    .pcard:last-child { border:none; }
+    .pcard--feat { background:var(--bleu); border-color:var(--bleu); color:var(--blanc) !important; }
     .pcard--feat * { color:var(--blanc) !important; }
     .pc-badge { display:inline-block; font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.16em; text-transform:uppercase; padding:.3rem .85rem; margin-bottom:2rem; width:fit-content; }
-    .pcard--feat .pc-badge { background:var(--bleu); color:var(--blanc) !important; border:1px solid var(--bleu); }
+    .pcard--feat .pc-badge { background:rgba(255,255,255,.18); color:var(--blanc) !important; border:1px solid rgba(255,255,255,.3); }
     .pcard .pc-badge     { background:var(--blanc); color:var(--muted) !important; border:1px solid var(--rule); }
     .pc-lbl    { font-family:var(--font); font-size:.6rem; font-weight:400; letter-spacing:.16em; text-transform:uppercase; margin-bottom:.5rem; }
     .pcard--feat .pc-lbl { color:rgba(255,255,255,.45) !important; }
@@ -189,7 +190,7 @@
     .pcard--feat .pc-or  { color:rgba(255,255,255,.45) !important; }
     .pcard .pc-or        { color:var(--muted); }
     .pc-deadline { font-family:var(--font); font-size:.72rem; font-weight:500; letter-spacing:.06em; margin-bottom:2rem; }
-    .pcard--feat .pc-deadline { color:#8AABFF !important; }
+    .pcard--feat .pc-deadline { color:rgba(255,255,255,.8) !important; }
     .pcard .pc-deadline       { color:var(--noir); }
     .pc-lines  { display:flex; flex-direction:column; gap:.6rem; margin-bottom:2.5rem; flex:1; }
     .pc-line   { display:flex; gap:.75rem; align-items:flex-start; font-family:var(--font); font-size:var(--size-small); font-weight:300; }
@@ -208,7 +209,7 @@
     .bonus-count { text-align:right; }
     .bonus-num   { font-family:var(--font); font-size:5rem; font-weight:300; color:var(--bleu); line-height:1; display:block; }
     .bonus-count-lbl { font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
-    .guarantee-inner { display:flex; align-items:flex-start; gap:3rem; max-width:720px; padding:3rem 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+    .guarantee-inner { display:flex; align-items:flex-start; gap:3rem; max-width:720px; padding:3rem 0; }
     .guarantee-title { font-family:var(--font); font-size:1.1rem; font-weight:500; margin-bottom:.6rem; line-height:1.2; color:var(--noir); }
     .guarantee-body  { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.8; color:var(--muted); }
     .faq-layout { display:grid; grid-template-columns:4fr 7fr; gap:clamp(3rem,6vw,6rem); margin-top:3rem; }
@@ -497,16 +498,6 @@
       <div>
         <span class="eyebrow rv">Choose your plan</span>
         <h2 class="h-lg rv d1" id="pricing-h">Two ways to start running with Le Studio.</h2>
-        <div class="cd-wrap rv d2" id="cd-wrap" aria-live="polite">
-          <span class="cd-label">Early bird closes in</span>
-          <div class="cd-timer">
-            <div class="cd-u"><span class="cd-n" id="cd-d">--</span><span class="cd-l">days</span></div>
-            <span class="cd-sep">:</span>
-            <div class="cd-u"><span class="cd-n" id="cd-h">--</span><span class="cd-l">hours</span></div>
-            <span class="cd-sep">:</span>
-            <div class="cd-u"><span class="cd-n" id="cd-m">--</span><span class="cd-l">mins</span></div>
-          </div>
-        </div>
       </div>
       <p class="body-sm rv d2" style="color:var(--muted);">Lifetime access. Secure payment. 14-day guarantee. Start today at the early bird price and access all three tracks immediately.</p>
     </div>
@@ -525,8 +516,8 @@
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Journal + .ics calendar</p>
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private community + Spotify playlists</p>
         </div>
-        <a href="https://app.lestudiobyalice.com/checkout/new?o=199268" class="btn btn-blanc pc-btn">
-          <div class="fill"></div>
+        <a href="https://app.lestudiobyalice.com/checkout/new?o=199268" class="btn btn-ghost" style="background:var(--blanc); color:var(--bleu); border-color:var(--blanc);" pc-btn>
+          <div class="fill" style="background:var(--noir);"></div>
           <span class="btn-label">Run With Us — €89</span>
         </a>
         <p class="pc-note">Lifetime access · Secure payment · 14-day guarantee</p>
