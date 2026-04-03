@@ -105,7 +105,7 @@
     .res-quote { margin-top:2rem; padding-left:1.25rem; border-left:1px solid var(--rule); }
     .res-quote p { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.2; color:var(--noir); }
     .res-quote cite { display:block; margin-top:.75rem; font-family:var(--font); font-style:normal; font-size:.52rem; letter-spacing:.16em; text-transform:uppercase; font-weight:500; color:var(--muted); }
-    .promise-grid { display:grid; grid-template-columns:1.7fr 0.3fr; gap:clamp(3rem,6vw,5.5rem); align-items:center; }
+    .promise-grid { display:grid; grid-template-columns:1.1fr 0.9fr; gap:clamp(3rem,6vw,5.5rem); align-items:center; }
     .benefit-list { margin-top:2rem; }
     .benefit-row { display:flex; gap:1rem; align-items:center; padding:.9rem 0; }
     .benefit-row:last-of-type { border-bottom:none; }
@@ -115,7 +115,7 @@
     .promise-closing { margin-top:2rem; padding:1.25rem 1.5rem; border-left:2px solid var(--bleu); }
     .promise-closing p { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.65; color:var(--muted); }
     .promise-closing p strong { font-weight:500; color:var(--noir); }
-    .promise-photo { height:clamp(180px,18vw,260px); overflow:hidden; }
+    .promise-photo { height:clamp(420px,52vw,640px); overflow:hidden; }
     .promise-photo img { width:100%; height:100%; object-fit:cover; object-position:center 30%; transition:transform .9s ease; }
     .promise-photo:hover img { transform:scale(1.02); }
     .week-grid { display:grid; grid-template-columns:1fr 1fr 1.2fr; gap:clamp(2rem,4vw,4rem); align-items:start; }
@@ -134,7 +134,7 @@
     .week-table .wt-run td:last-child { font-weight:500; color:var(--bleu); }
     .week-table .wt-rest td:last-child { color:rgba(1,5,14,.35); }
     .alice-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(3rem,6vw,6rem); align-items:center; }
-    .alice-photo { height:clamp(440px,55vw,600px); overflow:hidden; }
+    .alice-photo { height:clamp(560px,70vw,820px); overflow:hidden; }
     .alice-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; }
     .alice-body { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.2; margin-bottom:10px; margin-top:0; color:var(--noir); }
     .alice-sig { font-family:var(--font); font-size:1.6rem; font-weight:300; letter-spacing:.1em; margin-top:1rem; margin-bottom:2rem; color:var(--noir); }
@@ -145,7 +145,7 @@
     .proof-block h3 { font-family:var(--font); font-size:1rem; font-weight:500; margin-bottom:.35rem; line-height:1.25; color:var(--noir); }
     .proof-role { font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.12em; text-transform:uppercase; color:var(--bleu); margin-bottom:1rem; }
     .proof-body { font-family:var(--font); font-size:var(--size-small); font-weight:300; line-height:1.2; color:var(--noir); }
-    .photo-interlude { height:clamp(320px,38vw,460px); overflow:hidden; position:relative; }
+    .photo-interlude { height:clamp(480px,58vw,720px); overflow:hidden; position:relative; }
     .photo-interlude img { width:100%; height:100%; object-fit:cover; object-position:center 45%; transition:transform 1.5s ease; }
     .photo-interlude:hover img { transform:scale(1.02); }
     .inc-list { margin-top:3rem; }
@@ -251,8 +251,8 @@
     .sticky-section__text {
       display:        flex;
       flex-direction: column;
-      gap:            60px;
-      padding:        60px 0;
+      gap:            160px;
+      padding:        140px 0;
     }
     .sticky-section__media {
       position: sticky;
@@ -267,7 +267,7 @@
       object-position: center 55%;
     }
     @media (max-width:1024px) { .proof-grid  { grid-template-columns:1fr 1fr; } .tracks-grid { grid-template-columns:1fr 1fr; } .proof-block { border-right:none; border-bottom:1px solid var(--rule); } .proof-block:last-child { border-bottom:none; } .week-grid   { grid-template-columns:1fr 1fr; } .week-photo  { display:none; } }
-    @media (max-width:768px) { .hero-h1 { padding-top: 3rem !important; } .res-grid { display:flex; flex-direction:column; } .res-sticky { display:contents; } .res-cta { order:3; margin-top:1.5rem; } .asp-list { order:2; } #res-h { order:1; } .promise-grid, .week-grid, .alice-grid, .faq-layout, .pricing-intro { grid-template-columns:1fr; } .res-sticky   { position:static; } .promise-photo { height:320px; order:-1; } .alice-photo  { height:320px; order:-1; } .proof-grid   { grid-template-columns:1fr; } .tracks-grid  { grid-template-columns:1fr; } .track  { border-right:none; border-bottom:1px solid var(--rule); } .track:last-child { border-bottom:none; } .pricing-cards { grid-template-columns:1fr; } .pcard:first-child { border-right:1px solid var(--rule); border-bottom:none; } .bonus-inner { grid-template-columns:1fr; } .bonus-count { text-align:left; } .guarantee-inner { flex-direction:column; } #urgency-bar { flex-direction:column; align-items:flex-start; padding:1rem 1.5rem; } .hero-proofs { flex-direction:column; } .hero-proof  { padding-right:0; padding-bottom:.85rem; } .sticky-section { grid-template-columns:1fr !important; } .sticky-section__media { position:relative; height:340px; } .sticky-section__text { gap:40px; padding:40px 0; } }
+    @media (max-width:768px) { .hero-h1 { padding-top: 3rem !important; } .res-grid { display:flex; flex-direction:column; } .res-sticky { display:contents; } .res-cta { order:3; margin-top:1.5rem; } .asp-list { order:2; } #res-h { order:1; } .promise-grid, .week-grid, .alice-grid, .faq-layout, .pricing-intro { grid-template-columns:1fr; } .res-sticky   { position:static; } .promise-photo { height:400px; order:-1; } .alice-photo  { height:420px; order:-1; } .proof-grid   { grid-template-columns:1fr; } .tracks-grid  { grid-template-columns:1fr; } .track  { border-right:none; border-bottom:1px solid var(--rule); } .track:last-child { border-bottom:none; } .pricing-cards { grid-template-columns:1fr; } .pcard:first-child { border-right:1px solid var(--rule); border-bottom:none; } .bonus-inner { grid-template-columns:1fr; } .bonus-count { text-align:left; } .guarantee-inner { flex-direction:column; } #urgency-bar { flex-direction:column; align-items:flex-start; padding:1rem 1.5rem; } .hero-proofs { flex-direction:column; } .hero-proof  { padding-right:0; padding-bottom:.85rem; } .sticky-section { grid-template-columns:1fr !important; } .sticky-section__media { position:relative; height:420px; } .sticky-section__text { gap:60px; padding:60px 0; } }
   </style>
 </head>
 <body>
