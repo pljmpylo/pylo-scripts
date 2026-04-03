@@ -74,8 +74,8 @@
     .btn-ghost { background: transparent; color: var(--noir); border: 1.5px solid var(--noir); }
     .btn-ghost .fill  { background:var(--noir); }
     .btn-ghost:hover, .btn-ghost:focus  { color:var(--blanc); }
-    #announce { background:var(--noir); padding:.55rem 0; overflow:hidden; }
-    .announce-track { display:flex; white-space:nowrap; animation:aScroll 38s linear infinite; }
+    #announce { background:var(--noir); padding:.55rem 0; overflow:hidden; cursor:pointer; }
+    .announce-track { display:flex; white-space:nowrap; animation:aScroll 27s linear infinite; }
     @keyframes aScroll { to { transform:translateX(-50%); } }
     .a-item { display: inline-flex; align-items: center; gap: 1.5rem; padding: 0 2rem; font-family: var(--font); font-size: .6rem; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.45); }
     .a-item strong { color:var(--blanc); font-weight:500; }
@@ -90,10 +90,10 @@
     @keyframes bdot { 0%,100%{opacity:1} 50%{opacity:.3} }
     .hero-sub { font-family: var(--font); font-size: 32px; font-weight: 300; line-height: 1; color: rgba(255,255,255,1); max-width: 48ch; margin-bottom: 2rem; margin-top: 0; }
     .hero-actions { display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; margin-bottom:.75rem; }
-    .hero-proofs  { display:flex; gap:0; flex-wrap:wrap; margin-top:2.75rem; border-top:1px solid rgba(255,255,255,.1); }
+    .hero-proofs  { display:flex; gap:0; flex-wrap:wrap; margin-top:2.75rem; border-top:1px solid rgba(255,255,255,1); }
     .hero-proof   { padding:1.1rem 3.5rem 1rem 0; }
     .hp-num   { font-family:var(--font); font-size:1.8rem; font-weight:400; color:var(--blanc); line-height:1; }
-    .hp-label { font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.36); margin-top:.2rem; }
+    .hp-label { font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,1); margin-top:.2rem; }
     .res-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(3rem,6vw,6rem); align-items:start; }
     .res-sticky { position:sticky; top:2rem; }
     .asp-list { display:flex; flex-direction:column; margin-top:2rem; }
@@ -181,10 +181,10 @@
     .pcard--feat * { color:var(--blanc) !important; }
     .pc-badge { display:inline-block; font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.16em; text-transform:uppercase; padding:.3rem .85rem; margin-bottom:2rem; width:fit-content; }
     .pcard--feat .pc-badge { background:rgba(255,255,255,.18); color:var(--blanc) !important; border:1px solid rgba(255,255,255,.3); }
-    .pcard .pc-badge     { background:var(--blanc); color:var(--muted) !important; border:1px solid var(--rule); }
-    .pc-lbl    { font-family:var(--font); font-size:.6rem; font-weight:400; letter-spacing:.16em; text-transform:uppercase; margin-bottom:.5rem; }
-    .pcard--feat .pc-lbl { color:rgba(255,255,255,.45) !important; }
-    .pcard .pc-lbl       { color:var(--muted); }
+    .pcard .pc-badge     { background:var(--bleu); color:var(--blanc) !important; border:1px solid var(--bleu); }
+    .pc-lbl    { font-family:var(--font); font-size:var(--size-small); font-weight:500; letter-spacing:normal; text-transform:none; margin-bottom:.75rem; }
+    .pcard--feat .pc-lbl { color:rgba(255,255,255,.9) !important; }
+    .pcard .pc-lbl       { color:var(--noir); }
     .pc-price-row { display:flex; align-items:baseline; justify-content:flex-start; gap:1rem; margin-bottom:.35rem; }
     .pc-price-right { display:flex; flex-direction:column; align-items:flex-start; padding-bottom:0; }
     .pc-price  { font-family:var(--font); font-size:4rem; font-weight:300; line-height:1; margin-bottom:0; }
@@ -243,7 +243,7 @@
     .ub-right { display:flex; align-items:center; gap:1.25rem; }
     .ub-time  { font-family:var(--font); font-size:.7rem; font-weight:400; letter-spacing:.06em; color:rgba(255,255,255,.5); }
     @media (max-width:1024px) { .proof-grid  { grid-template-columns:1fr 1fr; } .tracks-grid { grid-template-columns:1fr 1fr; } .proof-block { border-right:none; border-bottom:1px solid var(--rule); } .proof-block:last-child { border-bottom:none; } .week-grid   { grid-template-columns:1fr 1fr; } .week-photo  { display:none; } }
-    @media (max-width:768px) { .hero-h1 { padding-top: 3rem !important; } .res-grid { display:flex; flex-direction:column; } .res-sticky { display:contents; } .res-cta { order:3; margin-top:1.5rem; } .asp-list { order:2; } #res-h { order:1; } .promise-grid, .week-grid, .alice-grid, .faq-layout, .pricing-intro { grid-template-columns:1fr; } .res-sticky   { position:static; } .promise-photo { height:320px; order:-1; } .alice-photo  { height:320px; order:-1; } .proof-grid   { grid-template-columns:1fr; } .tracks-grid  { grid-template-columns:1fr; } .track  { border-right:none; border-bottom:1px solid var(--rule); } .track:last-child { border-bottom:none; } .pricing-cards { grid-template-columns:1fr; } .pcard:first-child { border-right:1px solid var(--rule); border-bottom:none; } .bonus-inner { grid-template-columns:1fr; } .bonus-count { text-align:left; } .guarantee-inner { flex-direction:column; } #urgency-bar { flex-direction:column; align-items:flex-start; padding:1rem 1.5rem; } .hero-proofs { flex-direction:column; } .hero-proof  { padding-right:0; border-bottom:1px solid rgba(255,255,255,.08); padding-bottom:.85rem; } #included > .wrap > div[style] { grid-template-columns:1fr !important; } }
+    @media (max-width:768px) { .hero-h1 { padding-top: 3rem !important; } .res-grid { display:flex; flex-direction:column; } .res-sticky { display:contents; } .res-cta { order:3; margin-top:1.5rem; } .asp-list { order:2; } #res-h { order:1; } .promise-grid, .week-grid, .alice-grid, .faq-layout, .pricing-intro { grid-template-columns:1fr; } .res-sticky   { position:static; } .promise-photo { height:320px; order:-1; } .alice-photo  { height:320px; order:-1; } .proof-grid   { grid-template-columns:1fr; } .tracks-grid  { grid-template-columns:1fr; } .track  { border-right:none; border-bottom:1px solid var(--rule); } .track:last-child { border-bottom:none; } .pricing-cards { grid-template-columns:1fr; } .pcard:first-child { border-right:1px solid var(--rule); border-bottom:none; } .bonus-inner { grid-template-columns:1fr; } .bonus-count { text-align:left; } .guarantee-inner { flex-direction:column; } #urgency-bar { flex-direction:column; align-items:flex-start; padding:1rem 1.5rem; } .hero-proofs { flex-direction:column; } .hero-proof  { padding-right:0; padding-bottom:.85rem; } #included > .wrap > div[style] { grid-template-columns:1fr !important; } }
   </style>
 </head>
 <body>
@@ -320,7 +320,7 @@
           </div>
           <div class="benefit-row rv d2">
             <span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <p class="benefit-text"><strong>10 weeks of structured training</strong> — Pilates sessions and running plans included.</p>
+            <p class="benefit-text"><strong>10 weeks of structured training</strong>: Pilates sessions and running plans included.</p>
           </div>
           <div class="benefit-row rv d3">
             <span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -392,14 +392,14 @@
       <div class="track rv d1">
         <div class="track-n">02</div>
         <p class="track-title">Aurélie Canzoneri</p>
-        <p class="track-goal">Certified naturopath FÉNA — Stanford · Published author</p>
+        <p class="track-goal">Certified naturopath FÉNA, Stanford · Published author</p>
         <p class="track-for">Aurélie created the nutrition track: 30+ recipes and a mindset guide calibrated for female runners.</p>
       </div>
       <div class="track rv d2">
         <div class="track-n">03</div>
         <p class="track-title">Joseph Fahnert</p>
-        <p class="track-goal">Certified sports coach — Running, Triathlon</p>
-        <p class="track-for">Joseph designed and validated every running plan in the program — intervals, tempo, long runs, all three tracks.</p>
+        <p class="track-goal">Certified sports coach: Running, Triathlon</p>
+        <p class="track-for">Joseph designed and validated every running plan in the program: intervals, tempo, long runs, all three tracks.</p>
       </div>
     </div>
   </div>
@@ -509,17 +509,16 @@
         <p class="pc-deadline">Until April 12 only</p>
         <div class="pc-lines">
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Complete training web-app</p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>10-week running plan (3 tracks)</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>3 Running Tracks (just run, 10km, 21km)</p>
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>29 Pilates classes</p>
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Nutrition &amp; mindset ebook (+90 pages)</p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Journal + .ics calendar</p>
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private community + Spotify playlists</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Journal + .ics calendar + Spotify playlist</p>
         </div>
         <a href="https://app.lestudiobyalice.com/checkout/new?o=199268" class="btn btn-ghost pc-btn pc-btn-main">
           <div class="fill"></div>
-          <span class="btn-label">Run With Us — €89</span>
+          <span class="btn-label">Buy The Program</span>
         </a>
-        <p class="pc-note">Lifetime access · Secure payment · 14-day guarantee</p>
+        <p class="pc-note">One year Access · Secure payment</p>
       </div>
       <div class="pcard rv d1">
         <span class="pc-badge">Most popular</span>
@@ -529,10 +528,11 @@
         <p class="pc-or">&nbsp;</p>
         <p class="pc-deadline">Everything in the one-shot plan, plus:</p>
         <div class="pc-lines">
-          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Everything in the one-shot plan</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Everything in the program</p>
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>+ 235 on-demand classes, all levels</p>
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>+ 15 programs &amp; challenges</p>
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>+ New content every week</p>
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>+ Private community &amp; Early Access to events</p>
         </div>
         <a href="https://www.lestudiobyalice.com/free-trial" class="btn btn-bleu pc-btn"><div class="fill"></div><span class="btn-label">Start My Free Trial</span></a>
         <p class="pc-note">3 free days · Secure payment · Full Access</p>
@@ -541,31 +541,6 @@
   </div>
 </section>
 
-<section id="bonus" class="bg-blanc" style="padding:2rem 0;" aria-label="Exclusive bonus">
-  <div class="wrap">
-    <div class="bonus-inner rv">
-      <div>
-        <h2 class="h-lg" style="margin-bottom:.75rem;">Live Pilates × Run class in studio</h2>
-        <p class="bonus-body">The first 15 Annual members get a <strong>free in-person Pilates × Running class in Paris on April 27th</strong> — plus a full On Running outfit, while spots last.</p>
-      </div>
-      <div class="bonus-count">
-        <span class="bonus-num">15</span>
-        <span class="bonus-count-lbl">spots only</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="guarantee" class="bg-beige" style="padding:2rem 0;" aria-label="Guarantee">
-  <div class="wrap">
-    <div class="guarantee-inner rv">
-      <div>
-        <p class="guarantee-title">Satisfied or refunded.</p>
-        <p class="guarantee-body">If within 7 days you feel this program isn't for you — full refund, no questions asked. We believe in this program and we want you to start without pressure.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="faq" class="s bg-blanc" aria-labelledby="faq-h">
   <div class="wrap">
@@ -577,21 +552,21 @@
             <span class="faq-q">How does the program help me progress without hitting a plateau or getting injured?</span>
             <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-a">Most running injuries don't come from bad luck — they come from running with a body that isn't ready for it. That's why Joseph, our certified running coach, built every training plan with technique and progressive load at the core: you're never asked to do more than your body is ready for. The Pilates sessions I aligned around his plans are there to strengthen exactly what running breaks down week after week. The web-app's daily check-in gives you tailored advice before each session. Warm-ups and cool-downs are included every time. You just follow the plan.</div>
+          <div class="faq-a">Most running injuries come from running with a body that isn't ready for it. That's why Joseph, our certified running coach, built every training plan with technique and progressive load at the core: you're never asked to do more than your body is ready for. The Pilates sessions I aligned around his plans are there to strengthen exactly what running breaks down week after week. The web-app's daily check-in gives you tailored advice. Warm-ups and cool-downs are included. You just follow the plan on your daily web-app.</div>
         </div>
         <div class="faq-item">
           <button class="faq-btn" aria-expanded="false">
             <span class="faq-q">I do Pilates but I don't really consider myself a runner. Is this program for me?</span>
             <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-a">This is exactly who I built it for. You don't need to be a runner to start — the Pilates you already do is your foundation. The program builds from there. Three tracks exist precisely for this: Road to 10K for those starting from zero, Run to 21K for those preparing a half-marathon, and Just Run & Pilates for those who want a smarter routine without a distance goal.</div>
+          <div class="faq-a">This is exactly who I built it for. You don't need to be a runner to start, the Pilates you already do is your foundation. The program builds from there. Three tracks exist precisely for this: Road to 10K for those starting from zero, Run to 21K for those preparing a half-marathon, and Just Run & Pilates for those who want a smarter routine without a distance goal.</div>
         </div>
         <div class="faq-item">
           <button class="faq-btn" aria-expanded="false">
             <span class="faq-q">Do I need a running goal to join the program?</span>
             <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-a">No. The Just Run & Pilates track exists for those who simply want to run better and feel like running is a natural part of their life — with no objective in mind. If you don't know yet what you want, that's also a valid answer to get started.</div>
+          <div class="faq-a">No. The Just Run & Pilates track exists for those who simply want to run better and feel like running is a natural part of their life, with no objective in mind. If you don't know yet what you want, that's also a valid answer to get started.</div>
         </div>
         <div class="faq-item">
           <button class="faq-btn" aria-expanded="false">
@@ -605,14 +580,14 @@
             <span class="faq-q">How does the program fit into my week without burning me out?</span>
             <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-a">This program doesn't add to your week — it replaces it. The web-app tells you what to do every morning depending on your track. No thinking, no planning. Built for busy weeks.</div>
+          <div class="faq-a">This program doesn't add to your week, it replaces it. The web-app tells you what to do every morning depending on your track. No thinking, no planning. Built for busy weeks.</div>
         </div>
         <div class="faq-item">
           <button class="faq-btn" aria-expanded="false">
             <span class="faq-q">How does the program help me stay motivated over time?</span>
             <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-a">The week-by-week structure does a lot of the heavy lifting — you always know what's next, the progression is built in, and the level rises with you without you having to figure anything out. When motivation dips (it happens), the private channel is there: ask a question, share a win, read what others are going through. Sometimes that's all it takes to get your shoes on.</div>
+          <div class="faq-a">The week-by-week structure does a lot of the heavy lifting: you always know what's next, the progression is built in, and the level rises with you without you having to figure anything out. When motivation dips (it happens), the private channel is there: ask a question, share a win, read what others are going through. Sometimes that's all it takes to get your shoes on.</div>
         </div>
       </div>
     </div>
@@ -639,11 +614,12 @@
 <script>
 (function () {
   'use strict';
-  const aItems = ['LAUNCHING APRIL 5','Early bird — <strong>€89</strong> until April 12','Co-created with <strong>500+ runners</strong>','Three tracks · One web-app','<strong>10 weeks</strong> — Pilates × Running × Nutrition','Certified by a coach and a naturopath'];
+  const aItems = ['EARLY BIRDS END SUNDAY 12/04 MIDNIGHT','RUN WITH LE STUDIO','SAVE €30 UNTIL 12/04 MIDNIGHT'];
   const at = document.getElementById('announce-track');
   let h = '';
   for (let i = 0; i < 2; i++) aItems.forEach(item => { h += `<span class="a-item">${item}<span class="a-sep">·</span></span>`; });
   at.innerHTML = h;
+  document.getElementById('announce').addEventListener('click', () => { const el = document.getElementById('pricing'); if (el) el.scrollIntoView({ behavior: 'smooth' }); });
   const bg = document.getElementById('hero-bg');
   if (bg) setTimeout(() => bg.classList.add('loaded'), 80);
   const rvEls = document.querySelectorAll('.rv');
