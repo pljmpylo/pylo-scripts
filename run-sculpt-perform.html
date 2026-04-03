@@ -96,7 +96,7 @@
     .hp-label { font-family:var(--font); font-size:.58rem; font-weight:400; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,1); margin-top:.2rem; }
     .res-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(3rem,6vw,6rem); align-items:start; }
     .res-sticky { position:static; }
-    .asp-list { display:flex; flex-direction:column; margin-top:2rem; }
+    .asp-list { display:flex; flex-direction:column; margin-top:0; }
     .asp-item { display:flex; gap:1.25rem; align-items:flex-start; padding:1.35rem 0; }
     .asp-item:last-child { border-bottom:none; }
     .asp-arrow { font-family:var(--font); font-size:1rem; color:var(--bleu); flex-shrink:0; margin-top:.1rem; font-weight:400; }
@@ -345,22 +345,8 @@
         <h2 class="h-lg rv d1" id="week-h">Your typical week, at a glance.</h2>
         <p class="body-sm rv d2" style="margin-top:2.5rem; max-width:36ch; color:var(--noir);">Every week follows the same logic: run better, recover with intention, progress at your rhythm.</p>
       </div>
-      <div class="week-card rv d2">
-        <div class="week-card-header">
-          <span class="week-card-title">Week 4 — Build Phase</span>
-          <span class="week-tag">Example</span>
-        </div>
-        <table class="week-table" aria-label="Example week schedule">
-          <tbody>
-            <tr class="wt-run"><td>Monday</td><td>Endurance run</td></tr>
-            <tr><td>Tuesday</td><td>Pilates – Full Body</td></tr>
-            <tr class="wt-rest"><td>Wednesday</td><td>Active rest</td></tr>
-            <tr class="wt-run"><td>Thursday</td><td>Interval run</td></tr>
-            <tr><td>Friday</td><td>Pilates – Core</td></tr>
-            <tr class="wt-run"><td>Saturday</td><td>Long run</td></tr>
-            <tr class="wt-rest"><td>Sunday</td><td>Stretching</td></tr>
-          </tbody>
-        </table>
+      <div class="week-card rv d2" style="overflow:hidden; border:none;">
+        <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/app.jpg" alt="App screenshot" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" />
       </div>
     </div>
   </div>
