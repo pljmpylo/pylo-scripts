@@ -242,7 +242,7 @@
     .ub-right { display:flex; align-items:center; gap:1.25rem; }
     .ub-time  { font-family:var(--font); font-size:.7rem; font-weight:400; letter-spacing:.06em; color:rgba(255,255,255,.5); }
     @media (max-width:1024px) { .proof-grid  { grid-template-columns:1fr 1fr; } .tracks-grid { grid-template-columns:1fr 1fr; } .proof-block { border-right:none; border-bottom:1px solid var(--rule); } .proof-block:last-child { border-bottom:none; } .week-grid   { grid-template-columns:1fr 1fr; } .week-photo  { display:none; } }
-    @media (max-width:768px) { .hero-h1 { padding-top: 3rem !important; } .res-grid, .promise-grid, .week-grid, .alice-grid, .faq-layout, .pricing-intro { grid-template-columns:1fr; } .res-sticky   { position:static; } .promise-photo { height:320px; order:-1; } .alice-photo  { height:320px; order:-1; } .proof-grid   { grid-template-columns:1fr; } .tracks-grid  { grid-template-columns:1fr; } .track  { border-right:none; border-bottom:1px solid var(--rule); } .track:last-child { border-bottom:none; } .pricing-cards { grid-template-columns:1fr; } .pcard:first-child { border-right:1px solid var(--rule); border-bottom:none; } .bonus-inner { grid-template-columns:1fr; } .bonus-count { text-align:left; } .guarantee-inner { flex-direction:column; } #urgency-bar { flex-direction:column; align-items:flex-start; padding:1rem 1.5rem; } .hero-proofs { flex-direction:column; } .hero-proof  { padding-right:0; border-bottom:1px solid rgba(255,255,255,.08); padding-bottom:.85rem; } #included > .wrap > div[style] { grid-template-columns:1fr !important; } }
+    @media (max-width:768px) { .hero-h1 { padding-top: 3rem !important; } .res-grid { display:flex; flex-direction:column; } .res-sticky { display:contents; } .res-cta { order:3; margin-top:1.5rem; } .asp-list { order:2; } #res-h { order:1; } .promise-grid, .week-grid, .alice-grid, .faq-layout, .pricing-intro { grid-template-columns:1fr; } .res-sticky   { position:static; } .promise-photo { height:320px; order:-1; } .alice-photo  { height:320px; order:-1; } .proof-grid   { grid-template-columns:1fr; } .tracks-grid  { grid-template-columns:1fr; } .track  { border-right:none; border-bottom:1px solid var(--rule); } .track:last-child { border-bottom:none; } .pricing-cards { grid-template-columns:1fr; } .pcard:first-child { border-right:1px solid var(--rule); border-bottom:none; } .bonus-inner { grid-template-columns:1fr; } .bonus-count { text-align:left; } .guarantee-inner { flex-direction:column; } #urgency-bar { flex-direction:column; align-items:flex-start; padding:1rem 1.5rem; } .hero-proofs { flex-direction:column; } .hero-proof  { padding-right:0; border-bottom:1px solid rgba(255,255,255,.08); padding-bottom:.85rem; } #included > .wrap > div[style] { grid-template-columns:1fr !important; } }
   </style>
 </head>
 <body>
@@ -281,14 +281,14 @@
     <div class="res-grid">
       <div class="res-sticky">
         <h2 class="h-lg rv d1" id="res-h">Designed for every runner</h2>
-        <div class="rv d2" style="margin-top:1.5rem;">
+        <div class="res-cta rv d2" style="margin-top:1.5rem;">
           <a href="#pricing" class="btn btn-bleu"><div class="fill"></div><span class="btn-label">Run With Us</span></a>
         </div>
       </div>
       <div class="asp-list">
         <div class="asp-item rv d1">
           
-          <p class="asp-text">Pilates × Running no race, just structure</p>
+          <p class="asp-text">Pilates and Running, no race.</p>
         </div>
         <div class="asp-item rv d2">
           
@@ -372,7 +372,7 @@
         <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7067.jpg" alt="Alice Pilate" loading="lazy" />
       </div>
       <div>
-        <p class="alice-body rv d2">RUN SCULPT PERFORM is the training I've used to prepare every single marathon and half-marathon — born from my love for Pilates and running, and from all of you who kept asking me to make this into a program.</p>
+        <p class="alice-body rv d2">RUN SCULPT PERFORM is the training I've used to prepare every single marathon and half-marathon, born from my love for Pilates and running.</p>
         <a href="#pricing" class="btn btn-bleu rv d3" style="margin-top:2rem;"><div class="fill"></div><span class="btn-label">Join The Program</span></a>
       </div>
     </div>
@@ -386,8 +386,7 @@
       <div class="proof-block rv">
         <div class="proof-n">01</div>
         <h3>500+ runners surveyed</h3>
-        <p class="proof-role">Co-creation</p>
-        <p class="proof-body">This program was shaped by your answers. 500+ runners shared their goals, their struggles, and what they needed. Every track, every week was built from that.</p>
+        <p class="proof-body">This program was shaped by your answers. 500+ runners shared their goals, their struggles, and what they needed.</p>
       </div>
       <div class="proof-block rv d1">
         <div class="proof-n">02</div>
