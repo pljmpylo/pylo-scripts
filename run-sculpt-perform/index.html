@@ -244,7 +244,7 @@
     .ub-right { display:flex; align-items:center; gap:1.25rem; }
     .ub-time  { font-family:var(--font); font-size:.7rem; font-weight:400; letter-spacing:.06em; color:rgba(255,255,255,.5); }
     @media (max-width:1024px) { .proof-grid  { grid-template-columns:1fr 1fr; } .tracks-grid { grid-template-columns:1fr 1fr; } .proof-block { border-right:none; border-bottom:1px solid var(--rule); } .proof-block:last-child { border-bottom:none; } .week-grid   { grid-template-columns:1fr 1fr; } .week-photo  { display:none; } }
-    @media (max-width:768px) { .hero-h1 { padding-top: 3rem !important; } .res-grid { display:flex; flex-direction:column; } .res-sticky { display:contents; } .res-cta { order:3; margin-top:1.5rem; } .asp-list { order:2; } #res-h { order:1; } .promise-grid, .week-grid, .alice-grid, .faq-layout, .pricing-intro { grid-template-columns:1fr; } .res-sticky   { position:static; } .promise-photo { height:320px; order:-1; } .alice-photo  { height:320px; order:-1; } .proof-grid   { grid-template-columns:1fr; } .tracks-grid  { grid-template-columns:1fr; } .track  { border-right:none; border-bottom:1px solid var(--rule); } .track:last-child { border-bottom:none; } .pricing-cards { grid-template-columns:1fr; } .pcard:first-child { border-right:1px solid var(--rule); border-bottom:none; } .bonus-inner { grid-template-columns:1fr; } .bonus-count { text-align:left; } .guarantee-inner { flex-direction:column; } #urgency-bar { flex-direction:column; align-items:flex-start; padding:1rem 1.5rem; } .hero-proofs { flex-direction:column; } .hero-proof  { padding-right:0; padding-bottom:.85rem; } #included > .wrap > div[style] { grid-template-columns:1fr !important; } }
+    @media (max-width:768px) { .hero-h1 { padding-top: 3rem !important; } .res-grid { display:flex; flex-direction:column; } .res-sticky { display:contents; } .res-cta { order:3; margin-top:1.5rem; } .asp-list { order:2; } #res-h { order:1; } .promise-grid, .week-grid, .alice-grid, .faq-layout, .pricing-intro { grid-template-columns:1fr; } .res-sticky   { position:static; } .promise-photo { height:320px; order:-1; } .alice-photo  { height:320px; order:-1; } .proof-grid   { grid-template-columns:1fr; } .tracks-grid  { grid-template-columns:1fr; } .track  { border-right:none; border-bottom:1px solid var(--rule); } .track:last-child { border-bottom:none; } .pricing-cards { grid-template-columns:1fr; } .pcard:first-child { border-right:1px solid var(--rule); border-bottom:none; } .bonus-inner { grid-template-columns:1fr; } .bonus-count { text-align:left; } .guarantee-inner { flex-direction:column; } #urgency-bar { flex-direction:column; align-items:flex-start; padding:1rem 1.5rem; } .hero-proofs { flex-direction:column; } .hero-proof  { padding-right:0; padding-bottom:.85rem; } #included > .wrap > div[style] { grid-template-columns:1fr !important; } .week-grid { display:flex; flex-direction:column; } .week-photo { order:1; } .week-grid > div { order:2; } .week-card { order:3; } .week-cta { order:4; margin-top:1.5rem; } }
   </style>
 </head>
 <body>
@@ -328,6 +328,9 @@
             <p class="benefit-text">A <strong>strong &amp; aligned body</strong> to stay injury-free.</p>
           </div>
         </div>
+        <div class="rv d4" style="margin-top:2rem;">
+          <a href="#pricing" class="btn btn-bleu"><div class="fill"></div><span class="btn-label">Run With Us</span></a>
+        </div>
       </div>
       <div class="promise-photo rv d2">
         <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/R5__7012.jpg" alt="Alice Pilate" loading="lazy" />
@@ -345,6 +348,9 @@
       <div>
         <h2 class="h-lg rv d1" id="week-h">Your typical week, at a glance.</h2>
         <p class="body-sm rv d2" style="margin-top:2.5rem; max-width:36ch; color:var(--noir);">Every week follows the same logic: run better, recover with intention, progress at your rhythm.</p>
+        <div class="week-cta rv d3" style="margin-top:2rem;">
+          <a href="#pricing" class="btn btn-bleu"><div class="fill"></div><span class="btn-label">Run With Us</span></a>
+        </div>
       </div>
       <div class="week-card rv d2" style="overflow:hidden; border:none;">
         <img src="https://raw.githubusercontent.com/pljmpylo/assets/main/iphone.png" alt="App screenshot" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" />
@@ -369,7 +375,7 @@
 
 <section id="proof" class="s bg-blanc" aria-labelledby="proof-h">
   <div class="wrap">
-    <h2 class="h-lg rv d1" id="proof-h" style="margin-top:.75rem;">Co-created with 500+ runners. Built with two experts.</h2>
+    <h2 class="h-lg rv d1" id="proof-h" style="margin-top:.75rem;">Built with 500+ runners &amp; two experts.</h2>
     <div class="tracks-grid">
       <div class="track rv">
         <div class="track-n">01</div>
@@ -386,7 +392,7 @@
         <div class="track-n">03</div>
         <p class="track-title">Joseph Fahnert</p>
         <p class="track-goal">Certified sports coach: Running, Triathlon</p>
-        <p class="track-for">Joseph designed and validated every running plan in the program: intervals, tempo, long runs, all three tracks.</p>
+        <p class="track-for">Joseph designed and validated every running plan in the program.</p>
       </div>
     </div>
   </div>
@@ -404,7 +410,7 @@
         <div class="inc-row rv">
           <span class="inc-num">01</span>
           <div class="inc-right">
-            <p class="inc-title">Daily training app</p>
+            <p class="inc-title">Daily training web-app</p>
             <p class="inc-body">Morning check-in, synced .ics calendar, progress dashboard, pace simulator.</p>
           </div>
         </div>
@@ -412,7 +418,7 @@
           <span class="inc-num">02</span>
           <div class="inc-right">
             <p class="inc-title">Week-by-week running plan</p>
-            <p class="inc-body">3 adapted tracks: Road to 10K, Run to 21K, or Just Run &amp; Pilates.</p>
+            <p class="inc-body">3 tracks: Just Run &amp; Pilates, Road to 10K, Road to 21K</p>
           </div>
         </div>
         <div class="inc-row rv d2">
@@ -432,7 +438,7 @@
         <div class="inc-row rv d4">
           <span class="inc-num">05</span>
           <div class="inc-right">
-            <p class="inc-title">90-page ebook &amp; More</p>
+            <p class="inc-title">Nutrition and Mindset</p>
             <p class="inc-body">30+ recipes by Aurélie Canzoneri &amp; mental preparation with visualization.</p>
           </div>
         </div>
