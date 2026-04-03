@@ -185,11 +185,12 @@
     .pc-lbl    { font-family:var(--font); font-size:.6rem; font-weight:400; letter-spacing:.16em; text-transform:uppercase; margin-bottom:.5rem; }
     .pcard--feat .pc-lbl { color:rgba(255,255,255,.45) !important; }
     .pcard .pc-lbl       { color:var(--muted); }
-    .pc-price  { font-family:var(--font); font-size:4rem; font-weight:300; line-height:1; margin-bottom:.35rem; }
+    .pc-price-row { display:flex; align-items:flex-end; justify-content:space-between; gap:1rem; margin-bottom:.5rem; }
+    .pc-price-right { display:flex; flex-direction:column; align-items:flex-end; padding-bottom:.35rem; }
+    .pc-price  { font-family:var(--font); font-size:4rem; font-weight:300; line-height:1; margin-bottom:0; }
     .pc-price sup { font-size:1.5rem; vertical-align:super; }
     .pc-was    { font-family:var(--font); font-size:.88rem; font-weight:300; margin-bottom:.2rem; }
     .pcard--feat .pc-was { color:rgba(255,255,255,.7) !important; text-decoration:line-through; }
-    .pcard .pc-was       { color:rgba(1,5,14,.28); text-decoration:line-through; }
     .pc-or     { font-family:var(--font); font-size:.8rem; font-weight:300; margin-bottom:.2rem; }
     .pcard--feat .pc-or  { color:rgba(255,255,255,.45) !important; }
     .pcard .pc-or        { color:var(--muted); }
@@ -499,9 +500,13 @@
       <div class="pcard pcard--feat rv">
         <span class="pc-badge">Early bird — Ends 12/04 midnight</span>
         <p class="pc-lbl">RUN SCULPT PERFORM — One-shot</p>
-        <p class="pc-price"><sup>€</sup>89</p>
-        <p class="pc-was">€119</p>
-        <p class="pc-deadline">Until April 12 only</p>
+        <div class="pc-price-row">
+          <p class="pc-price"><sup>€</sup>89</p>
+          <div class="pc-price-right">
+            <p class="pc-was">€119</p>
+            <p class="pc-deadline" style="margin-bottom:0;">Until April 12 only</p>
+          </div>
+        </div>
         <div class="pc-lines">
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Complete training web-app</p>
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>10-week running plan (3 tracks)</p>
