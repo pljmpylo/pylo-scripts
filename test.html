@@ -239,6 +239,7 @@
     .final-note strong { font-weight:500; color:rgba(255,255,255,.85); }
     #urgency-bar { position:fixed; bottom:0; left:0; right:0; z-index:200; background:var(--noir); border-top:1px solid rgba(255,255,255,.08); padding:.9rem clamp(1.5rem,3vw,3rem); display:flex; align-items:center; justify-content:space-between; gap:1rem; transform:translateY(100%); transition:transform .5s cubic-bezier(.22,1,.36,1); }
     #urgency-bar.show { transform:translateY(0); }
+    #pricing { scroll-margin-top: 2rem; }
     .ub-text { font-family:var(--font); font-size:.78rem; font-weight:400; color:rgba(255,255,255,.85); }
     .ub-text strong { color:var(--blanc); font-weight:500; }
     .ub-right { display:flex; align-items:center; gap:1.25rem; }
@@ -505,8 +506,8 @@
         <p class="pc-price"><sup>€</sup>20<span style="font-size:1.5rem;font-family:Futuralt,Arial,sans-serif;vertical-align:baseline;font-weight:300;">/month</span></p>
         <p class="pc-was" style="text-decoration:none; color:var(--muted);">€240/year · 3 free days</p>
         <p class="pc-or">&nbsp;</p>
-        <p class="pc-deadline">Everything in the program</p>
         <div class="pc-lines">
+          <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Everything in the program</p>
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>+ 235 on-demand classes, all levels</p>
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>+ 15 programs &amp; challenges</p>
           <p class="pc-line"><span class="pc-check"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>+ New content every week</p>
@@ -515,6 +516,17 @@
         <a href="https://app.lestudiobyalice.com/checkout/new?o=210882" class="btn btn-bleu pc-btn"><div class="fill"></div><span class="btn-label">Start My Free Trial</span></a>
         <p class="pc-note">3 free days · Secure payment · Full Access</p>
       </div>
+    </div>
+
+    <div style="display:none; margin-top:3rem; padding-top:2rem; border-top:1px solid var(--rule);">
+      <p style="font-family:var(--font); font-size:var(--size-small); font-weight:300; color:var(--muted); margin-bottom:1.5rem;">You just want to access Le Studio — 250+ classes (no running program included)</p>
+      <div style="display:flex; flex-direction:column; gap:.75rem; margin-bottom:1.75rem;">
+        <p style="font-family:var(--font); font-size:1.4rem; font-weight:300; color:var(--noir); display:flex; align-items:center; gap:.75rem;"><span style="flex-shrink:0;"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>235 on-demand classes, all levels</p>
+        <p style="font-family:var(--font); font-size:1.4rem; font-weight:300; color:var(--noir); display:flex; align-items:center; gap:.75rem;"><span style="flex-shrink:0;"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>15 programs &amp; challenges</p>
+        <p style="font-family:var(--font); font-size:1.4rem; font-weight:300; color:var(--noir); display:flex; align-items:center; gap:.75rem;"><span style="flex-shrink:0;"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>New content every week</p>
+        <p style="font-family:var(--font); font-size:1.4rem; font-weight:300; color:var(--noir); display:flex; align-items:center; gap:.75rem;"><span style="flex-shrink:0;"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><polyline points="1,5 5,9 13,1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private community &amp; Early Access to events</p>
+      </div>
+      <a href="https://app.lestudiobyalice.com/checkout/new?o=199268" class="btn btn-ghost"><div class="fill"></div><span class="btn-label">Start My Free Trial — €25/month</span></a>
     </div>
   </div>
 </section>
@@ -530,7 +542,7 @@
             <span class="faq-q">I'm already a Studio member, how do I access the program?</span>
             <span class="faq-plus" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
-          <div class="faq-a">If you're an Annual member, Run Sculpt Perform is already included in your subscription. Head directly to the "Run Sculpt Perform" channel by clicking here — you'll find everything you need there.<br><br>If you're on a monthly subscription, you have two options:<br>· Upgrade to Annual (Run Sculpt Perform included) → <a href="https://app.lestudiobyalice.com" style="color:var(--bleu); text-decoration:underline;">Upgrade my subscription</a><br>· Buy the program as a standalone at the early bird price → <a href="https://app.lestudiobyalice.com/checkout/new?o=227442&d=earlybird" style="color:var(--bleu); text-decoration:underline;">Buy the program</a><br><br>For any questions, reach out at <a href="/cdn-cgi/l/email-protection#52212722223d2026123e37212627363b3d302b333e3b31377c313d3f" style="color:var(--bleu); text-decoration:underline;"><span class="__cf_email__" data-cfemail="92e1e7e2e2fde0e6d2fef7e1e6e7f6fbfdf0ebf3fefbf1f7bcf1fdff">[email&#160;protected]</span></a></div>
+          <div class="faq-a">If you're an Annual member, Run Sculpt Perform is already included in your subscription. Head directly to the "Run Sculpt Perform" channel by clicking here — you'll find everything you need there.<br><br>If you're on a monthly subscription, you have two options:<br>· Upgrade to Annual (Run Sculpt Perform included) → <a href="https://app.lestudiobyalice.com" style="color:var(--bleu); text-decoration:underline;">Upgrade my subscription</a><br>· Buy the program as a standalone at the early bird price → <a href="https://app.lestudiobyalice.com/checkout/new?o=227442&d=earlybird" style="color:var(--bleu); text-decoration:underline;">Buy the program</a><br><br>For any questions, reach out at <a href="mailto:support@lestudiobyalice.com" style="color:var(--bleu); text-decoration:underline;">support@lestudiobyalice.com</a></div>
         </div>
         <div class="faq-item">
           <button class="faq-btn" aria-expanded="false">
@@ -611,6 +623,13 @@
   const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } }); }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   rvEls.forEach(el => obs.observe(el));
   document.querySelectorAll('#hero .rv').forEach((el, i) => { setTimeout(() => el.classList.add('in'), 180 + i * 130); });
+  document.querySelectorAll('a[href="#pricing"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById('pricing');
+      if (target) { const y = target.getBoundingClientRect().top + window.scrollY - 32; window.scrollTo({ top: y, behavior: 'smooth' }); }
+    });
+  });
   const ub = document.getElementById('urgency-bar');
   window.addEventListener('scroll', () => { ub.classList.toggle('show', window.scrollY > window.innerHeight * 0.75); }, { passive: true });
   document.querySelectorAll('.faq-btn').forEach(btn => {
@@ -630,4 +649,15 @@
     const cdM = document.getElementById('cd-m');
     if (diff <= 0) { const cw = document.getElementById('cd-wrap'); if (cw) cw.style.display = 'none'; return; }
     const d  = Math.floor(diff / 86400000);
-    const hh = Math.floor((diff % 86400000)
+    const hh = Math.floor((diff % 86400000) / 3600000);
+    const mm = Math.floor((diff % 3600000) / 60000);
+    if (cdD) cdD.textContent = pad(d);
+    if (cdH) cdH.textContent = pad(hh);
+    if (cdM) cdM.textContent = pad(mm);
+  }
+  tick();
+  setInterval(tick, 30000);
+})();
+</script>
+</body>
+</html>
